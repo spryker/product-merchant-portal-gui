@@ -8,6 +8,8 @@
 namespace Spryker\Zed\ProductMerchantPortalGui\Dependency\Facade;
 
 use Generated\Shared\Transfer\MerchantProductCriteriaTransfer;
+use Generated\Shared\Transfer\MerchantProductTransfer;
+use Generated\Shared\Transfer\ProductAbstractResponseTransfer;
 use Generated\Shared\Transfer\ProductAbstractTransfer;
 
 interface ProductMerchantPortalGuiToMerchantProductFacadeInterface
@@ -20,4 +22,11 @@ interface ProductMerchantPortalGuiToMerchantProductFacadeInterface
     public function findProductAbstract(
         MerchantProductCriteriaTransfer $merchantProductCriteriaTransfer
     ): ?ProductAbstractTransfer;
+
+    /**
+     * @param \Generated\Shared\Transfer\MerchantProductTransfer $merchantProductTransfer
+     *
+     * @return \Generated\Shared\Transfer\ProductAbstractResponseTransfer
+     */
+    public function updateProductAbstract(MerchantProductTransfer $merchantProductTransfer): ProductAbstractResponseTransfer;
 }

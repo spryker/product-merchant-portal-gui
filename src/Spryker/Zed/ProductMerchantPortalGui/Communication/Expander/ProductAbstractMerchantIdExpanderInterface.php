@@ -5,20 +5,16 @@
  * Use of this software requires acceptance of the Spryker Marketplace License Agreement. See LICENSE file.
  */
 
-namespace Spryker\Zed\ProductMerchantPortalGui\Communication\Mapper;
+namespace Spryker\Zed\ProductMerchantPortalGui\Communication\Expander;
 
 use Generated\Shared\Transfer\ProductAbstractTransfer;
 
-interface ProductAbstractMapperInterface
+interface ProductAbstractMerchantIdExpanderInterface
 {
     /**
-     * @param mixed[] $formData
      * @param \Generated\Shared\Transfer\ProductAbstractTransfer $productAbstractTransfer
      *
      * @return \Generated\Shared\Transfer\ProductAbstractTransfer
      */
-    public function mapFormDataToProductAbstractTransfer(
-        array $formData,
-        ProductAbstractTransfer $productAbstractTransfer
-    ): ProductAbstractTransfer;
+    public function expandMerchantId(ProductAbstractTransfer $productAbstractTransfer): ProductAbstractTransfer;
 }

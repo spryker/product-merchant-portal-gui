@@ -38,21 +38,21 @@ class EmptyJsonAttributesConstraintValidator extends AbstractConstraintValidator
     protected const FIELD_EXISTING_ATTRIBUTES = 'existing_attributes';
 
     /**
-     * @param string $value Attributes that should be validated
+     * @param string $attributes
      * @param \Symfony\Component\Validator\Constraint $constraint
      *
      * @throws \Symfony\Component\Form\Exception\UnexpectedTypeException
      *
      * @return void
      */
-    public function validate($value, Constraint $constraint): void
+    public function validate($attributes, Constraint $constraint): void
     {
         if (!$constraint instanceof EmptyJsonAttributesConstraint) {
             throw new UnexpectedTypeException($constraint, EmptyJsonAttributesConstraint::class);
         }
 
-        $value = $this->getFactory()->getUtilEncodingService()->decodeJson($value, true);
-        $attributesIndexedByValue = is_array($value) ? $this->getAttributesIndexedByValue($value) : [];
+        $attributes = $this->getFactory()->getUtilEncodingService()->decodeJson($attributes, true);
+        $attributesIndexedByValue = is_array($attributes) ? $this->getAttributesIndexedByValue($attributes) : [];
         $existingAttributes = $this->getExistingAttributes();
 
         foreach ($existingAttributes as $index => $attribute) {

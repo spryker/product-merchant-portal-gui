@@ -135,7 +135,6 @@ class UpdateProductAbstractController extends AbstractUpdateProductController
     ): JsonResponse {
         $imageSetsErrors = [];
 
-        /** @var \ArrayObject<int, \Generated\Shared\Transfer\PriceProductTransfer> $priceProductTransfers */
         $priceProductTransfers = $productAbstractForm->getData()->getPrices();
         $pricesValidationResponseTransfer = $this->getFactory()
             ->getPriceProductFacade()

@@ -14,26 +14,26 @@ use Symfony\Component\Form\DataTransformerInterface;
 class StockTransformer implements DataTransformerInterface
 {
     /**
-     * @param \ArrayObject<int, \Generated\Shared\Transfer\StockProductTransfer> $value
+     * @param \ArrayObject<int, \Generated\Shared\Transfer\StockProductTransfer> $stockProductTransfers
      *
      * @return \Generated\Shared\Transfer\StockProductTransfer
      */
-    public function transform($value): StockProductTransfer
+    public function transform($stockProductTransfers): StockProductTransfer
     {
-        if ($value->count() > 0) {
-            return $value->offsetGet(0) ?: new StockProductTransfer();
+        if ($stockProductTransfers->count() > 0) {
+            return $stockProductTransfers->offsetGet(0) ?: new StockProductTransfer();
         }
 
         return new StockProductTransfer();
     }
 
     /**
-     * @param \Generated\Shared\Transfer\StockProductTransfer $value
+     * @param \Generated\Shared\Transfer\StockProductTransfer $stockProductTransfer
      *
      * @return \ArrayObject<int, \Generated\Shared\Transfer\StockProductTransfer>
      */
-    public function reverseTransform($value): ArrayObject
+    public function reverseTransform($stockProductTransfer): ArrayObject
     {
-        return (new ArrayObject([$value]));
+        return (new ArrayObject([$stockProductTransfer]));
     }
 }

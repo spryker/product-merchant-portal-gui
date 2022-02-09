@@ -13,30 +13,30 @@ use Symfony\Component\Form\DataTransformerInterface;
 class QuantityTransformer implements DataTransformerInterface
 {
     /**
-     * @param \Spryker\DecimalObject\Decimal|null $value
+     * @param \Spryker\DecimalObject\Decimal|null $quantity
      *
      * @return float|null
      */
-    public function transform($value): ?float
+    public function transform($quantity): ?float
     {
-        if ($value === null) {
+        if ($quantity === null) {
             return null;
         }
 
-        return $value->toFloat();
+        return $quantity->toFloat();
     }
 
     /**
-     * @param float|null $value
+     * @param float|null $quantity
      *
      * @return \Spryker\DecimalObject\Decimal|null
      */
-    public function reverseTransform($value): ?Decimal
+    public function reverseTransform($quantity): ?Decimal
     {
-        if ($value === null) {
+        if ($quantity === null) {
             return null;
         }
 
-        return (new Decimal($value));
+        return (new Decimal($quantity));
     }
 }

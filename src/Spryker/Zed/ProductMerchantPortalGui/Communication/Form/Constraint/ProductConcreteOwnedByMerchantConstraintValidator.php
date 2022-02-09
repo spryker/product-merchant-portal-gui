@@ -16,16 +16,16 @@ class ProductConcreteOwnedByMerchantConstraintValidator extends AbstractConstrai
     /**
      * Checks if concrete product owned by merchant.
      *
-     * @param \Generated\Shared\Transfer\ProductConcreteTransfer|null $value
+     * @param \Generated\Shared\Transfer\ProductConcreteTransfer|null $productConcreteTransfer
      * @param \Symfony\Component\Validator\Constraint|\Spryker\Zed\ProductMerchantPortalGui\Communication\Form\Constraint\ProductConcreteOwnedByMerchantConstraint $constraint
      *
      * @throws \Symfony\Component\Validator\Exception\UnexpectedTypeException
      *
      * @return void
      */
-    public function validate($value, Constraint $constraint): void
+    public function validate($productConcreteTransfer, Constraint $constraint): void
     {
-        if (!$value) {
+        if (!$productConcreteTransfer) {
             return;
         }
 
@@ -35,7 +35,7 @@ class ProductConcreteOwnedByMerchantConstraintValidator extends AbstractConstrai
 
         $merchantTransfer = $constraint->getMerchantUserFacade()->getCurrentMerchantUser()->getMerchantOrFail();
         $isProductConcreteOwnedByMerchant = $constraint->getMerchantProductFacade()->isProductConcreteOwnedByMerchant(
-            $value,
+            $productConcreteTransfer,
             $merchantTransfer,
         );
 

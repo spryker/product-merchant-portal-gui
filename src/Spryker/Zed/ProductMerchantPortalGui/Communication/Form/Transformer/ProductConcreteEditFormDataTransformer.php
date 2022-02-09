@@ -26,44 +26,44 @@ class ProductConcreteEditFormDataTransformer implements DataTransformerInterface
     protected const PRODUCT_CONCRETE_EDIT_FORM_FIELD_PRODUCT_CONCRETE = 'productConcrete';
 
     /**
-     * @param array<mixed> $value
+     * @param array<mixed> $productConcreteEditFormData
      *
      * @return array<mixed>
      */
-    public function transform($value)
+    public function transform($productConcreteEditFormData)
     {
-        $value[static::FIELD_SEARCHABILITY] = [];
+        $productConcreteEditFormData[static::FIELD_SEARCHABILITY] = [];
 
         /** @var \Generated\Shared\Transfer\ProductConcreteTransfer $productConcreteTransfer */
-        $productConcreteTransfer = $value[static::PRODUCT_CONCRETE_EDIT_FORM_FIELD_PRODUCT_CONCRETE];
+        $productConcreteTransfer = $productConcreteEditFormData[static::PRODUCT_CONCRETE_EDIT_FORM_FIELD_PRODUCT_CONCRETE];
 
         foreach ($productConcreteTransfer->getLocalizedAttributes() as $localizedAttributesTransfer) {
             if ($localizedAttributesTransfer->getIsSearchable()) {
                 $idLocale = $localizedAttributesTransfer->getLocaleOrFail()->getIdLocaleOrFail();
-                $value[static::FIELD_SEARCHABILITY][] = $idLocale;
+                $productConcreteEditFormData[static::FIELD_SEARCHABILITY][] = $idLocale;
             }
         }
 
-        return $value;
+        return $productConcreteEditFormData;
     }
 
     /**
-     * @param array<mixed> $value
+     * @param array<mixed> $productConcreteEditFormData
      *
      * @return array<mixed>
      */
-    public function reverseTransform($value)
+    public function reverseTransform($productConcreteEditFormData)
     {
         /** @var \Generated\Shared\Transfer\ProductConcreteTransfer $productConcreteTransfer */
-        $productConcreteTransfer = $value[static::PRODUCT_CONCRETE_EDIT_FORM_FIELD_PRODUCT_CONCRETE];
+        $productConcreteTransfer = $productConcreteEditFormData[static::PRODUCT_CONCRETE_EDIT_FORM_FIELD_PRODUCT_CONCRETE];
 
         foreach ($productConcreteTransfer->getLocalizedAttributes() as $localizedAttributesTransfer) {
             $idLocale = $localizedAttributesTransfer->getLocaleOrFail()->getIdLocaleOrFail();
             $localizedAttributesTransfer->setIsSearchable(
-                in_array($idLocale, $value[static::FIELD_SEARCHABILITY]),
+                in_array($idLocale, $productConcreteEditFormData[static::FIELD_SEARCHABILITY]),
             );
         }
 
-        return $value;
+        return $productConcreteEditFormData;
     }
 }

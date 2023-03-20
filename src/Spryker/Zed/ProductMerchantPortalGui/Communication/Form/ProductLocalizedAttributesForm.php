@@ -145,7 +145,6 @@ class ProductLocalizedAttributesForm extends AbstractType
             ],
             'sanitize_xss' => true,
             'allowed_attributes' => ['style'],
-            'allowed_html_tags' => ['iframe'],
         ]);
 
         return $this;
@@ -168,7 +167,6 @@ class ProductLocalizedAttributesForm extends AbstractType
             'empty_data' => '',
             'sanitize_xss' => true,
             'allowed_attributes' => ['style'],
-            'allowed_html_tags' => ['iframe'],
         ]);
 
         return $this;

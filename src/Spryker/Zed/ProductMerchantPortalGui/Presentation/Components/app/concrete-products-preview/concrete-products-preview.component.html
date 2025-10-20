@@ -49,7 +49,7 @@
                     <div
                         class="mp-concrete-products-preview__table-row-item mp-concrete-products-preview__table-row-sku"
                     >
-                        <spy-form-item noSpaces="true" noLabel="true" [error]="getSkuErrors | spyInvoke: i:errors">
+                        <spy-form-item noSpaces="true" noLabel="true" [error]="getSkuErrors | spyInvoke : i : errors">
                             <spy-input
                                 control
                                 [value]="product.sku"
@@ -67,7 +67,7 @@
                         <spy-form-item
                             noSpaces="true"
                             noLabel="true"
-                            [error]="getNameErrors | spyInvoke: i:errors"
+                            [error]="getNameErrors | spyInvoke : i : errors"
                             class="mp-concrete-products-preview__table-row-name-form-item"
                         >
                             <spy-input

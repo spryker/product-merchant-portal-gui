@@ -2,6 +2,7 @@ import { ChangeDetectionStrategy, Component, ViewEncapsulation } from '@angular/
 import { Level } from '@spryker/headline';
 
 @Component({
+    standalone: false,
     selector: 'mp-create-single-concrete-product',
     templateUrl: './create-single-concrete-product.component.html',
     styleUrls: ['./create-single-concrete-product.component.less'],

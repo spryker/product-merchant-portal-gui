@@ -1,4 +1,5 @@
 import {
+    booleanAttribute,
     ChangeDetectionStrategy,
     Component,
     HostBinding,
@@ -7,9 +8,9 @@ import {
     SimpleChanges,
     ViewEncapsulation,
 } from '@angular/core';
-import { ToBoolean } from '@spryker/utils';
 
 @Component({
+    standalone: false,
     selector: 'mp-autogenerate-input',
     templateUrl: './autogenerate-input.component.html',
     styleUrls: ['./autogenerate-input.component.less'],
@@ -22,12 +23,11 @@ export class AutogenerateInputComponent implements OnChanges {
     @Input() value = '';
     @Input() originalValue = '';
     @Input() placeholder = '';
-    @Input() @ToBoolean() isAutogenerate = true;
+    @Input({ transform: booleanAttribute }) isAutogenerate = true;
     @Input() error?: string;
     @Input() checkboxName?: string;
-    @Input()
+    @Input({ transform: booleanAttribute })
     @HostBinding('class.mp-autogenerate-input--half-width')
-    @ToBoolean()
     isFieldHasHalfWidth? = false;
 
     private defaultValue: string;

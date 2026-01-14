@@ -1,8 +1,9 @@
 import { ChangeDetectionStrategy, Component, Input, ViewEncapsulation } from '@angular/core';
 import { TableConfig } from '@spryker/table';
-import { ToJson } from '@spryker/utils';
+import { jsonAttribute } from '@spryker/utils';
 
 @Component({
+    standalone: false,
     selector: 'mp-edit-concrete-product-prices',
     templateUrl: './edit-concrete-product-prices.component.html',
     styleUrls: ['./edit-concrete-product-prices.component.less'],
@@ -11,6 +12,6 @@ import { ToJson } from '@spryker/utils';
     host: { class: 'mp-edit-concrete-product-prices' },
 })
 export class EditConcreteProductPricesComponent {
-    @Input() @ToJson() tableConfig: TableConfig;
+    @Input({ transform: jsonAttribute }) tableConfig: TableConfig;
     @Input() tableId?: string;
 }

@@ -1,48 +1,57 @@
-import { NO_ERRORS_SCHEMA } from '@angular/core';
-import { TestBed } from '@angular/core/testing';
-import { createComponentWrapper, getTestingForComponent } from '@mp/zed-ui/testing';
+import { Component, NO_ERRORS_SCHEMA } from '@angular/core';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { By } from '@angular/platform-browser';
 import { CreateSingleConcreteProductComponent } from './create-single-concrete-product.component';
 
-describe('CreateSingleConcreteProductComponent', () => {
-    const { testModule, createComponent } = getTestingForComponent(CreateSingleConcreteProductComponent, {
-        ngModule: { schemas: [NO_ERRORS_SCHEMA] },
-        projectContent: `
+@Component({
+    standalone: false,
+    template: `
+        <mp-create-single-concrete-product>
             <span title></span>
             <span action></span>
             <span class="default-slot"></span>
-        `,
-    });
+        </mp-create-single-concrete-product>
+    `,
+})
+class TestHostComponent {}
+
+describe('CreateSingleConcreteProductComponent', () => {
+    let hostFixture: ComponentFixture<TestHostComponent>;
 
     beforeEach(() => {
         TestBed.configureTestingModule({
-            imports: [testModule],
+            declarations: [CreateSingleConcreteProductComponent, TestHostComponent],
+            schemas: [NO_ERRORS_SCHEMA],
         });
+
+        hostFixture = TestBed.createComponent(TestHostComponent);
+        hostFixture.detectChanges();
     });
 
-    it('should render <spy-headline> component', async () => {
-        const host = await createComponentWrapper(createComponent);
-        const headlineComponent = host.queryCss('spy-headline');
+    it('should render <spy-headline> component', () => {
+        const headlineComponent = hostFixture.debugElement.query(By.css('spy-headline'));
 
         expect(headlineComponent).toBeTruthy();
     });
 
-    it('should render `title` slot to the `.mp-create-single-concrete-product__header` element', async () => {
-        const host = await createComponentWrapper(createComponent);
-        const titleSlot = host.queryCss('.mp-create-single-concrete-product__header [title]');
+    it('should render `title` slot to the `.mp-create-single-concrete-product__header` element', () => {
+        const titleSlot = hostFixture.debugElement.query(By.css('.mp-create-single-concrete-product__header [title]'));
 
         expect(titleSlot).toBeTruthy();
     });
 
-    it('should render `action` slot to the `.mp-create-single-concrete-product__header` element', async () => {
-        const host = await createComponentWrapper(createComponent);
-        const actionSlot = host.queryCss('.mp-create-single-concrete-product__header [action]');
+    it('should render `action` slot to the `.mp-create-single-concrete-product__header` element', () => {
+        const actionSlot = hostFixture.debugElement.query(
+            By.css('.mp-create-single-concrete-product__header [action]'),
+        );
 
         expect(actionSlot).toBeTruthy();
     });
 
-    it('should render default slot to the `.mp-create-single-concrete-product__content` element', async () => {
-        const host = await createComponentWrapper(createComponent);
-        const defaultSlot = host.queryCss('.mp-create-single-concrete-product__content .default-slot');
+    it('should render default slot to the `.mp-create-single-concrete-product__content` element', () => {
+        const defaultSlot = hostFixture.debugElement.query(
+            By.css('.mp-create-single-concrete-product__content .default-slot'),
+        );
 
         expect(defaultSlot).toBeTruthy();
     });

@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, Input, ViewEncapsulation } from '@angular/core';
-import { ToJson } from '@spryker/utils';
+import { jsonAttribute } from '@spryker/utils';
 
 export interface EditConcreteProductImage {
     src: string;
@@ -7,6 +7,7 @@ export interface EditConcreteProductImage {
 }
 
 @Component({
+    standalone: false,
     selector: 'mp-edit-concrete-product-image-sets',
     templateUrl: './edit-concrete-product-image-sets.component.html',
     styleUrls: ['./edit-concrete-product-image-sets.component.less'],
@@ -17,5 +18,5 @@ export interface EditConcreteProductImage {
     },
 })
 export class EditConcreteProductImageSetsComponent {
-    @Input() @ToJson() images: EditConcreteProductImage[];
+    @Input({ transform: jsonAttribute }) images: EditConcreteProductImage[];
 }

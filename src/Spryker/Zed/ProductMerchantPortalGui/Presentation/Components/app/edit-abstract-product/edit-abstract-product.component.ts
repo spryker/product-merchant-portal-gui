@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, ViewEncapsulation, Input } from '@angular/core';
-import { ToJson } from '@spryker/utils';
+import { jsonAttribute } from '@spryker/utils';
 
 interface ProductDetails {
     name: string;
@@ -7,6 +7,7 @@ interface ProductDetails {
 }
 
 @Component({
+    standalone: false,
     selector: 'mp-edit-abstract-product',
     templateUrl: './edit-abstract-product.component.html',
     styleUrls: ['./edit-abstract-product.component.less'],
@@ -17,5 +18,5 @@ interface ProductDetails {
     },
 })
 export class EditAbstractProductComponent {
-    @Input() @ToJson() product?: ProductDetails;
+    @Input({ transform: jsonAttribute }) product?: ProductDetails;
 }

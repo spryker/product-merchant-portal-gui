@@ -1,34 +1,36 @@
 import { NO_ERRORS_SCHEMA } from '@angular/core';
-import { TestBed } from '@angular/core/testing';
-import { createComponentWrapper, getTestingForComponent } from '@mp/zed-ui/testing';
 import { ExistingConcreteProductGeneratorDataComponent } from './existing-concrete-product-generator-data.component';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 describe('ExistingConcreteProductGeneratorDataComponent', () => {
-    const { testModule, createComponent } = getTestingForComponent(ExistingConcreteProductGeneratorDataComponent, {
-        ngModule: { schemas: [NO_ERRORS_SCHEMA] },
-    });
+    let fixture: ComponentFixture<ExistingConcreteProductGeneratorDataComponent>;
 
     beforeEach(() => {
         TestBed.configureTestingModule({
-            imports: [testModule],
+            declarations: [ExistingConcreteProductGeneratorDataComponent],
+            schemas: [NO_ERRORS_SCHEMA],
         });
+
+        fixture = TestBed.createComponent(ExistingConcreteProductGeneratorDataComponent);
     });
 
-    it('`getAbstractName` method should return value from `@Input(abstractName)`', async () => {
+    it('`getAbstractName` method should return value from `@Input(abstractName)`', () => {
         const expectedAbstractName = 'AbstractName';
-        const host = await createComponentWrapper(createComponent, { abstractName: expectedAbstractName });
+        fixture.componentRef.setInput('abstractName', expectedAbstractName);
+        fixture.detectChanges();
 
-        expect(host.component.getAbstractName()).toEqual(expectedAbstractName);
+        expect(fixture.componentInstance.getAbstractName()).toEqual(expectedAbstractName);
     });
 
-    it('`getAbstractSku` method should return value from `@Input(abstractSku)`', async () => {
+    it('`getAbstractSku` method should return value from `@Input(abstractSku)`', () => {
         const expectedAbstractSku = 'AbstractSku';
-        const host = await createComponentWrapper(createComponent, { abstractSku: expectedAbstractSku });
+        fixture.componentRef.setInput('abstractSku', expectedAbstractSku);
+        fixture.detectChanges();
 
-        expect(host.component.getAbstractSku()).toEqual(expectedAbstractSku);
+        expect(fixture.componentInstance.getAbstractSku()).toEqual(expectedAbstractSku);
     });
 
-    it('`getExistingProducts` method should return value from `@Input(existingProducts)`', async () => {
+    it('`getExistingProducts` method should return value from `@Input(existingProducts)`', () => {
         const expectedExistingProducts = [
             {
                 name: '',
@@ -53,8 +55,9 @@ describe('ExistingConcreteProductGeneratorDataComponent', () => {
                 ],
             },
         ];
-        const host = await createComponentWrapper(createComponent, { existingProducts: expectedExistingProducts });
+        fixture.componentRef.setInput('existingProducts', expectedExistingProducts);
+        fixture.detectChanges();
 
-        expect(host.component.getExistingProducts()).toEqual(expectedExistingProducts);
+        expect(fixture.componentInstance.getExistingProducts()).toEqual(expectedExistingProducts);
     });
 });

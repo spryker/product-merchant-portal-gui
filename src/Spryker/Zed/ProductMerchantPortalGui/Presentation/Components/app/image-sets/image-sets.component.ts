@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, Input, ViewEncapsulation } from '@angular/core';
-import { ToJson } from '@spryker/utils';
+import { jsonAttribute } from '@spryker/utils';
 import { ImageSets, ImageSetNames, ImageSetTitles, ImageSetError, ImageDataError, ImageData } from './types';
 import { IconPlusModule } from '@spryker/icon/icons';
 import { ButtonVariant } from '@spryker/button';
@@ -7,6 +7,7 @@ import { IconDeleteModule } from '../../icons';
 import { EmptyImageSet, EmptyImageSetData } from './empty-image-set';
 
 @Component({
+    standalone: false,
     selector: 'mp-image-sets',
     templateUrl: './image-sets.component.html',
     styleUrls: ['./image-sets.component.less'],
@@ -17,10 +18,10 @@ import { EmptyImageSet, EmptyImageSetData } from './empty-image-set';
     },
 })
 export class ImageSetsComponent {
-    @Input() @ToJson() imageSets?: ImageSets[];
-    @Input() @ToJson() names?: ImageSetNames;
-    @Input() @ToJson() titles?: ImageSetTitles;
-    @Input() @ToJson() errors?: ImageSetError[];
+    @Input({ transform: jsonAttribute }) imageSets?: ImageSets[];
+    @Input({ transform: jsonAttribute }) names?: ImageSetNames;
+    @Input({ transform: jsonAttribute }) titles?: ImageSetTitles;
+    @Input({ transform: jsonAttribute }) errors?: ImageSetError[];
 
     addButtonIcon = IconPlusModule.icon;
     removeButtonIcon = IconDeleteModule.icon;

@@ -1,6 +1,7 @@
 import { ChangeDetectionStrategy, Component, ViewEncapsulation } from '@angular/core';
 
 @Component({
+    standalone: false,
     selector: 'mp-edit-concrete-product',
     templateUrl: './edit-concrete-product.component.html',
     styleUrls: ['./edit-concrete-product.component.less'],

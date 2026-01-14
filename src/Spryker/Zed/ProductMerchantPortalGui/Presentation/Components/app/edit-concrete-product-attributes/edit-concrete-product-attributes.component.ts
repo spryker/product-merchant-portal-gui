@@ -1,8 +1,9 @@
 import { ChangeDetectionStrategy, Component, Input, ViewEncapsulation } from '@angular/core';
 import { TableConfig } from '@spryker/table';
-import { ToJson } from '@spryker/utils';
+import { jsonAttribute } from '@spryker/utils';
 
 @Component({
+    standalone: false,
     selector: 'mp-edit-concrete-product-attributes',
     templateUrl: './edit-concrete-product-attributes.component.html',
     styleUrls: ['./edit-concrete-product-attributes.component.less'],
@@ -10,6 +11,6 @@ import { ToJson } from '@spryker/utils';
     encapsulation: ViewEncapsulation.None,
 })
 export class EditConcreteProductAttributesComponent {
-    @Input() @ToJson() tableConfig: TableConfig;
+    @Input({ transform: jsonAttribute }) tableConfig: TableConfig;
     @Input() tableId?: string;
 }

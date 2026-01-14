@@ -9,9 +9,10 @@ import {
     ViewEncapsulation,
 } from '@angular/core';
 import { ProductAttribute, ProductAttributeValue, AttributeOptions, ProductAttributeError } from '../../services/types';
-import { ToJson } from '@spryker/utils';
+import { jsonAttribute } from '@spryker/utils';
 
 @Component({
+    standalone: false,
     selector: 'mp-concrete-product-attributes-selector',
     templateUrl: './concrete-product-attributes-selector.component.html',
     styleUrls: ['./concrete-product-attributes-selector.component.less'],
@@ -20,9 +21,9 @@ import { ToJson } from '@spryker/utils';
     host: { class: 'mp-concrete-product-attributes-selector' },
 })
 export class ConcreteProductAttributesSelectorComponent implements OnChanges {
-    @Input() @ToJson() attributes: ProductAttribute[] = [];
-    @Input() @ToJson() selectedAttributes: ProductAttribute[] = [];
-    @Input() @ToJson() errors?: ProductAttributeError[];
+    @Input({ transform: jsonAttribute }) attributes: ProductAttribute[] = [];
+    @Input({ transform: jsonAttribute }) selectedAttributes: ProductAttribute[] = [];
+    @Input({ transform: jsonAttribute }) errors?: ProductAttributeError[];
     @Input() name?: string;
     @Input() placeholder?: string;
     @Output() selectedAttributesChange = new EventEmitter<ProductAttribute[]>();

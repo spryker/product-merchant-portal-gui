@@ -10,13 +10,14 @@ import {
     SimpleChanges,
     ViewEncapsulation,
 } from '@angular/core';
-import { ToJson } from '@spryker/utils';
+import { jsonAttribute } from '@spryker/utils';
 import { ButtonSize, ButtonVariant } from '@spryker/button';
 import { AttributeOptions, ProductAttribute } from '../../services/types';
 import { IconDeleteModule } from '../../icons';
 import { IconPlusModule } from '@spryker/icon/icons';
 
 @Component({
+    standalone: false,
     selector: 'mp-product-attributes-selector',
     templateUrl: './product-attributes-selector.component.html',
     styleUrls: ['./product-attributes-selector.component.less'],
@@ -25,8 +26,8 @@ import { IconPlusModule } from '@spryker/icon/icons';
     host: { class: 'mp-product-attributes-selector' },
 })
 export class ProductAttributesSelectorComponent implements OnChanges, OnInit {
-    @Input() @ToJson() attributes: ProductAttribute[] = [];
-    @Input() @ToJson() selectedAttributes: ProductAttribute[] = [];
+    @Input({ transform: jsonAttribute }) attributes: ProductAttribute[] = [];
+    @Input({ transform: jsonAttribute }) selectedAttributes: ProductAttribute[] = [];
     @Input() name?: string;
     @Input() attributesPlaceholder?: string;
     @Input() valuesPlaceholder?: string;

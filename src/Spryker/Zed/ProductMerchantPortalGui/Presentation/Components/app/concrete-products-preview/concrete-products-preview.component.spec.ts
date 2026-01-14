@@ -1,9 +1,8 @@
-import { NO_ERRORS_SCHEMA } from '@angular/core';
-import { fakeAsync, TestBed, tick } from '@angular/core/testing';
+import { Component, Input, NO_ERRORS_SCHEMA } from '@angular/core';
+import { ComponentFixture, fakeAsync, TestBed, tick } from '@angular/core/testing';
 import { ScrollingModule } from '@angular/cdk/scrolling';
 import { By } from '@angular/platform-browser';
 import { InvokeModule } from '@spryker/utils';
-import { createComponentWrapper, getTestingForComponent } from '@mp/zed-ui/testing';
 import { ConcreteProductsPreviewComponent } from './concrete-products-preview.component';
 import { ConcreteProductSkuGeneratorFactoryService } from '../../services/concrete-product-sku-generator-factory.service';
 import { ConcreteProductNameGeneratorFactoryService } from '../../services/concrete-product-name-generator-factory.service';
@@ -135,13 +134,10 @@ class MockGeneratorFactory {
     }
 }
 
-describe('ConcreteProductsPreviewComponent', () => {
-    const { testModule, createComponent } = getTestingForComponent(ConcreteProductsPreviewComponent, {
-        ngModule: {
-            imports: [ScrollingModule, InvokeModule],
-            schemas: [NO_ERRORS_SCHEMA],
-        },
-        projectContent: `
+@Component({
+    standalone: false,
+    template: `
+        <mp-concrete-products-preview [attributes]="attributes">
             <span total-text></span>
             <span auto-sku-text></span>
             <span auto-name-text></span>
@@ -149,12 +145,19 @@ describe('ConcreteProductsPreviewComponent', () => {
             <span col-sku-name></span>
             <span col-name-name></span>
             <span no-data-text></span>
-        `,
-    });
+        </mp-concrete-products-preview>
+    `,
+})
+class TestHostComponent {
+    @Input() attributes: any;
+}
 
+describe('ConcreteProductsPreviewComponent', () => {
     beforeEach(() => {
         TestBed.configureTestingModule({
-            imports: [testModule],
+            declarations: [ConcreteProductsPreviewComponent, TestHostComponent],
+            imports: [ScrollingModule, InvokeModule],
+            schemas: [NO_ERRORS_SCHEMA],
         }).overrideComponent(ConcreteProductsPreviewComponent, {
             set: {
                 providers: [
@@ -173,106 +176,126 @@ describe('ConcreteProductsPreviewComponent', () => {
     });
 
     describe('Slots and components', () => {
-        it('should render `noData` element with `no-data-text` slot if `@Input(attributes)` not exists', async () => {
-            const host = await createComponentWrapper(createComponent, { attributes: [] });
-            const noDataElem = host.queryCss('.mp-concrete-products-preview__no-data');
-            const noDataTextSlot = host.queryCss('.mp-concrete-products-preview__no-data [no-data-text]');
+        it('should render `noData` element with `no-data-text` slot if `@Input(attributes)` not exists', () => {
+            const fixture = TestBed.createComponent(TestHostComponent);
+            fixture.componentRef.setInput('attributes', []);
+            fixture.detectChanges();
+            const noDataElem = fixture.debugElement.query(By.css('.mp-concrete-products-preview__no-data'));
+            const noDataTextSlot = fixture.debugElement.query(
+                By.css('.mp-concrete-products-preview__no-data [no-data-text]'),
+            );
 
             expect(noDataElem).toBeTruthy();
             expect(noDataTextSlot).toBeTruthy();
         });
 
-        it('should render <spy-chips> component with `total-text` slot to the `.mp-concrete-products-preview__header` element', async () => {
-            const host = await createComponentWrapper(createComponent, { attributes: mockAttributes });
-            const chipsComponent = host.queryCss('.mp-concrete-products-preview__header spy-chips');
-            const totalTextSlot = host.queryCss('.mp-concrete-products-preview__header spy-chips [total-text]');
+        let hostFixture: ComponentFixture<TestHostComponent>;
+
+        beforeEach(fakeAsync(() => {
+            hostFixture = TestBed.createComponent(TestHostComponent);
+
+            hostFixture.componentRef.setInput('attributes', mockAttributes);
+            hostFixture.detectChanges();
+            tick();
+            hostFixture.detectChanges();
+        }));
+
+        it('should render <spy-chips> component with `total-text` slot to the `.mp-concrete-products-preview__header` element', () => {
+            const chipsComponent = hostFixture.debugElement.query(
+                By.css('.mp-concrete-products-preview__header spy-chips'),
+            );
+            const totalTextSlot = hostFixture.debugElement.query(
+                By.css('.mp-concrete-products-preview__header spy-chips [total-text]'),
+            );
 
             expect(chipsComponent).toBeTruthy();
             expect(totalTextSlot).toBeTruthy();
         });
 
-        it('should render <spy-checkbox> component with `auto-sku-text` slot to the `.mp-concrete-products-preview__header-checkboxes` element', async () => {
-            const host = await createComponentWrapper(createComponent, { attributes: mockAttributes });
-            const checkboxComponent = host.queryCss('.mp-concrete-products-preview__header-checkboxes spy-checkbox');
-            const autoSkuTextSlot = host.queryCss('.mp-concrete-products-preview__header spy-checkbox [auto-sku-text]');
+        it('should render <spy-checkbox> component with `auto-sku-text` slot to the `.mp-concrete-products-preview__header-checkboxes` element', () => {
+            const checkboxComponent = hostFixture.debugElement.query(
+                By.css('.mp-concrete-products-preview__header-checkboxes spy-checkbox'),
+            );
+            const autoSkuTextSlot = hostFixture.debugElement.query(
+                By.css('.mp-concrete-products-preview__header spy-checkbox [auto-sku-text]'),
+            );
 
             expect(checkboxComponent).toBeTruthy();
             expect(autoSkuTextSlot).toBeTruthy();
         });
 
-        it('should render <spy-checkbox> component with `auto-name-text` slot to the `.mp-concrete-products-preview__header-checkboxes` element', async () => {
-            const host = await createComponentWrapper(createComponent, { attributes: mockAttributes });
-            const checkboxComponent = host.queryCss('.mp-concrete-products-preview__header-checkboxes spy-checkbox');
-            const autoNameTextSlot = host.queryCss(
-                '.mp-concrete-products-preview__header spy-checkbox [auto-name-text]',
+        it('should render <spy-checkbox> component with `auto-name-text` slot to the `.mp-concrete-products-preview__header-checkboxes` element', () => {
+            const checkboxComponent = hostFixture.debugElement.query(
+                By.css('.mp-concrete-products-preview__header-checkboxes spy-checkbox'),
+            );
+            const autoNameTextSlot = hostFixture.debugElement.query(
+                By.css('.mp-concrete-products-preview__header spy-checkbox [auto-name-text]'),
             );
 
             expect(checkboxComponent).toBeTruthy();
             expect(autoNameTextSlot).toBeTruthy();
         });
 
-        it('should render `col-attr-name` slot to the `.mp-concrete-products-preview__table-header` element', async () => {
-            const host = await createComponentWrapper(createComponent, { attributes: mockAttributes });
-            const colAttrNameSlot = host.queryCss('.mp-concrete-products-preview__table-header [col-attr-name]');
+        it('should render `col-attr-name` slot to the `.mp-concrete-products-preview__table-header` element', () => {
+            const colAttrNameSlot = hostFixture.debugElement.query(
+                By.css('.mp-concrete-products-preview__table-header [col-attr-name]'),
+            );
 
             expect(colAttrNameSlot).toBeTruthy();
         });
 
-        it('should render `col-sku-name` slot to the `.mp-concrete-products-preview__table-header` element', async () => {
-            const host = await createComponentWrapper(createComponent, { attributes: mockAttributes });
-            const colSkuNameSlot = host.queryCss('.mp-concrete-products-preview__table-header [col-sku-name]');
+        it('should render `col-sku-name` slot to the `.mp-concrete-products-preview__table-header` element', () => {
+            const colSkuNameSlot = hostFixture.debugElement.query(
+                By.css('.mp-concrete-products-preview__table-header [col-sku-name]'),
+            );
 
             expect(colSkuNameSlot).toBeTruthy();
         });
 
-        it('should render `col-name-name` slot to the `.mp-concrete-products-preview__table-header` element', async () => {
-            const host = await createComponentWrapper(createComponent, { attributes: mockAttributes });
-            const colNameSlot = host.queryCss('.mp-concrete-products-preview__table-header [col-name-name]');
+        it('should render `col-name-name` slot to the `.mp-concrete-products-preview__table-header` element', () => {
+            const colNameSlot = hostFixture.debugElement.query(
+                By.css('.mp-concrete-products-preview__table-header [col-name-name]'),
+            );
 
             expect(colNameSlot).toBeTruthy();
         });
 
-        it('should render <cdk-virtual-scroll-viewport> component', async () => {
-            const host = await createComponentWrapper(createComponent, { attributes: mockAttributes });
-            const cdkVirtualScrollViewportComponent = host.queryCss('cdk-virtual-scroll-viewport');
+        it('should render <cdk-virtual-scroll-viewport> component', () => {
+            const cdkVirtualScrollViewportComponent = hostFixture.debugElement.query(
+                By.css('cdk-virtual-scroll-viewport'),
+            );
 
             expect(cdkVirtualScrollViewportComponent).toBeTruthy();
         });
 
-        it('should render <spy-input> component to the `.mp-concrete-products-preview__table-row-sku` element', fakeAsync(async () => {
-            const host = await createComponentWrapper(createComponent, { attributes: mockAttributes });
-
+        it('should render <spy-input> component to the `.mp-concrete-products-preview__table-row-sku` element', fakeAsync(() => {
             tick();
-            host.detectChanges();
+            hostFixture.detectChanges();
 
-            const inputComponent = host.queryCss(
-                'cdk-virtual-scroll-viewport .mp-concrete-products-preview__table-row-sku spy-input',
+            const inputComponent = hostFixture.debugElement.query(
+                By.css('cdk-virtual-scroll-viewport .mp-concrete-products-preview__table-row-sku spy-input'),
             );
 
             expect(inputComponent).toBeTruthy();
         }));
 
-        it('should render <spy-input> component to the `.mp-concrete-products-preview__table-row-name` element', fakeAsync(async () => {
-            const host = await createComponentWrapper(createComponent, { attributes: mockAttributes });
-
+        it('should render <spy-input> component to the `.mp-concrete-products-preview__table-row-name` element', fakeAsync(() => {
             tick();
-            host.detectChanges();
+            hostFixture.detectChanges();
 
-            const inputComponent = host.queryCss(
-                'cdk-virtual-scroll-viewport .mp-concrete-products-preview__table-row-name spy-input',
+            const inputComponent = hostFixture.debugElement.query(
+                By.css('cdk-virtual-scroll-viewport .mp-concrete-products-preview__table-row-name spy-input'),
             );
 
             expect(inputComponent).toBeTruthy();
         }));
 
-        it('should render <spy-button-icon> component to the `.mp-concrete-products-preview__table-row-name` element', fakeAsync(async () => {
-            const host = await createComponentWrapper(createComponent, { attributes: mockAttributes });
-
+        it('should render <spy-button-icon> component to the `.mp-concrete-products-preview__table-row-name` element', fakeAsync(() => {
             tick();
-            host.detectChanges();
+            hostFixture.detectChanges();
 
-            const buttonIconComponent = host.queryCss(
-                'cdk-virtual-scroll-viewport .mp-concrete-products-preview__table-row-name spy-button-icon',
+            const buttonIconComponent = hostFixture.debugElement.query(
+                By.css('cdk-virtual-scroll-viewport .mp-concrete-products-preview__table-row-name spy-button-icon'),
             );
 
             expect(buttonIconComponent).toBeTruthy();
@@ -280,26 +303,34 @@ describe('ConcreteProductsPreviewComponent', () => {
     });
 
     describe('Host functionality', () => {
-        it('should render hidden <input> element with serialized generated products if `@Input(name)` exists', async () => {
-            const host = await createComponentWrapper(createComponent, { attributes: mockAttributes, name: mockName });
-            const hiddenInputElem = host.queryCss('input[type=hidden]');
+        let fixture: ComponentFixture<ConcreteProductsPreviewComponent>;
+
+        beforeEach(() => {
+            fixture = TestBed.createComponent(ConcreteProductsPreviewComponent);
+            fixture.componentRef.setInput('attributes', mockAttributes);
+            fixture.detectChanges();
+        });
+
+        it('should render hidden <input> element with serialized generated products if `@Input(name)` exists', () => {
+            fixture.componentRef.setInput('name', mockName);
+            fixture.detectChanges();
+            const hiddenInputElem = fixture.debugElement.query(By.css('input[type=hidden]'));
 
             expect(hiddenInputElem).toBeTruthy();
             expect(hiddenInputElem.properties.name).toBe(mockName);
             expect(JSON.parse(hiddenInputElem.properties.value)).toEqual(mockGeneratedProducts);
         });
 
-        it('should render attribute names of generated products', fakeAsync(async () => {
+        it('should render attribute names of generated products', fakeAsync(() => {
             const expectedAttrNames = {
                 firstRow: 'name11  /  name21',
                 secondRow: 'name12  /  name21',
             };
-            const host = await createComponentWrapper(createComponent, { attributes: mockAttributes });
 
             tick();
-            host.detectChanges();
+            fixture.detectChanges();
 
-            const tableRowAttrElems = host.fixture.debugElement.queryAll(
+            const tableRowAttrElems = fixture.debugElement.queryAll(
                 By.css('cdk-virtual-scroll-viewport .mp-concrete-products-preview__table-row-attr'),
             );
 
@@ -307,30 +338,27 @@ describe('ConcreteProductsPreviewComponent', () => {
             expect(tableRowAttrElems[1].nativeElement.textContent.trim()).toBe(expectedAttrNames.secondRow);
         }));
 
-        it('`Autogenerate SKUs` checkbox should set generated value to inputs', fakeAsync(async () => {
+        it('`Autogenerate SKUs` checkbox should set generated value to inputs', fakeAsync(() => {
             const expectedSkuValues = {
                 firstRow: 'mockId-0',
                 secondRow: 'mockId-1',
             };
-            const host = await createComponentWrapper(createComponent, { attributes: mockAttributes });
 
             tick();
-            host.detectChanges();
+            fixture.detectChanges();
 
-            const checkboxComponents = host.fixture.debugElement.queryAll(
+            const checkboxComponents = fixture.debugElement.queryAll(
                 By.css('.mp-concrete-products-preview__header-checkboxes spy-checkbox'),
             );
-            const inputComponents = host.fixture.debugElement.queryAll(
+            const inputComponents = fixture.debugElement.queryAll(
                 By.css('cdk-virtual-scroll-viewport .mp-concrete-products-preview__table-row-sku spy-input'),
             );
-            const componentElem = host.fixture.debugElement.query(By.directive(ConcreteProductsPreviewComponent));
-            const skuGeneratorFactory = componentElem.injector.get(
+            const skuGeneratorFactory = fixture.debugElement.injector.get(
                 ConcreteProductSkuGeneratorFactoryService,
-                // eslint-disable-next-line @typescript-eslint/no-explicit-any
             ) as any as MockGeneratorFactory;
 
             checkboxComponents[0].triggerEventHandler('checkedChange', true);
-            host.detectChanges();
+            fixture.detectChanges();
 
             expect(inputComponents[0].properties.value).toBe(expectedSkuValues.firstRow);
             expect(skuGeneratorFactory.generator.generate).toHaveBeenCalledWith(expectedSkuValues.firstRow);
@@ -338,9 +366,9 @@ describe('ConcreteProductsPreviewComponent', () => {
             expect(inputComponents[1].properties.value).toBe(expectedSkuValues.secondRow);
 
             checkboxComponents[0].triggerEventHandler('checkedChange', false);
-            host.detectChanges();
+            fixture.detectChanges();
 
-            const updatedInputComponents = host.fixture.debugElement.queryAll(
+            const updatedInputComponents = fixture.debugElement.queryAll(
                 By.css('cdk-virtual-scroll-viewport .mp-concrete-products-preview__table-row-sku spy-input'),
             );
 
@@ -348,30 +376,27 @@ describe('ConcreteProductsPreviewComponent', () => {
             expect(updatedInputComponents[1].properties.value).toBe('');
         }));
 
-        it('`Same Name as Abstract Product` checkbox should set generated value to inputs', fakeAsync(async () => {
+        it('`Same Name as Abstract Product` checkbox should set generated value to inputs', fakeAsync(() => {
             const expectedNameValues = {
                 firstRow: 'mockId-0',
                 secondRow: 'mockId-1',
             };
-            const host = await createComponentWrapper(createComponent, { attributes: mockAttributes });
 
             tick();
-            host.detectChanges();
+            fixture.detectChanges();
 
-            const checkboxComponents = host.fixture.debugElement.queryAll(
+            const checkboxComponents = fixture.debugElement.queryAll(
                 By.css('.mp-concrete-products-preview__header-checkboxes spy-checkbox'),
             );
-            const inputComponents = host.fixture.debugElement.queryAll(
+            const inputComponents = fixture.debugElement.queryAll(
                 By.css('cdk-virtual-scroll-viewport .mp-concrete-products-preview__table-row-name spy-input'),
             );
-            const componentElem = host.fixture.debugElement.query(By.directive(ConcreteProductsPreviewComponent));
-            const nameGeneratorFactory = componentElem.injector.get(
+            const nameGeneratorFactory = fixture.debugElement.injector.get(
                 ConcreteProductNameGeneratorFactoryService,
-                // eslint-disable-next-line @typescript-eslint/no-explicit-any
             ) as any as MockGeneratorFactory;
 
             checkboxComponents[1].triggerEventHandler('checkedChange', true);
-            host.detectChanges();
+            fixture.detectChanges();
 
             expect(inputComponents[0].properties.value).toBe(expectedNameValues.firstRow);
             expect(nameGeneratorFactory.generator.generate).toHaveBeenCalledWith(expectedNameValues.firstRow);
@@ -379,9 +404,9 @@ describe('ConcreteProductsPreviewComponent', () => {
             expect(inputComponents[1].properties.value).toBe(expectedNameValues.secondRow);
 
             checkboxComponents[1].triggerEventHandler('checkedChange', false);
-            host.detectChanges();
+            fixture.detectChanges();
 
-            const updatedInputComponents = host.fixture.debugElement.queryAll(
+            const updatedInputComponents = fixture.debugElement.queryAll(
                 By.css('cdk-virtual-scroll-viewport .mp-concrete-products-preview__table-row-name spy-input'),
             );
 
@@ -389,20 +414,18 @@ describe('ConcreteProductsPreviewComponent', () => {
             expect(updatedInputComponents[1].properties.value).toBe('');
         }));
 
-        it('should bound `@Input(errors)` to the `error` input of <spy-form-item> component', fakeAsync(async () => {
-            const host = await createComponentWrapper(createComponent, {
-                attributes: mockAttributes,
-                generatedProducts: mockGeneratedProducts,
-                errors: mockGeneratedProductErrors,
-            });
+        it('should bound `@Input(errors)` to the `error` input of <spy-form-item> component', fakeAsync(() => {
+            fixture.componentRef.setInput('generatedProducts', mockGeneratedProducts);
+            fixture.componentRef.setInput('errors', mockGeneratedProductErrors);
+            fixture.detectChanges();
 
             tick();
-            host.detectChanges();
+            fixture.detectChanges();
 
-            const skuFormItemComponents = host.fixture.debugElement.queryAll(
+            const skuFormItemComponents = fixture.debugElement.queryAll(
                 By.css('.mp-concrete-products-preview__table-row-sku spy-form-item'),
             );
-            const nameFormItemComponents = host.fixture.debugElement.queryAll(
+            const nameFormItemComponents = fixture.debugElement.queryAll(
                 By.css('.mp-concrete-products-preview__table-row-name spy-form-item'),
             );
 
@@ -410,37 +433,38 @@ describe('ConcreteProductsPreviewComponent', () => {
             expect(nameFormItemComponents[0].properties.error).toBe(mockGeneratedProductErrors[0].errors.name);
         }));
 
-        it('should update `@Input(errors)` after removing item with errors', fakeAsync(async () => {
-            const host = await createComponentWrapper(createComponent, {
-                attributes: mockAttributes,
-                generatedProducts: mockGeneratedProducts,
-                errors: mockGeneratedProductErrors,
-            });
+        it('should update `@Input(errors)` after removing item with errors', fakeAsync(() => {
+            fixture.componentRef.setInput('generatedProducts', mockGeneratedProducts);
+            fixture.componentRef.setInput('errors', mockGeneratedProductErrors);
+            fixture.detectChanges();
 
             tick();
-            host.detectChanges();
+            fixture.detectChanges();
 
-            const tableRowButtonElem = host.queryCss('.mp-concrete-products-preview__table-row-button');
+            const tableRowButtonElem = fixture.debugElement.query(
+                By.css('.mp-concrete-products-preview__table-row-button'),
+            );
 
             tableRowButtonElem.triggerEventHandler('click', null);
-            host.detectChanges();
+            fixture.detectChanges();
 
-            const formItemComponent = host.queryCss('spy-form-item');
+            const formItemComponent = fixture.debugElement.query(By.css('spy-form-item'));
 
             expect(formItemComponent.properties.error).toBeFalsy();
         }));
 
-        it('should excludes existing products according to `@Input(existingProducts)`', fakeAsync(async () => {
-            const host = await createComponentWrapper(createComponent, {
-                attributes: mockAttributes,
-                existingProducts: mockExistingProducts,
-            });
+        it('should excludes existing products according to `@Input(existingProducts)`', fakeAsync(() => {
+            const localFixture = TestBed.createComponent(ConcreteProductsPreviewComponent);
+
+            localFixture.componentRef.setInput('existingProducts', mockExistingProducts);
+            localFixture.componentRef.setInput('attributes', mockAttributes);
+            localFixture.detectChanges();
 
             tick();
-            host.detectChanges();
+            localFixture.detectChanges();
 
             const existVariant = `${mockExistingProducts[0].superAttributes[0].attribute.name}  /  ${mockExistingProducts[0].superAttributes[1].attribute.name}`;
-            const tableRowAttrElems = host.fixture.debugElement.queryAll(
+            const tableRowAttrElems = localFixture.debugElement.queryAll(
                 By.css('cdk-virtual-scroll-viewport .mp-concrete-products-preview__table-row-attr'),
             );
 

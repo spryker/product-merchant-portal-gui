@@ -11,6 +11,7 @@ import { ConcreteProductSkuGeneratorService } from '../../services/concrete-prod
 import { ConcreteProductNameGeneratorService } from '../../services/concrete-product-name-generator.service';
 
 @Component({
+    standalone: false,
     selector: 'mp-concrete-product-generator-data',
     templateUrl: './concrete-product-generator-data.component.html',
     styleUrls: ['./concrete-product-generator-data.component.less'],

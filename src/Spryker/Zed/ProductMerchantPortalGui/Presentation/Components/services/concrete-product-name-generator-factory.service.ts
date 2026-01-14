@@ -1,19 +1,13 @@
-import { Inject, Injectable, Injector } from '@angular/core';
-import { InjectionTokenType } from '@spryker/utils';
+import { inject, Injectable, Injector } from '@angular/core';
 import { ConcreteProductNameGeneratorProviderToken, ConcreteProductNameGeneratorToken } from './tokens';
-import { ConcreteProductNameGeneratorFactory } from './types';
+import { ConcreteProductNameGeneratorFactory, IdGenerator } from './types';
 
 @Injectable()
 export class ConcreteProductNameGeneratorFactoryService implements ConcreteProductNameGeneratorFactory {
-    constructor(
-        private injector: Injector,
-        @Inject(ConcreteProductNameGeneratorProviderToken)
-        private concreteProductNameGeneratorProvider: InjectionTokenType<
-            typeof ConcreteProductNameGeneratorProviderToken
-        >,
-    ) {}
+    private injector = inject(Injector);
+    private concreteProductNameGeneratorProvider = inject(ConcreteProductNameGeneratorProviderToken);
 
-    create(): InjectionTokenType<typeof ConcreteProductNameGeneratorToken> {
+    create(): IdGenerator<string> {
         const concreteProductNameGeneratorInjector = Injector.create({
             name: 'ConcreteProductNameGeneratorInjector',
             providers: [this.concreteProductNameGeneratorProvider],

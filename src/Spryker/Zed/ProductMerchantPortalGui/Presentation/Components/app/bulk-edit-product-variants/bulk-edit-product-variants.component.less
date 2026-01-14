@@ -7,7 +7,7 @@
 @bulk-edit-product-range-max-width: var(--spy-bulk-edit-product-range-max-width, 375px);
 
 .mp-bulk-edit-product-variants {
-    .@{headline-prefix-cls} {
+    .spy-headline {
         padding-bottom: 0;
 
         &__title {
@@ -42,16 +42,16 @@
         max-width: @bulk-edit-product-range-max-width;
     }
 
-    .@{notification-prefix-cls} {
+    .ant-alert {
         margin-bottom: 0;
     }
 
-    .@{ajax-form-prefix-cls}-item-control-input {
+    .spy-ajax-form-item-control-input {
         min-height: 0;
     }
 
-    .@{card-prefix-cls}-head-title .@{checkbox-prefix-cls} {
-        &:not(.@{checkbox-prefix-cls}-checked) .@{checkbox-prefix-cls}-inner {
+    .ant-card-head-title .ant-checkbox {
+        &:not(.ant-checkbox-checked) .ant-checkbox-inner {
             background: @spy-white;
         }
 

@@ -9,7 +9,7 @@ import {
     SimpleChanges,
     ViewEncapsulation,
 } from '@angular/core';
-import { ToJson } from '@spryker/utils';
+import { jsonAttribute } from '@spryker/utils';
 import { ButtonSize } from '@spryker/button';
 import { IconDeleteModule, IconNoDataModule } from '../../icons';
 import {
@@ -23,6 +23,7 @@ import { ConcreteProductNameGeneratorFactoryService } from '../../services/concr
 import { ProductAttributesFinderService } from '../../services/product-attributes-finder.service';
 
 @Component({
+    standalone: false,
     selector: 'mp-concrete-products-preview',
     templateUrl: './concrete-products-preview.component.html',
     styleUrls: ['./concrete-products-preview.component.less'],
@@ -36,10 +37,10 @@ import { ProductAttributesFinderService } from '../../services/product-attribute
     host: { class: 'mp-concrete-products-preview' },
 })
 export class ConcreteProductsPreviewComponent implements OnChanges {
-    @Input() @ToJson() attributes: ProductAttribute[] = [];
-    @Input() @ToJson() generatedProducts: ConcreteProductPreview[] = [];
-    @Input() @ToJson() existingProducts?: ConcreteProductPreview[];
-    @Input() @ToJson() errors?: ConcreteProductPreviewErrors[];
+    @Input({ transform: jsonAttribute }) attributes: ProductAttribute[] = [];
+    @Input({ transform: jsonAttribute }) generatedProducts: ConcreteProductPreview[] = [];
+    @Input({ transform: jsonAttribute }) existingProducts?: ConcreteProductPreview[];
+    @Input({ transform: jsonAttribute }) errors?: ConcreteProductPreviewErrors[];
     @Input() name?: string;
     @Input() skuPlaceholder?: string;
     @Input() namePlaceholder?: string;

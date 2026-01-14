@@ -2,6 +2,7 @@ import { ChangeDetectionStrategy, Component, Input, ViewEncapsulation } from '@a
 import { TableConfig } from '@spryker/table';
 
 @Component({
+    standalone: false,
     selector: 'mp-edit-abstract-product-attributes',
     templateUrl: './edit-abstract-product-attributes.component.html',
     styleUrls: ['./edit-abstract-product-attributes.component.less'],

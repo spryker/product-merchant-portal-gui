@@ -5,6 +5,7 @@ import { EditConcreteProductImageSetsComponent } from './edit-concrete-product-i
 
 /* eslint-disable */
 @Component({
+    standalone: false,
     selector: 'spy-test',
     template: `
         <mp-edit-concrete-product-image-sets [images]="images">

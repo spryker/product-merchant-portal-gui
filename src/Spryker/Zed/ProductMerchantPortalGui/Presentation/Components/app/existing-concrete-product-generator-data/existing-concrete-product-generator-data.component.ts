@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, Input, ViewEncapsulation } from '@angular/core';
-import { ToJson } from '@spryker/utils';
+import { jsonAttribute } from '@spryker/utils';
 import {
     ConcreteProductNameGeneratorProviderToken,
     ConcreteProductNameGeneratorToken,
@@ -14,6 +14,7 @@ import { ExistingConcreteProductGeneratorData } from '../../services/types';
 import { ConcreteProductPreview } from '../../services/types';
 
 @Component({
+    standalone: false,
     selector: 'mp-existing-concrete-product-generator-data',
     templateUrl: './existing-concrete-product-generator-data.component.html',
     styleUrls: ['./existing-concrete-product-generator-data.component.less'],
@@ -47,7 +48,7 @@ import { ConcreteProductPreview } from '../../services/types';
 export class ExistingConcreteProductGeneratorDataComponent implements ExistingConcreteProductGeneratorData {
     @Input() abstractSku = '';
     @Input() abstractName = '';
-    @Input() @ToJson() existingProducts?: ConcreteProductPreview[];
+    @Input({ transform: jsonAttribute }) existingProducts?: ConcreteProductPreview[];
 
     getAbstractName(): string {
         return this.abstractName;

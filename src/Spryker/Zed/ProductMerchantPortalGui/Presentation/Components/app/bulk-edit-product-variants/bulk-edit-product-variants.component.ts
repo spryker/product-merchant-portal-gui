@@ -1,10 +1,11 @@
 import { ChangeDetectionStrategy, Component, Input, OnChanges, SimpleChanges, ViewEncapsulation } from '@angular/core';
-import { ToJson } from '@spryker/utils';
+import { jsonAttribute } from '@spryker/utils';
 import { DateRangeValueInput } from '@spryker/date-picker';
 
 import { BulkEditProductVariantSections } from './types';
 
 @Component({
+    standalone: false,
     selector: 'mp-bulk-edit-product-variants',
     templateUrl: './bulk-edit-product-variants.component.html',
     styleUrls: ['./bulk-edit-product-variants.component.less'],
@@ -15,7 +16,7 @@ import { BulkEditProductVariantSections } from './types';
     },
 })
 export class BulkEditProductVariantsComponent implements OnChanges {
-    @Input() @ToJson() sections?: BulkEditProductVariantSections;
+    @Input({ transform: jsonAttribute }) sections?: BulkEditProductVariantSections;
 
     statusValue = false;
     isStatusActive = false;

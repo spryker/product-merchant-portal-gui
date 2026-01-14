@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, ViewEncapsulation, Input } from '@angular/core';
-import { ToJson } from '@spryker/utils';
+import { jsonAttribute } from '@spryker/utils';
 import {
     ConcreteProductPreview,
     ConcreteProductPreviewErrors,
@@ -8,6 +8,7 @@ import {
 } from '../../services/types';
 
 @Component({
+    standalone: false,
     selector: 'mp-create-concrete-products',
     templateUrl: './create-concrete-products.component.html',
     styleUrls: ['./create-concrete-products.component.less'],
@@ -18,12 +19,12 @@ import {
     },
 })
 export class CreateConcreteProductsComponent {
-    @Input() @ToJson() attributes: ProductAttribute[] = [];
-    @Input() @ToJson() selectedAttributes: ProductAttribute[] = [];
-    @Input() @ToJson() attributeErrors?: ProductAttributeError[];
-    @Input() @ToJson() existingProducts?: ConcreteProductPreview[];
-    @Input() @ToJson() generatedProducts?: ConcreteProductPreview[];
-    @Input() @ToJson() generatedProductErrors?: ConcreteProductPreviewErrors[];
+    @Input({ transform: jsonAttribute }) attributes: ProductAttribute[] = [];
+    @Input({ transform: jsonAttribute }) selectedAttributes: ProductAttribute[] = [];
+    @Input({ transform: jsonAttribute }) attributeErrors?: ProductAttributeError[];
+    @Input({ transform: jsonAttribute }) existingProducts?: ConcreteProductPreview[];
+    @Input({ transform: jsonAttribute }) generatedProducts?: ConcreteProductPreview[];
+    @Input({ transform: jsonAttribute }) generatedProductErrors?: ConcreteProductPreviewErrors[];
     @Input() productsName?: string;
     @Input() attributesName?: string;
     @Input() attributesPlaceholder?: string;

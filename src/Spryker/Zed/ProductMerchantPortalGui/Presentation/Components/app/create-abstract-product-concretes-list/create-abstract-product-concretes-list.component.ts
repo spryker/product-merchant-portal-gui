@@ -1,9 +1,10 @@
 import { ChangeDetectionStrategy, Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
 import { IconInfoModule } from '@spryker/icon/icons';
-import { ToJson } from '@spryker/utils';
+import { jsonAttribute } from '@spryker/utils';
 import { ConcretesListForm } from './types';
 
 @Component({
+    standalone: false,
     selector: 'mp-create-abstract-product-concretes-list',
     templateUrl: './create-abstract-product-concretes-list.component.html',
     styleUrls: ['./create-abstract-product-concretes-list.component.less'],
@@ -14,7 +15,7 @@ import { ConcretesListForm } from './types';
     },
 })
 export class CreateAbstractProductConcretesListComponent implements OnInit {
-    @Input() @ToJson() form: ConcretesListForm;
+    @Input({ transform: jsonAttribute }) form: ConcretesListForm;
 
     hasNotificationMessage = false;
     infoIcon = IconInfoModule.icon;

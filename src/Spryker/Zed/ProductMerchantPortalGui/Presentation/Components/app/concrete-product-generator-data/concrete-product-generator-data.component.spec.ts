@@ -1,30 +1,30 @@
 import { NO_ERRORS_SCHEMA } from '@angular/core';
-import { TestBed } from '@angular/core/testing';
-import { createComponentWrapper, getTestingForComponent } from '@mp/zed-ui/testing';
 import { ConcreteProductGeneratorDataComponent } from './concrete-product-generator-data.component';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 describe('ConcreteProductGeneratorDataComponent', () => {
-    const { testModule, createComponent } = getTestingForComponent(ConcreteProductGeneratorDataComponent, {
-        ngModule: { schemas: [NO_ERRORS_SCHEMA] },
-    });
+    let fixture: ComponentFixture<ConcreteProductGeneratorDataComponent>;
 
     beforeEach(() => {
         TestBed.configureTestingModule({
-            imports: [testModule],
+            declarations: [ConcreteProductGeneratorDataComponent],
+            schemas: [NO_ERRORS_SCHEMA],
         });
+
+        fixture = TestBed.createComponent(ConcreteProductGeneratorDataComponent);
     });
 
-    it('`getAbstractName` method should return value from `@Input(abstractName)`', async () => {
+    it('`getAbstractName` method should return value from `@Input(abstractName)`', () => {
         const expectedAbstractName = 'AbstractName';
-        const host = await createComponentWrapper(createComponent, { abstractName: expectedAbstractName });
-
-        expect(host.component.getAbstractName()).toEqual(expectedAbstractName);
+        fixture.componentRef.setInput('abstractName', expectedAbstractName);
+        fixture.detectChanges();
+        expect(fixture.componentInstance.getAbstractName()).toEqual(expectedAbstractName);
     });
 
-    it('`getAbstractSku` method should return value from `@Input(abstractSku)`', async () => {
+    it('`getAbstractSku` method should return value from `@Input(abstractSku)`', () => {
         const expectedAbstractSku = 'AbstractSku';
-        const host = await createComponentWrapper(createComponent, { abstractSku: expectedAbstractSku });
-
-        expect(host.component.getAbstractSku()).toEqual(expectedAbstractSku);
+        fixture.componentRef.setInput('abstractSku', expectedAbstractSku);
+        fixture.detectChanges();
+        expect(fixture.componentInstance.getAbstractSku()).toEqual(expectedAbstractSku);
     });
 });

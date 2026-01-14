@@ -1,8 +1,8 @@
-import { NO_ERRORS_SCHEMA } from '@angular/core';
-import { TestBed } from '@angular/core/testing';
+import { Component, Input, NO_ERRORS_SCHEMA } from '@angular/core';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ScrollingModule } from '@angular/cdk/scrolling';
 import { InvokeModule } from '@spryker/utils';
-import { createComponentWrapper, getTestingForComponent } from '@mp/zed-ui/testing';
+import { By } from '@angular/platform-browser';
 import { CreateMultiConcreteProductComponent } from './create-multi-concrete-product.component';
 import { ConcreteProductsPreviewComponent } from '../concrete-products-preview/concrete-products-preview.component';
 import { ProductAttributesSelectorComponent } from '../product-attributes-selector/product-attributes-selector.component';
@@ -108,14 +108,17 @@ const mockGeneratedProductErrors = [
     {},
 ];
 
-describe('CreateMultiConcreteProductComponent', () => {
-    const { testModule, createComponent } = getTestingForComponent(CreateMultiConcreteProductComponent, {
-        ngModule: {
-            imports: [ScrollingModule, InvokeModule],
-            declarations: [ProductAttributesSelectorComponent, ConcreteProductsPreviewComponent],
-            schemas: [NO_ERRORS_SCHEMA],
-        },
-        projectContent: `
+@Component({
+    standalone: false,
+    template: `
+        <mp-create-multi-concrete-product
+            [attributes]="attributes"
+            [selectedAttributes]="selectedAttributes"
+            [attributesName]="attributesName"
+            [productsName]="productsName"
+            [generatedProducts]="generatedProducts"
+            [generatedProductErrors]="generatedProductErrors"
+        >
             <span title></span>
             <span action></span>
             <span selector-col-attr-name></span>
@@ -129,165 +132,213 @@ describe('CreateMultiConcreteProductComponent', () => {
             <span preview-col-sku-name></span>
             <span preview-col-name-name></span>
             <span preview-no-data-text></span>
-        `,
-    });
+        </mp-create-multi-concrete-product>
+    `,
+})
+class TestHostComponent {
+    @Input() attributes: any;
+    @Input() selectedAttributes: any;
+    @Input() attributesName: any;
+    @Input() productsName: any;
+    @Input() generatedProducts: any;
+    @Input() generatedProductErrors: any;
+}
 
+describe('CreateMultiConcreteProductComponent', () => {
     beforeEach(() => {
         TestBed.configureTestingModule({
-            imports: [testModule],
+            imports: [ScrollingModule, InvokeModule],
+            declarations: [
+                CreateMultiConcreteProductComponent,
+                ProductAttributesSelectorComponent,
+                ConcreteProductsPreviewComponent,
+                TestHostComponent,
+            ],
             providers: [ConcreteProductGeneratorDataService],
+            schemas: [NO_ERRORS_SCHEMA],
         });
     });
 
     describe('Slots and Components', () => {
-        it('should render <spy-headline> component', async () => {
-            const host = await createComponentWrapper(createComponent, { attributes: [], selectedAttributes: [] });
-            const headlineComponent = host.queryCss('spy-headline');
+        let hostFixture: ComponentFixture<TestHostComponent>;
+
+        beforeEach(() => {
+            hostFixture = TestBed.createComponent(TestHostComponent);
+            hostFixture.componentRef.setInput('attributes', []);
+            hostFixture.componentRef.setInput('selectedAttributes', []);
+            hostFixture.detectChanges();
+        });
+
+        it('should render <spy-headline> component', () => {
+            const headlineComponent = hostFixture.debugElement.query(By.css('spy-headline'));
 
             expect(headlineComponent).toBeTruthy();
         });
 
-        it('should render `title` slot to the `.mp-create-multi-concrete-product__header` element', async () => {
-            const host = await createComponentWrapper(createComponent, { attributes: [], selectedAttributes: [] });
-            const titleSlot = host.queryCss('.mp-create-multi-concrete-product__header [title]');
+        it('should render `title` slot to the `.mp-create-multi-concrete-product__header` element', () => {
+            const titleSlot = hostFixture.debugElement.query(
+                By.css('.mp-create-multi-concrete-product__header [title]'),
+            );
 
             expect(titleSlot).toBeTruthy();
         });
 
-        it('should render `action` slot to the `.mp-create-multi-concrete-product__header` element', async () => {
-            const host = await createComponentWrapper(createComponent, { attributes: [], selectedAttributes: [] });
-            const actionSlot = host.queryCss('.mp-create-multi-concrete-product__header [action]');
+        it('should render `action` slot to the `.mp-create-multi-concrete-product__header` element', () => {
+            const actionSlot = hostFixture.debugElement.query(
+                By.css('.mp-create-multi-concrete-product__header [action]'),
+            );
 
             expect(actionSlot).toBeTruthy();
         });
 
         describe('<mp-product-attributes-selector> component', () => {
-            it('should render <mp-product-attributes-selector> component to the `.mp-create-multi-concrete-product__content` element', async () => {
-                const host = await createComponentWrapper(createComponent, { attributes: [], selectedAttributes: [] });
-                const productAttributesSelectorComponent = host.queryCss(
-                    '.mp-create-multi-concrete-product__content mp-product-attributes-selector',
+            it('should render <mp-product-attributes-selector> component to the `.mp-create-multi-concrete-product__content` element', () => {
+                const productAttributesSelectorComponent = hostFixture.debugElement.query(
+                    By.css('.mp-create-multi-concrete-product__content mp-product-attributes-selector'),
                 );
 
                 expect(productAttributesSelectorComponent).toBeTruthy();
             });
 
-            it('should render `selector-col-attr-name` slot', async () => {
-                const host = await createComponentWrapper(createComponent, {
-                    attributes: mockAttributes,
-                    selectedAttributes: mockSelectedAttributes,
-                });
-                const selectorColAttrNameSlot = host.queryCss(
-                    'mp-product-attributes-selector [selector-col-attr-name]',
+            it('should render `selector-col-attr-name` slot', () => {
+                const localHostFixture = TestBed.createComponent(TestHostComponent);
+                localHostFixture.componentRef.setInput('attributes', mockAttributes);
+                localHostFixture.componentRef.setInput('selectedAttributes', mockSelectedAttributes);
+                localHostFixture.detectChanges();
+
+                const selectorColAttrNameSlot = localHostFixture.debugElement.query(
+                    By.css('mp-product-attributes-selector [selector-col-attr-name]'),
                 );
 
                 expect(selectorColAttrNameSlot).toBeTruthy();
             });
 
-            it('should render `selector-col-attr-values-name` slot', async () => {
-                const host = await createComponentWrapper(createComponent, {
-                    attributes: mockAttributes,
-                    selectedAttributes: mockSelectedAttributes,
-                });
-                const selectorColAttrValuesNameSlot = host.queryCss(
-                    'mp-product-attributes-selector [selector-col-attr-values-name]',
+            it('should render `selector-col-attr-values-name` slot', () => {
+                const localHostFixture = TestBed.createComponent(TestHostComponent);
+                localHostFixture.componentRef.setInput('attributes', mockAttributes);
+                localHostFixture.componentRef.setInput('selectedAttributes', mockSelectedAttributes);
+                localHostFixture.detectChanges();
+
+                const selectorColAttrValuesNameSlot = localHostFixture.debugElement.query(
+                    By.css('mp-product-attributes-selector [selector-col-attr-values-name]'),
                 );
 
                 expect(selectorColAttrValuesNameSlot).toBeTruthy();
             });
 
-            it('should render `selector-btn-attr-add-name` slot', async () => {
-                const host = await createComponentWrapper(createComponent, {
-                    attributes: mockAttributes,
-                    selectedAttributes: mockSelectedAttributes,
-                });
-                const selectorBtnAttrAddNameSlot = host.queryCss(
-                    'mp-product-attributes-selector [selector-btn-attr-add-name]',
+            it('should render `selector-btn-attr-add-name` slot', () => {
+                const localHostFixture = TestBed.createComponent(TestHostComponent);
+                localHostFixture.componentRef.setInput('attributes', mockAttributes);
+                localHostFixture.componentRef.setInput('selectedAttributes', mockSelectedAttributes);
+                localHostFixture.detectChanges();
+
+                const selectorBtnAttrAddNameSlot = localHostFixture.debugElement.query(
+                    By.css('mp-product-attributes-selector [selector-btn-attr-add-name]'),
                 );
 
                 expect(selectorBtnAttrAddNameSlot).toBeTruthy();
             });
         });
 
-        it('should render `preview-text` slot to the `.mp-create-multi-concrete-product__preview-title` element', async () => {
-            const host = await createComponentWrapper(createComponent, { attributes: [], selectedAttributes: [] });
-            const previewTextSlot = host.queryCss('.mp-create-multi-concrete-product__preview-title [preview-text]');
+        it('should render `preview-text` slot to the `.mp-create-multi-concrete-product__preview-title` element', () => {
+            const previewTextSlot = hostFixture.debugElement.query(
+                By.css('.mp-create-multi-concrete-product__preview-title [preview-text]'),
+            );
 
             expect(previewTextSlot).toBeTruthy();
         });
 
         describe('<mp-concrete-products-preview> component', () => {
-            it('should render <mp-concrete-products-preview> component to the `.mp-create-multi-concrete-product__content` element', async () => {
-                const host = await createComponentWrapper(createComponent, { attributes: [], selectedAttributes: [] });
-                const concreteProductsPreviewComponent = host.queryCss(
-                    '.mp-create-multi-concrete-product__content mp-concrete-products-preview',
+            it('should render <mp-concrete-products-preview> component to the `.mp-create-multi-concrete-product__content` element', () => {
+                const concreteProductsPreviewComponent = hostFixture.debugElement.query(
+                    By.css('.mp-create-multi-concrete-product__content mp-concrete-products-preview'),
                 );
 
                 expect(concreteProductsPreviewComponent).toBeTruthy();
             });
 
-            it('should render `preview-total-text` slot', async () => {
-                const host = await createComponentWrapper(createComponent, {
-                    attributes: mockAttributes,
-                    selectedAttributes: mockSelectedAttributes,
-                });
-                const previewTotalTextSlot = host.queryCss('mp-concrete-products-preview [preview-total-text]');
+            it('should render `preview-total-text` slot', () => {
+                const localHostFixture = TestBed.createComponent(TestHostComponent);
+                localHostFixture.componentRef.setInput('attributes', mockAttributes);
+                localHostFixture.componentRef.setInput('selectedAttributes', mockSelectedAttributes);
+                localHostFixture.detectChanges();
+
+                const previewTotalTextSlot = localHostFixture.debugElement.query(
+                    By.css('mp-concrete-products-preview [preview-total-text]'),
+                );
 
                 expect(previewTotalTextSlot).toBeTruthy();
             });
 
-            it('should render `preview-auto-sku-text` slot', async () => {
-                const host = await createComponentWrapper(createComponent, {
-                    attributes: mockAttributes,
-                    selectedAttributes: mockSelectedAttributes,
-                });
-                const previewAutoSkuTextSlot = host.queryCss('mp-concrete-products-preview [preview-auto-sku-text]');
+            it('should render `preview-auto-sku-text` slot', () => {
+                const localHostFixture = TestBed.createComponent(TestHostComponent);
+                localHostFixture.componentRef.setInput('attributes', mockAttributes);
+                localHostFixture.componentRef.setInput('selectedAttributes', mockSelectedAttributes);
+                localHostFixture.detectChanges();
+
+                const previewAutoSkuTextSlot = localHostFixture.debugElement.query(
+                    By.css('mp-concrete-products-preview [preview-auto-sku-text]'),
+                );
 
                 expect(previewAutoSkuTextSlot).toBeTruthy();
             });
 
-            it('should render `preview-auto-name-text` slot', async () => {
-                const host = await createComponentWrapper(createComponent, {
-                    attributes: mockAttributes,
-                    selectedAttributes: mockSelectedAttributes,
-                });
-                const previewAutoNameTextSlot = host.queryCss('mp-concrete-products-preview [preview-auto-name-text]');
+            it('should render `preview-auto-name-text` slot', () => {
+                const localHostFixture = TestBed.createComponent(TestHostComponent);
+                localHostFixture.componentRef.setInput('attributes', mockAttributes);
+                localHostFixture.componentRef.setInput('selectedAttributes', mockSelectedAttributes);
+                localHostFixture.detectChanges();
+
+                const previewAutoNameTextSlot = localHostFixture.debugElement.query(
+                    By.css('mp-concrete-products-preview [preview-auto-name-text]'),
+                );
 
                 expect(previewAutoNameTextSlot).toBeTruthy();
             });
 
-            it('should render `preview-col-attr-name` slot', async () => {
-                const host = await createComponentWrapper(createComponent, {
-                    attributes: mockAttributes,
-                    selectedAttributes: mockSelectedAttributes,
-                });
-                const previewColAttrNameSlot = host.queryCss('mp-concrete-products-preview [preview-col-attr-name]');
+            it('should render `preview-col-attr-name` slot', () => {
+                const localHostFixture = TestBed.createComponent(TestHostComponent);
+                localHostFixture.componentRef.setInput('attributes', mockAttributes);
+                localHostFixture.componentRef.setInput('selectedAttributes', mockSelectedAttributes);
+                localHostFixture.detectChanges();
+
+                const previewColAttrNameSlot = localHostFixture.debugElement.query(
+                    By.css('mp-concrete-products-preview [preview-col-attr-name]'),
+                );
 
                 expect(previewColAttrNameSlot).toBeTruthy();
             });
 
-            it('should render `preview-col-sku-name` slot', async () => {
-                const host = await createComponentWrapper(createComponent, {
-                    attributes: mockAttributes,
-                    selectedAttributes: mockSelectedAttributes,
-                });
-                const previewColSkuNameSlot = host.queryCss('mp-concrete-products-preview [preview-col-sku-name]');
+            it('should render `preview-col-sku-name` slot', () => {
+                const localHostFixture = TestBed.createComponent(TestHostComponent);
+                localHostFixture.componentRef.setInput('attributes', mockAttributes);
+                localHostFixture.componentRef.setInput('selectedAttributes', mockSelectedAttributes);
+                localHostFixture.detectChanges();
+
+                const previewColSkuNameSlot = localHostFixture.debugElement.query(
+                    By.css('mp-concrete-products-preview [preview-col-sku-name]'),
+                );
 
                 expect(previewColSkuNameSlot).toBeTruthy();
             });
 
-            it('should render `preview-col-name-name` slot', async () => {
-                const host = await createComponentWrapper(createComponent, {
-                    attributes: mockAttributes,
-                    selectedAttributes: mockSelectedAttributes,
-                });
-                const previewColNameNameSlot = host.queryCss('mp-concrete-products-preview [preview-col-name-name]');
+            it('should render `preview-col-name-name` slot', () => {
+                const localHostFixture = TestBed.createComponent(TestHostComponent);
+                localHostFixture.componentRef.setInput('attributes', mockAttributes);
+                localHostFixture.componentRef.setInput('selectedAttributes', mockSelectedAttributes);
+                localHostFixture.detectChanges();
+
+                const previewColNameNameSlot = localHostFixture.debugElement.query(
+                    By.css('mp-concrete-products-preview [preview-col-name-name]'),
+                );
 
                 expect(previewColNameNameSlot).toBeTruthy();
             });
 
-            it('should render `preview-no-data-text` slot', async () => {
-                const host = await createComponentWrapper(createComponent, { attributes: [], selectedAttributes: [] });
-                const previewNoDataTextSlot = host.queryCss('mp-concrete-products-preview [preview-no-data-text]');
+            it('should render `preview-no-data-text` slot', () => {
+                const previewNoDataTextSlot = hostFixture.debugElement.query(
+                    By.css('mp-concrete-products-preview [preview-no-data-text]'),
+                );
 
                 expect(previewNoDataTextSlot).toBeTruthy();
             });
@@ -295,29 +346,31 @@ describe('CreateMultiConcreteProductComponent', () => {
     });
 
     describe('@Inputs', () => {
-        it('should bound `@Input(attributesName)` to the `name` input of <mp-product-attributes-selector> component', async () => {
-            const host = await createComponentWrapper(createComponent, {
-                attributesName: mockAttributesName,
-                attributes: [],
-                selectedAttributes: [],
-            });
-            const productAttributesSelectorComponent = host.queryCss(
-                '.mp-create-multi-concrete-product__content mp-product-attributes-selector',
+        it('should bound `@Input(attributesName)` to the `name` input of <mp-product-attributes-selector> component', () => {
+            const hostFixture = TestBed.createComponent(TestHostComponent);
+            hostFixture.componentRef.setInput('attributesName', mockAttributesName);
+            hostFixture.componentRef.setInput('attributes', []);
+            hostFixture.componentRef.setInput('selectedAttributes', []);
+            hostFixture.detectChanges();
+
+            const productAttributesSelectorComponent = hostFixture.debugElement.query(
+                By.css('.mp-create-multi-concrete-product__content mp-product-attributes-selector'),
             );
 
             expect(productAttributesSelectorComponent.componentInstance.name).toBe(mockAttributesName);
         });
 
-        it('should bound `@Input(attributes)` to the `attributes` input of <mp-product-attributes-selector> component', async () => {
+        it('should bound `@Input(attributes)` to the `attributes` input of <mp-product-attributes-selector> component', () => {
             const updatedMockAttributes = mockAttributes.map((item) =>
                 Object.assign({}, { ...item, isDisabled: false }),
             );
-            const host = await createComponentWrapper(createComponent, {
-                attributes: mockAttributes,
-                selectedAttributes: [],
-            });
-            const productAttributesSelectorComponent = host.queryCss(
-                '.mp-create-multi-concrete-product__content mp-product-attributes-selector',
+            const hostFixture = TestBed.createComponent(TestHostComponent);
+            hostFixture.componentRef.setInput('attributes', mockAttributes);
+            hostFixture.componentRef.setInput('selectedAttributes', []);
+            hostFixture.detectChanges();
+
+            const productAttributesSelectorComponent = hostFixture.debugElement.query(
+                By.css('.mp-create-multi-concrete-product__content mp-product-attributes-selector'),
             );
 
             expect(productAttributesSelectorComponent.componentInstance.attributes).toStrictEqual(
@@ -325,13 +378,14 @@ describe('CreateMultiConcreteProductComponent', () => {
             );
         });
 
-        it('should bound `@Input(selectedAttributes)` to the `selectedAttributes` input of <mp-product-attributes-selector> component', async () => {
-            const host = await createComponentWrapper(createComponent, {
-                attributes: [],
-                selectedAttributes: mockSelectedAttributes,
-            });
-            const productAttributesSelectorComponent = host.queryCss(
-                '.mp-create-multi-concrete-product__content mp-product-attributes-selector',
+        it('should bound `@Input(selectedAttributes)` to the `selectedAttributes` input of <mp-product-attributes-selector> component', () => {
+            const hostFixture = TestBed.createComponent(TestHostComponent);
+            hostFixture.componentRef.setInput('attributes', []);
+            hostFixture.componentRef.setInput('selectedAttributes', mockSelectedAttributes);
+            hostFixture.detectChanges();
+
+            const productAttributesSelectorComponent = hostFixture.debugElement.query(
+                By.css('.mp-create-multi-concrete-product__content mp-product-attributes-selector'),
             );
 
             expect(productAttributesSelectorComponent.componentInstance.selectedAttributes).toBe(
@@ -339,39 +393,42 @@ describe('CreateMultiConcreteProductComponent', () => {
             );
         });
 
-        it('should bound `@Input(productsName)` to the `name` input of <mp-concrete-products-preview> component', async () => {
-            const host = await createComponentWrapper(createComponent, {
-                productsName: mockProductsName,
-                attributes: [],
-                selectedAttributes: [],
-            });
-            const concreteProductsPreviewComponent = host.queryCss(
-                '.mp-create-multi-concrete-product__content mp-concrete-products-preview',
+        it('should bound `@Input(productsName)` to the `name` input of <mp-concrete-products-preview> component', () => {
+            const hostFixture = TestBed.createComponent(TestHostComponent);
+            hostFixture.componentRef.setInput('productsName', mockProductsName);
+            hostFixture.componentRef.setInput('attributes', []);
+            hostFixture.componentRef.setInput('selectedAttributes', []);
+            hostFixture.detectChanges();
+
+            const concreteProductsPreviewComponent = hostFixture.debugElement.query(
+                By.css('.mp-create-multi-concrete-product__content mp-concrete-products-preview'),
             );
 
             expect(concreteProductsPreviewComponent.componentInstance.name).toBe(mockProductsName);
         });
 
-        it('should bound `@Input(selectedAttributes)` to the `attributes` input of <mp-concrete-products-preview> component', async () => {
-            const host = await createComponentWrapper(createComponent, {
-                attributes: [],
-                selectedAttributes: mockSelectedAttributes,
-            });
-            const concreteProductsPreviewComponent = host.queryCss(
-                '.mp-create-multi-concrete-product__content mp-concrete-products-preview',
+        it('should bound `@Input(selectedAttributes)` to the `attributes` input of <mp-concrete-products-preview> component', () => {
+            const hostFixture = TestBed.createComponent(TestHostComponent);
+            hostFixture.componentRef.setInput('attributes', []);
+            hostFixture.componentRef.setInput('selectedAttributes', mockSelectedAttributes);
+            hostFixture.detectChanges();
+
+            const concreteProductsPreviewComponent = hostFixture.debugElement.query(
+                By.css('.mp-create-multi-concrete-product__content mp-concrete-products-preview'),
             );
 
             expect(concreteProductsPreviewComponent.componentInstance.attributes).toBe(mockSelectedAttributes);
         });
 
-        it('should bound `@Input(generatedProducts)` to the `generatedProducts` input of <mp-concrete-products-preview> component', async () => {
-            const host = await createComponentWrapper(createComponent, {
-                generatedProducts: mockGeneratedProducts,
-                attributes: [],
-                selectedAttributes: [],
-            });
-            const concreteProductsPreviewComponent = host.queryCss(
-                '.mp-create-multi-concrete-product__content mp-concrete-products-preview',
+        it('should bound `@Input(generatedProducts)` to the `generatedProducts` input of <mp-concrete-products-preview> component', () => {
+            const hostFixture = TestBed.createComponent(TestHostComponent);
+            hostFixture.componentRef.setInput('generatedProducts', mockGeneratedProducts);
+            hostFixture.componentRef.setInput('attributes', []);
+            hostFixture.componentRef.setInput('selectedAttributes', []);
+            hostFixture.detectChanges();
+
+            const concreteProductsPreviewComponent = hostFixture.debugElement.query(
+                By.css('.mp-create-multi-concrete-product__content mp-concrete-products-preview'),
             );
 
             expect(concreteProductsPreviewComponent.componentInstance.generatedProducts).toStrictEqual(
@@ -379,35 +436,37 @@ describe('CreateMultiConcreteProductComponent', () => {
             );
         });
 
-        it('should bound `@Input(generatedProductErrors)` to the `errors` input of <mp-concrete-products-preview> component', async () => {
-            const host = await createComponentWrapper(createComponent, {
-                generatedProductErrors: mockGeneratedProductErrors,
-                attributes: [],
-                selectedAttributes: [],
-            });
-            const concreteProductsPreviewComponent = host.queryCss(
-                '.mp-create-multi-concrete-product__content mp-concrete-products-preview',
+        it('should bound `@Input(generatedProductErrors)` to the `errors` input of <mp-concrete-products-preview> component', () => {
+            const hostFixture = TestBed.createComponent(TestHostComponent);
+            hostFixture.componentRef.setInput('generatedProductErrors', mockGeneratedProductErrors);
+            hostFixture.componentRef.setInput('attributes', []);
+            hostFixture.componentRef.setInput('selectedAttributes', []);
+            hostFixture.detectChanges();
+
+            const concreteProductsPreviewComponent = hostFixture.debugElement.query(
+                By.css('.mp-create-multi-concrete-product__content mp-concrete-products-preview'),
             );
 
             expect(concreteProductsPreviewComponent.componentInstance.errors).toBe(mockGeneratedProductErrors);
         });
 
-        it('should update `attributes` input of <mp-concrete-products-preview> component when `selectedAttributesChange` event emitted', async () => {
-            const host = await createComponentWrapper(createComponent, {
-                attributes: mockAttributes,
-                selectedAttributes: [],
-            });
-            const productAttributesSelectorComponent = host.queryCss(
-                '.mp-create-multi-concrete-product__content mp-product-attributes-selector',
+        it('should update `attributes` input of <mp-concrete-products-preview> component when `selectedAttributesChange` event emitted', () => {
+            const hostFixture = TestBed.createComponent(TestHostComponent);
+            hostFixture.componentRef.setInput('attributes', mockAttributes);
+            hostFixture.componentRef.setInput('selectedAttributes', []);
+            hostFixture.detectChanges();
+
+            const productAttributesSelectorComponent = hostFixture.debugElement.query(
+                By.css('.mp-create-multi-concrete-product__content mp-product-attributes-selector'),
             );
-            const concreteProductsPreviewComponent = host.queryCss(
-                '.mp-create-multi-concrete-product__content mp-concrete-products-preview',
+            const concreteProductsPreviewComponent = hostFixture.debugElement.query(
+                By.css('.mp-create-multi-concrete-product__content mp-concrete-products-preview'),
             );
 
             expect(concreteProductsPreviewComponent.componentInstance.attributes).toStrictEqual([]);
 
             productAttributesSelectorComponent.triggerEventHandler('selectedAttributesChange', mockSelectedAttributes);
-            host.detectChanges();
+            hostFixture.detectChanges();
 
             expect(concreteProductsPreviewComponent.componentInstance.attributes).toBe(mockSelectedAttributes);
         });

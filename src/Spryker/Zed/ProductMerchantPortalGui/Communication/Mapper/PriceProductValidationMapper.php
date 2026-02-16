@@ -143,6 +143,7 @@ class PriceProductValidationMapper implements PriceProductValidationMapperInterf
     {
         $propertyPath = str_replace('[', '', $propertyPath);
         $propertyPathValues = explode(']', $propertyPath);
+        // @phpstan-ignore function.alreadyNarrowedType (defensive programming)
         if (!is_array($propertyPathValues)) {
             return [];
         }

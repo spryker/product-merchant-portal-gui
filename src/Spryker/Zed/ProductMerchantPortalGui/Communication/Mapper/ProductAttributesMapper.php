@@ -39,6 +39,7 @@ class ProductAttributesMapper implements ProductAttributesMapperInterface
     public function mapErrorsToAttributesData(FormErrorIterator $errors, array $attributesInitialData): array
     {
         foreach ($errors as $error) {
+            // @phpstan-ignore function.alreadyNarrowedType (BC check for older Symfony versions)
             if (!method_exists($error, 'getMessageParameters')) {
                 continue;
             }

@@ -23,19 +23,11 @@ class ProductAbstractLocalizedAttributesExpander implements ProductAbstractLocal
      */
     protected ProductMerchantPortalGuiToLocaleFacadeInterface $localeFacade;
 
-    /**
-     * @param \Spryker\Zed\ProductMerchantPortalGui\Dependency\Facade\ProductMerchantPortalGuiToLocaleFacadeInterface $localeFacade
-     */
     public function __construct(ProductMerchantPortalGuiToLocaleFacadeInterface $localeFacade)
     {
         $this->localeFacade = $localeFacade;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ProductAbstractTransfer $productAbstractTransfer
-     *
-     * @return \Generated\Shared\Transfer\ProductAbstractTransfer
-     */
     public function expandLocalizedAttributes(ProductAbstractTransfer $productAbstractTransfer): ProductAbstractTransfer
     {
         $localeTransfers = $this->localeFacade->getLocaleCollection();

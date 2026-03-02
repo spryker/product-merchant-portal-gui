@@ -200,12 +200,6 @@ class PriceProductMapper implements PriceProductMapperInterface
         return $priceProductCriteriaTransfer;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\PriceProductTransfer $priceProductTransfer
-     * @param \Generated\Shared\Transfer\PriceProductTableViewTransfer $priceProductTableViewTransfer
-     *
-     * @return \Generated\Shared\Transfer\PriceProductTableViewTransfer
-     */
     public function mapPriceProductTransferToPriceProductTableViewTransfer(
         PriceProductTransfer $priceProductTransfer,
         PriceProductTableViewTransfer $priceProductTableViewTransfer
@@ -346,12 +340,6 @@ class PriceProductMapper implements PriceProductMapperInterface
             $this->moneyFacade->convertDecimalToInteger((float)$newPriceProduct[$priceKey]) : null;
     }
 
-    /**
-     * @param string $priceTypeName
-     * @param string $amountType
-     *
-     * @return string
-     */
     protected function createPriceKey(string $priceTypeName, string $amountType): string
     {
         return sprintf(
@@ -393,11 +381,6 @@ class PriceProductMapper implements PriceProductMapperInterface
             ->setGrossAmount($grossAmount);
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\PriceTypeTransfer $priceTypeTransfer
-     *
-     * @return bool
-     */
     protected function isDefaultPrice(PriceTypeTransfer $priceTypeTransfer): bool
     {
         $priceTypeName = $priceTypeTransfer->getNameOrFail();

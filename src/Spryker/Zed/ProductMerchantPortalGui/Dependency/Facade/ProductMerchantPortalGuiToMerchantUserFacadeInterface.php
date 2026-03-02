@@ -11,8 +11,5 @@ use Generated\Shared\Transfer\MerchantUserTransfer;
 
 interface ProductMerchantPortalGuiToMerchantUserFacadeInterface
 {
-    /**
-     * @return \Generated\Shared\Transfer\MerchantUserTransfer
-     */
     public function getCurrentMerchantUser(): MerchantUserTransfer;
 }

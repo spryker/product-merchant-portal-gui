@@ -46,12 +46,6 @@ class ProductsDashboardCardDataProvider implements ProductsDashboardCardDataProv
      */
     protected const URL_PRODUCTS = '/product-merchant-portal-gui/products';
 
-    /**
-     * @param \Spryker\Zed\ProductMerchantPortalGui\ProductMerchantPortalGuiConfig $config
-     * @param \Spryker\Zed\ProductMerchantPortalGui\Persistence\ProductMerchantPortalGuiRepositoryInterface $productMerchantPortalGuiRepository
-     * @param \Spryker\Zed\ProductMerchantPortalGui\Dependency\Facade\ProductMerchantPortalGuiToMerchantUserFacadeInterface $merchantUserFacade
-     * @param \Twig\Environment $twig
-     */
     public function __construct(
         protected ProductMerchantPortalGuiConfig $config,
         protected ProductMerchantPortalGuiRepositoryInterface $productMerchantPortalGuiRepository,
@@ -60,9 +54,6 @@ class ProductsDashboardCardDataProvider implements ProductsDashboardCardDataProv
     ) {
     }
 
-    /**
-     * @return \Generated\Shared\Transfer\MerchantDashboardCardTransfer
-     */
     public function getProductsCard(): MerchantDashboardCardTransfer
     {
         $merchantProductCountsTransfer = $this->productMerchantPortalGuiRepository->getProductsDashboardCardCounts(
@@ -123,9 +114,6 @@ class ProductsDashboardCardDataProvider implements ProductsDashboardCardDataProv
         ]);
     }
 
-    /**
-     * @return \Generated\Shared\Transfer\ProductsDashboardCardCriteriaTransfer
-     */
     protected function createProductsDashboardCardCriteria(): ProductsDashboardCardCriteriaTransfer
     {
         $merchantUser = $this->merchantUserFacade->getCurrentMerchantUser();

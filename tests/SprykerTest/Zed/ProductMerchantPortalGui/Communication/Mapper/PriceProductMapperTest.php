@@ -36,9 +36,6 @@ class PriceProductMapperTest extends Unit
      */
     protected const ID_PRODUCT_ABSTRACT = '999';
 
-    /**
-     * @return void
-     */
     public function testMapRequestDataToPriceProductCriteriaTransferMapsJsonValues(): void
     {
         // Arrange
@@ -57,9 +54,6 @@ class PriceProductMapperTest extends Unit
         $this->assertSame(['111', '333'], $priceProductCriteriaTransfer->getPriceProductStoreIds());
     }
 
-    /**
-     * @return void
-     */
     public function testMapRequestDataToPriceProductCriteriaTransferMapsScalarValues(): void
     {
         // Arrange
@@ -84,9 +78,6 @@ class PriceProductMapperTest extends Unit
         $this->assertSame([], $priceProductCriteriaTransfer->getPriceProductStoreIds());
     }
 
-    /**
-     * @return void
-     */
     public function testMapTableRowsToPriceProductTransfersProcessesNewPriceProductsWithMissingCurrencyOrStoreInformation(): void
     {
         // Arrange

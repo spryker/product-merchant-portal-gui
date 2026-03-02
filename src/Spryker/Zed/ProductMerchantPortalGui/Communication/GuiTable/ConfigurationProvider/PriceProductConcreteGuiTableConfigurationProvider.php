@@ -171,11 +171,6 @@ class PriceProductConcreteGuiTableConfigurationProvider implements PriceProductC
         return $guiTableConfigurationBuilder->createConfiguration();
     }
 
-    /**
-     * @param \Spryker\Shared\GuiTable\Configuration\Builder\GuiTableConfigurationBuilderInterface $guiTableConfigurationBuilder
-     *
-     * @return \Spryker\Shared\GuiTable\Configuration\Builder\GuiTableConfigurationBuilderInterface
-     */
     protected function executePriceProductConcreteTableConfigurationExpanderPlugins(
         GuiTableConfigurationBuilderInterface $guiTableConfigurationBuilder
     ): GuiTableConfigurationBuilderInterface {

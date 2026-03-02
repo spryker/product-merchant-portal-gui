@@ -11,10 +11,5 @@ use Generated\Shared\Transfer\GuiTableDataResponseTransfer;
 
 interface ProductApprovalStatusProductTableDataResponseExpanderInterface
 {
-    /**
-     * @param \Generated\Shared\Transfer\GuiTableDataResponseTransfer $guiTableDataResponseTransfer
-     *
-     * @return \Generated\Shared\Transfer\GuiTableDataResponseTransfer
-     */
     public function expand(GuiTableDataResponseTransfer $guiTableDataResponseTransfer): GuiTableDataResponseTransfer;
 }

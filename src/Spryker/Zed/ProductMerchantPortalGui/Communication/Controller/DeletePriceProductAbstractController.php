@@ -19,11 +19,6 @@ use Symfony\Component\HttpFoundation\Request;
  */
 class DeletePriceProductAbstractController extends AbstractDeletePriceProductController
 {
-    /**
-     * @param \Symfony\Component\HttpFoundation\Request $request
-     *
-     * @return \Symfony\Component\HttpFoundation\JsonResponse
-     */
     public function indexAction(Request $request): JsonResponse
     {
         $idProductAbstract = (int)$request->get(PriceProductTableViewTransfer::ID_PRODUCT_ABSTRACT);

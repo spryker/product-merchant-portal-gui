@@ -14,12 +14,6 @@ use Laminas\Filter\Word\CamelCaseToUnderscore;
 
 class PriceProductTableColumnCreator implements PriceProductTableColumnCreatorInterface
 {
-    /**
-     * @param string $priceTypeName
-     * @param string $moneyValueType
-     *
-     * @return string
-     */
     public function createPriceColumnId(string $priceTypeName, string $moneyValueType): string
     {
         return sprintf(
@@ -62,9 +56,6 @@ class PriceProductTableColumnCreator implements PriceProductTableColumnCreatorIn
         return (string)$fieldName;
     }
 
-    /**
-     * @return string
-     */
     public function createVolumeQuantityColumnId(): string
     {
         /** @var string $idVolumeQuantity */

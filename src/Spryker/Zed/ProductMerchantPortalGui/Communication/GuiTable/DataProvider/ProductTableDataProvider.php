@@ -86,11 +86,6 @@ class ProductTableDataProvider extends AbstractGuiTableDataProvider
         $this->idProductAbstract = $idProductAbstract;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\GuiTableDataRequestTransfer $guiTableDataRequestTransfer
-     *
-     * @return \Spryker\Shared\Kernel\Transfer\AbstractTransfer
-     */
     protected function createCriteria(GuiTableDataRequestTransfer $guiTableDataRequestTransfer): AbstractTransfer
     {
         $productTableCriteriaTransfer = (new ProductTableCriteriaTransfer())
@@ -143,11 +138,6 @@ class ProductTableDataProvider extends AbstractGuiTableDataProvider
         return $guiTableDataResponseTransfer;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ProductConcreteTransfer $productConcreteTransfer
-     *
-     * @return string
-     */
     protected function getStatusColumnData(ProductConcreteTransfer $productConcreteTransfer): string
     {
         $isActiveColumnData = $productConcreteTransfer->getIsActive()
@@ -157,11 +147,6 @@ class ProductTableDataProvider extends AbstractGuiTableDataProvider
         return $this->translatorFacade->trans($isActiveColumnData);
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ProductConcreteTransfer $productConcreteTransfer
-     *
-     * @return string|null
-     */
     protected function getImageUrl(ProductConcreteTransfer $productConcreteTransfer): ?string
     {
         if (!isset($productConcreteTransfer->getImageSets()[0])) {

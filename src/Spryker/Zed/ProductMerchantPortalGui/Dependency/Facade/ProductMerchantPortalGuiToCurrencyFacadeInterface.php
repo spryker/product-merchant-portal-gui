@@ -16,10 +16,5 @@ interface ProductMerchantPortalGuiToCurrencyFacadeInterface
      */
     public function getAllStoresWithCurrencies(): array;
 
-    /**
-     * @param int $idCurrency
-     *
-     * @return \Generated\Shared\Transfer\CurrencyTransfer
-     */
     public function getByIdCurrency(int $idCurrency): CurrencyTransfer;
 }

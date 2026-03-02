@@ -46,11 +46,6 @@ class AddProductConcreteForm extends AbstractType
      */
     protected const FIELD_ID_PRODUCT_ABSTRACT = 'idProductAbstract';
 
-    /**
-     * @param \Symfony\Component\OptionsResolver\OptionsResolver $resolver
-     *
-     * @return void
-     */
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([

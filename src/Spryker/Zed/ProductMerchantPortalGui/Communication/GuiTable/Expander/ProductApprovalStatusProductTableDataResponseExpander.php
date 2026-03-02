@@ -31,10 +31,6 @@ class ProductApprovalStatusProductTableDataResponseExpander implements ProductAp
      */
     protected ProductMerchantPortalGuiToProductFacadeInterface $productFacade;
 
-    /**
-     * @param \Spryker\Zed\ProductMerchantPortalGui\Dependency\Facade\ProductMerchantPortalGuiToTranslatorFacadeInterface $translatorFacade
-     * @param \Spryker\Zed\ProductMerchantPortalGui\Dependency\Facade\ProductMerchantPortalGuiToProductFacadeInterface $productFacade
-     */
     public function __construct(
         ProductMerchantPortalGuiToTranslatorFacadeInterface $translatorFacade,
         ProductMerchantPortalGuiToProductFacadeInterface $productFacade
@@ -43,11 +39,6 @@ class ProductApprovalStatusProductTableDataResponseExpander implements ProductAp
         $this->productFacade = $productFacade;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\GuiTableDataResponseTransfer $guiTableDataResponseTransfer
-     *
-     * @return \Generated\Shared\Transfer\GuiTableDataResponseTransfer
-     */
     public function expand(GuiTableDataResponseTransfer $guiTableDataResponseTransfer): GuiTableDataResponseTransfer
     {
         $guiTableRowDataResponseTransfers = $guiTableDataResponseTransfer->getRows();

@@ -11,11 +11,6 @@ use ArrayObject;
 
 interface FieldMapperStrategyInterface
 {
-    /**
-     * @param string $dataField
-     *
-     * @return bool
-     */
     public function isApplicable(string $dataField): bool;
 
     /**

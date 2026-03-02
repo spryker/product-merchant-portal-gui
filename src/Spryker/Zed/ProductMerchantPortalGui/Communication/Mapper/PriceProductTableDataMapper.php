@@ -45,13 +45,6 @@ class PriceProductTableDataMapper implements PriceProductTableDataMapperInterfac
      */
     protected PriceProductMapperInterface $priceProductMapper;
 
-    /**
-     * @param \Spryker\Zed\ProductMerchantPortalGui\Dependency\Facade\ProductMerchantPortalGuiToPriceProductFacadeInterface $priceProductFacade
-     * @param \Spryker\Zed\ProductMerchantPortalGui\Dependency\Facade\ProductMerchantPortalGuiToStoreFacadeInterface $storeFacade
-     * @param \Spryker\Zed\ProductMerchantPortalGui\Dependency\Service\ProductMerchantPortalGuiToUtilEncodingServiceInterface $utilEncodingService
-     * @param \Spryker\Zed\ProductMerchantPortalGui\Dependency\Service\ProductMerchantPortalGuiToPriceProductServiceInterface $priceProductService
-     * @param \Spryker\Zed\ProductMerchantPortalGui\Communication\Mapper\PriceProductMapperInterface $priceProductMapper
-     */
     public function __construct(
         ProductMerchantPortalGuiToPriceProductFacadeInterface $priceProductFacade,
         ProductMerchantPortalGuiToStoreFacadeInterface $storeFacade,
@@ -121,11 +114,6 @@ class PriceProductTableDataMapper implements PriceProductTableDataMapperInterfac
         return $priceProductTableViewCollectionTransfer;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\PriceProductTransfer $priceProductTransfer
-     *
-     * @return string
-     */
     protected function createPriceProductTableRowKeyByPriceProductTransfer(
         PriceProductTransfer $priceProductTransfer
     ): string {
@@ -170,13 +158,6 @@ class PriceProductTableDataMapper implements PriceProductTableDataMapperInterfac
         return $prices;
     }
 
-    /**
-     * @param string $storeName
-     * @param string $currencyCode
-     * @param int $volumeQuantity
-     *
-     * @return string
-     */
     protected function createPriceProductTableRowKey(string $storeName, string $currencyCode, int $volumeQuantity): string
     {
         return sprintf('%s-%s-%d', $storeName, $currencyCode, $volumeQuantity);
@@ -196,11 +177,6 @@ class PriceProductTableDataMapper implements PriceProductTableDataMapperInterfac
             ->setNbResults($tableViewCount);
     }
 
-    /**
-     * @param string $pryceTypeName
-     *
-     * @return string
-     */
     protected function createGrossKey(string $pryceTypeName): string
     {
         return sprintf(
@@ -211,11 +187,6 @@ class PriceProductTableDataMapper implements PriceProductTableDataMapperInterfac
         );
     }
 
-    /**
-     * @param string $pryceTypeName
-     *
-     * @return string
-     */
     protected function createNetKey(string $pryceTypeName): string
     {
         return sprintf(
@@ -241,12 +212,6 @@ class PriceProductTableDataMapper implements PriceProductTableDataMapperInterfac
         return $indexedStores;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\PriceProductTableViewTransfer $priceProductTableViewTransfer
-     * @param \Generated\Shared\Transfer\PriceProductTransfer $priceProductTransfer
-     *
-     * @return string|null
-     */
     protected function getEncodedStoreIds(
         PriceProductTableViewTransfer $priceProductTableViewTransfer,
         PriceProductTransfer $priceProductTransfer
@@ -264,12 +229,6 @@ class PriceProductTableDataMapper implements PriceProductTableDataMapperInterfac
         return $this->utilEncodingService->encodeJson(array_unique($existingStoreIds));
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\PriceProductTableViewTransfer $priceProductTableViewTransfer
-     * @param \Generated\Shared\Transfer\PriceProductTransfer $priceProductTransfer
-     *
-     * @return string|null
-     */
     protected function getEncodedDefaultIds(
         PriceProductTableViewTransfer $priceProductTableViewTransfer,
         PriceProductTransfer $priceProductTransfer

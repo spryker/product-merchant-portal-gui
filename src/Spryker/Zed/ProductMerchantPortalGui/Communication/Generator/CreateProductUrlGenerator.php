@@ -74,13 +74,6 @@ class CreateProductUrlGenerator implements CreateProductUrlGeneratorInterface
         );
     }
 
-    /**
-     * @param string $sku
-     * @param string $name
-     * @param bool $isSingleConcrete
-     *
-     * @return string
-     */
     public function getCreateProductAbstractUrl(string $sku, string $name, bool $isSingleConcrete): string
     {
         $getParams = http_build_query(

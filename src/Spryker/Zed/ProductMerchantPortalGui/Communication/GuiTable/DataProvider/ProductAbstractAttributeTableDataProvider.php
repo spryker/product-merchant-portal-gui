@@ -43,21 +43,12 @@ class ProductAbstractAttributeTableDataProvider extends AbstractGuiTableDataProv
      */
     protected int $idProductAbstract;
 
-    /**
-     * @param \Spryker\Zed\ProductMerchantPortalGui\Dependency\Facade\ProductMerchantPortalGuiToProductFacadeInterface $productFacade
-     * @param int $idProductAbstract
-     */
     public function __construct(ProductMerchantPortalGuiToProductFacadeInterface $productFacade, int $idProductAbstract)
     {
         $this->productFacade = $productFacade;
         $this->idProductAbstract = $idProductAbstract;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\GuiTableDataRequestTransfer $guiTableDataRequestTransfer
-     *
-     * @return \Spryker\Shared\Kernel\Transfer\AbstractTransfer
-     */
     protected function createCriteria(GuiTableDataRequestTransfer $guiTableDataRequestTransfer): AbstractTransfer
     {
         $productAttributeTableCriteriaTransfer = (new ProductAttributeTableCriteriaTransfer());

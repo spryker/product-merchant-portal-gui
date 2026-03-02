@@ -16,9 +16,6 @@ class EmptyJsonAttributesConstraint extends SymfonyConstraint
      */
     protected const MESSAGE = 'This value should not be blank.';
 
-    /**
-     * @return string
-     */
     public function getMessage(): string
     {
         return static::MESSAGE;

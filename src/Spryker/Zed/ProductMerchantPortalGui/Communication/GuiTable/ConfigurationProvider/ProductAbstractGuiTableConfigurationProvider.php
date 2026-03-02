@@ -142,12 +142,6 @@ class ProductAbstractGuiTableConfigurationProvider implements ProductAbstractGui
      */
     protected StoreFilterOptionsProviderInterface $storeFilterOptionsProvider;
 
-    /**
-     * @param \Spryker\Shared\GuiTable\GuiTableFactoryInterface $guiTableFactory
-     * @param \Spryker\Zed\ProductMerchantPortalGui\Communication\GuiTable\ConfigurationProvider\CategoryFilterOptionsProviderInterface $categoryFilterOptionsProvider
-     * @param \Spryker\Zed\ProductMerchantPortalGui\Communication\GuiTable\ConfigurationProvider\StoreFilterOptionsProviderInterface $storeFilterOptionsProvider
-     * @param \Spryker\Zed\ProductMerchantPortalGui\Dependency\Facade\ProductMerchantPortalGuiToTranslatorFacadeInterface $translatorFacade
-     */
     public function __construct(
         GuiTableFactoryInterface $guiTableFactory,
         CategoryFilterOptionsProviderInterface $categoryFilterOptionsProvider,
@@ -160,9 +154,6 @@ class ProductAbstractGuiTableConfigurationProvider implements ProductAbstractGui
         $this->translatorFacade = $translatorFacade;
     }
 
-    /**
-     * @return \Generated\Shared\Transfer\GuiTableConfigurationTransfer
-     */
     public function getConfiguration(): GuiTableConfigurationTransfer
     {
         $guiTableConfigurationBuilder = $this->guiTableFactory->createConfigurationBuilder();
@@ -179,11 +170,6 @@ class ProductAbstractGuiTableConfigurationProvider implements ProductAbstractGui
         return $guiTableConfigurationBuilder->createConfiguration();
     }
 
-    /**
-     * @param \Spryker\Shared\GuiTable\Configuration\Builder\GuiTableConfigurationBuilderInterface $guiTableConfigurationBuilder
-     *
-     * @return \Spryker\Shared\GuiTable\Configuration\Builder\GuiTableConfigurationBuilderInterface
-     */
     protected function addColumns(GuiTableConfigurationBuilderInterface $guiTableConfigurationBuilder): GuiTableConfigurationBuilderInterface
     {
         $guiTableConfigurationBuilder->addColumnText(static::COL_KEY_SKU, 'SKU', true, false)
@@ -206,11 +192,6 @@ class ProductAbstractGuiTableConfigurationProvider implements ProductAbstractGui
         return $guiTableConfigurationBuilder;
     }
 
-    /**
-     * @param \Spryker\Shared\GuiTable\Configuration\Builder\GuiTableConfigurationBuilderInterface $guiTableConfigurationBuilder
-     *
-     * @return \Spryker\Shared\GuiTable\Configuration\Builder\GuiTableConfigurationBuilderInterface
-     */
     protected function addFilters(GuiTableConfigurationBuilderInterface $guiTableConfigurationBuilder): GuiTableConfigurationBuilderInterface
     {
         $guiTableConfigurationBuilder->addFilterTreeSelect(
@@ -234,11 +215,6 @@ class ProductAbstractGuiTableConfigurationProvider implements ProductAbstractGui
         return $guiTableConfigurationBuilder;
     }
 
-    /**
-     * @param \Spryker\Shared\GuiTable\Configuration\Builder\GuiTableConfigurationBuilderInterface $guiTableConfigurationBuilder
-     *
-     * @return \Spryker\Shared\GuiTable\Configuration\Builder\GuiTableConfigurationBuilderInterface
-     */
     protected function addRowActions(GuiTableConfigurationBuilderInterface $guiTableConfigurationBuilder): GuiTableConfigurationBuilderInterface
     {
         $guiTableConfigurationBuilder->addRowActionDrawerAjaxForm(

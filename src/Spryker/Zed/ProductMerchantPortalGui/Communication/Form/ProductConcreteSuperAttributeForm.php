@@ -43,11 +43,6 @@ class ProductConcreteSuperAttributeForm extends AbstractType
      */
     protected const VALIDATION_MESSAGE_NOT_BLANK = 'The value cannot be empty. Please fill in this input.';
 
-    /**
-     * @param \Symfony\Component\OptionsResolver\OptionsResolver $resolver
-     *
-     * @return void
-     */
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([

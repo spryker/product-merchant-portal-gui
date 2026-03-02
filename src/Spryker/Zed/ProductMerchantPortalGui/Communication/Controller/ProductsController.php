@@ -43,11 +43,6 @@ class ProductsController extends AbstractController
         ]);
     }
 
-    /**
-     * @param \Symfony\Component\HttpFoundation\Request $request
-     *
-     * @return \Symfony\Component\HttpFoundation\Response
-     */
     public function tableDataAction(Request $request): Response
     {
         return $this->getFactory()->getGuiTableHttpDataRequestExecutor()->execute(

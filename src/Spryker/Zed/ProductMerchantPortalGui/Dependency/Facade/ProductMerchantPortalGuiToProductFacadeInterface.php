@@ -32,32 +32,12 @@ interface ProductMerchantPortalGuiToProductFacadeInterface
      */
     public function saveProductConcrete(ProductConcreteTransfer $productConcreteTransfer): int;
 
-    /**
-     * @param int $idProductConcrete
-     *
-     * @return void
-     */
     public function activateProductConcrete(int $idProductConcrete): void;
 
-    /**
-     * @param int $idProductConcrete
-     *
-     * @return void
-     */
     public function deactivateProductConcrete(int $idProductConcrete): void;
 
-    /**
-     * @param string $sku
-     *
-     * @return bool
-     */
     public function hasProductAbstract(string $sku): bool;
 
-    /**
-     * @param string $sku
-     *
-     * @return bool
-     */
     public function hasProductConcrete(string $sku): bool;
 
     /**
@@ -71,25 +51,10 @@ interface ProductMerchantPortalGuiToProductFacadeInterface
      */
     public function addProduct(ProductAbstractTransfer $productAbstractTransfer, array $productConcreteCollection): int;
 
-    /**
-     * @param int $idConcrete
-     *
-     * @return int|null
-     */
     public function findProductAbstractIdByConcreteId(int $idConcrete): ?int;
 
-    /**
-     * @param int $idProductAbstract
-     *
-     * @return \Generated\Shared\Transfer\ProductAbstractTransfer|null
-     */
     public function findProductAbstractById(int $idProductAbstract): ?ProductAbstractTransfer;
 
-    /**
-     * @param int $idProduct
-     *
-     * @return \Generated\Shared\Transfer\ProductConcreteTransfer|null
-     */
     public function findProductConcreteById(int $idProduct): ?ProductConcreteTransfer;
 
     /**
@@ -99,11 +64,6 @@ interface ProductMerchantPortalGuiToProductFacadeInterface
      */
     public function getProductConcretesByCriteria(ProductCriteriaTransfer $productCriteriaTransfer): array;
 
-    /**
-     * @param \Generated\Shared\Transfer\ProductConcreteCollectionTransfer $productConcreteCollectionTransfer
-     *
-     * @return void
-     */
     public function createProductConcreteCollection(
         ProductConcreteCollectionTransfer $productConcreteCollectionTransfer
     ): void;

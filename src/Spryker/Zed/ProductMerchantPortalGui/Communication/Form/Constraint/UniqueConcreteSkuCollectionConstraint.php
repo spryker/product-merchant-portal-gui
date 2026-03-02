@@ -16,9 +16,6 @@ class UniqueConcreteSkuCollectionConstraint extends SymfonyConstraint
      */
     protected const MESSAGE = 'SKU Prefix already exists in collection';
 
-    /**
-     * @return string
-     */
     public function getMessage(): string
     {
         return static::MESSAGE;

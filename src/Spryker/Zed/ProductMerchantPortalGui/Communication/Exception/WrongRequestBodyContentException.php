@@ -11,19 +11,11 @@ use Exception;
 
 class WrongRequestBodyContentException extends Exception
 {
-    /**
-     * @param string $key
-     */
     public function __construct(string $key)
     {
         parent::__construct($this->buildMessage($key));
     }
 
-    /**
-     * @param string $key
-     *
-     * @return string
-     */
     protected function buildMessage(string $key): string
     {
         return sprintf(

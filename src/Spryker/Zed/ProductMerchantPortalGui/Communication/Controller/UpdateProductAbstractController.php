@@ -409,11 +409,6 @@ class UpdateProductAbstractController extends AbstractUpdateProductController
         return $imageSetMetaData;
     }
 
-    /**
-     * @param \Symfony\Component\HttpFoundation\Request $request
-     *
-     * @return \Symfony\Component\HttpFoundation\Response
-     */
     public function tableDataAction(Request $request): Response
     {
         $idProductAbstract = $this->castId($request->get(PriceProductTableViewTransfer::ID_PRODUCT_ABSTRACT));

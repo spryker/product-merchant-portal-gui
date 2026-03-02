@@ -44,33 +44,21 @@ class ProductConcreteOwnedByMerchantConstraint extends SymfonyConstraint
         parent::__construct($options);
     }
 
-    /**
-     * @return \Spryker\Zed\ProductMerchantPortalGui\Dependency\Facade\ProductMerchantPortalGuiToMerchantUserFacadeInterface
-     */
     public function getMerchantUserFacade(): ProductMerchantPortalGuiToMerchantUserFacadeInterface
     {
         return $this->merchantUserFacade;
     }
 
-    /**
-     * @return \Spryker\Zed\ProductMerchantPortalGui\Dependency\Facade\ProductMerchantPortalGuiToMerchantProductFacadeInterface
-     */
     public function getMerchantProductFacade(): ProductMerchantPortalGuiToMerchantProductFacadeInterface
     {
         return $this->merchantProductFacade;
     }
 
-    /**
-     * @return string
-     */
     public function getMessage(): string
     {
         return static::MESSAGE;
     }
 
-    /**
-     * @return string
-     */
     public function getTargets(): string
     {
         return static::CLASS_CONSTRAINT;

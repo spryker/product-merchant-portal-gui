@@ -26,9 +26,6 @@ abstract class AbstractDeletePriceProductController extends AbstractController
      */
     protected const RESPONSE_NOTIFICATION_MESSAGE_ERROR = 'Something went wrong, please try again.';
 
-    /**
-     * @return int
-     */
     protected function getIdMerchantFromCurrentUser(): int
     {
         return $this->getFactory()
@@ -37,9 +34,6 @@ abstract class AbstractDeletePriceProductController extends AbstractController
             ->getIdMerchantOrFail();
     }
 
-    /**
-     * @return \Symfony\Component\HttpFoundation\JsonResponse
-     */
     protected function createSuccessResponse(): JsonResponse
     {
         $zedUiFormResponseTransfer = $this->getFactory()
@@ -52,11 +46,6 @@ abstract class AbstractDeletePriceProductController extends AbstractController
         return new JsonResponse($zedUiFormResponseTransfer->toArray());
     }
 
-    /**
-     * @param string|null $messageError
-     *
-     * @return \Symfony\Component\HttpFoundation\JsonResponse
-     */
     protected function createErrorResponse(?string $messageError = null): JsonResponse
     {
         if ($messageError === null) {

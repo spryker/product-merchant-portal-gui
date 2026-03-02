@@ -49,13 +49,6 @@ class ProductAbstractTableDataProvider extends AbstractGuiTableDataProvider
      */
     protected LocalizedAttributesExtractorInterface $localizedAttributesExtractor;
 
-    /**
-     * @param \Spryker\Zed\ProductMerchantPortalGui\Persistence\ProductMerchantPortalGuiRepositoryInterface $productMerchantPortalGuiRepository
-     * @param \Spryker\Zed\ProductMerchantPortalGui\Dependency\Facade\ProductMerchantPortalGuiToLocaleFacadeInterface $localeFacade
-     * @param \Spryker\Zed\ProductMerchantPortalGui\Dependency\Facade\ProductMerchantPortalGuiToMerchantUserFacadeInterface $merchantUserFacade
-     * @param \Spryker\Zed\ProductMerchantPortalGui\Dependency\Facade\ProductMerchantPortalGuiToTranslatorFacadeInterface $translatorFacade
-     * @param \Spryker\Zed\ProductMerchantPortalGui\Communication\Extractor\LocalizedAttributesExtractorInterface $localizedAttributesExtractor
-     */
     public function __construct(
         ProductMerchantPortalGuiRepositoryInterface $productMerchantPortalGuiRepository,
         ProductMerchantPortalGuiToLocaleFacadeInterface $localeFacade,
@@ -70,11 +63,6 @@ class ProductAbstractTableDataProvider extends AbstractGuiTableDataProvider
         $this->localizedAttributesExtractor = $localizedAttributesExtractor;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\GuiTableDataRequestTransfer $guiTableDataRequestTransfer
-     *
-     * @return \Spryker\Shared\Kernel\Transfer\AbstractTransfer
-     */
     protected function createCriteria(GuiTableDataRequestTransfer $guiTableDataRequestTransfer): AbstractTransfer
     {
         return (new MerchantProductTableCriteriaTransfer())
@@ -125,11 +113,6 @@ class ProductAbstractTableDataProvider extends AbstractGuiTableDataProvider
             ->setTotal($paginationTransfer->getNbResults());
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ProductAbstractTransfer $productAbstractTransfer
-     *
-     * @return string|null
-     */
     protected function getImageUrl(ProductAbstractTransfer $productAbstractTransfer): ?string
     {
         if (!isset($productAbstractTransfer->getImageSets()[0])) {
@@ -143,11 +126,6 @@ class ProductAbstractTableDataProvider extends AbstractGuiTableDataProvider
             : null;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ProductAbstractTransfer $productAbstractTransfer
-     *
-     * @return string
-     */
     protected function getVisibilityColumnData(ProductAbstractTransfer $productAbstractTransfer): string
     {
         if ($productAbstractTransfer->getIsActive()) {

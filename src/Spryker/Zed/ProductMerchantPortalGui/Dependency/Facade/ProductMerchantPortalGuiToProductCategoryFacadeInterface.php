@@ -12,12 +12,6 @@ use Generated\Shared\Transfer\LocaleTransfer;
 
 interface ProductMerchantPortalGuiToProductCategoryFacadeInterface
 {
-    /**
-     * @param int $idProductAbstract
-     * @param \Generated\Shared\Transfer\LocaleTransfer $localeTransfer
-     *
-     * @return \Generated\Shared\Transfer\CategoryCollectionTransfer
-     */
     public function getCategoryTransferCollectionByIdProductAbstract(int $idProductAbstract, LocaleTransfer $localeTransfer): CategoryCollectionTransfer;
 
     /**

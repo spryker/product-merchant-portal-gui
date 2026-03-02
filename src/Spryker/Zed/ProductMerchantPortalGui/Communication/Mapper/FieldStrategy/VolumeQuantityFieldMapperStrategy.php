@@ -20,10 +20,6 @@ class VolumeQuantityFieldMapperStrategy extends AbstractFieldMapperStrategy
      */
     protected ProductMerchantPortalGuiToPriceProductVolumeServiceInterface $priceProductVolumeService;
 
-    /**
-     * @param \Spryker\Zed\ProductMerchantPortalGui\Dependency\Facade\ProductMerchantPortalGuiToPriceProductFacadeInterface $priceProductFacade
-     * @param \Spryker\Zed\ProductMerchantPortalGui\Dependency\Service\ProductMerchantPortalGuiToPriceProductVolumeServiceInterface $priceProductVolumeService
-     */
     public function __construct(
         ProductMerchantPortalGuiToPriceProductFacadeInterface $priceProductFacade,
         ProductMerchantPortalGuiToPriceProductVolumeServiceInterface $priceProductVolumeService
@@ -33,11 +29,6 @@ class VolumeQuantityFieldMapperStrategy extends AbstractFieldMapperStrategy
         $this->priceProductVolumeService = $priceProductVolumeService;
     }
 
-    /**
-     * @param string $dataField
-     *
-     * @return bool
-     */
     public function isApplicable(string $dataField): bool
     {
         return $dataField === PriceProductTransfer::VOLUME_QUANTITY;
@@ -86,12 +77,6 @@ class VolumeQuantityFieldMapperStrategy extends AbstractFieldMapperStrategy
         return $priceProductTransfers;
     }
 
-    /**
-     * @param int $volumeQuantity
-     * @param \Generated\Shared\Transfer\PriceProductTransfer $priceProductTransfer
-     *
-     * @return \Generated\Shared\Transfer\PriceProductTransfer
-     */
     protected function moveVolumePriceToPriceProductTransfer(
         int $volumeQuantity,
         PriceProductTransfer $priceProductTransfer
@@ -113,12 +98,6 @@ class VolumeQuantityFieldMapperStrategy extends AbstractFieldMapperStrategy
         return $priceProductTransfer;
     }
 
-    /**
-     * @param int $volumeQuantity
-     * @param \Generated\Shared\Transfer\PriceProductTransfer $priceProductTransfer
-     *
-     * @return \Generated\Shared\Transfer\PriceProductTransfer|null
-     */
     protected function extractVolumePriceProduct(
         int $volumeQuantity,
         PriceProductTransfer $priceProductTransfer
@@ -130,13 +109,6 @@ class VolumeQuantityFieldMapperStrategy extends AbstractFieldMapperStrategy
             ->extractVolumePrice($priceProductTransfer, $volumePriceProductTransfer);
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\PriceProductTransfer $priceProductTransfer
-     * @param int $volumeQuantity
-     * @param int $newVolumeQuantity
-     *
-     * @return \Generated\Shared\Transfer\PriceProductTransfer
-     */
     protected function replaceVolumePrice(
         PriceProductTransfer $priceProductTransfer,
         int $volumeQuantity,
@@ -153,12 +125,6 @@ class VolumeQuantityFieldMapperStrategy extends AbstractFieldMapperStrategy
         );
     }
 
-    /**
-     * @param int $volumeQuantity
-     * @param \Generated\Shared\Transfer\PriceProductTransfer $priceProductTransfer
-     *
-     * @return \Generated\Shared\Transfer\PriceProductTransfer|null
-     */
     protected function movePriceProductToVolumePrice(
         int $volumeQuantity,
         PriceProductTransfer $priceProductTransfer

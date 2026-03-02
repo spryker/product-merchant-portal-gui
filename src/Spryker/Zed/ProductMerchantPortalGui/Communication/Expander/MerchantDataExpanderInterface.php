@@ -11,11 +11,6 @@ use Generated\Shared\Transfer\ProductAbstractTransfer;
 
 interface MerchantDataExpanderInterface
 {
-    /**
-     * @param \Generated\Shared\Transfer\ProductAbstractTransfer $productAbstractTransfer
-     *
-     * @return \Generated\Shared\Transfer\ProductAbstractTransfer
-     */
     public function expandProductAbstractWithMerchantData(
         ProductAbstractTransfer $productAbstractTransfer
     ): ProductAbstractTransfer;

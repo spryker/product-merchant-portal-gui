@@ -17,12 +17,5 @@ interface CreateProductUrlGeneratorInterface
      */
     public function getCreateUrl(array $formData, bool $isSingleConcrete): string;
 
-    /**
-     * @param string $sku
-     * @param string $name
-     * @param bool $isSingleConcrete
-     *
-     * @return string
-     */
     public function getCreateProductAbstractUrl(string $sku, string $name, bool $isSingleConcrete): string;
 }

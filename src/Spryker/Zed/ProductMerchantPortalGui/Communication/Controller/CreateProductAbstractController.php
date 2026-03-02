@@ -291,9 +291,6 @@ class CreateProductAbstractController extends AbstractController
         return array_merge($responseData, $zedUiFormResponseTransfer->toArray());
     }
 
-    /**
-     * @return \Symfony\Component\HttpFoundation\JsonResponse
-     */
     protected function getSuccessResponseAndCloseOverlay(): JsonResponse
     {
         $zedUiFormResponseTransfer = $this->getFactory()

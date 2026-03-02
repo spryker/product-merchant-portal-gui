@@ -16,9 +16,6 @@ class ApplicableApprovalStatusReader implements ApplicableApprovalStatusReaderIn
      */
     protected ProductMerchantPortalGuiConfig $productMerchantPortalGuiConfig;
 
-    /**
-     * @param \Spryker\Zed\ProductMerchantPortalGui\ProductMerchantPortalGuiConfig $productMerchantPortalGuiConfig
-     */
     public function __construct(ProductMerchantPortalGuiConfig $productMerchantPortalGuiConfig)
     {
         $this->productMerchantPortalGuiConfig = $productMerchantPortalGuiConfig;

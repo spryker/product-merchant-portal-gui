@@ -55,9 +55,6 @@ class ProductAbstractFormDataProviderTest extends Unit
      */
     protected ProductMerchantPortalGuiCommunicationTester $tester;
 
-    /**
-     * @return void
-     */
     public function testGetOptionsShouldReturnRequiredProductAbstractFormOptions(): void
     {
         // Arrange
@@ -83,9 +80,6 @@ class ProductAbstractFormDataProviderTest extends Unit
         $this->assertArrayHasKey(static::OPTION_PRODUCT_CATEGORY_CHOICES, $options);
     }
 
-    /**
-     * @return void
-     */
     public function testGetOptionsShouldReturnOnlyValidStoreChoicesForCurrentMerchantUser(): void
     {
         // Arrange
@@ -120,9 +114,6 @@ class ProductAbstractFormDataProviderTest extends Unit
         $this->assertSame($options[static::OPTION_STORE_CHOICES][$merchantUserRelatedStoreTransfer->getNameOrFail()], $merchantUserRelatedStoreTransfer->getIdStoreOrFail());
     }
 
-    /**
-     * @return void
-     */
     public function testGetOptionsShouldReturnEmptyStoreChoicesForCurrentMerchantWhileNoStoreRelationsGiven(): void
     {
         // Arrange
@@ -149,9 +140,6 @@ class ProductAbstractFormDataProviderTest extends Unit
         $this->assertEmpty($options[static::OPTION_STORE_CHOICES]);
     }
 
-    /**
-     * @return \Generated\Shared\Transfer\MerchantUserTransfer
-     */
     protected function createMerchantUserTransfer(): MerchantUserTransfer
     {
         $storeRelationTransfer = (new StoreRelationBuilder())
@@ -166,11 +154,6 @@ class ProductAbstractFormDataProviderTest extends Unit
             ->build();
     }
 
-    /**
-     * @param \Spryker\Zed\ProductMerchantPortalGui\Dependency\Facade\ProductMerchantPortalGuiToMerchantUserFacadeInterface $merchantUserFacade
-     *
-     * @return \Spryker\Zed\ProductMerchantPortalGui\Communication\Form\DataProvider\ProductAbstractFormDataProvider
-     */
     protected function createProductAbstractFormDataProvider(
         ProductMerchantPortalGuiToMerchantUserFacadeInterface $merchantUserFacade
     ): ProductAbstractFormDataProvider {

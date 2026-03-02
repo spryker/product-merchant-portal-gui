@@ -35,11 +35,6 @@ class PriceProductValidationMapper implements PriceProductValidationMapperInterf
      */
     protected ProductMerchantPortalGuiToTranslatorFacadeInterface $translatorFacade;
 
-    /**
-     * @param \Spryker\Zed\ProductMerchantPortalGui\Communication\Creator\PriceProductTableColumnCreatorInterface $priceProductTableColumnCreator
-     * @param \Spryker\Zed\ProductMerchantPortalGui\Communication\Matcher\PriceProductTableRowMatcherInterface $priceProductTableRowMatcher
-     * @param \Spryker\Zed\ProductMerchantPortalGui\Dependency\Facade\ProductMerchantPortalGuiToTranslatorFacadeInterface $translatorFacade
-     */
     public function __construct(
         PriceProductTableColumnCreatorInterface $priceProductTableColumnCreator,
         PriceProductTableRowMatcherInterface $priceProductTableRowMatcher,
@@ -172,11 +167,6 @@ class PriceProductValidationMapper implements PriceProductValidationMapperInterf
         return null;
     }
 
-    /**
-     * @param int $propertyPathCount
-     *
-     * @return bool
-     */
     protected function isColumnError(int $propertyPathCount): bool
     {
         return $propertyPathCount > 1 && $propertyPathCount !== 5;

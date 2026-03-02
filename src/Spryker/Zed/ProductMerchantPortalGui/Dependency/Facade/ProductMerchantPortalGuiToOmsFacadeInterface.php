@@ -12,10 +12,5 @@ use Generated\Shared\Transfer\ReservationResponseTransfer;
 
 interface ProductMerchantPortalGuiToOmsFacadeInterface
 {
-    /**
-     * @param \Generated\Shared\Transfer\ReservationRequestTransfer $reservationRequestTransfer
-     *
-     * @return \Generated\Shared\Transfer\ReservationResponseTransfer
-     */
     public function getOmsReservedProductQuantity(ReservationRequestTransfer $reservationRequestTransfer): ReservationResponseTransfer;
 }

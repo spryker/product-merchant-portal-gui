@@ -200,12 +200,6 @@ class ProductAbstractAttributeGuiTableConfigurationProvider implements ProductAb
      */
     protected ProductAttributeGrouperInterface $productAttributeGrouper;
 
-    /**
-     * @param \Spryker\Shared\GuiTable\GuiTableFactoryInterface $guiTableFactory
-     * @param \Spryker\Zed\ProductMerchantPortalGui\Dependency\Facade\ProductMerchantPortalGuiToProductAttributeFacadeInterface $productAttributeFacade
-     * @param \Spryker\Zed\ProductMerchantPortalGui\Dependency\Facade\ProductMerchantPortalGuiToProductFacadeInterface $productFacade
-     * @param \Spryker\Zed\ProductMerchantPortalGui\Communication\Grouper\ProductAttributeGrouperInterface $productAttributeGrouper
-     */
     public function __construct(
         GuiTableFactoryInterface $guiTableFactory,
         ProductMerchantPortalGuiToProductAttributeFacadeInterface $productAttributeFacade,
@@ -471,11 +465,6 @@ class ProductAbstractAttributeGuiTableConfigurationProvider implements ProductAb
         return $guiTableConfigurationBuilder;
     }
 
-    /**
-     * @param \Spryker\Shared\GuiTable\Configuration\Builder\GuiTableConfigurationBuilderInterface $guiTableConfigurationBuilder
-     *
-     * @return \Spryker\Shared\GuiTable\Configuration\Builder\GuiTableConfigurationBuilderInterface
-     */
     protected function addRowActions(GuiTableConfigurationBuilderInterface $guiTableConfigurationBuilder): GuiTableConfigurationBuilderInterface
     {
         $guiTableConfigurationBuilder->addRowActionHttp(
@@ -487,11 +476,6 @@ class ProductAbstractAttributeGuiTableConfigurationProvider implements ProductAb
         return $guiTableConfigurationBuilder;
     }
 
-    /**
-     * @param string $action
-     *
-     * @return string
-     */
     protected function getAttributeActionUrl(string $action): string
     {
         return sprintf(

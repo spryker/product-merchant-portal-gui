@@ -11,21 +11,11 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class MerchantProductNotFoundException extends NotFoundHttpException
 {
-    /**
-     * @param int $idMerchant
-     * @param int $idProductAbstract
-     */
     public function __construct(int $idMerchant, int $idProductAbstract)
     {
         parent::__construct($this->buildMessage($idMerchant, $idProductAbstract));
     }
 
-    /**
-     * @param int $idMerchant
-     * @param int $idProductAbstract
-     *
-     * @return string
-     */
     protected function buildMessage(int $idMerchant, int $idProductAbstract): string
     {
         return sprintf(

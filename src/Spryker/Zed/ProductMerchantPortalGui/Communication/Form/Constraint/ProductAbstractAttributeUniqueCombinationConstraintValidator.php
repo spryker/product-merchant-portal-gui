@@ -88,9 +88,6 @@ class ProductAbstractAttributeUniqueCombinationConstraintValidator extends Const
         }
     }
 
-    /**
-     * @return \Spryker\Shared\Kernel\Transfer\AbstractTransfer
-     */
     protected function getParentFormData(): AbstractTransfer
     {
         /** @var \Symfony\Component\Form\Form $form */

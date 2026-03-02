@@ -16,17 +16,11 @@ class UniqueAbstractSkuConstraint extends SymfonyConstraint
      */
     protected const MESSAGE = 'SKU Prefix already exists';
 
-    /**
-     * @return string
-     */
     public function getMessage(): string
     {
         return static::MESSAGE;
     }
 
-    /**
-     * @return string
-     */
     public function getTargets(): string
     {
         return static::CLASS_CONSTRAINT;

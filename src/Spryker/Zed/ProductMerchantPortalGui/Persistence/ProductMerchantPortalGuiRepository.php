@@ -83,11 +83,6 @@ class ProductMerchantPortalGuiRepository extends AbstractRepository implements P
      */
     protected const RELATION_LOCALE_FALLBACK = 'locale_fallback';
 
-    /**
-     * @param \Generated\Shared\Transfer\MerchantProductTableCriteriaTransfer $merchantProductTableCriteriaTransfer
-     *
-     * @return \Generated\Shared\Transfer\ProductAbstractCollectionTransfer
-     */
     public function getProductAbstractTableData(
         MerchantProductTableCriteriaTransfer $merchantProductTableCriteriaTransfer
     ): ProductAbstractCollectionTransfer {
@@ -189,11 +184,6 @@ class ProductMerchantPortalGuiRepository extends AbstractRepository implements P
         return $merchantProductAbstractPropelQuery;
     }
 
-    /**
-     * @param int $idLocale
-     *
-     * @return string
-     */
     protected function createProductImagesSubquery(int $idLocale): string
     {
         /** @var literal-string $where */
@@ -219,9 +209,6 @@ class ProductMerchantPortalGuiRepository extends AbstractRepository implements P
         return $productImagesSubquery->createSelectSql($params);
     }
 
-    /**
-     * @return string
-     */
     protected function createProductsCountSubquery(): string
     {
         $params = [];
@@ -235,9 +222,6 @@ class ProductMerchantPortalGuiRepository extends AbstractRepository implements P
         return $productQuery->createSelectSql($params);
     }
 
-    /**
-     * @return string
-     */
     protected function createActiveProductsCountSubquery(): string
     {
         $params = [];
@@ -252,9 +236,6 @@ class ProductMerchantPortalGuiRepository extends AbstractRepository implements P
         return $productQuery->createSelectSql($params);
     }
 
-    /**
-     * @return string
-     */
     protected function createProductAbstractStoresSubquery(): string
     {
         $productStoresSubquery = $this->getFactory()->getStorePropelQuery()
@@ -266,11 +247,6 @@ class ProductMerchantPortalGuiRepository extends AbstractRepository implements P
         return $productStoresSubquery->createSelectSql($params);
     }
 
-    /**
-     * @param int $idLocale
-     *
-     * @return string
-     */
     protected function createProductAbstractCategoriesSubquery(int $idLocale): string
     {
         /** @var \Orm\Zed\ProductCategory\Persistence\SpyProductCategoryQuery $productStoresSubquery */
@@ -295,9 +271,6 @@ class ProductMerchantPortalGuiRepository extends AbstractRepository implements P
         return $productStoresSubquery->createSelectSql($params);
     }
 
-    /**
-     * @return string
-     */
     protected function createProductAttributesSubquery(): string
     {
         $productQuery = $this->getFactory()->getProductConcretePropelQuery()
@@ -340,12 +313,6 @@ class ProductMerchantPortalGuiRepository extends AbstractRepository implements P
         return $merchantProductAbstractQuery;
     }
 
-    /**
-     * @param \Propel\Runtime\ActiveQuery\Criteria $criteria
-     * @param string $searchTerm
-     *
-     * @return \Propel\Runtime\ActiveQuery\Criterion\LikeCriterion
-     */
     protected function getProductAbstractNameSearchCriteria(Criteria $criteria, string $searchTerm): LikeCriterion
     {
         /** @var \Propel\Runtime\ActiveQuery\Criterion\LikeCriterion $likeCriterion */
@@ -358,12 +325,6 @@ class ProductMerchantPortalGuiRepository extends AbstractRepository implements P
         return $likeCriterion->setIgnoreCase(true);
     }
 
-    /**
-     * @param \Propel\Runtime\ActiveQuery\Criteria $criteria
-     * @param string $searchTerm
-     *
-     * @return \Propel\Runtime\ActiveQuery\Criterion\LikeCriterion
-     */
     protected function getProductAbstractSkuSearchCriteria(Criteria $criteria, string $searchTerm): LikeCriterion
     {
         /** @var \Propel\Runtime\ActiveQuery\Criterion\LikeCriterion $likeCriterion */
@@ -558,11 +519,6 @@ class ProductMerchantPortalGuiRepository extends AbstractRepository implements P
         return $merchantProductAbstractQuery;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ProductTableCriteriaTransfer $productTableCriteriaTransfer
-     *
-     * @return \Generated\Shared\Transfer\ProductConcreteCollectionTransfer
-     */
     public function getProductTableData(ProductTableCriteriaTransfer $productTableCriteriaTransfer): ProductConcreteCollectionTransfer
     {
         /** @var \Generated\Shared\Transfer\LocaleTransfer $localeTransfer */
@@ -683,12 +639,6 @@ class ProductMerchantPortalGuiRepository extends AbstractRepository implements P
         return $productConcreteQuery->addAnd($productNameSearchCriterion);
     }
 
-    /**
-     * @param \Propel\Runtime\ActiveQuery\Criteria $criteria
-     * @param string $searchTerm
-     *
-     * @return \Propel\Runtime\ActiveQuery\Criterion\LikeCriterion
-     */
     protected function getProductConcreteNameSearchCriteria(Criteria $criteria, string $searchTerm): LikeCriterion
     {
         /** @var \Propel\Runtime\ActiveQuery\Criterion\LikeCriterion $likeCriterion */
@@ -701,12 +651,6 @@ class ProductMerchantPortalGuiRepository extends AbstractRepository implements P
         return $likeCriterion->setIgnoreCase(true);
     }
 
-    /**
-     * @param \Propel\Runtime\ActiveQuery\Criteria $criteria
-     * @param string $searchTerm
-     *
-     * @return \Propel\Runtime\ActiveQuery\Criterion\LikeCriterion
-     */
     protected function getProductConcreteSkuSearchCriteria(Criteria $criteria, string $searchTerm): LikeCriterion
     {
         /** @var \Propel\Runtime\ActiveQuery\Criterion\LikeCriterion $likeCriterion */

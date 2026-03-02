@@ -25,11 +25,6 @@ class ProductMerchantPortalGuiToProductAttributeFacadeBridge implements ProductM
         $this->productAttributeFacade = $productAttributeFacade;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ProductManagementAttributeFilterTransfer $productManagementAttributeFilterTransfer
-     *
-     * @return \Generated\Shared\Transfer\ProductManagementAttributeCollectionTransfer
-     */
     public function getProductManagementAttributes(
         ProductManagementAttributeFilterTransfer $productManagementAttributeFilterTransfer
     ): ProductManagementAttributeCollectionTransfer {

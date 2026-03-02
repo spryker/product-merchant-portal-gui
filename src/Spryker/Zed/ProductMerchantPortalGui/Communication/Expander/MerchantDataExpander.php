@@ -17,19 +17,11 @@ class MerchantDataExpander implements MerchantDataExpanderInterface
      */
     protected ProductMerchantPortalGuiToMerchantUserFacadeInterface $merchantUserFacade;
 
-    /**
-     * @param \Spryker\Zed\ProductMerchantPortalGui\Dependency\Facade\ProductMerchantPortalGuiToMerchantUserFacadeInterface $merchantUserFacade
-     */
     public function __construct(ProductMerchantPortalGuiToMerchantUserFacadeInterface $merchantUserFacade)
     {
         $this->merchantUserFacade = $merchantUserFacade;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ProductAbstractTransfer $productAbstractTransfer
-     *
-     * @return \Generated\Shared\Transfer\ProductAbstractTransfer
-     */
     public function expandProductAbstractWithMerchantData(ProductAbstractTransfer $productAbstractTransfer): ProductAbstractTransfer
     {
         $merchantUserTransfer = $this->merchantUserFacade->getCurrentMerchantUser();

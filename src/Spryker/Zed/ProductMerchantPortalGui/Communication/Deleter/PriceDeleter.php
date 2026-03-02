@@ -44,11 +44,6 @@ class PriceDeleter implements PriceDeleterInterface
      */
     protected PriceProductMapperInterface $priceProductMapper;
 
-    /**
-     * @param \Spryker\Zed\ProductMerchantPortalGui\Dependency\Facade\ProductMerchantPortalGuiToPriceProductFacadeInterface $priceProductFacade
-     * @param \Spryker\Zed\ProductMerchantPortalGui\Dependency\Service\ProductMerchantPortalGuiToPriceProductVolumeServiceInterface $priceProductVolumeService
-     * @param \Spryker\Zed\ProductMerchantPortalGui\Communication\Mapper\PriceProductMapperInterface $priceProductMapper
-     */
     public function __construct(
         ProductMerchantPortalGuiToPriceProductFacadeInterface $priceProductFacade,
         ProductMerchantPortalGuiToPriceProductVolumeServiceInterface $priceProductVolumeService,
@@ -101,12 +96,6 @@ class PriceDeleter implements PriceDeleterInterface
         return $validationResponseTransfer;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\PriceProductTransfer $priceProductTransfer
-     * @param \Generated\Shared\Transfer\ValidationResponseTransfer $validationResponseTransfer
-     *
-     * @return \Generated\Shared\Transfer\ValidationResponseTransfer
-     */
     protected function validatePriceProduct(
         PriceProductTransfer $priceProductTransfer,
         ValidationResponseTransfer $validationResponseTransfer

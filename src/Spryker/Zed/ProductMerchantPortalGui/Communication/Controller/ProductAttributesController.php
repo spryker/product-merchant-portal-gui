@@ -88,11 +88,6 @@ class ProductAttributesController extends AbstractController
      */
     protected const INPUT_TYPE_MULTISELECT = 'multiselect';
 
-    /**
-     * @param \Symfony\Component\HttpFoundation\Request $request
-     *
-     * @return \Symfony\Component\HttpFoundation\Response
-     */
     public function attributeDataAction(Request $request): Response
     {
         $inputType = GuiTableConfigurationBuilderInterface::COLUMN_TYPE_AUTOCOMPLETE;
@@ -122,11 +117,6 @@ class ProductAttributesController extends AbstractController
         return new JsonResponse(['type' => $inputType, 'typeOptions' => $typeOptions]);
     }
 
-    /**
-     * @param \Symfony\Component\HttpFoundation\Request $request
-     *
-     * @return \Symfony\Component\HttpFoundation\JsonResponse
-     */
     public function saveAction(Request $request): JsonResponse
     {
         $attributeName = $request->get(static::PARAM_ATTRIBUTE_NAME);
@@ -156,11 +146,6 @@ class ProductAttributesController extends AbstractController
         return $this->createSuccessJsonResponse(static::RESPONSE_NOTIFICATION_MESSAGE_UPDATE_SUCCESS);
     }
 
-    /**
-     * @param \Symfony\Component\HttpFoundation\Request $request
-     *
-     * @return \Symfony\Component\HttpFoundation\JsonResponse
-     */
     public function saveProductConcreteAttributeAction(Request $request): JsonResponse
     {
         $attributeName = $request->get(static::PARAM_ATTRIBUTE_NAME);
@@ -196,11 +181,6 @@ class ProductAttributesController extends AbstractController
         return $this->createSuccessJsonResponse(static::RESPONSE_NOTIFICATION_MESSAGE_UPDATE_SUCCESS);
     }
 
-    /**
-     * @param \Symfony\Component\HttpFoundation\Request $request
-     *
-     * @return \Symfony\Component\HttpFoundation\JsonResponse
-     */
     public function deleteAction(Request $request): JsonResponse
     {
         $attributeName = $request->get(static::PARAM_ATTRIBUTE_NAME);
@@ -226,11 +206,6 @@ class ProductAttributesController extends AbstractController
         return $this->createSuccessJsonResponse(static::RESPONSE_NOTIFICATION_MESSAGE_DELETE_SUCCESS);
     }
 
-    /**
-     * @param \Symfony\Component\HttpFoundation\Request $request
-     *
-     * @return \Symfony\Component\HttpFoundation\JsonResponse
-     */
     public function deleteConcreteProductAttributeAction(Request $request): JsonResponse
     {
         $attributeName = $request->get(static::PARAM_ATTRIBUTE_NAME);
@@ -275,11 +250,6 @@ class ProductAttributesController extends AbstractController
         return $this->createSuccessJsonResponse(static::RESPONSE_NOTIFICATION_MESSAGE_DELETE_SUCCESS);
     }
 
-    /**
-     * @param \Symfony\Component\HttpFoundation\Request $request
-     *
-     * @return \Symfony\Component\HttpFoundation\Response
-     */
     public function tableDataAction(Request $request): Response
     {
         $productAbstractTransfer = $this->findProductAbstract($request);
@@ -300,11 +270,6 @@ class ProductAttributesController extends AbstractController
             ->execute($request, $guiTableDataProvider, $guiTableConfigurationTransfer);
     }
 
-    /**
-     * @param \Symfony\Component\HttpFoundation\Request $request
-     *
-     * @return \Symfony\Component\HttpFoundation\Response
-     */
     public function concreteTableDataAction(Request $request): Response
     {
         $idProductConcrete = $this->castId(
@@ -350,11 +315,6 @@ class ProductAttributesController extends AbstractController
         return $localizedAttributesTransfers;
     }
 
-    /**
-     * @param \Symfony\Component\HttpFoundation\Request $request
-     *
-     * @return \Generated\Shared\Transfer\ProductAbstractTransfer|null
-     */
     protected function findProductAbstract(Request $request): ?ProductAbstractTransfer
     {
         $idProductAbstract = $this->castId($request->get(static::PARAM_ID_PRODUCT_ABSTRACT));
@@ -465,11 +425,6 @@ class ProductAttributesController extends AbstractController
         return $options;
     }
 
-    /**
-     * @param string $attributeName
-     *
-     * @return \Generated\Shared\Transfer\ProductManagementAttributeTransfer|null
-     */
     protected function findProductManagementAttribute(string $attributeName): ?ProductManagementAttributeTransfer
     {
         $result = null;
@@ -537,11 +492,6 @@ class ProductAttributesController extends AbstractController
         return false;
     }
 
-    /**
-     * @param string $message
-     *
-     * @return \Symfony\Component\HttpFoundation\JsonResponse
-     */
     protected function createSuccessJsonResponse(string $message): JsonResponse
     {
         $zedUiFormResponseTransfer = $this->getFactory()
@@ -554,11 +504,6 @@ class ProductAttributesController extends AbstractController
         return new JsonResponse($zedUiFormResponseTransfer->toArray());
     }
 
-    /**
-     * @param string $message
-     *
-     * @return \Symfony\Component\HttpFoundation\JsonResponse
-     */
     protected function createErrorJsonResponse(string $message): JsonResponse
     {
         $zedUiFormResponseTransfer = $this->getFactory()

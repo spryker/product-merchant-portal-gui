@@ -21,9 +21,6 @@ class ProductAttributesMapper implements ProductAttributesMapperInterface
      */
     protected ProductAttributeDataProviderInterface $productAttributeDataProvider;
 
-    /**
-     * @param \Spryker\Zed\ProductMerchantPortalGui\Communication\DataProvider\ProductAttributeDataProviderInterface $productAttributeDataProvider
-     */
     public function __construct(
         ProductAttributeDataProviderInterface $productAttributeDataProvider
     ) {

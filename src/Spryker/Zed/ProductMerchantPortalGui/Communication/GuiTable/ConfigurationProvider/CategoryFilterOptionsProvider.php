@@ -33,11 +33,6 @@ class CategoryFilterOptionsProvider implements CategoryFilterOptionsProviderInte
      */
     protected ProductMerchantPortalGuiConfig $productMerchantPortalGuiConfig;
 
-    /**
-     * @param \Spryker\Zed\ProductMerchantPortalGui\Dependency\Facade\ProductMerchantPortalGuiToCategoryFacadeInterface $categoryFacade
-     * @param \Spryker\Zed\ProductMerchantPortalGui\Dependency\Facade\ProductMerchantPortalGuiToLocaleFacadeInterface $localeFacade
-     * @param \Spryker\Zed\ProductMerchantPortalGui\ProductMerchantPortalGuiConfig $productMerchantPortalGuiConfig
-     */
     public function __construct(
         ProductMerchantPortalGuiToCategoryFacadeInterface $categoryFacade,
         ProductMerchantPortalGuiToLocaleFacadeInterface $localeFacade,
@@ -87,11 +82,6 @@ class CategoryFilterOptionsProvider implements CategoryFilterOptionsProviderInte
         return $categoryOptionTree;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\CategoryTransfer $categoryTransfer
-     *
-     * @return \Generated\Shared\Transfer\NodeCollectionTransfer
-     */
     protected function getCategoryChildNodeCollection(CategoryTransfer $categoryTransfer): NodeCollectionTransfer
     {
         $categoryNodeCollectionTransfer = $categoryTransfer->getNodeCollection();
@@ -102,9 +92,6 @@ class CategoryFilterOptionsProvider implements CategoryFilterOptionsProviderInte
         return $categoryNodeCollectionTransfer->getNodes()->offsetGet(0)->getChildrenNodes() ?? new NodeCollectionTransfer();
     }
 
-    /**
-     * @return \Generated\Shared\Transfer\CategoryTransfer|null
-     */
     protected function findCategory(): ?CategoryTransfer
     {
         $categoryCriteriaTransfer = (new CategoryCriteriaTransfer())

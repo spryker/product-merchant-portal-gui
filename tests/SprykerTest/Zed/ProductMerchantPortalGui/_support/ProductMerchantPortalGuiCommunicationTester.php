@@ -128,9 +128,6 @@ class ProductMerchantPortalGuiCommunicationTester extends Actor
         );
     }
 
-    /**
-     * @return \Spryker\Zed\ProductMerchantPortalGui\Dependency\Facade\ProductMerchantPortalGuiToPriceProductFacadeInterface
-     */
     protected function createProductMerchantPortalGuiToPriceProductFacadeBridge(): ProductMerchantPortalGuiToPriceProductFacadeInterface
     {
         return new ProductMerchantPortalGuiToPriceProductFacadeBridge(
@@ -138,9 +135,6 @@ class ProductMerchantPortalGuiCommunicationTester extends Actor
         );
     }
 
-    /**
-     * @return \Spryker\Zed\ProductMerchantPortalGui\Dependency\Facade\ProductMerchantPortalGuiToCurrencyFacadeInterface
-     */
     protected function createProductMerchantPortalGuiToCurrencyFacadeBridge(): ProductMerchantPortalGuiToCurrencyFacadeInterface
     {
         return new ProductMerchantPortalGuiToCurrencyFacadeBridge(
@@ -148,9 +142,6 @@ class ProductMerchantPortalGuiCommunicationTester extends Actor
         );
     }
 
-    /**
-     * @return \Spryker\Zed\ProductMerchantPortalGui\Dependency\Facade\ProductMerchantPortalGuiToMoneyFacadeInterface
-     */
     protected function createProductMerchantPortalGuiToMoneyFacadeBridge(): ProductMerchantPortalGuiToMoneyFacadeInterface
     {
         return new ProductMerchantPortalGuiToMoneyFacadeBridge(
@@ -158,9 +149,6 @@ class ProductMerchantPortalGuiCommunicationTester extends Actor
         );
     }
 
-    /**
-     * @return \Spryker\Zed\ProductMerchantPortalGui\Dependency\Service\ProductMerchantPortalGuiToUtilEncodingServiceInterface
-     */
     protected function createProductMerchantPortalGuiToUtilEncodingServiceBridge(): ProductMerchantPortalGuiToUtilEncodingServiceInterface
     {
         return new ProductMerchantPortalGuiToUtilEncodingServiceBridge(
@@ -168,17 +156,11 @@ class ProductMerchantPortalGuiCommunicationTester extends Actor
         );
     }
 
-    /**
-     * @return \Spryker\Zed\ProductMerchantPortalGui\Communication\Mapper\Merger\PriceProductMergerInterface
-     */
     protected function createPriceProductMerger(): PriceProductMergerInterface
     {
         return new PriceProductMerger([]);
     }
 
-    /**
-     * @return \Spryker\Zed\ProductMerchantPortalGuiExtension\Dependency\Plugin\PriceProductMapperPluginInterface
-     */
     public function createSetIdProductAbstractPriceProductMapperPluginMock(): PriceProductMapperPluginInterface
     {
         return Stub::makeEmpty(
@@ -195,9 +177,6 @@ class ProductMerchantPortalGuiCommunicationTester extends Actor
         );
     }
 
-    /**
-     * @return \Spryker\Zed\ProductMerchantPortalGui\Dependency\Facade\ProductMerchantPortalGuiToPriceProductFacadeBridge
-     */
     public function createPriceProductFacadeMock(): ProductMerchantPortalGuiToPriceProductFacadeBridge
     {
         $fakePriceTypes = $this->getFakePriceTypes();
@@ -223,9 +202,6 @@ class ProductMerchantPortalGuiCommunicationTester extends Actor
         return Stub::make(ProductMerchantPortalGuiToPriceProductFacadeBridge::class, $mockedMethods);
     }
 
-    /**
-     * @return \Spryker\Zed\ProductMerchantPortalGui\Dependency\Facade\ProductMerchantPortalGuiToCurrencyFacadeBridge
-     */
     public function createCurrencyFacadeMock(): ProductMerchantPortalGuiToCurrencyFacadeBridge
     {
         $currencies = $this->getFakeCurrencies();
@@ -283,9 +259,6 @@ class ProductMerchantPortalGuiCommunicationTester extends Actor
         );
     }
 
-    /**
-     * @return \Spryker\Zed\ProductMerchantPortalGui\Communication\ProductMerchantPortalGuiCommunicationFactory
-     */
     public function createProductMerchantPortalGuiCommunicationFactoryMock(): ProductMerchantPortalGuiCommunicationFactory
     {
         $currencyFacade = $this->createCurrencyFacadeMock();
@@ -307,11 +280,6 @@ class ProductMerchantPortalGuiCommunicationTester extends Actor
         );
     }
 
-    /**
-     * @param int $priceValue
-     *
-     * @return \Generated\Shared\Transfer\PriceProductTransfer
-     */
     public function createFakePriceProductTransfer(int $priceValue): PriceProductTransfer
     {
         $priceTypeDefault = $this->getFakePriceTypes()[0];
@@ -332,9 +300,6 @@ class ProductMerchantPortalGuiCommunicationTester extends Actor
         return $priceProductTransfer;
     }
 
-    /**
-     * @return \Generated\Shared\Transfer\PriceProductDimensionTransfer
-     */
     public function createFakePriceDimensionTransfer(): PriceProductDimensionTransfer
     {
         return (new PriceProductDimensionTransfer())
@@ -524,11 +489,6 @@ class ProductMerchantPortalGuiCommunicationTester extends Actor
         return $moneyValueBuilder;
     }
 
-    /**
-     * @param \Spryker\Zed\ProductMerchantPortalGui\Dependency\Facade\ProductMerchantPortalGuiToPriceProductFacadeInterface $priceProductFacade
-     *
-     * @return \Spryker\Zed\ProductMerchantPortalGui\Communication\Reader\PriceProductReaderInterface
-     */
     public function createPriceProductReader(
         ProductMerchantPortalGuiToPriceProductFacadeInterface $priceProductFacade
     ): PriceProductReaderInterface {

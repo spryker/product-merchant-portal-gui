@@ -26,10 +26,6 @@ class ProductStockExpander implements ProductStockExpanderInterface
      */
     protected ProductMerchantPortalGuiToMerchantUserFacadeInterface $merchantUserFacade;
 
-    /**
-     * @param \Spryker\Zed\ProductMerchantPortalGui\Dependency\Facade\ProductMerchantPortalGuiToMerchantStockFacadeInterface $merchantStockFacade
-     * @param \Spryker\Zed\ProductMerchantPortalGui\Dependency\Facade\ProductMerchantPortalGuiToMerchantUserFacadeInterface $merchantUserFacade
-     */
     public function __construct(
         ProductMerchantPortalGuiToMerchantStockFacadeInterface $merchantStockFacade,
         ProductMerchantPortalGuiToMerchantUserFacadeInterface $merchantUserFacade

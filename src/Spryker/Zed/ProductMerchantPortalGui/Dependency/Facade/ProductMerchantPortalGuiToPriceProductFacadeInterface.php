@@ -21,11 +21,6 @@ interface ProductMerchantPortalGuiToPriceProductFacadeInterface
      */
     public function getPriceTypeValues(): array;
 
-    /**
-     * @param \Generated\Shared\Transfer\PriceProductTransfer $priceProductTransfer
-     *
-     * @return \Generated\Shared\Transfer\PriceProductTransfer
-     */
     public function persistPriceProductStore(PriceProductTransfer $priceProductTransfer): PriceProductTransfer;
 
     /**
@@ -83,11 +78,6 @@ interface ProductMerchantPortalGuiToPriceProductFacadeInterface
         ?PriceProductCriteriaTransfer $priceProductCriteriaTransfer = null
     ): array;
 
-    /**
-     * @param \Generated\Shared\Transfer\PriceProductCollectionDeleteCriteriaTransfer $priceProductCollectionDeleteCriteriaTransfer
-     *
-     * @return \Generated\Shared\Transfer\PriceProductCollectionResponseTransfer
-     */
     public function deletePriceProductCollection(
         PriceProductCollectionDeleteCriteriaTransfer $priceProductCollectionDeleteCriteriaTransfer
     ): PriceProductCollectionResponseTransfer;

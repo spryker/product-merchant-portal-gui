@@ -54,14 +54,6 @@ class ProductAbstractFormDataProvider implements ProductAbstractFormDataProvider
      */
     protected ProductMerchantPortalGuiConfig $productMerchantPortalGuiConfig;
 
-    /**
-     * @param \Spryker\Zed\ProductMerchantPortalGui\Dependency\Facade\ProductMerchantPortalGuiToMerchantProductFacadeInterface $merchantProductFacade
-     * @param \Spryker\Zed\ProductMerchantPortalGui\Dependency\Facade\ProductMerchantPortalGuiToMerchantUserFacadeInterface $merchantUserFacade
-     * @param \Spryker\Zed\ProductMerchantPortalGui\Dependency\Facade\ProductMerchantPortalGuiToCategoryFacadeInterface $categoryFacade
-     * @param \Spryker\Zed\ProductMerchantPortalGui\Dependency\Facade\ProductMerchantPortalGuiToLocaleFacadeInterface $localeFacade
-     * @param \Spryker\Zed\ProductMerchantPortalGui\Dependency\Facade\ProductMerchantPortalGuiToProductCategoryFacadeInterface $productCategoryFacade
-     * @param \Spryker\Zed\ProductMerchantPortalGui\ProductMerchantPortalGuiConfig $productMerchantPortalGuiConfig
-     */
     public function __construct(
         ProductMerchantPortalGuiToMerchantProductFacadeInterface $merchantProductFacade,
         ProductMerchantPortalGuiToMerchantUserFacadeInterface $merchantUserFacade,
@@ -78,12 +70,6 @@ class ProductAbstractFormDataProvider implements ProductAbstractFormDataProvider
         $this->productMerchantPortalGuiConfig = $productMerchantPortalGuiConfig;
     }
 
-    /**
-     * @param int $idProductAbstract
-     * @param int $idMerchant
-     *
-     * @return \Generated\Shared\Transfer\MerchantProductTransfer|null
-     */
     public function findMerchantProduct(int $idProductAbstract, int $idMerchant): ?MerchantProductTransfer
     {
         $merchantProductTransfer = $this->merchantProductFacade->findMerchantProduct(
@@ -189,11 +175,6 @@ class ProductAbstractFormDataProvider implements ProductAbstractFormDataProvider
         return $categoryTreeArray;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ProductAbstractTransfer $productAbstractTransfer
-     *
-     * @return \Generated\Shared\Transfer\ProductAbstractTransfer
-     */
     protected function expandProductAbstractWithCategoryIds(
         ProductAbstractTransfer $productAbstractTransfer
     ): ProductAbstractTransfer {
@@ -232,11 +213,6 @@ class ProductAbstractFormDataProvider implements ProductAbstractFormDataProvider
         return $categoryIds;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\CategoryTransfer $categoryTransfer
-     *
-     * @return \Generated\Shared\Transfer\NodeCollectionTransfer
-     */
     protected function getCategoryChildNodeCollection(CategoryTransfer $categoryTransfer): NodeCollectionTransfer
     {
         $categoryNodeCollectionTransfer = $categoryTransfer->getNodeCollection();

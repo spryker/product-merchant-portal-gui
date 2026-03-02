@@ -11,10 +11,5 @@ use Generated\Shared\Transfer\GuiTableConfigurationTransfer;
 
 interface ProductGuiTableConfigurationProviderInterface
 {
-    /**
-     * @param int|null $idProductAbstract
-     *
-     * @return \Generated\Shared\Transfer\GuiTableConfigurationTransfer
-     */
     public function getConfiguration(?int $idProductAbstract = null): GuiTableConfigurationTransfer;
 }

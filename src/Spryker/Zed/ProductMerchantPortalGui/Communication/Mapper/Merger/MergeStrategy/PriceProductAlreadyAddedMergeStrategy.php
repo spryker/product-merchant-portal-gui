@@ -100,12 +100,6 @@ class PriceProductAlreadyAddedMergeStrategy extends AbstractPriceProductMergeStr
         return false;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\PriceProductTransfer $priceProductTransfer
-     * @param \Generated\Shared\Transfer\PriceProductTransfer $priceProductToCompareTransfer
-     *
-     * @return bool
-     */
     protected function isMergeablePrices(
         PriceProductTransfer $priceProductTransfer,
         PriceProductTransfer $priceProductToCompareTransfer
@@ -124,12 +118,6 @@ class PriceProductAlreadyAddedMergeStrategy extends AbstractPriceProductMergeStr
             || $this->hasMergeableGrossPrice($moneyValueTransfer, $moneyValueToCompareTransfer);
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\MoneyValueTransfer $moneyValueTransfer
-     * @param \Generated\Shared\Transfer\MoneyValueTransfer $moneyValueToCompareTransfer
-     *
-     * @return bool
-     */
     protected function hasMergeableNetPrice(
         MoneyValueTransfer $moneyValueTransfer,
         MoneyValueTransfer $moneyValueToCompareTransfer
@@ -141,12 +129,6 @@ class PriceProductAlreadyAddedMergeStrategy extends AbstractPriceProductMergeStr
         return !$moneyValueTransfer->getNetAmount() && $moneyValueToCompareTransfer->getNetAmount();
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\MoneyValueTransfer $moneyValueTransfer
-     * @param \Generated\Shared\Transfer\MoneyValueTransfer $moneyValueToCompareTransfer
-     *
-     * @return bool
-     */
     protected function hasMergeableGrossPrice(
         MoneyValueTransfer $moneyValueTransfer,
         MoneyValueTransfer $moneyValueToCompareTransfer

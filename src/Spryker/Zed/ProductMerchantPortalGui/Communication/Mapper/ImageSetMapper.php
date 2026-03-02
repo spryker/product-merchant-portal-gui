@@ -111,11 +111,6 @@ class ImageSetMapper implements ImageSetMapperInterface
         return $source;
     }
 
-    /**
-     * @param \Symfony\Component\Form\FormError $error
-     *
-     * @return string|null
-     */
     protected function getPropertyPath(FormError $error): ?string
     {
         $propertyPath = $error->getCause()->getPropertyPath();

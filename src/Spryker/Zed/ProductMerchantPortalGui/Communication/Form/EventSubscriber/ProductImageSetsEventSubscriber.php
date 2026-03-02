@@ -68,11 +68,6 @@ class ProductImageSetsEventSubscriber implements EventSubscriberInterface
         ];
     }
 
-    /**
-     * @param \Symfony\Component\Form\FormEvent $event
-     *
-     * @return void
-     */
     public function onPreSubmit(FormEvent $event): void
     {
         $product = $event->getData();

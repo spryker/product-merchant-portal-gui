@@ -21,25 +21,16 @@ class UniqueSkuInProductConcreteCollectionConstraint extends SymfonyConstraint
      */
     protected const MESSAGE_VALUE_EXISTS = 'This value already exists.';
 
-    /**
-     * @return string
-     */
     public function getMessageValueUnique(): string
     {
         return static::MESSAGE_VALUE_UNIQUE;
     }
 
-    /**
-     * @return string
-     */
     public function getMessageValueExists(): string
     {
         return static::MESSAGE_VALUE_EXISTS;
     }
 
-    /**
-     * @return string
-     */
     public function getTargets(): string
     {
         return static::CLASS_CONSTRAINT;

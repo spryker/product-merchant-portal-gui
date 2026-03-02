@@ -168,11 +168,6 @@ class ProductConcreteAttributeGuiTableConfigurationProvider implements ProductCo
      */
     protected ProductMerchantPortalGuiToProductFacadeInterface $productFacade;
 
-    /**
-     * @param \Spryker\Shared\GuiTable\GuiTableFactoryInterface $guiTableFactory
-     * @param \Spryker\Zed\ProductMerchantPortalGui\Dependency\Facade\ProductMerchantPortalGuiToProductAttributeFacadeInterface $productAttributeFacade
-     * @param \Spryker\Zed\ProductMerchantPortalGui\Dependency\Facade\ProductMerchantPortalGuiToProductFacadeInterface $productFacade
-     */
     public function __construct(
         GuiTableFactoryInterface $guiTableFactory,
         ProductMerchantPortalGuiToProductAttributeFacadeInterface $productAttributeFacade,
@@ -294,11 +289,6 @@ class ProductConcreteAttributeGuiTableConfigurationProvider implements ProductCo
         return $guiTableConfigurationBuilder;
     }
 
-    /**
-     * @param \Spryker\Shared\GuiTable\Configuration\Builder\GuiTableConfigurationBuilderInterface $guiTableConfigurationBuilder
-     *
-     * @return \Spryker\Shared\GuiTable\Configuration\Builder\GuiTableConfigurationBuilderInterface
-     */
     protected function addRowActions(GuiTableConfigurationBuilderInterface $guiTableConfigurationBuilder): GuiTableConfigurationBuilderInterface
     {
         $guiTableConfigurationBuilder->addRowActionHttp(
@@ -310,11 +300,6 @@ class ProductConcreteAttributeGuiTableConfigurationProvider implements ProductCo
         return $guiTableConfigurationBuilder;
     }
 
-    /**
-     * @param string $action
-     *
-     * @return string
-     */
     protected function getAttributeActionUrl(string $action): string
     {
         return sprintf(

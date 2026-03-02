@@ -59,9 +59,6 @@ class PriceProductReaderTest extends Unit
         $priceProductReader->getPriceProductsWithoutPriceExtraction($priceProductCriteriaTransfer);
     }
 
-    /**
-     * @return void
-     */
     public function testGetPriceProductsWithoutPriceExtractionCallsPriceProductFacadeWithAllMerchantPricesParam(): void
     {
         // Arrange

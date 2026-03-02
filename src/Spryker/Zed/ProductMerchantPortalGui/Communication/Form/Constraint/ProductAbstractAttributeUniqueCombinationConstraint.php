@@ -39,11 +39,6 @@ class ProductAbstractAttributeUniqueCombinationConstraint extends Constraint
      */
     protected ProductMerchantPortalGuiToTranslatorFacadeInterface $translatorFacade;
 
-    /**
-     * @param \Spryker\Zed\ProductMerchantPortalGui\Dependency\Facade\ProductMerchantPortalGuiToProductAttributeFacadeInterface $productAttributeFacade
-     * @param \Spryker\Zed\ProductMerchantPortalGui\Dependency\Facade\ProductMerchantPortalGuiToProductFacadeInterface $productFacade
-     * @param \Spryker\Zed\ProductMerchantPortalGui\Dependency\Facade\ProductMerchantPortalGuiToTranslatorFacadeInterface $translatorFacade
-     */
     public function __construct(
         ProductMerchantPortalGuiToProductAttributeFacadeInterface $productAttributeFacade,
         ProductMerchantPortalGuiToProductFacadeInterface $productFacade,
@@ -56,27 +51,16 @@ class ProductAbstractAttributeUniqueCombinationConstraint extends Constraint
         $this->translatorFacade = $translatorFacade;
     }
 
-    /**
-     * @return \Spryker\Zed\ProductMerchantPortalGui\Dependency\Facade\ProductMerchantPortalGuiToProductAttributeFacadeInterface
-     */
     public function getProductAttributeFacade(): ProductMerchantPortalGuiToProductAttributeFacadeInterface
     {
         return $this->productAttributeFacade;
     }
 
-    /**
-     * @return \Spryker\Zed\ProductMerchantPortalGui\Dependency\Facade\ProductMerchantPortalGuiToProductFacadeInterface
-     */
     public function getProductFacade(): ProductMerchantPortalGuiToProductFacadeInterface
     {
         return $this->productFacade;
     }
 
-    /**
-     * @param string $attribute
-     *
-     * @return string
-     */
     public function getMessage(string $attribute): string
     {
         /** @phpstan-var array<string, string> $parameters */

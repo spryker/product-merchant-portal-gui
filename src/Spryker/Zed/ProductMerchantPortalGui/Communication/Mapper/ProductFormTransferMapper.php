@@ -76,9 +76,6 @@ class ProductFormTransferMapper implements ProductFormTransferMapperInterface
      */
     protected ProductMerchantPortalGuiToLocaleFacadeInterface $localeFacade;
 
-    /**
-     * @param \Spryker\Zed\ProductMerchantPortalGui\Dependency\Facade\ProductMerchantPortalGuiToLocaleFacadeInterface $localeFacade
-     */
     public function __construct(ProductMerchantPortalGuiToLocaleFacadeInterface $localeFacade)
     {
         $this->localeFacade = $localeFacade;

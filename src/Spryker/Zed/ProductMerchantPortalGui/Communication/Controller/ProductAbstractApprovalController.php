@@ -46,11 +46,6 @@ class ProductAbstractApprovalController extends AbstractController
      */
     protected const URL_PRODUCTS = '/product-merchant-portal-gui/products';
 
-    /**
-     * @param \Symfony\Component\HttpFoundation\Request $request
-     *
-     * @return \Symfony\Component\HttpFoundation\RedirectResponse
-     */
     public function indexAction(Request $request): RedirectResponse
     {
         $idProductAbstract = $this->castId($request->get(static::PARAM_ID_PRODUCT_ABSTRACT));

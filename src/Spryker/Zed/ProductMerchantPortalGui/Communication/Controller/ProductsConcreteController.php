@@ -60,11 +60,6 @@ class ProductsConcreteController extends AbstractController
         ]);
     }
 
-    /**
-     * @param \Symfony\Component\HttpFoundation\Request $request
-     *
-     * @return \Symfony\Component\HttpFoundation\Response
-     */
     public function tableDataAction(Request $request): Response
     {
         $idProductAbstract = $request->query->has(ProductConcreteTransfer::FK_PRODUCT_ABSTRACT) ?
@@ -78,11 +73,6 @@ class ProductsConcreteController extends AbstractController
         );
     }
 
-    /**
-     * @param \Symfony\Component\HttpFoundation\Request $request
-     *
-     * @return \Symfony\Component\HttpFoundation\JsonResponse
-     */
     public function bulkEditAction(Request $request): JsonResponse
     {
         $productIds = array_map(function ($value) {

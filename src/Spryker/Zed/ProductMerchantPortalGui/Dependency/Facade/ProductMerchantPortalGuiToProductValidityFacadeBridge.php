@@ -24,11 +24,6 @@ class ProductMerchantPortalGuiToProductValidityFacadeBridge implements ProductMe
         $this->productValidityFacade = $productValidityFacade;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ProductConcreteTransfer $productConcreteTransfer
-     *
-     * @return \Generated\Shared\Transfer\ProductConcreteTransfer
-     */
     public function saveProductValidity(ProductConcreteTransfer $productConcreteTransfer): ProductConcreteTransfer
     {
         return $this->productValidityFacade->saveProductValidity($productConcreteTransfer);

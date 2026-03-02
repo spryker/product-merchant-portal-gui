@@ -49,9 +49,6 @@ class AttributesDataProvider implements AttributesDataProviderInterface
      */
     protected LocalizedAttributesExtractorInterface $localizedAttributesExtractor;
 
-    /**
-     * @param \Spryker\Zed\ProductMerchantPortalGui\Communication\Extractor\LocalizedAttributesExtractorInterface $localizedAttributesExtractor
-     */
     public function __construct(LocalizedAttributesExtractorInterface $localizedAttributesExtractor)
     {
         $this->localizedAttributesExtractor = $localizedAttributesExtractor;

@@ -30,11 +30,6 @@ class CurrencyAndStoreFieldMapperStrategy extends AbstractFieldMapperStrategy
      */
     protected ProductMerchantPortalGuiToCurrencyFacadeInterface $currencyFacade;
 
-    /**
-     * @param \Spryker\Zed\ProductMerchantPortalGui\Dependency\Facade\ProductMerchantPortalGuiToPriceProductFacadeInterface $priceProductFacade
-     * @param \Spryker\Zed\ProductMerchantPortalGui\Dependency\Service\ProductMerchantPortalGuiToPriceProductVolumeServiceInterface $priceProductVolumeService
-     * @param \Spryker\Zed\ProductMerchantPortalGui\Dependency\Facade\ProductMerchantPortalGuiToCurrencyFacadeInterface $currencyFacade
-     */
     public function __construct(
         ProductMerchantPortalGuiToPriceProductFacadeInterface $priceProductFacade,
         ProductMerchantPortalGuiToPriceProductVolumeServiceInterface $priceProductVolumeService,
@@ -46,11 +41,6 @@ class CurrencyAndStoreFieldMapperStrategy extends AbstractFieldMapperStrategy
         $this->currencyFacade = $currencyFacade;
     }
 
-    /**
-     * @param string $dataField
-     *
-     * @return bool
-     */
     public function isApplicable(string $dataField): bool
     {
         return $dataField === MoneyValueTransfer::CURRENCY || $dataField === MoneyValueTransfer::STORE;
@@ -203,13 +193,6 @@ class CurrencyAndStoreFieldMapperStrategy extends AbstractFieldMapperStrategy
         return $moneyValueTransfer;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\PriceProductTransfer $newPriceProductTransfer
-     * @param int $volumeQuantity
-     * @param \Generated\Shared\Transfer\PriceProductTransfer $priceProductTransfer
-     *
-     * @return \Generated\Shared\Transfer\PriceProductTransfer
-     */
     protected function moveVolumePriceToNewPriceProduct(
         PriceProductTransfer $newPriceProductTransfer,
         int $volumeQuantity,

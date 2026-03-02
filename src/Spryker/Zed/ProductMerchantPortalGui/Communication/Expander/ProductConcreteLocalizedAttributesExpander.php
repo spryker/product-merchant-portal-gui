@@ -32,10 +32,6 @@ class ProductConcreteLocalizedAttributesExpander implements ProductConcreteLocal
      */
     protected ProductMerchantPortalGuiToProductAttributeFacadeInterface $productAttributeFacade;
 
-    /**
-     * @param \Spryker\Zed\ProductMerchantPortalGui\Dependency\Facade\ProductMerchantPortalGuiToLocaleFacadeInterface $localeFacade
-     * @param \Spryker\Zed\ProductMerchantPortalGui\Dependency\Facade\ProductMerchantPortalGuiToProductAttributeFacadeInterface $productAttributeFacade
-     */
     public function __construct(
         ProductMerchantPortalGuiToLocaleFacadeInterface $localeFacade,
         ProductMerchantPortalGuiToProductAttributeFacadeInterface $productAttributeFacade

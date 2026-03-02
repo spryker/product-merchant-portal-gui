@@ -11,19 +11,11 @@ use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class ProductConcreteNotFoundException extends NotFoundHttpException
 {
-    /**
-     * @param int $idProductConcrete
-     */
     public function __construct(int $idProductConcrete)
     {
         parent::__construct($this->buildMessage($idProductConcrete));
     }
 
-    /**
-     * @param int $idProductConcrete
-     *
-     * @return string
-     */
     protected function buildMessage(int $idProductConcrete): string
     {
         return sprintf(

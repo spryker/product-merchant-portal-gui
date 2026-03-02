@@ -87,9 +87,6 @@ class UniqueProductConcretePerSuperAttributeCollectionConstraintValidator extend
         }
     }
 
-    /**
-     * @return int
-     */
     protected function getIdProductAbstract(): int
     {
         /** @var \Symfony\Component\Form\FormInterface<mixed> $form */

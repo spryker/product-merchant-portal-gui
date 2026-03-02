@@ -99,19 +99,11 @@ class ProductConcreteEditForm extends AbstractType
      */
     protected const BLOCK_PREFIX_PRODUCT_CONCRETE_FORM = 'productConcrete';
 
-    /**
-     * @return string
-     */
     public function getBlockPrefix(): string
     {
         return static::BLOCK_PREFIX;
     }
 
-    /**
-     * @param \Symfony\Component\OptionsResolver\OptionsResolver $resolver
-     *
-     * @return void
-     */
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setRequired(static::OPTION_SEARCHABILITY_CHOICES);

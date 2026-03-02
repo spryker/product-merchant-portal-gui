@@ -118,11 +118,6 @@ class ProductsDashboardCardDataProviderTest extends Unit
         $this->assertSame(static::URL_PRODUCTS, $actionButton->getUrl());
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\MerchantUserTransfer $merchantUserTransfer
-     *
-     * @return \Spryker\Zed\ProductMerchantPortalGui\Dependency\Facade\ProductMerchantPortalGuiToMerchantUserFacadeInterface
-     */
     protected function createMerchantUserFacadeMock(
         MerchantUserTransfer $merchantUserTransfer
     ): ProductMerchantPortalGuiToMerchantUserFacadeInterface {
@@ -133,11 +128,6 @@ class ProductsDashboardCardDataProviderTest extends Unit
         return $merchantUserFacadeMock;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\MerchantProductCountsTransfer $merchantProductCountsTransfer
-     *
-     * @return \Spryker\Zed\ProductMerchantPortalGui\Persistence\ProductMerchantPortalGuiRepositoryInterface
-     */
     protected function createRepositoryMock(
         MerchantProductCountsTransfer $merchantProductCountsTransfer
     ): ProductMerchantPortalGuiRepositoryInterface {
@@ -148,9 +138,6 @@ class ProductsDashboardCardDataProviderTest extends Unit
         return $repositoryMock;
     }
 
-    /**
-     * @return \Twig\Environment
-     */
     protected function createTwigMock(): Environment
     {
         $twigEnvironmentMock = $this->createMock(Environment::class);

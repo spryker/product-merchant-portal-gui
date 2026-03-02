@@ -11,10 +11,5 @@ use Generated\Shared\Transfer\GuiTableConfigurationTransfer;
 
 interface ProductApprovalStatusProductTableConfigurationExpanderInterface
 {
-    /**
-     * @param \Generated\Shared\Transfer\GuiTableConfigurationTransfer $guiTableConfigurationTransfer
-     *
-     * @return \Generated\Shared\Transfer\GuiTableConfigurationTransfer
-     */
     public function expand(GuiTableConfigurationTransfer $guiTableConfigurationTransfer): GuiTableConfigurationTransfer;
 }

@@ -16,9 +16,6 @@ class ProductAbstractIdOwnedByMerchantConstraint extends SymfonyConstraint
      */
     protected const MESSAGE = 'This abstract product is not owned by this merchant.';
 
-    /**
-     * @return string
-     */
     public function getMessage(): string
     {
         return static::MESSAGE;

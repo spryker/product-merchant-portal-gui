@@ -61,9 +61,6 @@ class ProductAbstractAttributeUniqueCombinationConstraintValidatorTest extends C
      */
     private $form;
 
-    /**
-     * @return void
-     */
     public function setUp(): void
     {
         parent::setUp();
@@ -89,9 +86,6 @@ class ProductAbstractAttributeUniqueCombinationConstraintValidatorTest extends C
             ->getMock();
     }
 
-    /**
-     * @return void
-     */
     public function testValidateUniqueAttributes(): void
     {
         // Arrange

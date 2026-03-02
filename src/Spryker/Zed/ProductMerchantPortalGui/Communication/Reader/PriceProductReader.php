@@ -159,12 +159,6 @@ class PriceProductReader implements PriceProductReaderInterface
         return $priceProductTransfers;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\MoneyValueTransfer $moneyValueTransfer
-     * @param \Generated\Shared\Transfer\PriceProductTableCriteriaTransfer $priceProductTableCriteriaTransfer
-     *
-     * @return bool
-     */
     protected function isMatchingCurrency(
         MoneyValueTransfer $moneyValueTransfer,
         PriceProductTableCriteriaTransfer $priceProductTableCriteriaTransfer
@@ -179,12 +173,6 @@ class PriceProductReader implements PriceProductReaderInterface
         );
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\MoneyValueTransfer $moneyValueTransfer
-     * @param \Generated\Shared\Transfer\PriceProductTableCriteriaTransfer $priceProductTableCriteriaTransfer
-     *
-     * @return bool
-     */
     protected function isMatchingStore(
         MoneyValueTransfer $moneyValueTransfer,
         PriceProductTableCriteriaTransfer $priceProductTableCriteriaTransfer

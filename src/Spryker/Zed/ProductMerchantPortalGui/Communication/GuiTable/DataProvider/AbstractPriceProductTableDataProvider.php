@@ -60,13 +60,6 @@ abstract class AbstractPriceProductTableDataProvider extends AbstractGuiTableDat
      */
     protected ProductMerchantPortalGuiToMoneyFacadeInterface $moneyFacade;
 
-    /**
-     * @param \Spryker\Zed\ProductMerchantPortalGui\Communication\Reader\PriceProductReaderInterface $priceProductReader
-     * @param \Spryker\Zed\ProductMerchantPortalGui\Communication\Mapper\PriceProductTableDataMapperInterface $priceProductTableDataMapper
-     * @param \Spryker\Zed\ProductMerchantPortalGui\Communication\GuiTable\Sorter\PriceProductTableViewSorterInterface $priceProductTableViewSorter
-     * @param \Spryker\Zed\ProductMerchantPortalGui\Dependency\Facade\ProductMerchantPortalGuiToMerchantUserFacadeInterface $merchantUserFacade
-     * @param \Spryker\Zed\ProductMerchantPortalGui\Dependency\Facade\ProductMerchantPortalGuiToMoneyFacadeInterface $moneyFacade
-     */
     public function __construct(
         PriceProductReaderInterface $priceProductReader,
         PriceProductTableDataMapperInterface $priceProductTableDataMapper,
@@ -81,11 +74,6 @@ abstract class AbstractPriceProductTableDataProvider extends AbstractGuiTableDat
         $this->moneyFacade = $moneyFacade;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\GuiTableDataRequestTransfer $guiTableDataRequestTransfer
-     *
-     * @return \Spryker\Shared\Kernel\Transfer\AbstractTransfer
-     */
     protected function createCriteria(GuiTableDataRequestTransfer $guiTableDataRequestTransfer): AbstractTransfer
     {
         return (new PriceProductTableCriteriaTransfer())
@@ -135,12 +123,6 @@ abstract class AbstractPriceProductTableDataProvider extends AbstractGuiTableDat
             ->setTotal($paginationTransfer->getNbResults());
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\PriceProductTableViewCollectionTransfer $priceProductTableViewCollectionTransfer
-     * @param \Generated\Shared\Transfer\PriceProductTableCriteriaTransfer $criteriaTransfer
-     *
-     * @return \Generated\Shared\Transfer\PaginationTransfer
-     */
     protected function updatePaginationTransfer(
         PriceProductTableViewCollectionTransfer $priceProductTableViewCollectionTransfer,
         PriceProductTableCriteriaTransfer $criteriaTransfer
@@ -153,11 +135,6 @@ abstract class AbstractPriceProductTableDataProvider extends AbstractGuiTableDat
             ->setLastPage((int)($count / $criteriaTransfer->getPageSizeOrFail()));
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\PriceProductTableViewCollectionTransfer $priceProductTableViewCollectionTransfer
-     *
-     * @return \Generated\Shared\Transfer\PriceProductTableViewCollectionTransfer
-     */
     protected function applyPagination(
         PriceProductTableViewCollectionTransfer $priceProductTableViewCollectionTransfer
     ): PriceProductTableViewCollectionTransfer {
@@ -182,11 +159,6 @@ abstract class AbstractPriceProductTableDataProvider extends AbstractGuiTableDat
         return $priceProductTableViewCollectionTransfer;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\PriceProductTableCriteriaTransfer $priceProductTableCriteriaTransfer
-     *
-     * @return \Generated\Shared\Transfer\PriceProductTableCriteriaTransfer
-     */
     protected function replacePriceSortingFields(
         PriceProductTableCriteriaTransfer $priceProductTableCriteriaTransfer
     ): PriceProductTableCriteriaTransfer {

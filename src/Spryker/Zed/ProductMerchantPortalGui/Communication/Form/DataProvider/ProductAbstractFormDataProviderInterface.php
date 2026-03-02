@@ -11,12 +11,6 @@ use Generated\Shared\Transfer\MerchantProductTransfer;
 
 interface ProductAbstractFormDataProviderInterface
 {
-    /**
-     * @param int $idProductAbstract
-     * @param int $idMerchant
-     *
-     * @return \Generated\Shared\Transfer\MerchantProductTransfer|null
-     */
     public function findMerchantProduct(int $idProductAbstract, int $idMerchant): ?MerchantProductTransfer;
 
     /**

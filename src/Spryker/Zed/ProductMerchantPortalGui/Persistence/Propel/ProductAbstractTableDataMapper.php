@@ -108,9 +108,6 @@ class ProductAbstractTableDataMapper
         self::COL_KEY_APPROVAL => SpyProductAbstractTableMap::COL_APPROVAL_STATUS,
     ];
 
-    /**
-     * @param \Spryker\Zed\ProductMerchantPortalGui\Dependency\Service\ProductMerchantPortalGuiToUtilEncodingServiceInterface $utilEncodingService
-     */
     public function __construct(ProductMerchantPortalGuiToUtilEncodingServiceInterface $utilEncodingService)
     {
         $this->utilEncodingService = $utilEncodingService;

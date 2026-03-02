@@ -47,11 +47,6 @@ abstract class AbstractSavePriceProductController extends AbstractController
      */
     abstract protected function findPriceProductTransfers(Request $request): array;
 
-    /**
-     * @param \Symfony\Component\HttpFoundation\Request $request
-     *
-     * @return bool
-     */
     abstract protected function isProductOwnedByCurrentMerchant(Request $request): bool;
 
     /**
@@ -147,9 +142,6 @@ abstract class AbstractSavePriceProductController extends AbstractController
         return $priceProductTransfersToRemove;
     }
 
-    /**
-     * @return \Symfony\Component\HttpFoundation\JsonResponse
-     */
     protected function createSuccessJsonResponse(): JsonResponse
     {
         $zedUiFormResponseTransfer = $this->getFactory()
@@ -162,11 +154,6 @@ abstract class AbstractSavePriceProductController extends AbstractController
         return new JsonResponse($zedUiFormResponseTransfer->toArray());
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ValidationResponseTransfer $validationResponseTransfer
-     *
-     * @return \Symfony\Component\HttpFoundation\JsonResponse
-     */
     protected function createErrorJsonResponse(ValidationResponseTransfer $validationResponseTransfer): JsonResponse
     {
         /** @var \Generated\Shared\Transfer\ValidationErrorTransfer $validationErrorTransfer */

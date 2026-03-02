@@ -19,10 +19,6 @@ class VolumePriceForNonExistingPriceProductMergeStrategy extends AbstractPricePr
      */
     protected ProductMerchantPortalGuiToPriceProductVolumeServiceInterface $priceProductVolumeService;
 
-    /**
-     * @param \Spryker\Zed\ProductMerchantPortalGui\Dependency\Service\ProductMerchantPortalGuiToPriceProductVolumeServiceInterface $priceProductVolumeService
-     * @param \Spryker\Zed\ProductMerchantPortalGui\Dependency\Service\ProductMerchantPortalGuiToPriceProductServiceInterface $priceProductService
-     */
     public function __construct(
         ProductMerchantPortalGuiToPriceProductVolumeServiceInterface $priceProductVolumeService,
         ProductMerchantPortalGuiToPriceProductServiceInterface $priceProductService

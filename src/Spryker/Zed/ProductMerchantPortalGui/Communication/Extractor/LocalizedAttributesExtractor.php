@@ -20,9 +20,6 @@ class LocalizedAttributesExtractor implements LocalizedAttributesExtractorInterf
      */
     protected ProductMerchantPortalGuiToProductAttributeFacadeInterface $productAttributeFacade;
 
-    /**
-     * @param \Spryker\Zed\ProductMerchantPortalGui\Dependency\Facade\ProductMerchantPortalGuiToProductAttributeFacadeInterface $productAttributeFacade
-     */
     public function __construct(ProductMerchantPortalGuiToProductAttributeFacadeInterface $productAttributeFacade)
     {
         $this->productAttributeFacade = $productAttributeFacade;

@@ -141,11 +141,6 @@ class UpdateProductConcreteController extends AbstractUpdateProductController
         );
     }
 
-    /**
-     * @param \Symfony\Component\HttpFoundation\Request $request
-     *
-     * @return \Symfony\Component\HttpFoundation\Response
-     */
     public function priceTableDataAction(Request $request): Response
     {
         $idProductConcrete = $this->castId($request->get(PriceProductTableViewTransfer::ID_PRODUCT_CONCRETE));
@@ -397,12 +392,6 @@ class UpdateProductConcreteController extends AbstractUpdateProductController
         return $imageSetMetaData;
     }
 
-    /**
-     * @param int $idMerchant
-     * @param int $idProductAbstract
-     *
-     * @return \Generated\Shared\Transfer\ValidationResponseTransfer
-     */
     protected function validateMerchantProduct(int $idMerchant, int $idProductAbstract): ValidationResponseTransfer
     {
         $productAbstractTransfer = (new ProductAbstractTransfer())
@@ -417,9 +406,6 @@ class UpdateProductConcreteController extends AbstractUpdateProductController
             ->validateMerchantProduct($merchantProductTransfer);
     }
 
-    /**
-     * @return int
-     */
     protected function getIdMerchantFromCurrentUser(): int
     {
         return $this->getFactory()
@@ -576,11 +562,6 @@ class UpdateProductConcreteController extends AbstractUpdateProductController
         return $mappedImageSetsTransfers;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ProductConcreteTransfer $productConcreteTransfer
-     *
-     * @return float
-     */
     protected function getReservedStock(ProductConcreteTransfer $productConcreteTransfer): float
     {
         $reservedStock = 0;
@@ -591,12 +572,6 @@ class UpdateProductConcreteController extends AbstractUpdateProductController
         return $reservedStock;
     }
 
-    /**
-     * @param string $productConcreteSku
-     * @param \Generated\Shared\Transfer\StoreTransfer $storeTransfer
-     *
-     * @return float
-     */
     protected function getReservationQuantity(
         string $productConcreteSku,
         StoreTransfer $storeTransfer

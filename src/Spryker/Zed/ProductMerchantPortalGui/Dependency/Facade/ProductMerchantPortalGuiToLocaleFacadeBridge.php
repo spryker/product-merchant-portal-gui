@@ -24,9 +24,6 @@ class ProductMerchantPortalGuiToLocaleFacadeBridge implements ProductMerchantPor
         $this->localeFacade = $localeFacade;
     }
 
-    /**
-     * @return \Generated\Shared\Transfer\LocaleTransfer
-     */
     public function getCurrentLocale(): LocaleTransfer
     {
         return $this->localeFacade->getCurrentLocale();
@@ -40,11 +37,6 @@ class ProductMerchantPortalGuiToLocaleFacadeBridge implements ProductMerchantPor
         return $this->localeFacade->getAvailableLocales();
     }
 
-    /**
-     * @param string $localeName
-     *
-     * @return \Generated\Shared\Transfer\LocaleTransfer
-     */
     public function getLocale(string $localeName): LocaleTransfer
     {
         return $this->localeFacade->getLocale($localeName);
@@ -58,11 +50,6 @@ class ProductMerchantPortalGuiToLocaleFacadeBridge implements ProductMerchantPor
         return $this->localeFacade->getLocaleCollection();
     }
 
-    /**
-     * @param int $idLocale
-     *
-     * @return \Generated\Shared\Transfer\LocaleTransfer
-     */
     public function getLocaleById(int $idLocale): LocaleTransfer
     {
         return $this->localeFacade->getLocaleById($idLocale);

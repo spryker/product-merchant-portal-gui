@@ -37,11 +37,6 @@ class ProductMerchantPortalGuiToPriceProductFacadeBridge implements ProductMerch
         return $this->priceProductFacade->getPriceTypeValues();
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\PriceProductTransfer $priceProductTransfer
-     *
-     * @return \Generated\Shared\Transfer\PriceProductTransfer
-     */
     public function persistPriceProductStore(PriceProductTransfer $priceProductTransfer): PriceProductTransfer
     {
         return $this->priceProductFacade->persistPriceProductStore($priceProductTransfer);
@@ -117,11 +112,6 @@ class ProductMerchantPortalGuiToPriceProductFacadeBridge implements ProductMerch
             ->findProductConcretePrices($idProductConcrete, $idProductAbstract, $priceProductCriteriaTransfer);
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\PriceProductCollectionDeleteCriteriaTransfer $priceProductCollectionDeleteCriteriaTransfer
-     *
-     * @return \Generated\Shared\Transfer\PriceProductCollectionResponseTransfer
-     */
     public function deletePriceProductCollection(
         PriceProductCollectionDeleteCriteriaTransfer $priceProductCollectionDeleteCriteriaTransfer
     ): PriceProductCollectionResponseTransfer {

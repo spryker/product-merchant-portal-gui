@@ -17,21 +17,11 @@ class DefaultFieldSortingComparisonStrategy implements PriceProductSortingCompar
      */
     protected const PREFIX_GETTER_METHOD = 'get';
 
-    /**
-     * @param string $fieldName
-     *
-     * @return bool
-     */
     public function isApplicable(string $fieldName): bool
     {
         return true;
     }
 
-    /**
-     * @param string $fieldName
-     *
-     * @return callable
-     */
     public function getValueExtractorFunction(string $fieldName): callable
     {
         /** @var string $camelCaseFieldName */

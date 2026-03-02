@@ -44,11 +44,6 @@ class PriceFieldMapperStrategy extends AbstractFieldMapperStrategy
      */
     protected ProductMerchantPortalGuiToMoneyFacadeInterface $moneyFacade;
 
-    /**
-     * @param \Spryker\Zed\ProductMerchantPortalGui\Dependency\Facade\ProductMerchantPortalGuiToPriceProductFacadeInterface $priceProductFacade
-     * @param \Spryker\Zed\ProductMerchantPortalGui\Dependency\Service\ProductMerchantPortalGuiToPriceProductVolumeServiceInterface $priceProductVolumeService
-     * @param \Spryker\Zed\ProductMerchantPortalGui\Dependency\Facade\ProductMerchantPortalGuiToMoneyFacadeInterface $moneyFacade
-     */
     public function __construct(
         ProductMerchantPortalGuiToPriceProductFacadeInterface $priceProductFacade,
         ProductMerchantPortalGuiToPriceProductVolumeServiceInterface $priceProductVolumeService,
@@ -60,11 +55,6 @@ class PriceFieldMapperStrategy extends AbstractFieldMapperStrategy
         $this->moneyFacade = $moneyFacade;
     }
 
-    /**
-     * @param string $dataField
-     *
-     * @return bool
-     */
     public function isApplicable(string $dataField): bool
     {
         return $this->isPriceField($dataField);
@@ -143,11 +133,6 @@ class PriceFieldMapperStrategy extends AbstractFieldMapperStrategy
         return null;
     }
 
-    /**
-     * @param string $fieldName
-     *
-     * @return bool
-     */
     protected function isPriceField(string $fieldName): bool
     {
         $pattern = sprintf(
@@ -161,11 +146,6 @@ class PriceFieldMapperStrategy extends AbstractFieldMapperStrategy
         return (bool)$matches;
     }
 
-    /**
-     * @param string $fieldName
-     *
-     * @return string
-     */
     protected function extractPriceType(string $fieldName): string
     {
         $priceType = (string)strstr($fieldName, '[', true);
@@ -212,11 +192,6 @@ class PriceFieldMapperStrategy extends AbstractFieldMapperStrategy
         return $this->moneyFacade->convertDecimalToInteger((float)$value);
     }
 
-    /**
-     * @param int $volumeQuantity
-     *
-     * @return bool
-     */
     protected function isVolumePriceField(int $volumeQuantity): bool
     {
         return $volumeQuantity > 1;

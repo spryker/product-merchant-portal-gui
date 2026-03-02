@@ -63,11 +63,6 @@ class SavePriceProductConcreteController extends AbstractSavePriceProductControl
             ));
     }
 
-    /**
-     * @param \Symfony\Component\HttpFoundation\Request $request
-     *
-     * @return bool
-     */
     protected function isProductOwnedByCurrentMerchant(Request $request): bool
     {
         $idProductConcrete = $this->castId($request->get(PriceProductTableViewTransfer::ID_PRODUCT_CONCRETE));

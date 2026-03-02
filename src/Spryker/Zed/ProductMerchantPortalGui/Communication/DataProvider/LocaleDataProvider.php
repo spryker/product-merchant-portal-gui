@@ -18,9 +18,6 @@ class LocaleDataProvider implements LocaleDataProviderInterface
      */
     protected ProductMerchantPortalGuiToLocaleFacadeInterface $localeFacade;
 
-    /**
-     * @param \Spryker\Zed\ProductMerchantPortalGui\Dependency\Facade\ProductMerchantPortalGuiToLocaleFacadeInterface $localeFacade
-     */
     public function __construct(
         ProductMerchantPortalGuiToLocaleFacadeInterface $localeFacade
     ) {

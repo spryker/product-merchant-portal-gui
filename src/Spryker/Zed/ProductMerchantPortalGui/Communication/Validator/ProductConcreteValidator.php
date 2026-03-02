@@ -68,9 +68,6 @@ class ProductConcreteValidator implements ProductConcreteValidatorInterface
      */
     protected ProductMerchantPortalGuiToValidationAdapterInterface $validationAdapter;
 
-    /**
-     * @param \Spryker\Zed\ProductMerchantPortalGui\Dependency\External\ProductMerchantPortalGuiToValidationAdapterInterface $validationAdapter
-     */
     public function __construct(ProductMerchantPortalGuiToValidationAdapterInterface $validationAdapter)
     {
         $this->validationAdapter = $validationAdapter;

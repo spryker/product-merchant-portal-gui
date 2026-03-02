@@ -95,9 +95,6 @@ class ProductTableDataMapper
      */
     protected ProductMerchantPortalGuiToUtilEncodingServiceInterface $utilEncodingService;
 
-    /**
-     * @param \Spryker\Zed\ProductMerchantPortalGui\Dependency\Service\ProductMerchantPortalGuiToUtilEncodingServiceInterface $utilEncodingService
-     */
     public function __construct(ProductMerchantPortalGuiToUtilEncodingServiceInterface $utilEncodingService)
     {
         $this->utilEncodingService = $utilEncodingService;

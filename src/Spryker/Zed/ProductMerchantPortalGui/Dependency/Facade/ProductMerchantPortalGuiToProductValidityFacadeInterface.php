@@ -11,10 +11,5 @@ use Generated\Shared\Transfer\ProductConcreteTransfer;
 
 interface ProductMerchantPortalGuiToProductValidityFacadeInterface
 {
-    /**
-     * @param \Generated\Shared\Transfer\ProductConcreteTransfer $productConcreteTransfer
-     *
-     * @return \Generated\Shared\Transfer\ProductConcreteTransfer
-     */
     public function saveProductValidity(ProductConcreteTransfer $productConcreteTransfer): ProductConcreteTransfer;
 }

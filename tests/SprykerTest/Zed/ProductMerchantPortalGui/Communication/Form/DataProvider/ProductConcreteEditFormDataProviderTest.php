@@ -38,9 +38,6 @@ class ProductConcreteEditFormDataProviderTest extends Unit
      */
     protected $tester;
 
-    /**
-     * @return void
-     */
     public function testGetDataWillSetUseAbstractProductPricesToFalseWhenProductHasDefaultAndMerchantPriceForConcreteProduct(): void
     {
         // Arrange
@@ -77,9 +74,6 @@ class ProductConcreteEditFormDataProviderTest extends Unit
         );
     }
 
-    /**
-     * @return void
-     */
     public function testGetDataWillSetUseAbstractProductPricesToFalseWhenProductHasDefaultAndNoMerchantPriceForConcreteProduct(): void
     {
         // Arrange
@@ -116,9 +110,6 @@ class ProductConcreteEditFormDataProviderTest extends Unit
         );
     }
 
-    /**
-     * @return void
-     */
     public function testGetDataWillSetUseAbstractProductPricesToFalseWhenProductHasMerchantAndNoDefaultPriceForConcreteProduct(): void
     {
         // Arrange
@@ -154,9 +145,6 @@ class ProductConcreteEditFormDataProviderTest extends Unit
         );
     }
 
-    /**
-     * @return void
-     */
     public function testGetDataWillSetUseAbstractProductPricesToTrueWhenProductHasNoMerchantAndNoDefaultPriceForConcreteProduct(): void
     {
         // Arrange

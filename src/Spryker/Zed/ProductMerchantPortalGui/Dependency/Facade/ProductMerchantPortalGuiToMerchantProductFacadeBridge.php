@@ -30,55 +30,29 @@ class ProductMerchantPortalGuiToMerchantProductFacadeBridge implements ProductMe
         $this->merchantProductFacade = $merchantProductFacade;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\MerchantProductCriteriaTransfer $merchantProductCriteriaTransfer
-     *
-     * @return \Generated\Shared\Transfer\MerchantProductTransfer|null
-     */
     public function findMerchantProduct(
         MerchantProductCriteriaTransfer $merchantProductCriteriaTransfer
     ): ?MerchantProductTransfer {
         return $this->merchantProductFacade->findMerchantProduct($merchantProductCriteriaTransfer);
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\MerchantProductTransfer $merchantProductTransfer
-     *
-     * @return \Generated\Shared\Transfer\ValidationResponseTransfer
-     */
     public function validateMerchantProduct(MerchantProductTransfer $merchantProductTransfer): ValidationResponseTransfer
     {
         return $this->merchantProductFacade->validateMerchantProduct($merchantProductTransfer);
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\MerchantProductCriteriaTransfer $merchantProductCriteriaTransfer
-     *
-     * @return \Generated\Shared\Transfer\ProductConcreteCollectionTransfer
-     */
     public function getProductConcreteCollection(
         MerchantProductCriteriaTransfer $merchantProductCriteriaTransfer
     ): ProductConcreteCollectionTransfer {
         return $this->merchantProductFacade->getProductConcreteCollection($merchantProductCriteriaTransfer);
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\MerchantProductCriteriaTransfer $merchantProductCriteriaTransfer
-     *
-     * @return \Generated\Shared\Transfer\ProductConcreteTransfer|null
-     */
     public function findProductConcrete(
         MerchantProductCriteriaTransfer $merchantProductCriteriaTransfer
     ): ?ProductConcreteTransfer {
         return $this->merchantProductFacade->findProductConcrete($merchantProductCriteriaTransfer);
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ProductConcreteTransfer $productConcreteTransfer
-     * @param \Generated\Shared\Transfer\MerchantTransfer $merchantTransfer
-     *
-     * @return bool
-     */
     public function isProductConcreteOwnedByMerchant(
         ProductConcreteTransfer $productConcreteTransfer,
         MerchantTransfer $merchantTransfer
@@ -86,12 +60,6 @@ class ProductMerchantPortalGuiToMerchantProductFacadeBridge implements ProductMe
         return $this->merchantProductFacade->isProductConcreteOwnedByMerchant($productConcreteTransfer, $merchantTransfer);
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ProductAbstractTransfer $productAbstractTransfer
-     * @param \Generated\Shared\Transfer\MerchantTransfer $merchantTransfer
-     *
-     * @return bool
-     */
     public function isProductAbstractOwnedByMerchant(
         ProductAbstractTransfer $productAbstractTransfer,
         MerchantTransfer $merchantTransfer

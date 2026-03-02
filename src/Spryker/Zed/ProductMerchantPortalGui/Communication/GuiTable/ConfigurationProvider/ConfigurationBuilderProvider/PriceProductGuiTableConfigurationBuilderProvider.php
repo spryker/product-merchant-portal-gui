@@ -88,12 +88,6 @@ class PriceProductGuiTableConfigurationBuilderProvider implements PriceProductGu
      */
     protected CurrencyFilterConfigurationProviderInterface $currencyFilterConfigurationProvider;
 
-    /**
-     * @param \Spryker\Shared\GuiTable\GuiTableFactoryInterface $guiTableFactory
-     * @param \Spryker\Zed\ProductMerchantPortalGui\Dependency\Facade\ProductMerchantPortalGuiToPriceProductFacadeInterface $priceProductFacade
-     * @param \Spryker\Zed\ProductMerchantPortalGui\Communication\GuiTable\ConfigurationProvider\StoreFilterOptionsProviderInterface $storeFilterOptionsProvider
-     * @param \Spryker\Zed\ProductMerchantPortalGui\Communication\GuiTable\ConfigurationProvider\CurrencyFilterConfigurationProviderInterface $currencyFilterConfigurationProvider
-     */
     public function __construct(
         GuiTableFactoryInterface $guiTableFactory,
         ProductMerchantPortalGuiToPriceProductFacadeInterface $priceProductFacade,
@@ -106,9 +100,6 @@ class PriceProductGuiTableConfigurationBuilderProvider implements PriceProductGu
         $this->currencyFilterConfigurationProvider = $currencyFilterConfigurationProvider;
     }
 
-    /**
-     * @return \Spryker\Shared\GuiTable\Configuration\Builder\GuiTableConfigurationBuilderInterface
-     */
     public function getPriceProductGuiTableConfigurationBuilder(): GuiTableConfigurationBuilderInterface
     {
         $guiTableConfigurationBuilder = $this->guiTableFactory->createConfigurationBuilder();
@@ -125,11 +116,6 @@ class PriceProductGuiTableConfigurationBuilderProvider implements PriceProductGu
         return $guiTableConfigurationBuilder;
     }
 
-    /**
-     * @param \Spryker\Shared\GuiTable\Configuration\Builder\GuiTableConfigurationBuilderInterface $guiTableConfigurationBuilder
-     *
-     * @return \Spryker\Shared\GuiTable\Configuration\Builder\GuiTableConfigurationBuilderInterface
-     */
     protected function addColumns(
         GuiTableConfigurationBuilderInterface $guiTableConfigurationBuilder
     ): GuiTableConfigurationBuilderInterface {
@@ -187,11 +173,6 @@ class PriceProductGuiTableConfigurationBuilderProvider implements PriceProductGu
         return $guiTableConfigurationBuilder;
     }
 
-    /**
-     * @param \Spryker\Shared\GuiTable\Configuration\Builder\GuiTableConfigurationBuilderInterface $guiTableConfigurationBuilder
-     *
-     * @return \Spryker\Shared\GuiTable\Configuration\Builder\GuiTableConfigurationBuilderInterface
-     */
     protected function addEditableColumns(GuiTableConfigurationBuilderInterface $guiTableConfigurationBuilder): GuiTableConfigurationBuilderInterface
     {
         $guiTableConfigurationBuilder->addEditableColumnSelect(
@@ -250,11 +231,6 @@ class PriceProductGuiTableConfigurationBuilderProvider implements PriceProductGu
         return $guiTableConfigurationBuilder;
     }
 
-    /**
-     * @param \Spryker\Shared\GuiTable\Configuration\Builder\GuiTableConfigurationBuilderInterface $guiTableConfigurationBuilder
-     *
-     * @return \Spryker\Shared\GuiTable\Configuration\Builder\GuiTableConfigurationBuilderInterface
-     */
     protected function addFilters(GuiTableConfigurationBuilderInterface $guiTableConfigurationBuilder): GuiTableConfigurationBuilderInterface
     {
         $guiTableConfigurationBuilder

@@ -11,8 +11,5 @@ use Generated\Shared\Transfer\LocaleTransfer;
 
 interface LocaleDataProviderInterface
 {
-    /**
-     * @return \Generated\Shared\Transfer\LocaleTransfer
-     */
     public function getDefaultStoreDefaultLocale(): LocaleTransfer;
 }

@@ -45,10 +45,6 @@ class ProductAttributeGuiTableConfigurationProvider implements ProductAttributeG
      */
     protected ProductAttributeDataProviderInterface $productAttributeDataProvider;
 
-    /**
-     * @param \Spryker\Shared\GuiTable\GuiTableFactoryInterface $guiTableFactory
-     * @param \Spryker\Zed\ProductMerchantPortalGui\Communication\DataProvider\ProductAttributeDataProviderInterface $productAttributeDataProvider
-     */
     public function __construct(
         GuiTableFactoryInterface $guiTableFactory,
         ProductAttributeDataProviderInterface $productAttributeDataProvider

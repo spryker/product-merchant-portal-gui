@@ -11,12 +11,6 @@ use Generated\Shared\Transfer\PriceProductTransfer;
 
 interface PriceProductTableColumnCreatorInterface
 {
-    /**
-     * @param string $priceTypeName
-     * @param string $moneyValueType
-     *
-     * @return string
-     */
     public function createPriceColumnId(string $priceTypeName, string $moneyValueType): string;
 
     /**
@@ -30,8 +24,5 @@ interface PriceProductTableColumnCreatorInterface
         array $propertyPathValues
     ): string;
 
-    /**
-     * @return string
-     */
     public function createVolumeQuantityColumnId(): string;
 }

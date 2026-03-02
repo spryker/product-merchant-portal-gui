@@ -16,9 +16,6 @@ class StoreFilterOptionsProvider implements StoreFilterOptionsProviderInterface
      */
     protected ProductMerchantPortalGuiToStoreFacadeInterface $storeFacade;
 
-    /**
-     * @param \Spryker\Zed\ProductMerchantPortalGui\Dependency\Facade\ProductMerchantPortalGuiToStoreFacadeInterface $storeFacade
-     */
     public function __construct(ProductMerchantPortalGuiToStoreFacadeInterface $storeFacade)
     {
         $this->storeFacade = $storeFacade;

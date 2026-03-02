@@ -24,11 +24,6 @@ class ProductMerchantPortalGuiToPriceProductServiceBridge implements ProductMerc
         $this->priceProductService = $priceProductService;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\PriceProductTransfer $priceProductTransfer
-     *
-     * @return string
-     */
     public function buildPriceProductGroupKey(PriceProductTransfer $priceProductTransfer): string
     {
         return $this->priceProductService->buildPriceProductGroupKey($priceProductTransfer);

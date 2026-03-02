@@ -11,19 +11,11 @@ use Exception;
 
 class DefaultMerchantStockNotFoundException extends Exception
 {
-    /**
-     * @param int $idMerchant
-     */
     public function __construct(int $idMerchant)
     {
         parent::__construct($this->buildMessage($idMerchant));
     }
 
-    /**
-     * @param int $idMerchant
-     *
-     * @return string
-     */
     protected function buildMessage(int $idMerchant): string
     {
         return sprintf('Default Merchant stock not found by Merchant ID `%s`', $idMerchant);

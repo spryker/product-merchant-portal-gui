@@ -95,14 +95,6 @@ class ProductConcreteEditFormDataProvider implements ProductConcreteEditFormData
      */
     protected PriceProductReaderInterface $priceProductReader;
 
-    /**
-     * @param \Spryker\Zed\ProductMerchantPortalGui\Dependency\Facade\ProductMerchantPortalGuiToMerchantUserFacadeInterface $merchantUserFacade
-     * @param \Spryker\Zed\ProductMerchantPortalGui\Dependency\Facade\ProductMerchantPortalGuiToMerchantProductFacadeInterface $merchantProductFacade
-     * @param \Spryker\Zed\ProductMerchantPortalGui\Dependency\Facade\ProductMerchantPortalGuiToLocaleFacadeInterface $localeFacade
-     * @param \Spryker\Zed\ProductMerchantPortalGui\Dependency\Facade\ProductMerchantPortalGuiToProductFacadeInterface $productFacade
-     * @param \Spryker\Zed\ProductMerchantPortalGui\Communication\DataProvider\ProductAttributeDataProviderInterface $productAttributeDataProvider
-     * @param \Spryker\Zed\ProductMerchantPortalGui\Communication\Reader\PriceProductReaderInterface $priceProductReader
-     */
     public function __construct(
         ProductMerchantPortalGuiToMerchantUserFacadeInterface $merchantUserFacade,
         ProductMerchantPortalGuiToMerchantProductFacadeInterface $merchantProductFacade,
@@ -291,12 +283,6 @@ class ProductConcreteEditFormDataProvider implements ProductConcreteEditFormData
         return $result;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ProductAbstractTransfer $productAbstractTransfer
-     * @param \Generated\Shared\Transfer\ProductConcreteTransfer $productConcreteTransfer
-     *
-     * @return bool
-     */
     protected function isProductConcretePricesEmpty(ProductAbstractTransfer $productAbstractTransfer, ProductConcreteTransfer $productConcreteTransfer): bool
     {
         if ($productConcreteTransfer->getPrices()->count()) {

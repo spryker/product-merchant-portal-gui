@@ -23,21 +23,11 @@ class PriceFieldSortingComparisonStrategy implements PriceProductSortingComparis
      */
     protected const SUFFIX_PRICE_TYPE_GROSS = 'gross';
 
-    /**
-     * @param string $fieldName
-     *
-     * @return bool
-     */
     public function isApplicable(string $fieldName): bool
     {
         return $this->isPriceField($fieldName);
     }
 
-    /**
-     * @param string $fieldName
-     *
-     * @return callable
-     */
     public function getValueExtractorFunction(string $fieldName): callable
     {
         $fieldSegments = explode('_', $fieldName);
@@ -67,11 +57,6 @@ class PriceFieldSortingComparisonStrategy implements PriceProductSortingComparis
         };
     }
 
-    /**
-     * @param string $fieldName
-     *
-     * @return bool
-     */
     protected function isPriceField(string $fieldName): bool
     {
         $pattern = sprintf(
@@ -85,12 +70,6 @@ class PriceFieldSortingComparisonStrategy implements PriceProductSortingComparis
         return (bool)$matches;
     }
 
-    /**
-     * @param string $pryceTypeName
-     * @param string $amountType
-     *
-     * @return string
-     */
     protected function createPriceKey(string $pryceTypeName, string $amountType): string
     {
         return sprintf(

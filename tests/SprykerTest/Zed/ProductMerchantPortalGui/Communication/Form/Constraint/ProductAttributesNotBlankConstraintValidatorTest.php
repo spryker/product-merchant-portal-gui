@@ -55,9 +55,6 @@ class ProductAttributesNotBlankConstraintValidatorTest extends ConstraintValidat
      */
     private $form;
 
-    /**
-     * @return void
-     */
     public function setUp(): void
     {
         parent::setUp();
@@ -79,9 +76,6 @@ class ProductAttributesNotBlankConstraintValidatorTest extends ConstraintValidat
             ->getMock();
     }
 
-    /**
-     * @return void
-     */
     public function testValidateInvalidAttributes(): void
     {
         // Arrange

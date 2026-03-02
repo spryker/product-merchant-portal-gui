@@ -44,9 +44,6 @@ class SingleFieldPriceProductMapperTest extends Unit
      */
     protected $tester;
 
-    /**
-     * @return void
-     */
     public function setUp(): void
     {
         parent::setUp();
@@ -54,9 +51,6 @@ class SingleFieldPriceProductMapperTest extends Unit
         $this->productMerchantPortalGuiCommunicationFactory = $this->tester->createProductMerchantPortalGuiCommunicationFactoryMock();
     }
 
-    /**
-     * @return void
-     */
     public function testMapPriceProductTransfersReturnsCorrectResponseAfterStoreEdit(): void
     {
         // Arrange
@@ -75,9 +69,6 @@ class SingleFieldPriceProductMapperTest extends Unit
         $this->assertPriceProductDefaultIdIsNotCopied($mappedPriceProductTransfers, $priceProductTransfer);
     }
 
-    /**
-     * @return void
-     */
     public function testMapPriceProductTransfersReturnsCorrectResponseAfterCurrencyEdit(): void
     {
         // Arrange
@@ -96,9 +87,6 @@ class SingleFieldPriceProductMapperTest extends Unit
         $this->assertPriceProductDefaultIdIsNotCopied($mappedPriceProductTransfers, $priceProductTransfer);
     }
 
-    /**
-     * @return void
-     */
     public function testMapPriceProductTransfersReturnsCorrectResponseAfterPriceAdded(): void
     {
         // Arrange
@@ -132,12 +120,6 @@ class SingleFieldPriceProductMapperTest extends Unit
         }
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\PriceProductTransfer $priceProductTransfer
-     * @param \Generated\Shared\Transfer\PriceProductTransfer $mappedPriceProductTransfer
-     *
-     * @return void
-     */
     protected function verifyMappedPriceProductTransfer(
         PriceProductTransfer $priceProductTransfer,
         PriceProductTransfer $mappedPriceProductTransfer

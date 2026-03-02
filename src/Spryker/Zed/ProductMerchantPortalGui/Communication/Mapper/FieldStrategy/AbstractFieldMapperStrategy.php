@@ -35,20 +35,11 @@ abstract class AbstractFieldMapperStrategy implements FieldMapperStrategyInterfa
      */
     protected ProductMerchantPortalGuiToPriceProductFacadeInterface $priceProductFacade;
 
-    /**
-     * @param \Spryker\Zed\ProductMerchantPortalGui\Dependency\Facade\ProductMerchantPortalGuiToPriceProductFacadeInterface $priceProductFacade
-     */
     public function __construct(ProductMerchantPortalGuiToPriceProductFacadeInterface $priceProductFacade)
     {
         $this->priceProductFacade = $priceProductFacade;
     }
 
-    /**
-     * @param string $priceTypeName
-     * @param \Generated\Shared\Transfer\PriceProductTransfer $priceProductTransfer
-     *
-     * @return \Generated\Shared\Transfer\PriceProductTransfer
-     */
     protected function createNewPriceProduct(
         string $priceTypeName,
         PriceProductTransfer $priceProductTransfer
@@ -121,11 +112,6 @@ abstract class AbstractFieldMapperStrategy implements FieldMapperStrategyInterfa
         return $priceProductTransfers;
     }
 
-    /**
-     * @param string $priceTypeName
-     *
-     * @return \Generated\Shared\Transfer\PriceTypeTransfer|null
-     */
     protected function getPriceTypeByName(string $priceTypeName): ?PriceTypeTransfer
     {
         $priceTypeTransfers = $this->priceProductFacade->getPriceTypeValues();
@@ -139,11 +125,6 @@ abstract class AbstractFieldMapperStrategy implements FieldMapperStrategyInterfa
         return null;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\MoneyValueTransfer $moneyValueTransfer
-     *
-     * @return \Generated\Shared\Transfer\MoneyValueTransfer
-     */
     protected function recreateMoneyValueTransfer(MoneyValueTransfer $moneyValueTransfer): MoneyValueTransfer
     {
         return (new MoneyValueTransfer())

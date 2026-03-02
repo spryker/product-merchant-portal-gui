@@ -59,12 +59,6 @@ interface PriceProductMapperInterface
         PriceProductCriteriaTransfer $priceProductCriteriaTransfer
     ): PriceProductCriteriaTransfer;
 
-    /**
-     * @param \Generated\Shared\Transfer\PriceProductTransfer $priceProductTransfer
-     * @param \Generated\Shared\Transfer\PriceProductTableViewTransfer $priceProductTableViewTransfer
-     *
-     * @return \Generated\Shared\Transfer\PriceProductTableViewTransfer
-     */
     public function mapPriceProductTransferToPriceProductTableViewTransfer(
         PriceProductTransfer $priceProductTransfer,
         PriceProductTableViewTransfer $priceProductTableViewTransfer

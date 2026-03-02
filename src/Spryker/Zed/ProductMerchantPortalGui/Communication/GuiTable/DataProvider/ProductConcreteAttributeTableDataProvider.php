@@ -66,12 +66,6 @@ class ProductConcreteAttributeTableDataProvider extends AbstractGuiTableDataProv
      */
     protected int $idProductConcrete;
 
-    /**
-     * @param \Spryker\Zed\ProductMerchantPortalGui\Dependency\Facade\ProductMerchantPortalGuiToProductFacadeInterface $productFacade
-     * @param \Spryker\Zed\ProductMerchantPortalGui\Dependency\Facade\ProductMerchantPortalGuiToLocaleFacadeInterface $localeFacade
-     * @param \Spryker\Zed\ProductMerchantPortalGui\Communication\Extractor\LocalizedAttributesExtractorInterface $localizedAttributesExtractor
-     * @param int $idProductConcrete
-     */
     public function __construct(
         ProductMerchantPortalGuiToProductFacadeInterface $productFacade,
         ProductMerchantPortalGuiToLocaleFacadeInterface $localeFacade,
@@ -84,11 +78,6 @@ class ProductConcreteAttributeTableDataProvider extends AbstractGuiTableDataProv
         $this->idProductConcrete = $idProductConcrete;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\GuiTableDataRequestTransfer $guiTableDataRequestTransfer
-     *
-     * @return \Spryker\Shared\Kernel\Transfer\AbstractTransfer
-     */
     protected function createCriteria(GuiTableDataRequestTransfer $guiTableDataRequestTransfer): AbstractTransfer
     {
         $productAttributeTableCriteriaTransfer = (new ProductAttributeTableCriteriaTransfer());

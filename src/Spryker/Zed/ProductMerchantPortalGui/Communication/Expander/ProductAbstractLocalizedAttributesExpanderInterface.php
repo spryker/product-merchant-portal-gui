@@ -11,10 +11,5 @@ use Generated\Shared\Transfer\ProductAbstractTransfer;
 
 interface ProductAbstractLocalizedAttributesExpanderInterface
 {
-    /**
-     * @param \Generated\Shared\Transfer\ProductAbstractTransfer $productAbstractTransfer
-     *
-     * @return \Generated\Shared\Transfer\ProductAbstractTransfer
-     */
     public function expandLocalizedAttributes(ProductAbstractTransfer $productAbstractTransfer): ProductAbstractTransfer;
 }

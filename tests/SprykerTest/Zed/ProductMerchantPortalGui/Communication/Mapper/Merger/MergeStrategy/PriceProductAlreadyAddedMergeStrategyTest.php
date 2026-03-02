@@ -30,9 +30,6 @@ class PriceProductAlreadyAddedMergeStrategyTest extends Unit
      */
     protected $tester;
 
-    /**
-     * @return void
-     */
     public function testIsApplicableReturnsTrueForMergeablePriceProducts(): void
     {
         // Arrange
@@ -53,9 +50,6 @@ class PriceProductAlreadyAddedMergeStrategyTest extends Unit
         $this->assertTrue($isApplicable);
     }
 
-    /**
-     * @return void
-     */
     public function testIsApplicableReturnsFalseForNotMergeablePriceProducts(): void
     {
         // Arrange
@@ -76,9 +70,6 @@ class PriceProductAlreadyAddedMergeStrategyTest extends Unit
         $this->assertFalse($isApplicable);
     }
 
-    /**
-     * @return void
-     */
     public function testMergeForMergeablePriceProducts(): void
     {
         // Arrange
@@ -99,9 +90,6 @@ class PriceProductAlreadyAddedMergeStrategyTest extends Unit
         $this->assertCount(1, $priceProductTransfers);
     }
 
-    /**
-     * @return void
-     */
     public function testMergeForNotMergeablePriceProducts(): void
     {
         // Arrange

@@ -126,9 +126,6 @@ class ProductAttributesNotBlankConstraintValidator extends ConstraintValidator
         return $result;
     }
 
-    /**
-     * @return \Spryker\Shared\Kernel\Transfer\AbstractTransfer
-     */
     protected function getParentFormData(): AbstractTransfer
     {
         /** @var \Symfony\Component\Form\Form $form */

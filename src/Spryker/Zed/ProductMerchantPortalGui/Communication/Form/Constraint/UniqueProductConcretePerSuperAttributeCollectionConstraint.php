@@ -16,17 +16,11 @@ class UniqueProductConcretePerSuperAttributeCollectionConstraint extends Symfony
      */
     protected const MESSAGE = 'Combination of super attribute values already exists.';
 
-    /**
-     * @return string
-     */
     public function getMessage(): string
     {
         return static::MESSAGE;
     }
 
-    /**
-     * @return string
-     */
     public function getTargets(): string
     {
         return static::CLASS_CONSTRAINT;

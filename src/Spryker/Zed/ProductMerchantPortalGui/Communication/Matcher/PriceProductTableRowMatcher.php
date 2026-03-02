@@ -38,11 +38,6 @@ class PriceProductTableRowMatcher implements PriceProductTableRowMatcherInterfac
      */
     protected ProductMerchantPortalGuiToMoneyFacadeInterface $moneyFacade;
 
-    /**
-     * @param \Spryker\Zed\ProductMerchantPortalGui\Communication\Creator\PriceProductTableColumnCreatorInterface $priceProductTableColumnCreator
-     * @param \Spryker\Zed\ProductMerchantPortalGui\Dependency\Facade\ProductMerchantPortalGuiToPriceProductVolumeFacadeInterface $priceProductVolumeFacade
-     * @param \Spryker\Zed\ProductMerchantPortalGui\Dependency\Facade\ProductMerchantPortalGuiToMoneyFacadeInterface $moneyFacade
-     */
     public function __construct(
         PriceProductTableColumnCreatorInterface $priceProductTableColumnCreator,
         ProductMerchantPortalGuiToPriceProductVolumeFacadeInterface $priceProductVolumeFacade,

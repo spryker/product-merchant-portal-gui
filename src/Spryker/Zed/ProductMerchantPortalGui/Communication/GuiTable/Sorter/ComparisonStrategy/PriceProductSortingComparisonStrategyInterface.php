@@ -9,17 +9,7 @@ namespace Spryker\Zed\ProductMerchantPortalGui\Communication\GuiTable\Sorter\Com
 
 interface PriceProductSortingComparisonStrategyInterface
 {
-    /**
-     * @param string $fieldName
-     *
-     * @return bool
-     */
     public function isApplicable(string $fieldName): bool;
 
-    /**
-     * @param string $fieldName
-     *
-     * @return callable
-     */
     public function getValueExtractorFunction(string $fieldName): callable;
 }

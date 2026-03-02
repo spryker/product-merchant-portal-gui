@@ -31,9 +31,6 @@ class SuperAttributesDataProvider implements SuperAttributesDataProviderInterfac
      */
     protected ProductMerchantPortalGuiToProductAttributeFacadeInterface $productAttributeFacade;
 
-    /**
-     * @param \Spryker\Zed\ProductMerchantPortalGui\Dependency\Facade\ProductMerchantPortalGuiToProductAttributeFacadeInterface $productAttributeFacade
-     */
     public function __construct(ProductMerchantPortalGuiToProductAttributeFacadeInterface $productAttributeFacade)
     {
         $this->productAttributeFacade = $productAttributeFacade;

@@ -46,19 +46,11 @@ class ProductApprovalStatusProductTableConfigurationExpander implements ProductA
      */
     protected ProductMerchantPortalGuiToTranslatorFacadeInterface $translatorFacade;
 
-    /**
-     * @param \Spryker\Zed\ProductMerchantPortalGui\Dependency\Facade\ProductMerchantPortalGuiToTranslatorFacadeInterface $translatorFacade
-     */
     public function __construct(ProductMerchantPortalGuiToTranslatorFacadeInterface $translatorFacade)
     {
         $this->translatorFacade = $translatorFacade;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\GuiTableConfigurationTransfer $guiTableConfigurationTransfer
-     *
-     * @return \Generated\Shared\Transfer\GuiTableConfigurationTransfer
-     */
     public function expand(GuiTableConfigurationTransfer $guiTableConfigurationTransfer): GuiTableConfigurationTransfer
     {
         $guiTableColumnConfigurationTransfer = (new GuiTableColumnConfigurationTransfer())

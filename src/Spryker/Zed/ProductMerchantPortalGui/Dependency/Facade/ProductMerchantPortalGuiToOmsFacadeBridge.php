@@ -25,11 +25,6 @@ class ProductMerchantPortalGuiToOmsFacadeBridge implements ProductMerchantPortal
         $this->omsFacade = $omsFacade;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ReservationRequestTransfer $reservationRequestTransfer
-     *
-     * @return \Generated\Shared\Transfer\ReservationResponseTransfer
-     */
     public function getOmsReservedProductQuantity(ReservationRequestTransfer $reservationRequestTransfer): ReservationResponseTransfer
     {
         return $this->omsFacade->getOmsReservedProductQuantity($reservationRequestTransfer);

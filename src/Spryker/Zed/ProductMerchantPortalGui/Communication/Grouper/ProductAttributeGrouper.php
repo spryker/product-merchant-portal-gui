@@ -169,12 +169,6 @@ class ProductAttributeGrouper implements ProductAttributeGrouperInterface
         return false;
     }
 
-    /**
-     * @param \Generated\Shared\Transfer\ProductManagementAttributeTransfer $productManagementAttributeTransfer
-     * @param string|null $localeName
-     *
-     * @return string
-     */
     protected function getLocalizedAttributeName(
         ProductManagementAttributeTransfer $productManagementAttributeTransfer,
         ?string $localeName

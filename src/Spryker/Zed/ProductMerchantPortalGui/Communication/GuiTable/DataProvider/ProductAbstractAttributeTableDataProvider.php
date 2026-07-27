@@ -128,11 +128,11 @@ class ProductAbstractAttributeTableDataProvider extends AbstractGuiTableDataProv
     }
 
     /**
-     * @param array<array<string>> $attributes
+     * @param array<array<string, mixed>> $attributes
      * @param string $orderBy
      * @param string $orderDirection
      *
-     * @return array<array<string>>
+     * @return array<array<string, mixed>>
      */
     protected function sortAttributesArray(array $attributes, string $orderBy, string $orderDirection): array
     {

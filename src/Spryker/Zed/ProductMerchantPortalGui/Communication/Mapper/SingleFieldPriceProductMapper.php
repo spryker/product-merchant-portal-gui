@@ -57,6 +57,6 @@ class SingleFieldPriceProductMapper implements SingleFieldPriceProductMapperInte
             }
         }
 
-        return new ArrayObject($priceProductTransfers);
+        return new ArrayObject($priceProductTransfers->getArrayCopy());
     }
 }

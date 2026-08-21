@@ -136,7 +136,7 @@ class PriceProductMapper implements PriceProductMapperInterface
             $this->executePriceProductMapperPlugins($priceProductTransfer, $data);
         }
 
-        return new ArrayObject($priceProductTransfers);
+        return new ArrayObject($priceProductTransfers->getArrayCopy());
     }
 
     /**

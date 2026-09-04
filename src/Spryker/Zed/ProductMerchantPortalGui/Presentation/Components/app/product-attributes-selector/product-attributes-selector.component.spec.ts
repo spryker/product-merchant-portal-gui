@@ -60,9 +60,9 @@ const mockSelectedAttributes = [
     `,
 })
 class TestHostComponent {
-    @Input() attributes: any;
-    @Input() selectedAttributes: any;
-    @Input() name: any;
+    @Input() attributes: unknown;
+    @Input() selectedAttributes: unknown;
+    @Input() name: unknown;
     selectedAttributesChange = jest.fn();
 }
 

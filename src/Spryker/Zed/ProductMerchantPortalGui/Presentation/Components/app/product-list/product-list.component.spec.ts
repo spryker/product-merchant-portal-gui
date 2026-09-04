@@ -13,7 +13,7 @@ import { ProductListComponent } from './product-list.component';
     `,
 })
 class TestHostComponent {
-    tableConfig: any = {};
+    tableConfig: unknown = {};
     tableId = '';
 }
 

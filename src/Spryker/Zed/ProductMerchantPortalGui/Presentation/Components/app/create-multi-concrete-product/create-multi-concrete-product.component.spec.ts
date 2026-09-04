@@ -136,12 +136,12 @@ const mockGeneratedProductErrors = [
     `,
 })
 class TestHostComponent {
-    @Input() attributes: any;
-    @Input() selectedAttributes: any;
-    @Input() attributesName: any;
-    @Input() productsName: any;
-    @Input() generatedProducts: any;
-    @Input() generatedProductErrors: any;
+    @Input() attributes: unknown;
+    @Input() selectedAttributes: unknown;
+    @Input() attributesName: unknown;
+    @Input() productsName: unknown;
+    @Input() generatedProducts: unknown;
+    @Input() generatedProductErrors: unknown;
 }
 
 describe('CreateMultiConcreteProductComponent', () => {

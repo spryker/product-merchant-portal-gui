@@ -19,7 +19,7 @@ const mockProduct = {
     `,
 })
 class TestHostComponent {
-    @Input() product: any;
+    @Input() product: unknown;
 }
 
 describe('CreateConcreteProductsOverlayComponent', () => {

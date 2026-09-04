@@ -1,5 +1,5 @@
 import { Component, Input, NO_ERRORS_SCHEMA } from '@angular/core';
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { InvokeModule } from '@spryker/utils';
 import { ImageSetsComponent } from './image-sets.component';
@@ -74,10 +74,10 @@ const mockedImageSetError = [
     `,
 })
 class TestHostComponent {
-    @Input() imageSets: any;
-    @Input() names: any;
-    @Input() titles: any;
-    @Input() errors: any;
+    @Input() imageSets: unknown;
+    @Input() names: unknown;
+    @Input() titles: unknown;
+    @Input() errors: unknown;
 }
 
 describe('ImageSetsComponent', () => {

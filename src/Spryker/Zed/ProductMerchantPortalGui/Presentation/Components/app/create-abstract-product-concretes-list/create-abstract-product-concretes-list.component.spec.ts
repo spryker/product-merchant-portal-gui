@@ -33,7 +33,7 @@ const mockForm = {
     `,
 })
 class TestHostComponent {
-    @Input() form: any;
+    @Input() form: unknown;
 }
 
 describe('CreateAbstractProductConcretesListComponent', () => {

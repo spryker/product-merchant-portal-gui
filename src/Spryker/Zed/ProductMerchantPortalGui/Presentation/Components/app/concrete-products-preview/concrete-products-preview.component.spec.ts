@@ -149,7 +149,7 @@ class MockGeneratorFactory {
     `,
 })
 class TestHostComponent {
-    @Input() attributes: any;
+    @Input() attributes: unknown;
 }
 
 describe('ConcreteProductsPreviewComponent', () => {
@@ -355,7 +355,7 @@ describe('ConcreteProductsPreviewComponent', () => {
             );
             const skuGeneratorFactory = fixture.debugElement.injector.get(
                 ConcreteProductSkuGeneratorFactoryService,
-            ) as any as MockGeneratorFactory;
+            ) as unknown as MockGeneratorFactory;
 
             checkboxComponents[0].triggerEventHandler('checkedChange', true);
             fixture.detectChanges();
@@ -393,7 +393,7 @@ describe('ConcreteProductsPreviewComponent', () => {
             );
             const nameGeneratorFactory = fixture.debugElement.injector.get(
                 ConcreteProductNameGeneratorFactoryService,
-            ) as any as MockGeneratorFactory;
+            ) as unknown as MockGeneratorFactory;
 
             checkboxComponents[1].triggerEventHandler('checkedChange', true);
             fixture.detectChanges();

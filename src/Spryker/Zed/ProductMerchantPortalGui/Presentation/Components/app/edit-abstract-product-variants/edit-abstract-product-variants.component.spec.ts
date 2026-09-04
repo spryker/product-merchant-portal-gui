@@ -1,5 +1,5 @@
 import { Component, Input, NO_ERRORS_SCHEMA } from '@angular/core';
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { CardModule } from '@spryker/card';
 import { EditAbstractProductVariantsComponent } from './edit-abstract-product-variants.component';
@@ -14,8 +14,8 @@ import { EditAbstractProductVariantsComponent } from './edit-abstract-product-va
     `,
 })
 class TestHostComponent {
-    @Input() config: any;
-    @Input() tableId: any;
+    @Input() config: unknown;
+    @Input() tableId: unknown;
 }
 
 describe('EditAbstractProductVariantsComponent', () => {

@@ -13,9 +13,6 @@ interface PriceDeleterInterface
 {
     /**
      * @param array<\Generated\Shared\Transfer\PriceProductTransfer> $priceProductTransfers
-     * @param int $volumeQuantity
-     *
-     * @return \Generated\Shared\Transfer\ValidationResponseTransfer
      */
     public function deletePrices(array $priceProductTransfers, int $volumeQuantity): ValidationResponseTransfer;
 }

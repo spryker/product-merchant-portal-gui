@@ -44,9 +44,6 @@ class AttributesDataProvider implements AttributesDataProviderInterface
      */
     protected const DATA_KEY_SKU = 'sku';
 
-    /**
-     * @var \Spryker\Zed\ProductMerchantPortalGui\Communication\Extractor\LocalizedAttributesExtractorInterface
-     */
     protected LocalizedAttributesExtractorInterface $localizedAttributesExtractor;
 
     public function __construct(LocalizedAttributesExtractorInterface $localizedAttributesExtractor)
@@ -84,9 +81,7 @@ class AttributesDataProvider implements AttributesDataProviderInterface
     }
 
     /**
-     * @param \Generated\Shared\Transfer\MerchantProductTransfer $merchantProductTransfer
      * @param array<\Generated\Shared\Transfer\ProductManagementAttributeTransfer> $productManagementAttributeTransfers
-     * @param \Generated\Shared\Transfer\LocaleTransfer $localeTransfer
      *
      * @return array<array<string, mixed>>
      */
@@ -113,9 +108,7 @@ class AttributesDataProvider implements AttributesDataProviderInterface
     }
 
     /**
-     * @param \Generated\Shared\Transfer\ProductConcreteTransfer $productConcreteTransfer
      * @param array<string> $superAttributeKeys
-     * @param \Generated\Shared\Transfer\LocaleTransfer $localeTransfer
      *
      * @return array<string, mixed>
      */
@@ -157,8 +150,6 @@ class AttributesDataProvider implements AttributesDataProviderInterface
     /**
      * @param array<string, mixed> $a
      * @param array<string, mixed> $b
-     *
-     * @return int
      */
     protected function sortProductAttributesData(array $a, array $b): int
     {

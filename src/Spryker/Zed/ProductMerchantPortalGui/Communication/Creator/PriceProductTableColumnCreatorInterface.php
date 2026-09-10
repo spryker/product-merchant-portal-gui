@@ -14,10 +14,7 @@ interface PriceProductTableColumnCreatorInterface
     public function createPriceColumnId(string $priceTypeName, string $moneyValueType): string;
 
     /**
-     * @param \Generated\Shared\Transfer\PriceProductTransfer $priceProductTransfer
      * @param array<string> $propertyPathValues
-     *
-     * @return string
      */
     public function createColumnIdFromPropertyPath(
         PriceProductTransfer $priceProductTransfer,

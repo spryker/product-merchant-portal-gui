@@ -31,10 +31,7 @@ class ProductMerchantPortalGuiToProductCategoryFacadeBridge implements ProductMe
     }
 
     /**
-     * @param int $idCategory
      * @param array<int> $productIdsToAssign
-     *
-     * @return void
      */
     public function createProductCategoryMappings(int $idCategory, array $productIdsToAssign): void
     {
@@ -42,10 +39,7 @@ class ProductMerchantPortalGuiToProductCategoryFacadeBridge implements ProductMe
     }
 
     /**
-     * @param int $idCategory
      * @param array<int> $productIdsToUnAssign
-     *
-     * @return void
      */
     public function removeProductCategoryMappings(int $idCategory, array $productIdsToUnAssign): void
     {

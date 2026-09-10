@@ -130,7 +130,6 @@ class ImageSetMapper implements ImageSetMapperInterface
     /**
      * @param array<array<string, mixed>> $imageSetData
      * @param array<string> $fields
-     * @param string $errorMessage
      *
      * @return array<array<string, mixed>>
      */
@@ -147,7 +146,6 @@ class ImageSetMapper implements ImageSetMapperInterface
     /**
      * @param array<array<string, array<string, array<string, mixed>>>> $imageSetData
      * @param array<string> $fields
-     * @param string $errorMessage
      *
      * @return array<array<string, array<string, array<string, mixed>>>>
      */

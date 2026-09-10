@@ -23,19 +23,10 @@ class PriceProductTableRowMatcher implements PriceProductTableRowMatcherInterfac
      */
     protected const VOLUME_PRICE_TYPE = 'volume_prices';
 
-    /**
-     * @var \Spryker\Zed\ProductMerchantPortalGui\Communication\Creator\PriceProductTableColumnCreatorInterface
-     */
     protected PriceProductTableColumnCreatorInterface $priceProductTableColumnCreator;
 
-    /**
-     * @var \Spryker\Zed\ProductMerchantPortalGui\Dependency\Facade\ProductMerchantPortalGuiToPriceProductVolumeFacadeInterface
-     */
     protected ProductMerchantPortalGuiToPriceProductVolumeFacadeInterface $priceProductVolumeFacade;
 
-    /**
-     * @var \Spryker\Zed\ProductMerchantPortalGui\Dependency\Facade\ProductMerchantPortalGuiToMoneyFacadeInterface
-     */
     protected ProductMerchantPortalGuiToMoneyFacadeInterface $moneyFacade;
 
     public function __construct(
@@ -50,10 +41,7 @@ class PriceProductTableRowMatcher implements PriceProductTableRowMatcherInterfac
 
     /**
      * @param array<mixed> $initialDataRow
-     * @param \Generated\Shared\Transfer\PriceProductTransfer $priceProductTransfer
      * @param array<string> $propertyPath
-     *
-     * @return bool
      */
     public function isPriceProductInRow(
         array $initialDataRow,
@@ -69,9 +57,6 @@ class PriceProductTableRowMatcher implements PriceProductTableRowMatcherInterfac
 
     /**
      * @param array<mixed> $initialDataRow
-     * @param \Generated\Shared\Transfer\PriceProductTransfer $priceProductTransfer
-     *
-     * @return bool
      */
     protected function isSameStoreId(array $initialDataRow, PriceProductTransfer $priceProductTransfer): bool
     {
@@ -84,9 +69,6 @@ class PriceProductTableRowMatcher implements PriceProductTableRowMatcherInterfac
 
     /**
      * @param array<mixed> $initialDataRow
-     * @param \Generated\Shared\Transfer\PriceProductTransfer $priceProductTransfer
-     *
-     * @return bool
      */
     protected function isSameCurrencyId(array $initialDataRow, PriceProductTransfer $priceProductTransfer): bool
     {
@@ -99,10 +81,7 @@ class PriceProductTableRowMatcher implements PriceProductTableRowMatcherInterfac
 
     /**
      * @param array<mixed> $initialDataRow
-     * @param \Generated\Shared\Transfer\PriceProductTransfer $priceProductTransfer
      * @param array<string> $propertyPath
-     *
-     * @return bool
      */
     protected function isSameNetPrice(
         array $initialDataRow,
@@ -136,10 +115,7 @@ class PriceProductTableRowMatcher implements PriceProductTableRowMatcherInterfac
 
     /**
      * @param array<mixed> $initialDataRow
-     * @param \Generated\Shared\Transfer\PriceProductTransfer $priceProductTransfer
      * @param array<string> $propertyPath
-     *
-     * @return bool
      */
     protected function isSameGrossPrice(
         array $initialDataRow,
@@ -173,10 +149,7 @@ class PriceProductTableRowMatcher implements PriceProductTableRowMatcherInterfac
 
     /**
      * @param array<mixed> $initialDataRow
-     * @param \Generated\Shared\Transfer\PriceProductTransfer $priceProductTransfer
      * @param array<string> $propertyPath
-     *
-     * @return bool
      */
     protected function isSameVolumeQuantity(
         array $initialDataRow,
@@ -200,8 +173,6 @@ class PriceProductTableRowMatcher implements PriceProductTableRowMatcherInterfac
 
     /**
      * @param mixed $value
-     *
-     * @return int|null
      */
     protected function convertDecimalToInteger($value): ?int
     {
@@ -214,10 +185,7 @@ class PriceProductTableRowMatcher implements PriceProductTableRowMatcherInterfac
 
     /**
      * @param array<mixed> $initialDataRow
-     * @param \Generated\Shared\Transfer\PriceProductTransfer $priceProductTransfer
      * @param array<string> $propertyPath
-     *
-     * @return \Generated\Shared\Transfer\PriceProductTransfer|null
      */
     protected function getVolumePriceProductTransfer(
         array $initialDataRow,

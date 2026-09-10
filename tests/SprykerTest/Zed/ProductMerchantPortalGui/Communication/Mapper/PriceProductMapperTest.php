@@ -26,9 +26,6 @@ use SprykerTest\Zed\ProductMerchantPortalGui\ProductMerchantPortalGuiCommunicati
  */
 class PriceProductMapperTest extends Unit
 {
-    /**
-     * @var \SprykerTest\Zed\ProductMerchantPortalGui\ProductMerchantPortalGuiCommunicationTester
-     */
     protected ProductMerchantPortalGuiCommunicationTester $tester;
 
     /**

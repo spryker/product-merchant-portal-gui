@@ -34,8 +34,6 @@ class ProductAttributesNotBlankConstraintValidator extends ConstraintValidator
     /**
      * @param mixed $value
      * @param \Spryker\Zed\ProductMerchantPortalGui\Communication\Form\Constraint\ProductAttributesNotBlankConstraint $constraint
-     *
-     * @return void
      */
     public function validate($value, Constraint $constraint): void
     {
@@ -48,9 +46,6 @@ class ProductAttributesNotBlankConstraintValidator extends ConstraintValidator
 
     /**
      * @param array<array<string>> $attributes
-     * @param \Spryker\Zed\ProductMerchantPortalGui\Communication\Form\Constraint\ProductAttributesNotBlankConstraint $constraint
-     *
-     * @return void
      */
     protected function validateAtLeastOneAttributeValueNotBlank(
         array $attributes,
@@ -96,8 +91,6 @@ class ProductAttributesNotBlankConstraintValidator extends ConstraintValidator
     /**
      * @param array<string> $formAttribute
      * @param array<string> $existingLocaleNames
-     *
-     * @return bool
      */
     protected function isAllAttributesEmpty(array $formAttribute, array $existingLocaleNames): bool
     {

@@ -71,9 +71,6 @@ class ProductFormTransferMapper implements ProductFormTransferMapperInterface
      */
     protected const PRODUCT_ATTRIBUTE_VALUE_FORM_FIELD_VALUE = 'value';
 
-    /**
-     * @var \Spryker\Zed\ProductMerchantPortalGui\Dependency\Facade\ProductMerchantPortalGuiToLocaleFacadeInterface
-     */
     protected ProductMerchantPortalGuiToLocaleFacadeInterface $localeFacade;
 
     public function __construct(ProductMerchantPortalGuiToLocaleFacadeInterface $localeFacade)
@@ -83,9 +80,6 @@ class ProductFormTransferMapper implements ProductFormTransferMapperInterface
 
     /**
      * @param array<mixed> $addProductConcreteFormData
-     * @param \Generated\Shared\Transfer\ProductConcreteCollectionTransfer $productConcreteCollectionTransfer
-     *
-     * @return \Generated\Shared\Transfer\ProductConcreteCollectionTransfer
      */
     public function mapAddProductConcreteFormDataToProductConcreteCollectionTransfer(
         array $addProductConcreteFormData,
@@ -115,12 +109,8 @@ class ProductFormTransferMapper implements ProductFormTransferMapperInterface
     }
 
     /**
-     * @param \Generated\Shared\Transfer\ProductConcreteTransfer $productConcreteTransfer
-     * @param \Generated\Shared\Transfer\LocaleTransfer $defaultLocaleTransfer
      * @param array<\Generated\Shared\Transfer\LocaleTransfer> $localeTransfers
      * @param array<mixed> $productConcreteFormData
-     *
-     * @return \Generated\Shared\Transfer\ProductConcreteTransfer
      */
     protected function addLocalizedAttributesToProductConcrete(
         ProductConcreteTransfer $productConcreteTransfer,
@@ -143,10 +133,7 @@ class ProductFormTransferMapper implements ProductFormTransferMapperInterface
     }
 
     /**
-     * @param \Generated\Shared\Transfer\ProductConcreteTransfer $productConcreteTransfer
      * @param array<mixed> $productConcreteFormData
-     *
-     * @return \Generated\Shared\Transfer\ProductConcreteTransfer
      */
     protected function addAttributesToProductConcrete(
         ProductConcreteTransfer $productConcreteTransfer,

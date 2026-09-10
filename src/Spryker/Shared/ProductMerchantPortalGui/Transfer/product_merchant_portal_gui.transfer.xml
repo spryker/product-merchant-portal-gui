@@ -496,4 +496,10 @@
         <property name="url" type="string"/>
     </transfer>
 
+    <transfer name="LocaleConditions">
+    </transfer>
+
+    <transfer name="LocaleCriteria">
+    </transfer>
+
 </transfers>

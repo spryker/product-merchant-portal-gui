@@ -25,15 +25,10 @@ interface ProductMerchantPortalGuiToPriceProductFacadeInterface
 
     /**
      * @param \ArrayObject<int, \Generated\Shared\Transfer\PriceProductTransfer> $priceProductTransfers
-     *
-     * @return \Generated\Shared\Transfer\ValidationResponseTransfer
      */
     public function validatePrices(ArrayObject $priceProductTransfers): ValidationResponseTransfer;
 
     /**
-     * @param int $idProductAbstract
-     * @param \Generated\Shared\Transfer\PriceProductCriteriaTransfer|null $priceProductCriteriaTransfer
-     *
      * @return array<\Generated\Shared\Transfer\PriceProductTransfer>
      */
     public function findProductAbstractPricesWithoutPriceExtraction(
@@ -42,10 +37,6 @@ interface ProductMerchantPortalGuiToPriceProductFacadeInterface
     ): array;
 
     /**
-     * @param int $idProductConcrete
-     * @param int $idProductAbstract
-     * @param \Generated\Shared\Transfer\PriceProductCriteriaTransfer|null $priceProductCriteriaTransfer
-     *
      * @return array<\Generated\Shared\Transfer\PriceProductTransfer>
      */
     public function findProductConcretePricesWithoutPriceExtraction(
@@ -55,9 +46,6 @@ interface ProductMerchantPortalGuiToPriceProductFacadeInterface
     ): array;
 
     /**
-     * @param int $idProductAbstract
-     * @param \Generated\Shared\Transfer\PriceProductCriteriaTransfer|null $priceProductCriteriaTransfer
-     *
      * @return array<\Generated\Shared\Transfer\PriceProductTransfer>
      */
     public function findProductAbstractPrices(
@@ -66,10 +54,6 @@ interface ProductMerchantPortalGuiToPriceProductFacadeInterface
     ): array;
 
     /**
-     * @param int $idProductConcrete
-     * @param int $idProductAbstract
-     * @param \Generated\Shared\Transfer\PriceProductCriteriaTransfer|null $priceProductCriteriaTransfer
-     *
      * @return array<\Generated\Shared\Transfer\PriceProductTransfer>
      */
     public function findProductConcretePrices(

@@ -96,14 +96,8 @@ class ProductGuiTableConfigurationProvider implements ProductGuiTableConfigurati
      */
     protected const ROW_EDIT_ID = 'update-product';
 
-    /**
-     * @var \Spryker\Shared\GuiTable\GuiTableFactoryInterface
-     */
     protected GuiTableFactoryInterface $guiTableFactory;
 
-    /**
-     * @var \Spryker\Zed\ProductMerchantPortalGui\Dependency\Facade\ProductMerchantPortalGuiToTranslatorFacadeInterface
-     */
     protected ProductMerchantPortalGuiToTranslatorFacadeInterface $translatorFacade;
 
     /**
@@ -112,8 +106,6 @@ class ProductGuiTableConfigurationProvider implements ProductGuiTableConfigurati
     protected array $productConcreteTableExpanderPlugins;
 
     /**
-     * @param \Spryker\Shared\GuiTable\GuiTableFactoryInterface $guiTableFactory
-     * @param \Spryker\Zed\ProductMerchantPortalGui\Dependency\Facade\ProductMerchantPortalGuiToTranslatorFacadeInterface $translatorFacade
      * @param array<\Spryker\Zed\ProductMerchantPortalGuiExtension\Dependency\Plugin\ProductConcreteTableExpanderPluginInterface> $productConcreteTableExpanderPlugins
      */
     public function __construct(

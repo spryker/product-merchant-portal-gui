@@ -14,8 +14,6 @@ interface ProductMerchantPortalGuiToPriceProductVolumeFacadeInterface
 {
     /**
      * @param \ArrayObject<int, \Generated\Shared\Transfer\PriceProductTransfer> $priceProductTransfers
-     *
-     * @return \Generated\Shared\Transfer\ValidationResponseTransfer
      */
     public function validateVolumePrices(ArrayObject $priceProductTransfers): ValidationResponseTransfer;
 

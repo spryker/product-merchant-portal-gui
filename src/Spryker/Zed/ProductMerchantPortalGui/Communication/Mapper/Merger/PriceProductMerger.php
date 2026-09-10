@@ -26,7 +26,6 @@ class PriceProductMerger implements PriceProductMergerInterface
     }
 
     /**
-     * @param \Generated\Shared\Transfer\PriceProductTransfer $newPriceProductTransfer
      * @param \ArrayObject<int, \Generated\Shared\Transfer\PriceProductTransfer> $priceProductTransfers
      *
      * @return \ArrayObject<int, \Generated\Shared\Transfer\PriceProductTransfer>

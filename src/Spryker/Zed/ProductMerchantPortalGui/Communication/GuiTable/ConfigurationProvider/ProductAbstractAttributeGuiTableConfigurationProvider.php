@@ -180,24 +180,12 @@ class ProductAbstractAttributeGuiTableConfigurationProvider implements ProductAb
      */
     protected const EDITABLE_NEW_ROW = 'editableNewRow';
 
-    /**
-     * @var \Spryker\Shared\GuiTable\GuiTableFactoryInterface
-     */
     protected GuiTableFactoryInterface $guiTableFactory;
 
-    /**
-     * @var \Spryker\Zed\ProductMerchantPortalGui\Dependency\Facade\ProductMerchantPortalGuiToProductAttributeFacadeInterface
-     */
     protected ProductMerchantPortalGuiToProductAttributeFacadeInterface $productAttributeFacade;
 
-    /**
-     * @var \Spryker\Zed\ProductMerchantPortalGui\Dependency\Facade\ProductMerchantPortalGuiToProductFacadeInterface
-     */
     protected ProductMerchantPortalGuiToProductFacadeInterface $productFacade;
 
-    /**
-     * @var \Spryker\Zed\ProductMerchantPortalGui\Communication\Grouper\ProductAttributeGrouperInterface
-     */
     protected ProductAttributeGrouperInterface $productAttributeGrouper;
 
     public function __construct(
@@ -213,12 +201,9 @@ class ProductAbstractAttributeGuiTableConfigurationProvider implements ProductAb
     }
 
     /**
-     * @param int $idProductAbstract
      * @param array<string, array<int|string, mixed>> $attributesInitialData
      *
      * @throws \Spryker\Zed\ProductMerchantPortalGui\Communication\Exception\ProductAbstractNotFoundException
-     *
-     * @return \Generated\Shared\Transfer\GuiTableConfigurationTransfer
      */
     public function getConfiguration(
         int $idProductAbstract,
@@ -257,10 +242,7 @@ class ProductAbstractAttributeGuiTableConfigurationProvider implements ProductAb
     }
 
     /**
-     * @param \Spryker\Shared\GuiTable\Configuration\Builder\GuiTableConfigurationBuilderInterface $guiTableConfigurationBuilder
      * @param array<string, array<string, mixed>> $attributesInitialData
-     *
-     * @return \Spryker\Shared\GuiTable\Configuration\Builder\GuiTableConfigurationBuilderInterface
      */
     protected function addCustomEditableColumns(
         GuiTableConfigurationBuilderInterface $guiTableConfigurationBuilder,
@@ -363,8 +345,6 @@ class ProductAbstractAttributeGuiTableConfigurationProvider implements ProductAb
     }
 
     /**
-     * @param \Generated\Shared\Transfer\ProductManagementAttributeTransfer $productManagementAttribute
-     *
      * @return array<int, array<string, string>>
      */
     protected function getOptionsFromProductManagementAttribute(ProductManagementAttributeTransfer $productManagementAttribute): array
@@ -400,9 +380,6 @@ class ProductAbstractAttributeGuiTableConfigurationProvider implements ProductAb
 
     /**
      * @param array<string, mixed> $initialData
-     * @param string $key
-     *
-     * @return mixed
      */
     protected function getInitialDataContext(array $initialData, string $key): mixed
     {
@@ -410,10 +387,7 @@ class ProductAbstractAttributeGuiTableConfigurationProvider implements ProductAb
     }
 
     /**
-     * @param \Spryker\Shared\GuiTable\Configuration\Builder\GuiTableConfigurationBuilderInterface $guiTableConfigurationBuilder
      * @param array<string, array<string|int, mixed>> $attributesInitialData
-     *
-     * @return \Spryker\Shared\GuiTable\Configuration\Builder\GuiTableConfigurationBuilderInterface
      */
     protected function addEditableColumns(
         GuiTableConfigurationBuilderInterface $guiTableConfigurationBuilder,

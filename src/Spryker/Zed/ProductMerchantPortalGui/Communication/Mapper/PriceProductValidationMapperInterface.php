@@ -13,7 +13,6 @@ use Generated\Shared\Transfer\ValidationResponseTransfer;
 interface PriceProductValidationMapperInterface
 {
     /**
-     * @param \Generated\Shared\Transfer\ValidationResponseTransfer $validationResponseTransfer
      * @param \ArrayObject<int, \Generated\Shared\Transfer\PriceProductTransfer> $priceProductTransfers
      * @param array<string, mixed> $initialData
      *

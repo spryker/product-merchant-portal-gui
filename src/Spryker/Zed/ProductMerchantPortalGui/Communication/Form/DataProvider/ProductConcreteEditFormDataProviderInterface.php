@@ -10,14 +10,14 @@ namespace Spryker\Zed\ProductMerchantPortalGui\Communication\Form\DataProvider;
 interface ProductConcreteEditFormDataProviderInterface
 {
     /**
-     * @param int $idProductConcrete
-     *
      * @return array<string, mixed>
      */
     public function getData(int $idProductConcrete): array;
 
     /**
-     * @return array<array<string>>
+     * Searchability choices are keyed by locale name, valued by idLocale.
+     *
+     * @return array<string, array<string, int>>
      */
     public function getOptions(): array;
 }

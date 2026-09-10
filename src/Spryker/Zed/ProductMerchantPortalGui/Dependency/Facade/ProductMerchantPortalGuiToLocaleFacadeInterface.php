@@ -7,6 +7,7 @@
 
 namespace Spryker\Zed\ProductMerchantPortalGui\Dependency\Facade;
 
+use Generated\Shared\Transfer\LocaleCriteriaTransfer;
 use Generated\Shared\Transfer\LocaleTransfer;
 
 interface ProductMerchantPortalGuiToLocaleFacadeInterface
@@ -14,30 +15,26 @@ interface ProductMerchantPortalGuiToLocaleFacadeInterface
     public function getCurrentLocale(): LocaleTransfer;
 
     /**
+     * Locale names, e.g. "de_DE".
+     *
      * @return array<string>
      */
     public function getAvailableLocales(): array;
 
     /**
-     * @param string $localeName
-     *
      * @throws \Spryker\Zed\Locale\Business\Exception\MissingLocaleException
-     *
-     * @return \Generated\Shared\Transfer\LocaleTransfer
      */
     public function getLocale(string $localeName): LocaleTransfer;
 
     /**
+     * Optionally scoped by the criteria's store names.
+     *
      * @return array<\Generated\Shared\Transfer\LocaleTransfer>
      */
-    public function getLocaleCollection(): array;
+    public function getLocaleCollection(?LocaleCriteriaTransfer $localeCriteriaTransfer = null): array;
 
     /**
-     * @param int $idLocale
-     *
      * @throws \Spryker\Zed\Locale\Business\Exception\MissingLocaleException
-     *
-     * @return \Generated\Shared\Transfer\LocaleTransfer
      */
     public function getLocaleById(int $idLocale): LocaleTransfer;
 }

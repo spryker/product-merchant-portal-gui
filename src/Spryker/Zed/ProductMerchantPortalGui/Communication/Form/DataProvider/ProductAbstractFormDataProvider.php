@@ -24,34 +24,16 @@ use Spryker\Zed\ProductMerchantPortalGui\ProductMerchantPortalGuiConfig;
 
 class ProductAbstractFormDataProvider implements ProductAbstractFormDataProviderInterface
 {
-    /**
-     * @var \Spryker\Zed\ProductMerchantPortalGui\Dependency\Facade\ProductMerchantPortalGuiToMerchantProductFacadeInterface
-     */
     protected ProductMerchantPortalGuiToMerchantProductFacadeInterface $merchantProductFacade;
 
-    /**
-     * @var \Spryker\Zed\ProductMerchantPortalGui\Dependency\Facade\ProductMerchantPortalGuiToMerchantUserFacadeInterface
-     */
     protected ProductMerchantPortalGuiToMerchantUserFacadeInterface $merchantUserFacade;
 
-    /**
-     * @var \Spryker\Zed\ProductMerchantPortalGui\Dependency\Facade\ProductMerchantPortalGuiToCategoryFacadeInterface
-     */
     protected ProductMerchantPortalGuiToCategoryFacadeInterface $categoryFacade;
 
-    /**
-     * @var \Spryker\Zed\ProductMerchantPortalGui\Dependency\Facade\ProductMerchantPortalGuiToLocaleFacadeInterface
-     */
     protected ProductMerchantPortalGuiToLocaleFacadeInterface $localeFacade;
 
-    /**
-     * @var \Spryker\Zed\ProductMerchantPortalGui\Dependency\Facade\ProductMerchantPortalGuiToProductCategoryFacadeInterface
-     */
     protected ProductMerchantPortalGuiToProductCategoryFacadeInterface $productCategoryFacade;
 
-    /**
-     * @var \Spryker\Zed\ProductMerchantPortalGui\ProductMerchantPortalGuiConfig
-     */
     protected ProductMerchantPortalGuiConfig $productMerchantPortalGuiConfig;
 
     public function __construct(
@@ -157,8 +139,6 @@ class ProductAbstractFormDataProvider implements ProductAbstractFormDataProvider
     }
 
     /**
-     * @param \Generated\Shared\Transfer\NodeCollectionTransfer $nodeCollectionTransfer
-     *
      * @return array<array<string, mixed>>
      */
     protected function getCategoryTreeArray(NodeCollectionTransfer $nodeCollectionTransfer): array
@@ -199,8 +179,6 @@ class ProductAbstractFormDataProvider implements ProductAbstractFormDataProvider
     }
 
     /**
-     * @param \Generated\Shared\Transfer\CategoryCollectionTransfer $categoryCollectionTransfer
-     *
      * @return array<int>
      */
     protected function getCategoryIds(CategoryCollectionTransfer $categoryCollectionTransfer): array

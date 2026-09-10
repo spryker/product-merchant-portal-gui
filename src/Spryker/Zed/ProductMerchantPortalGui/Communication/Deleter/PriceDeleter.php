@@ -29,19 +29,10 @@ class PriceDeleter implements PriceDeleterInterface
      */
     protected const PRICE_TYPE_DEFAULT = 'DEFAULT';
 
-    /**
-     * @var \Spryker\Zed\ProductMerchantPortalGui\Dependency\Facade\ProductMerchantPortalGuiToPriceProductFacadeInterface
-     */
     protected ProductMerchantPortalGuiToPriceProductFacadeInterface $priceProductFacade;
 
-    /**
-     * @var \Spryker\Zed\ProductMerchantPortalGui\Dependency\Service\ProductMerchantPortalGuiToPriceProductVolumeServiceInterface
-     */
     protected ProductMerchantPortalGuiToPriceProductVolumeServiceInterface $priceProductVolumeService;
 
-    /**
-     * @var \Spryker\Zed\ProductMerchantPortalGui\Communication\Mapper\PriceProductMapperInterface
-     */
     protected PriceProductMapperInterface $priceProductMapper;
 
     public function __construct(
@@ -56,9 +47,6 @@ class PriceDeleter implements PriceDeleterInterface
 
     /**
      * @param array<\Generated\Shared\Transfer\PriceProductTransfer> $priceProductTransfers
-     * @param int $volumeQuantity
-     *
-     * @return \Generated\Shared\Transfer\ValidationResponseTransfer
      */
     public function deletePrices(array $priceProductTransfers, int $volumeQuantity): ValidationResponseTransfer
     {
@@ -114,9 +102,6 @@ class PriceDeleter implements PriceDeleterInterface
 
     /**
      * @param array<\Generated\Shared\Transfer\PriceProductTransfer> $priceProductTransfers
-     * @param int $volumeQuantity
-     *
-     * @return void
      */
     protected function deleteVolumePrice(array $priceProductTransfers, int $volumeQuantity): void
     {
@@ -140,8 +125,6 @@ class PriceDeleter implements PriceDeleterInterface
 
     /**
      * @param array<\Generated\Shared\Transfer\PriceProductTransfer> $priceProductTransfers
-     *
-     * @return \Generated\Shared\Transfer\PriceProductTransfer|null
      */
     protected function findDefaultPriceProduct(array $priceProductTransfers): ?PriceProductTransfer
     {

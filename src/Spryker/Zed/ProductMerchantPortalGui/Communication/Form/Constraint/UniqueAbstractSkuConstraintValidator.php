@@ -18,11 +18,8 @@ class UniqueAbstractSkuConstraintValidator extends AbstractConstraintValidator
 {
     /**
      * @param mixed|string $value Sku that should be validated
-     * @param \Symfony\Component\Validator\Constraint $constraint
      *
      * @throws \Symfony\Component\Validator\Exception\UnexpectedTypeException
-     *
-     * @return void
      */
     public function validate($value, Constraint $constraint): void
     {

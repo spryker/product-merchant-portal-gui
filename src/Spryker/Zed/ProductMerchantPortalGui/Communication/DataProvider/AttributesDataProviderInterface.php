@@ -20,9 +20,7 @@ interface AttributesDataProviderInterface
     public function getProductAttributesData(array $productManagementAttributeTransfers): array;
 
     /**
-     * @param \Generated\Shared\Transfer\MerchantProductTransfer $merchantProductTransfer
      * @param array<\Generated\Shared\Transfer\ProductManagementAttributeTransfer> $productManagementAttributeTransfers
-     * @param \Generated\Shared\Transfer\LocaleTransfer $localeTransfer
      *
      * @return array<array<string, mixed>>
      */

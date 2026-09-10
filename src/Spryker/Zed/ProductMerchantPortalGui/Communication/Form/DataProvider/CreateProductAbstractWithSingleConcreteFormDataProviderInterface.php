@@ -12,8 +12,6 @@ use Symfony\Component\HttpFoundation\Request;
 interface CreateProductAbstractWithSingleConcreteFormDataProviderInterface
 {
     /**
-     * @param \Symfony\Component\HttpFoundation\Request $request
-     *
      * @return array<string, mixed>
      */
     public function getDefaultData(Request $request): array;

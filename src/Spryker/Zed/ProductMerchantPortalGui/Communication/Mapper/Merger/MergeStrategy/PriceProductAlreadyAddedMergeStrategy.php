@@ -14,10 +14,7 @@ use Generated\Shared\Transfer\PriceProductTransfer;
 class PriceProductAlreadyAddedMergeStrategy extends AbstractPriceProductMergeStrategy
 {
     /**
-     * @param \Generated\Shared\Transfer\PriceProductTransfer $newPriceProductTransfer
      * @param \ArrayObject<int, \Generated\Shared\Transfer\PriceProductTransfer> $priceProductTransfers
-     *
-     * @return bool
      */
     public function isApplicable(
         PriceProductTransfer $newPriceProductTransfer,
@@ -29,7 +26,6 @@ class PriceProductAlreadyAddedMergeStrategy extends AbstractPriceProductMergeStr
     }
 
     /**
-     * @param \Generated\Shared\Transfer\PriceProductTransfer $newPriceProductTransfer
      * @param \ArrayObject<int, \Generated\Shared\Transfer\PriceProductTransfer> $priceProductTransfers
      *
      * @return \ArrayObject<int, \Generated\Shared\Transfer\PriceProductTransfer>
@@ -60,10 +56,7 @@ class PriceProductAlreadyAddedMergeStrategy extends AbstractPriceProductMergeStr
     }
 
     /**
-     * @param \Generated\Shared\Transfer\PriceProductTransfer $newPriceProductTransfer
      * @param \ArrayObject<int, \Generated\Shared\Transfer\PriceProductTransfer> $priceProductTransfers
-     *
-     * @return bool
      */
     protected function isNewPriceAlreadyAddedToList(
         PriceProductTransfer $newPriceProductTransfer,
@@ -82,10 +75,7 @@ class PriceProductAlreadyAddedMergeStrategy extends AbstractPriceProductMergeStr
     }
 
     /**
-     * @param \Generated\Shared\Transfer\PriceProductTransfer $priceProductTransfer
      * @param \ArrayObject<int, \Generated\Shared\Transfer\PriceProductTransfer> $priceProductTransfers
-     *
-     * @return bool
      */
     protected function hasMergeablePrices(
         PriceProductTransfer $priceProductTransfer,

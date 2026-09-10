@@ -39,9 +39,6 @@ interface PriceProductMapperInterface
 
     /**
      * @param array<\Generated\Shared\Transfer\PriceProductTransfer> $priceProductTransfers
-     * @param \Generated\Shared\Transfer\PriceProductCollectionDeleteCriteriaTransfer $priceProductCollectionDeleteCriteriaTransfer
-     *
-     * @return \Generated\Shared\Transfer\PriceProductCollectionDeleteCriteriaTransfer
      */
     public function mapPriceProductTransfersToPriceProductCollectionDeleteCriteriaTransfer(
         array $priceProductTransfers,
@@ -50,9 +47,6 @@ interface PriceProductMapperInterface
 
     /**
      * @param array<mixed> $requestQueryParams
-     * @param \Generated\Shared\Transfer\PriceProductCriteriaTransfer $priceProductCriteriaTransfer
-     *
-     * @return \Generated\Shared\Transfer\PriceProductCriteriaTransfer
      */
     public function mapRequestDataToPriceProductCriteriaTransfer(
         array $requestQueryParams,

@@ -24,15 +24,10 @@ use SprykerTest\Zed\ProductMerchantPortalGui\ProductMerchantPortalGuiCommunicati
  */
 class PriceProductReaderTest extends Unit
 {
-    /**
-     * @var \SprykerTest\Zed\ProductMerchantPortalGui\ProductMerchantPortalGuiCommunicationTester
-     */
     protected ProductMerchantPortalGuiCommunicationTester $tester;
 
     /**
      * @group test
-     *
-     * @return void
      */
     public function testGetPriceProductsWithoutPriceExtractionCallsPriceProductFacadeWithOnlyConcretePricesAndWithAllMerchantPricesParams(): void
     {

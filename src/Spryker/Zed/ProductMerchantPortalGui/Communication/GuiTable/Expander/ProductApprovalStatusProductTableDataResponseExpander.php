@@ -21,14 +21,8 @@ class ProductApprovalStatusProductTableDataResponseExpander implements ProductAp
      */
     protected const EMPTY_APPROVAL_STATUS = '-';
 
-    /**
-     * @var \Spryker\Zed\ProductMerchantPortalGui\Dependency\Facade\ProductMerchantPortalGuiToTranslatorFacadeInterface
-     */
     protected ProductMerchantPortalGuiToTranslatorFacadeInterface $translatorFacade;
 
-    /**
-     * @var \Spryker\Zed\ProductMerchantPortalGui\Dependency\Facade\ProductMerchantPortalGuiToProductFacadeInterface
-     */
     protected ProductMerchantPortalGuiToProductFacadeInterface $productFacade;
 
     public function __construct(

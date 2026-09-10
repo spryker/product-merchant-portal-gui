@@ -63,10 +63,7 @@ class ProductMerchantPortalGuiToProductFacadeBridge implements ProductMerchantPo
     }
 
     /**
-     * @param \Generated\Shared\Transfer\ProductAbstractTransfer $productAbstractTransfer
      * @param array<\Generated\Shared\Transfer\ProductConcreteTransfer> $productConcreteCollection
-     *
-     * @return int
      */
     public function addProduct(ProductAbstractTransfer $productAbstractTransfer, array $productConcreteCollection): int
     {
@@ -84,8 +81,6 @@ class ProductMerchantPortalGuiToProductFacadeBridge implements ProductMerchantPo
     }
 
     /**
-     * @param \Generated\Shared\Transfer\ProductCriteriaTransfer $productCriteriaTransfer
-     *
      * @return array<\Generated\Shared\Transfer\ProductConcreteTransfer>
      */
     public function getProductConcretesByCriteria(ProductCriteriaTransfer $productCriteriaTransfer): array

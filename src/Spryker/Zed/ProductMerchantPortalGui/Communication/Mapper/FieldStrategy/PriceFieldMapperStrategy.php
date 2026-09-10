@@ -34,14 +34,8 @@ class PriceFieldMapperStrategy extends AbstractFieldMapperStrategy
      */
     protected const PRICE_DIMENSION_TYPE_DEFAULT = 'PRICE_DIMENSION_DEFAULT';
 
-    /**
-     * @var \Spryker\Zed\ProductMerchantPortalGui\Dependency\Service\ProductMerchantPortalGuiToPriceProductVolumeServiceInterface
-     */
     protected ProductMerchantPortalGuiToPriceProductVolumeServiceInterface $priceProductVolumeService;
 
-    /**
-     * @var \Spryker\Zed\ProductMerchantPortalGui\Dependency\Facade\ProductMerchantPortalGuiToMoneyFacadeInterface
-     */
     protected ProductMerchantPortalGuiToMoneyFacadeInterface $moneyFacade;
 
     public function __construct(
@@ -62,7 +56,6 @@ class PriceFieldMapperStrategy extends AbstractFieldMapperStrategy
 
     /**
      * @param array<string, mixed> $data
-     * @param int $volumeQuantity
      * @param \ArrayObject<int, \Generated\Shared\Transfer\PriceProductTransfer> $priceProductTransfers
      *
      * @return \ArrayObject<int, \Generated\Shared\Transfer\PriceProductTransfer>
@@ -115,10 +108,7 @@ class PriceFieldMapperStrategy extends AbstractFieldMapperStrategy
     }
 
     /**
-     * @param string $priceTypeName
      * @param \ArrayObject<int, \Generated\Shared\Transfer\PriceProductTransfer> $priceProductTransfers
-     *
-     * @return \Generated\Shared\Transfer\PriceProductTransfer|null
      */
     protected function extractPriceProductByType(
         string $priceTypeName,
@@ -156,9 +146,6 @@ class PriceFieldMapperStrategy extends AbstractFieldMapperStrategy
 
     /**
      * @param array<string, mixed> $data
-     * @param \Generated\Shared\Transfer\MoneyValueTransfer $moneyValueTransfer
-     *
-     * @return \Generated\Shared\Transfer\MoneyValueTransfer
      */
     protected function mapDataToMoneyValueTransfer(
         array $data,
@@ -180,8 +167,6 @@ class PriceFieldMapperStrategy extends AbstractFieldMapperStrategy
 
     /**
      * @param mixed $value
-     *
-     * @return int|null
      */
     protected function convertDecimalToInteger($value): ?int
     {

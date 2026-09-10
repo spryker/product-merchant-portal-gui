@@ -13,19 +13,10 @@ use Symfony\Component\Validator\Constraint;
 
 class ProductAttributesNotBlankConstraint extends Constraint
 {
-    /**
-     * @var string
-     */
     protected string $message = 'Please fill in at least one value';
 
-    /**
-     * @var \Spryker\Zed\ProductMerchantPortalGui\Dependency\Facade\ProductMerchantPortalGuiToProductAttributeFacadeInterface
-     */
     protected ProductMerchantPortalGuiToProductAttributeFacadeInterface $productAttributeFacade;
 
-    /**
-     * @var \Spryker\Zed\ProductMerchantPortalGui\Dependency\Facade\ProductMerchantPortalGuiToProductFacadeInterface
-     */
     protected ProductMerchantPortalGuiToProductFacadeInterface $productFacade;
 
     public function __construct(

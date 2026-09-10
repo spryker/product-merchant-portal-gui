@@ -98,8 +98,6 @@ class CreateProductAbstractController extends AbstractController
     protected const FIELD_IS_SINGLE_CONCRETE = 'isSingleConcrete';
 
     /**
-     * @param \Symfony\Component\HttpFoundation\Request $request
-     *
      * @return \Symfony\Component\HttpFoundation\JsonResponse|\Symfony\Component\HttpFoundation\RedirectResponse
      */
     public function indexAction(Request $request)
@@ -133,8 +131,6 @@ class CreateProductAbstractController extends AbstractController
     }
 
     /**
-     * @param \Symfony\Component\HttpFoundation\Request $request
-     *
      * @return \Symfony\Component\HttpFoundation\JsonResponse|\Symfony\Component\HttpFoundation\RedirectResponse
      */
     public function createWithSingleConcreteAction(Request $request)
@@ -197,8 +193,6 @@ class CreateProductAbstractController extends AbstractController
     }
 
     /**
-     * @param \Symfony\Component\HttpFoundation\Request $request
-     *
      * @return \Symfony\Component\HttpFoundation\JsonResponse|\Symfony\Component\HttpFoundation\RedirectResponse
      */
     public function createWithMultiConcreteAction(Request $request)
@@ -276,7 +270,6 @@ class CreateProductAbstractController extends AbstractController
 
     /**
      * @param array<string, mixed> $responseData
-     * @param string $errorMessage
      *
      * @return array<string, mixed>
      */
@@ -306,8 +299,6 @@ class CreateProductAbstractController extends AbstractController
 
     /**
      * @param array<string, mixed> $productAbstractData
-     *
-     * @return \Generated\Shared\Transfer\ProductAbstractTransfer
      */
     protected function getProductAbstractTransfer(array $productAbstractData): ProductAbstractTransfer
     {
@@ -361,8 +352,6 @@ class CreateProductAbstractController extends AbstractController
     }
 
     /**
-     * @param \Generated\Shared\Transfer\TableValidationResponseTransfer $tableValidationResponseTransfer
-     *
      * @return array<int, mixed>
      */
     protected function extractErrors(TableValidationResponseTransfer $tableValidationResponseTransfer): array

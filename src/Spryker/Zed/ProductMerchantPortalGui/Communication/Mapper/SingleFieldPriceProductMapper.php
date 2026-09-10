@@ -16,14 +16,10 @@ class SingleFieldPriceProductMapper implements SingleFieldPriceProductMapperInte
      */
     protected array $fieldMapperStrategies = [];
 
-    /**
-     * @var \Spryker\Zed\ProductMerchantPortalGui\Communication\Mapper\PriceProductMapperInterface
-     */
     protected PriceProductMapperInterface $priceProductMapper;
 
     /**
      * @param array<\Spryker\Zed\ProductMerchantPortalGui\Communication\Mapper\FieldStrategy\FieldMapperStrategyInterface> $fieldMapperStrategies
-     * @param \Spryker\Zed\ProductMerchantPortalGui\Communication\Mapper\PriceProductMapperInterface $priceProductMapper
      */
     public function __construct(array $fieldMapperStrategies, PriceProductMapperInterface $priceProductMapper)
     {
@@ -33,7 +29,6 @@ class SingleFieldPriceProductMapper implements SingleFieldPriceProductMapperInte
 
     /**
      * @param array<string, mixed> $data
-     * @param int $volumeQuantity
      * @param \ArrayObject<int, \Generated\Shared\Transfer\PriceProductTransfer> $priceProductTransfers
      *
      * @return \ArrayObject<int, \Generated\Shared\Transfer\PriceProductTransfer>

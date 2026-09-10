@@ -45,29 +45,14 @@ class PriceProductMapper implements PriceProductMapperInterface
      */
     protected const PRICE_DIMENSION_TYPE_DEFAULT = 'PRICE_DIMENSION_DEFAULT';
 
-    /**
-     * @var \Spryker\Zed\ProductMerchantPortalGui\Dependency\Facade\ProductMerchantPortalGuiToPriceProductFacadeInterface
-     */
     protected ProductMerchantPortalGuiToPriceProductFacadeInterface $priceProductFacade;
 
-    /**
-     * @var \Spryker\Zed\ProductMerchantPortalGui\Dependency\Facade\ProductMerchantPortalGuiToCurrencyFacadeInterface
-     */
     protected ProductMerchantPortalGuiToCurrencyFacadeInterface $currencyFacade;
 
-    /**
-     * @var \Spryker\Zed\ProductMerchantPortalGui\Dependency\Facade\ProductMerchantPortalGuiToMoneyFacadeInterface
-     */
     protected ProductMerchantPortalGuiToMoneyFacadeInterface $moneyFacade;
 
-    /**
-     * @var \Spryker\Zed\ProductMerchantPortalGui\Communication\Mapper\Merger\PriceProductMergerInterface
-     */
     protected PriceProductMergerInterface $priceProductMerger;
 
-    /**
-     * @var \Spryker\Zed\ProductMerchantPortalGui\Dependency\Service\ProductMerchantPortalGuiToUtilEncodingServiceInterface
-     */
     protected ProductMerchantPortalGuiToUtilEncodingServiceInterface $utilEncodingService;
 
     /**
@@ -76,11 +61,6 @@ class PriceProductMapper implements PriceProductMapperInterface
     protected array $priceProductMapperPlugins;
 
     /**
-     * @param \Spryker\Zed\ProductMerchantPortalGui\Dependency\Facade\ProductMerchantPortalGuiToPriceProductFacadeInterface $priceProductFacade
-     * @param \Spryker\Zed\ProductMerchantPortalGui\Dependency\Facade\ProductMerchantPortalGuiToCurrencyFacadeInterface $currencyFacade
-     * @param \Spryker\Zed\ProductMerchantPortalGui\Dependency\Facade\ProductMerchantPortalGuiToMoneyFacadeInterface $moneyFacade
-     * @param \Spryker\Zed\ProductMerchantPortalGui\Communication\Mapper\Merger\PriceProductMergerInterface $priceProductMerger
-     * @param \Spryker\Zed\ProductMerchantPortalGui\Dependency\Service\ProductMerchantPortalGuiToUtilEncodingServiceInterface $utilEncodingService
      * @param array<\Spryker\Zed\ProductMerchantPortalGuiExtension\Dependency\Plugin\PriceProductMapperPluginInterface> $priceProductMapperPlugins
      */
     public function __construct(
@@ -141,9 +121,6 @@ class PriceProductMapper implements PriceProductMapperInterface
 
     /**
      * @param array<\Generated\Shared\Transfer\PriceProductTransfer> $priceProductTransfers
-     * @param \Generated\Shared\Transfer\PriceProductCollectionDeleteCriteriaTransfer $priceProductCollectionDeleteCriteriaTransfer
-     *
-     * @return \Generated\Shared\Transfer\PriceProductCollectionDeleteCriteriaTransfer
      */
     public function mapPriceProductTransfersToPriceProductCollectionDeleteCriteriaTransfer(
         array $priceProductTransfers,
@@ -176,9 +153,6 @@ class PriceProductMapper implements PriceProductMapperInterface
 
     /**
      * @param array<mixed> $requestQueryParams
-     * @param \Generated\Shared\Transfer\PriceProductCriteriaTransfer $priceProductCriteriaTransfer
-     *
-     * @return \Generated\Shared\Transfer\PriceProductCriteriaTransfer
      */
     public function mapRequestDataToPriceProductCriteriaTransfer(
         array $requestQueryParams,
@@ -269,10 +243,6 @@ class PriceProductMapper implements PriceProductMapperInterface
 
     /**
      * @param array<mixed> $newPriceProduct
-     * @param \Generated\Shared\Transfer\CurrencyTransfer $currencyTransfer
-     * @param \Generated\Shared\Transfer\PriceTypeTransfer $priceTypeTransfer
-     *
-     * @return \Generated\Shared\Transfer\PriceProductTransfer|null
      */
     protected function getPriceProductTransfer(
         array $newPriceProduct,
@@ -310,8 +280,6 @@ class PriceProductMapper implements PriceProductMapperInterface
 
     /**
      * @param array<mixed> $newPriceProduct
-     *
-     * @return \Generated\Shared\Transfer\CurrencyTransfer
      */
     protected function getCurrencyTransfer(array $newPriceProduct): CurrencyTransfer
     {
@@ -322,10 +290,6 @@ class PriceProductMapper implements PriceProductMapperInterface
 
     /**
      * @param array<mixed> $newPriceProduct
-     * @param \Generated\Shared\Transfer\PriceTypeTransfer $priceTypeTransfer
-     * @param string $amountType
-     *
-     * @return int|null
      */
     protected function extractPriceAmount(
         array $newPriceProduct,
@@ -352,10 +316,6 @@ class PriceProductMapper implements PriceProductMapperInterface
 
     /**
      * @param array<mixed> $newPriceProduct
-     * @param \Generated\Shared\Transfer\PriceTypeTransfer $priceTypeTransfer
-     * @param \Generated\Shared\Transfer\CurrencyTransfer $currencyTransfer
-     *
-     * @return \Generated\Shared\Transfer\MoneyValueTransfer|null
      */
     protected function getMoneyValueTransfer(
         array $newPriceProduct,
@@ -412,10 +372,7 @@ class PriceProductMapper implements PriceProductMapperInterface
     }
 
     /**
-     * @param \Generated\Shared\Transfer\PriceProductTransfer $priceProductTransfer
      * @param array<string, mixed> $data
-     *
-     * @return \Generated\Shared\Transfer\PriceProductTransfer
      */
     protected function executePriceProductMapperPlugins(
         PriceProductTransfer $priceProductTransfer,

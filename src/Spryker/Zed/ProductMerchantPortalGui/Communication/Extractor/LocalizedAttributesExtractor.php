@@ -15,9 +15,6 @@ use Spryker\Zed\ProductMerchantPortalGui\Dependency\Facade\ProductMerchantPortal
 
 class LocalizedAttributesExtractor implements LocalizedAttributesExtractorInterface
 {
-    /**
-     * @var \Spryker\Zed\ProductMerchantPortalGui\Dependency\Facade\ProductMerchantPortalGuiToProductAttributeFacadeInterface
-     */
     protected ProductMerchantPortalGuiToProductAttributeFacadeInterface $productAttributeFacade;
 
     public function __construct(ProductMerchantPortalGuiToProductAttributeFacadeInterface $productAttributeFacade)
@@ -27,9 +24,6 @@ class LocalizedAttributesExtractor implements LocalizedAttributesExtractorInterf
 
     /**
      * @param \ArrayObject<int, \Generated\Shared\Transfer\LocalizedAttributesTransfer> $localizedAttributeTransfers
-     * @param \Generated\Shared\Transfer\LocaleTransfer $localeTransfer
-     *
-     * @return \Generated\Shared\Transfer\LocalizedAttributesTransfer|null
      */
     public function extractLocalizedAttributes(
         ArrayObject $localizedAttributeTransfers,
@@ -52,7 +46,6 @@ class LocalizedAttributesExtractor implements LocalizedAttributesExtractorInterf
     /**
      * @param array<string> $attributes
      * @param \ArrayObject<int, \Generated\Shared\Transfer\LocalizedAttributesTransfer> $localizedAttributeTransfers
-     * @param \Generated\Shared\Transfer\LocaleTransfer $localeTransfer
      *
      * @return array<string>
      */
@@ -83,7 +76,6 @@ class LocalizedAttributesExtractor implements LocalizedAttributesExtractorInterf
     /**
      * @param array<string> $attributes
      * @param \ArrayObject<int, \Generated\Shared\Transfer\LocalizedAttributesTransfer> $localizedAttributeTransfers
-     * @param \Generated\Shared\Transfer\LocaleTransfer $localeTransfer
      *
      * @return array<string>
      */

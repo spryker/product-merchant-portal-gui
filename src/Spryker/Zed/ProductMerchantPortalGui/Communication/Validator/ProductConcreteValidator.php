@@ -63,9 +63,6 @@ class ProductConcreteValidator implements ProductConcreteValidatorInterface
      */
     protected const FIELD_VALUE = 'value';
 
-    /**
-     * @var \Spryker\Zed\ProductMerchantPortalGui\Dependency\External\ProductMerchantPortalGuiToValidationAdapterInterface
-     */
     protected ProductMerchantPortalGuiToValidationAdapterInterface $validationAdapter;
 
     public function __construct(ProductMerchantPortalGuiToValidationAdapterInterface $validationAdapter)
@@ -75,8 +72,6 @@ class ProductConcreteValidator implements ProductConcreteValidatorInterface
 
     /**
      * @param array<mixed> $concreteProducts
-     *
-     * @return \Generated\Shared\Transfer\TableValidationResponseTransfer
      */
     public function validateConcreteProducts(array $concreteProducts): TableValidationResponseTransfer
     {
@@ -116,8 +111,6 @@ class ProductConcreteValidator implements ProductConcreteValidatorInterface
     }
 
     /**
-     * @param \Symfony\Component\Validator\ConstraintViolationInterface $constraintViolation
-     *
      * @return array<mixed>
      */
     protected function extractRowNumberAndAttributeName(ConstraintViolationInterface $constraintViolation): array

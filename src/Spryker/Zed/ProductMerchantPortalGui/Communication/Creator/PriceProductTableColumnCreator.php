@@ -25,10 +25,7 @@ class PriceProductTableColumnCreator implements PriceProductTableColumnCreatorIn
     }
 
     /**
-     * @param \Generated\Shared\Transfer\PriceProductTransfer $priceProductTransfer
      * @param array<string> $propertyPathValues
-     *
-     * @return string
      */
     public function createColumnIdFromPropertyPath(
         PriceProductTransfer $priceProductTransfer,

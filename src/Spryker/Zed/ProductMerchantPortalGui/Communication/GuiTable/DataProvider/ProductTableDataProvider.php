@@ -24,34 +24,16 @@ use Spryker\Zed\ProductMerchantPortalGui\Persistence\ProductMerchantPortalGuiRep
 
 class ProductTableDataProvider extends AbstractGuiTableDataProvider
 {
-    /**
-     * @var int|null
-     */
     protected ?int $idProductAbstract;
 
-    /**
-     * @var \Spryker\Zed\ProductMerchantPortalGui\Persistence\ProductMerchantPortalGuiRepositoryInterface
-     */
     protected ProductMerchantPortalGuiRepositoryInterface $productMerchantPortalGuiRepository;
 
-    /**
-     * @var \Spryker\Zed\ProductMerchantPortalGui\Dependency\Facade\ProductMerchantPortalGuiToLocaleFacadeInterface
-     */
     protected ProductMerchantPortalGuiToLocaleFacadeInterface $localeFacade;
 
-    /**
-     * @var \Spryker\Zed\ProductMerchantPortalGui\Dependency\Facade\ProductMerchantPortalGuiToMerchantUserFacadeInterface
-     */
     protected ProductMerchantPortalGuiToMerchantUserFacadeInterface $merchantUserFacade;
 
-    /**
-     * @var \Spryker\Zed\ProductMerchantPortalGui\Dependency\Facade\ProductMerchantPortalGuiToTranslatorFacadeInterface
-     */
     protected ProductMerchantPortalGuiToTranslatorFacadeInterface $translatorFacade;
 
-    /**
-     * @var \Spryker\Zed\ProductMerchantPortalGui\Communication\Extractor\LocalizedAttributesExtractorInterface
-     */
     protected LocalizedAttributesExtractorInterface $localizedAttributesExtractor;
 
     /**
@@ -60,12 +42,6 @@ class ProductTableDataProvider extends AbstractGuiTableDataProvider
     protected array $productConcreteTableExpanderPlugins;
 
     /**
-     * @param \Spryker\Zed\ProductMerchantPortalGui\Persistence\ProductMerchantPortalGuiRepositoryInterface $productMerchantPortalGuiRepository
-     * @param \Spryker\Zed\ProductMerchantPortalGui\Dependency\Facade\ProductMerchantPortalGuiToLocaleFacadeInterface $localeFacade
-     * @param \Spryker\Zed\ProductMerchantPortalGui\Dependency\Facade\ProductMerchantPortalGuiToMerchantUserFacadeInterface $merchantUserFacade
-     * @param \Spryker\Zed\ProductMerchantPortalGui\Dependency\Facade\ProductMerchantPortalGuiToTranslatorFacadeInterface $translatorFacade
-     * @param \Spryker\Zed\ProductMerchantPortalGui\Communication\Extractor\LocalizedAttributesExtractorInterface $localizedAttributesExtractor
-     * @param int|null $idProductAbstract
      * @param array<\Spryker\Zed\ProductMerchantPortalGuiExtension\Dependency\Plugin\ProductConcreteTableExpanderPluginInterface> $productConcreteTableExpanderPlugins
      */
     public function __construct(
@@ -101,8 +77,6 @@ class ProductTableDataProvider extends AbstractGuiTableDataProvider
 
     /**
      * @param \Generated\Shared\Transfer\ProductTableCriteriaTransfer $criteriaTransfer
-     *
-     * @return \Generated\Shared\Transfer\GuiTableDataResponseTransfer
      */
     protected function fetchData(AbstractTransfer $criteriaTransfer): GuiTableDataResponseTransfer
     {
@@ -161,9 +135,6 @@ class ProductTableDataProvider extends AbstractGuiTableDataProvider
     }
 
     /**
-     * @param \Generated\Shared\Transfer\ProductConcreteTransfer $productConcreteTransfer
-     * @param \Generated\Shared\Transfer\LocaleTransfer $localeTransfer
-     *
      * @return array<string>
      */
     protected function getSuperAttributesColumnData(

@@ -16,19 +16,10 @@ use Spryker\Zed\ProductMerchantPortalGui\Dependency\Facade\ProductMerchantPortal
 
 class PriceProductReader implements PriceProductReaderInterface
 {
-    /**
-     * @var \Spryker\Zed\ProductMerchantPortalGui\Dependency\Facade\ProductMerchantPortalGuiToPriceProductFacadeInterface
-     */
     protected ProductMerchantPortalGuiToPriceProductFacadeInterface $priceProductFacade;
 
-    /**
-     * @var \Spryker\Zed\ProductMerchantPortalGui\Dependency\Facade\ProductMerchantPortalGuiToProductFacadeInterface
-     */
     protected ProductMerchantPortalGuiToProductFacadeInterface $productFacade;
 
-    /**
-     * @var \Spryker\Zed\ProductMerchantPortalGui\Dependency\Facade\ProductMerchantPortalGuiToPriceProductVolumeFacadeInterface
-     */
     protected ProductMerchantPortalGuiToPriceProductVolumeFacadeInterface $priceProductVolumeFacade;
 
     /**
@@ -37,9 +28,6 @@ class PriceProductReader implements PriceProductReaderInterface
     protected array $priceProductTableFilterPlugins;
 
     /**
-     * @param \Spryker\Zed\ProductMerchantPortalGui\Dependency\Facade\ProductMerchantPortalGuiToPriceProductFacadeInterface $priceProductFacade
-     * @param \Spryker\Zed\ProductMerchantPortalGui\Dependency\Facade\ProductMerchantPortalGuiToProductFacadeInterface $productFacade
-     * @param \Spryker\Zed\ProductMerchantPortalGui\Dependency\Facade\ProductMerchantPortalGuiToPriceProductVolumeFacadeInterface $priceProductVolumeFacade
      * @param array<\Spryker\Zed\ProductMerchantPortalGuiExtension\Dependency\Plugin\PriceProductTableFilterPluginInterface> $priceProductTableFilterPlugins
      */
     public function __construct(
@@ -55,8 +43,6 @@ class PriceProductReader implements PriceProductReaderInterface
     }
 
     /**
-     * @param \Generated\Shared\Transfer\PriceProductTableCriteriaTransfer $priceProductTableCriteriaTransfer
-     *
      * @return array<\Generated\Shared\Transfer\PriceProductTransfer>
      */
     public function getPriceProducts(PriceProductTableCriteriaTransfer $priceProductTableCriteriaTransfer): array
@@ -98,8 +84,6 @@ class PriceProductReader implements PriceProductReaderInterface
     }
 
     /**
-     * @param \Generated\Shared\Transfer\PriceProductCriteriaTransfer $priceProductCriteriaTransfer
-     *
      * @return array<\Generated\Shared\Transfer\PriceProductTransfer>
      */
     public function getPriceProductsWithoutPriceExtraction(
@@ -132,7 +116,6 @@ class PriceProductReader implements PriceProductReaderInterface
 
     /**
      * @param array<\Generated\Shared\Transfer\PriceProductTransfer> $priceProductTransfers
-     * @param \Generated\Shared\Transfer\PriceProductTableCriteriaTransfer $priceProductTableCriteriaTransfer
      *
      * @return array<\Generated\Shared\Transfer\PriceProductTransfer>
      */
@@ -189,7 +172,6 @@ class PriceProductReader implements PriceProductReaderInterface
 
     /**
      * @param array<\Generated\Shared\Transfer\PriceProductTransfer> $priceProductTransfers
-     * @param \Generated\Shared\Transfer\PriceProductTableCriteriaTransfer $priceProductTableCriteriaTransfer
      *
      * @return array<\Generated\Shared\Transfer\PriceProductTransfer>
      */

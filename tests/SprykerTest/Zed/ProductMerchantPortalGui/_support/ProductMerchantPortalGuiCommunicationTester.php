@@ -113,8 +113,6 @@ class ProductMerchantPortalGuiCommunicationTester extends Actor
 
     /**
      * @param array<\Spryker\Zed\ProductMerchantPortalGuiExtension\Dependency\Plugin\PriceProductMapperPluginInterface> $priceProductMapperPlugins
-     *
-     * @return \Spryker\Zed\ProductMerchantPortalGui\Communication\Mapper\PriceProductMapperInterface
      */
     public function createPriceProductMapper(array $priceProductMapperPlugins = []): PriceProductMapperInterface
     {
@@ -234,7 +232,7 @@ class ProductMerchantPortalGuiCommunicationTester extends Actor
     }
 
     /**
-     * @param array $mockedMethods
+     * @param array<string, callable> $mockedMethods
      *
      * @return \PHPUnit\Framework\MockObject\MockObject|\Spryker\Zed\ProductMerchantPortalGui\Dependency\Facade\ProductMerchantPortalGuiToMerchantProductFacadeInterface
      */
@@ -247,7 +245,7 @@ class ProductMerchantPortalGuiCommunicationTester extends Actor
     }
 
     /**
-     * @param array $mockedMethods
+     * @param array<string, callable> $mockedMethods
      *
      * @return \PHPUnit\Framework\MockObject\MockObject|\Spryker\Zed\ProductMerchantPortalGui\Dependency\Facade\ProductMerchantPortalGuiToProductFacadeInterface
      */
@@ -330,11 +328,7 @@ class ProductMerchantPortalGuiCommunicationTester extends Actor
     }
 
     /**
-     * @param \PHPUnit\Framework\MockObject\Rule\InvokedCount $expectedInvokedCount
-     * @param string $method
      * @param mixed ...$arguments
-     *
-     * @return \Spryker\Zed\ProductMerchantPortalGui\Dependency\Facade\ProductMerchantPortalGuiToPriceProductFacadeInterface
      */
     public function createPriceProductFacadeMockWithExpectations(
         InvokedCount $expectedInvokedCount,
@@ -445,8 +439,6 @@ class ProductMerchantPortalGuiCommunicationTester extends Actor
      * @param array<string, mixed> $moneyValueSeed
      * @param array<string, mixed> $currencySeed
      * @param array<string, mixed> $priceTypeSeed
-     *
-     * @return \Generated\Shared\Transfer\PriceProductTransfer
      */
     protected function createPriceProductTransfer(
         array $seed,
@@ -475,8 +467,6 @@ class ProductMerchantPortalGuiCommunicationTester extends Actor
     /**
      * @param array<string, mixed> $moneyValueSeed
      * @param array<string, mixed> $currencySeed
-     *
-     * @return \Generated\Shared\DataBuilder\MoneyValueBuilder
      */
     protected function createMoneyValueBuilder(array $moneyValueSeed, array $currencySeed = []): MoneyValueBuilder
     {
@@ -501,9 +491,6 @@ class ProductMerchantPortalGuiCommunicationTester extends Actor
     }
 
     /**
-     * @param \Spryker\Zed\ProductMerchantPortalGui\Dependency\Facade\ProductMerchantPortalGuiToMerchantProductFacadeInterface $merchantProductFacade
-     * @param \Spryker\Zed\ProductMerchantPortalGui\Dependency\Facade\ProductMerchantPortalGuiToPriceProductFacadeInterface $priceProductFacade
-     *
      * @return \PHPUnit\Framework\MockObject\MockObject|\Spryker\Zed\ProductMerchantPortalGui\Communication\Form\DataProvider\ProductConcreteEditFormDataProviderInterface
      */
     public function createProductConcreteEditFormDataProvider(

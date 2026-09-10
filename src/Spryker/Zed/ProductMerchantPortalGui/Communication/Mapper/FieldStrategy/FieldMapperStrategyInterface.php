@@ -15,7 +15,6 @@ interface FieldMapperStrategyInterface
 
     /**
      * @param array<string, mixed> $data
-     * @param int $volumeQuantity
      * @param \ArrayObject<int, \Generated\Shared\Transfer\PriceProductTransfer> $priceProductTransfers
      *
      * @return \ArrayObject<int, \Generated\Shared\Transfer\PriceProductTransfer>

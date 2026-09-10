@@ -18,19 +18,10 @@ use Spryker\Zed\ProductMerchantPortalGui\ProductMerchantPortalGuiConfig;
 
 class CategoryFilterOptionsProvider implements CategoryFilterOptionsProviderInterface
 {
-    /**
-     * @var \Spryker\Zed\ProductMerchantPortalGui\Dependency\Facade\ProductMerchantPortalGuiToCategoryFacadeInterface
-     */
     protected ProductMerchantPortalGuiToCategoryFacadeInterface $categoryFacade;
 
-    /**
-     * @var \Spryker\Zed\ProductMerchantPortalGui\Dependency\Facade\ProductMerchantPortalGuiToLocaleFacadeInterface
-     */
     protected ProductMerchantPortalGuiToLocaleFacadeInterface $localeFacade;
 
-    /**
-     * @var \Spryker\Zed\ProductMerchantPortalGui\ProductMerchantPortalGuiConfig
-     */
     protected ProductMerchantPortalGuiConfig $productMerchantPortalGuiConfig;
 
     public function __construct(
@@ -65,8 +56,6 @@ class CategoryFilterOptionsProvider implements CategoryFilterOptionsProviderInte
     }
 
     /**
-     * @param \Generated\Shared\Transfer\NodeCollectionTransfer $nodeCollectionTransfer
-     *
      * @return array<\Generated\Shared\Transfer\OptionSelectGuiTableFilterTypeOptionsTransfer>
      */
     protected function getCategoryChildren(NodeCollectionTransfer $nodeCollectionTransfer): array

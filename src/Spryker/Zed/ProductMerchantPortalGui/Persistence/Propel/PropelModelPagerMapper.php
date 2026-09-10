@@ -14,9 +14,6 @@ class PropelModelPagerMapper
 {
     /**
      * @param \Propel\Runtime\Util\PropelModelPager<mixed> $propelPager
-     * @param \Generated\Shared\Transfer\PaginationTransfer $paginationTransfer
-     *
-     * @return \Generated\Shared\Transfer\PaginationTransfer
      */
     public function mapPropelModelPagerToPaginationTransfer(
         PropelModelPager $propelPager,

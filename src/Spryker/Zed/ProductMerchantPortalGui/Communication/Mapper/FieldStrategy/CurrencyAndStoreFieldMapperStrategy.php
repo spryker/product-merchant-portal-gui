@@ -20,14 +20,8 @@ use Spryker\Zed\ProductMerchantPortalGui\Dependency\Service\ProductMerchantPorta
 
 class CurrencyAndStoreFieldMapperStrategy extends AbstractFieldMapperStrategy
 {
-    /**
-     * @var \Spryker\Zed\ProductMerchantPortalGui\Dependency\Service\ProductMerchantPortalGuiToPriceProductVolumeServiceInterface
-     */
     protected ProductMerchantPortalGuiToPriceProductVolumeServiceInterface $priceProductVolumeService;
 
-    /**
-     * @var \Spryker\Zed\ProductMerchantPortalGui\Dependency\Facade\ProductMerchantPortalGuiToCurrencyFacadeInterface
-     */
     protected ProductMerchantPortalGuiToCurrencyFacadeInterface $currencyFacade;
 
     public function __construct(
@@ -48,7 +42,6 @@ class CurrencyAndStoreFieldMapperStrategy extends AbstractFieldMapperStrategy
 
     /**
      * @param array<string, mixed> $data
-     * @param int $volumeQuantity
      * @param \ArrayObject<int, \Generated\Shared\Transfer\PriceProductTransfer> $priceProductTransfers
      *
      * @return \ArrayObject<int, \Generated\Shared\Transfer\PriceProductTransfer>
@@ -88,9 +81,6 @@ class CurrencyAndStoreFieldMapperStrategy extends AbstractFieldMapperStrategy
 
     /**
      * @param array<string, mixed> $data
-     * @param \Generated\Shared\Transfer\PriceProductTransfer $priceProductTransfer
-     *
-     * @return \Generated\Shared\Transfer\PriceProductTransfer
      */
     protected function findOrCreatePriceProduct(array $data, PriceProductTransfer $priceProductTransfer): PriceProductTransfer
     {
@@ -114,7 +104,6 @@ class CurrencyAndStoreFieldMapperStrategy extends AbstractFieldMapperStrategy
     }
 
     /**
-     * @param \Generated\Shared\Transfer\PriceProductTransfer $priceProductTransfer
      * @param array<string, mixed> $data
      *
      * @return array<\Generated\Shared\Transfer\PriceProductTransfer>
@@ -158,9 +147,6 @@ class CurrencyAndStoreFieldMapperStrategy extends AbstractFieldMapperStrategy
 
     /**
      * @param array<string, mixed> $data
-     * @param \Generated\Shared\Transfer\MoneyValueTransfer $moneyValueTransfer
-     *
-     * @return \Generated\Shared\Transfer\MoneyValueTransfer
      */
     protected function mapDataToMoneyValueTransfer(
         array $data,

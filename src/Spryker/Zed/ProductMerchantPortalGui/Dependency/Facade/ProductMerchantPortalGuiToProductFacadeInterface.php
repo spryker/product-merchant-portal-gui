@@ -15,20 +15,12 @@ use Generated\Shared\Transfer\ProductCriteriaTransfer;
 interface ProductMerchantPortalGuiToProductFacadeInterface
 {
     /**
-     * @param \Generated\Shared\Transfer\ProductAbstractTransfer $productAbstractTransfer
-     *
      * @throws \Spryker\Zed\Product\Business\Exception\ProductAbstractExistsException
-     *
-     * @return int
      */
     public function saveProductAbstract(ProductAbstractTransfer $productAbstractTransfer): int;
 
     /**
-     * @param \Generated\Shared\Transfer\ProductConcreteTransfer $productConcreteTransfer
-     *
      * @throws \Spryker\Zed\Product\Business\Exception\ProductConcreteExistsException
-     *
-     * @return int
      */
     public function saveProductConcrete(ProductConcreteTransfer $productConcreteTransfer): int;
 
@@ -41,13 +33,10 @@ interface ProductMerchantPortalGuiToProductFacadeInterface
     public function hasProductConcrete(string $sku): bool;
 
     /**
-     * @param \Generated\Shared\Transfer\ProductAbstractTransfer $productAbstractTransfer
      * @param array<\Generated\Shared\Transfer\ProductConcreteTransfer> $productConcreteCollection
      *
      * @throws \Spryker\Zed\Product\Business\Exception\ProductAbstractExistsException
      * @throws \Spryker\Zed\Product\Business\Exception\ProductConcreteExistsException
-     *
-     * @return int
      */
     public function addProduct(ProductAbstractTransfer $productAbstractTransfer, array $productConcreteCollection): int;
 
@@ -58,8 +47,6 @@ interface ProductMerchantPortalGuiToProductFacadeInterface
     public function findProductConcreteById(int $idProduct): ?ProductConcreteTransfer;
 
     /**
-     * @param \Generated\Shared\Transfer\ProductCriteriaTransfer $productCriteriaTransfer
-     *
      * @return array<\Generated\Shared\Transfer\ProductConcreteTransfer>
      */
     public function getProductConcretesByCriteria(ProductCriteriaTransfer $productCriteriaTransfer): array;

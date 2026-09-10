@@ -10,8 +10,6 @@ namespace Spryker\Zed\ProductMerchantPortalGui\Dependency\Facade;
 interface ProductMerchantPortalGuiToProductApprovalFacadeInterface
 {
     /**
-     * @param string $currentStatus
-     *
      * @return array<string>
      */
     public function getApplicableApprovalStatuses(string $currentStatus): array;

@@ -26,9 +26,6 @@ class SuperAttributesDataProvider implements SuperAttributesDataProviderInterfac
      */
     protected const FIELD_ATTRIBUTES = 'attributes';
 
-    /**
-     * @var \Spryker\Zed\ProductMerchantPortalGui\Dependency\Facade\ProductMerchantPortalGuiToProductAttributeFacadeInterface
-     */
     protected ProductMerchantPortalGuiToProductAttributeFacadeInterface $productAttributeFacade;
 
     public function __construct(ProductMerchantPortalGuiToProductAttributeFacadeInterface $productAttributeFacade)

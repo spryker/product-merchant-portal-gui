@@ -18,19 +18,11 @@ class ProductConcreteOwnedByMerchantConstraint extends SymfonyConstraint
      */
     protected const MESSAGE = 'This concrete product is not owned by this merchant.';
 
-    /**
-     * @var \Spryker\Zed\ProductMerchantPortalGui\Dependency\Facade\ProductMerchantPortalGuiToMerchantUserFacadeInterface
-     */
     protected ProductMerchantPortalGuiToMerchantUserFacadeInterface $merchantUserFacade;
 
-    /**
-     * @var \Spryker\Zed\ProductMerchantPortalGui\Dependency\Facade\ProductMerchantPortalGuiToMerchantProductFacadeInterface
-     */
     protected ProductMerchantPortalGuiToMerchantProductFacadeInterface $merchantProductFacade;
 
     /**
-     * @param \Spryker\Zed\ProductMerchantPortalGui\Dependency\Facade\ProductMerchantPortalGuiToMerchantUserFacadeInterface $merchantUserFacade
-     * @param \Spryker\Zed\ProductMerchantPortalGui\Dependency\Facade\ProductMerchantPortalGuiToMerchantProductFacadeInterface $merchantProductFacade
      * @param array<string, mixed>|null $options
      */
     public function __construct(

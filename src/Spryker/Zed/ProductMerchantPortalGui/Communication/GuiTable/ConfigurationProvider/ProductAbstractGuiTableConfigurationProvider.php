@@ -122,24 +122,12 @@ class ProductAbstractGuiTableConfigurationProvider implements ProductAbstractGui
      */
     protected const DATA_URL = '/product-merchant-portal-gui/products/table-data';
 
-    /**
-     * @var \Spryker\Shared\GuiTable\GuiTableFactoryInterface
-     */
     protected GuiTableFactoryInterface $guiTableFactory;
 
-    /**
-     * @var \Spryker\Zed\ProductMerchantPortalGui\Dependency\Facade\ProductMerchantPortalGuiToTranslatorFacadeInterface
-     */
     protected ProductMerchantPortalGuiToTranslatorFacadeInterface $translatorFacade;
 
-    /**
-     * @var \Spryker\Zed\ProductMerchantPortalGui\Communication\GuiTable\ConfigurationProvider\CategoryFilterOptionsProviderInterface
-     */
     protected CategoryFilterOptionsProviderInterface $categoryFilterOptionsProvider;
 
-    /**
-     * @var \Spryker\Zed\ProductMerchantPortalGui\Communication\GuiTable\ConfigurationProvider\StoreFilterOptionsProviderInterface
-     */
     protected StoreFilterOptionsProviderInterface $storeFilterOptionsProvider;
 
     public function __construct(

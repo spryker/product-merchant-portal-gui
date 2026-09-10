@@ -57,8 +57,6 @@ class DeletePriceProductAbstractController extends AbstractDeletePriceProductCon
     }
 
     /**
-     * @param \Symfony\Component\HttpFoundation\Request $request
-     *
      * @return array<\Generated\Shared\Transfer\PriceProductTransfer>
      */
     protected function getPriceProductTransfers(Request $request): array

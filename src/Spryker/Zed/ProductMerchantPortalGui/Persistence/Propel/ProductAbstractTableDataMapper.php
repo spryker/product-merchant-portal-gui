@@ -88,9 +88,6 @@ class ProductAbstractTableDataMapper
      */
     protected const COL_NAME_FALLBACK = 'name_fallback';
 
-    /**
-     * @var \Spryker\Zed\ProductMerchantPortalGui\Dependency\Service\ProductMerchantPortalGuiToUtilEncodingServiceInterface
-     */
     protected ProductMerchantPortalGuiToUtilEncodingServiceInterface $utilEncodingService;
 
     /**
@@ -115,9 +112,6 @@ class ProductAbstractTableDataMapper
 
     /**
      * @param array<mixed> $productAbstractTableDataArray
-     * @param \Generated\Shared\Transfer\ProductAbstractCollectionTransfer $productAbstractCollectionTransfer
-     *
-     * @return \Generated\Shared\Transfer\ProductAbstractCollectionTransfer
      */
     public function mapProductAbstractTableDataArrayToProductAbstractCollectionTransfer(
         array $productAbstractTableDataArray,
@@ -156,9 +150,6 @@ class ProductAbstractTableDataMapper
 
     /**
      * @param array<mixed> $productAbstractTableRowDataArray
-     * @param \Generated\Shared\Transfer\ProductAbstractTransfer $productAbstractTransfer
-     *
-     * @return \Generated\Shared\Transfer\ProductAbstractTransfer
      */
     protected function mapImageToProductAbstract(
         array $productAbstractTableRowDataArray,

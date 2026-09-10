@@ -16,9 +16,6 @@ use Symfony\Component\Form\DataTransformerInterface;
  */
 class LocaleTransformer implements DataTransformerInterface
 {
-    /**
-     * @var \Spryker\Zed\ProductMerchantPortalGui\Dependency\Facade\ProductMerchantPortalGuiToLocaleFacadeInterface
-     */
     protected ProductMerchantPortalGuiToLocaleFacadeInterface $localeFacade;
 
     public function __construct(ProductMerchantPortalGuiToLocaleFacadeInterface $localeFacade)
@@ -28,8 +25,6 @@ class LocaleTransformer implements DataTransformerInterface
 
     /**
      * @param \Generated\Shared\Transfer\LocaleTransfer|mixed $value
-     *
-     * @return int|null
      */
     public function transform($value): ?int
     {
@@ -42,8 +37,6 @@ class LocaleTransformer implements DataTransformerInterface
 
     /**
      * @param mixed|int|null $value
-     *
-     * @return \Generated\Shared\Transfer\LocaleTransfer|null
      */
     public function reverseTransform($value): ?LocaleTransfer
     {

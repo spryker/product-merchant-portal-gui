@@ -59,8 +59,6 @@ class ProductMerchantPortalGuiConfig extends AbstractBundleConfig
      * - Defines main category ID which is used as a starting point for category tree building.
      *
      * @api
-     *
-     * @return int
      */
     public function getMainCategoryIdForCategoryFilter(): int
     {
@@ -95,8 +93,6 @@ class ProductMerchantPortalGuiConfig extends AbstractBundleConfig
      * - Returns the threshold in days for products to be considered as expiring on the dashboard.
      *
      * @api
-     *
-     * @return int
      */
     public function getDashboardExpiringProductsDaysThreshold(): int
     {
@@ -108,8 +104,6 @@ class ProductMerchantPortalGuiConfig extends AbstractBundleConfig
      * - Returns the threshold for products to be considered as low stock on the dashboard.
      *
      * @api
-     *
-     * @return int
      */
     public function getDashboardLowStockThreshold(): int
     {

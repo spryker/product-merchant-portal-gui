@@ -19,14 +19,10 @@ class PriceProductTableViewSorter implements PriceProductTableViewSorterInterfac
      */
     protected array $priceProductSortingComparisonStrategies;
 
-    /**
-     * @var \Spryker\Zed\ProductMerchantPortalGui\Communication\GuiTable\Sorter\ComparisonStrategy\PriceProductSortingComparisonStrategyInterface
-     */
     protected PriceProductSortingComparisonStrategyInterface $defaultSortingComparisonStrategy;
 
     /**
      * @param array<\Spryker\Zed\ProductMerchantPortalGui\Communication\GuiTable\Sorter\ComparisonStrategy\PriceProductSortingComparisonStrategyInterface> $priceProductSortingComparisonStrategies
-     * @param \Spryker\Zed\ProductMerchantPortalGui\Communication\GuiTable\Sorter\ComparisonStrategy\PriceProductSortingComparisonStrategyInterface $defaultSortingComparisonStrategy
      */
     public function __construct(
         array $priceProductSortingComparisonStrategies,

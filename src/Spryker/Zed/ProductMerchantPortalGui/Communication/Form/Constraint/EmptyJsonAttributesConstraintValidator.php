@@ -39,11 +39,8 @@ class EmptyJsonAttributesConstraintValidator extends AbstractConstraintValidator
 
     /**
      * @param mixed|string $value Attributes that should be validated
-     * @param \Symfony\Component\Validator\Constraint $constraint
      *
      * @throws \Symfony\Component\Form\Exception\UnexpectedTypeException
-     *
-     * @return void
      */
     public function validate($value, Constraint $constraint): void
     {

@@ -11,9 +11,6 @@ use Spryker\Zed\ProductMerchantPortalGui\ProductMerchantPortalGuiConfig;
 
 class ApplicableApprovalStatusReader implements ApplicableApprovalStatusReaderInterface
 {
-    /**
-     * @var \Spryker\Zed\ProductMerchantPortalGui\ProductMerchantPortalGuiConfig
-     */
     protected ProductMerchantPortalGuiConfig $productMerchantPortalGuiConfig;
 
     public function __construct(ProductMerchantPortalGuiConfig $productMerchantPortalGuiConfig)
@@ -22,8 +19,6 @@ class ApplicableApprovalStatusReader implements ApplicableApprovalStatusReaderIn
     }
 
     /**
-     * @param string $currentStatus
-     *
      * @return array<string>
      */
     public function getApplicableUpdateApprovalStatuses(string $currentStatus): array

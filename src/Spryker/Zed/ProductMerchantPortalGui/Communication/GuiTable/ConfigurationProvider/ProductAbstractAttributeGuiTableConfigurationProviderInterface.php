@@ -12,10 +12,7 @@ use Generated\Shared\Transfer\GuiTableConfigurationTransfer;
 interface ProductAbstractAttributeGuiTableConfigurationProviderInterface
 {
     /**
-     * @param int $idProductAbstract
      * @param array<string, array<string, mixed>> $attributesInitialData
-     *
-     * @return \Generated\Shared\Transfer\GuiTableConfigurationTransfer
      */
     public function getConfiguration(
         int $idProductAbstract,

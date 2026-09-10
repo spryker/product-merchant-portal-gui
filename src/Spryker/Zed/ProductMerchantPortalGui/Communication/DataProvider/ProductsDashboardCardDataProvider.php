@@ -77,8 +77,6 @@ class ProductsDashboardCardDataProvider implements ProductsDashboardCardDataProv
     }
 
     /**
-     * @param \Generated\Shared\Transfer\MerchantProductCountsTransfer $merchantProductCountsTransfer
-     *
      * @return array<string, mixed>
      */
     protected function getTitleTemplateParams(MerchantProductCountsTransfer $merchantProductCountsTransfer): array
@@ -90,8 +88,6 @@ class ProductsDashboardCardDataProvider implements ProductsDashboardCardDataProv
     }
 
     /**
-     * @param \Generated\Shared\Transfer\MerchantProductCountsTransfer $merchantProductCountsTransfer
-     *
      * @return array<string, mixed>
      */
     protected function getContentTemplateParams(MerchantProductCountsTransfer $merchantProductCountsTransfer): array

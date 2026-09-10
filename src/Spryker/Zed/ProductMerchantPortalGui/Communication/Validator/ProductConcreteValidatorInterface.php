@@ -13,8 +13,6 @@ interface ProductConcreteValidatorInterface
 {
     /**
      * @param array<mixed> $concreteProducts
-     *
-     * @return \Generated\Shared\Transfer\TableValidationResponseTransfer
      */
     public function validateConcreteProducts(array $concreteProducts): TableValidationResponseTransfer;
 }

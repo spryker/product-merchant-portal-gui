@@ -21,7 +21,6 @@ class SavePriceProductConcreteController extends AbstractSavePriceProductControl
 {
     /**
      * @param \ArrayObject<int, \Generated\Shared\Transfer\PriceProductTransfer> $priceProductTransfers
-     * @param \Symfony\Component\HttpFoundation\Request $request
      *
      * @return \ArrayObject<int, \Generated\Shared\Transfer\PriceProductTransfer>
      */
@@ -37,8 +36,6 @@ class SavePriceProductConcreteController extends AbstractSavePriceProductControl
     }
 
     /**
-     * @param \Symfony\Component\HttpFoundation\Request $request
-     *
      * @return array<\Generated\Shared\Transfer\PriceProductTransfer>
      */
     protected function findPriceProductTransfers(Request $request): array

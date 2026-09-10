@@ -21,11 +21,8 @@ class ProductAbstractIdOwnedByMerchantConstraintValidator extends AbstractConstr
      * Checks if abstract product with provided ID owned by merchant.
      *
      * @param mixed|int $value ID product abstract
-     * @param \Symfony\Component\Validator\Constraint $constraint
      *
      * @throws \Symfony\Component\Validator\Exception\UnexpectedTypeException
-     *
-     * @return void
      */
     public function validate($value, Constraint $constraint): void
     {

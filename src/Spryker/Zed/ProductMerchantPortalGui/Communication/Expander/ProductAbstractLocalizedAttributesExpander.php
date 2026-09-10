@@ -18,9 +18,6 @@ class ProductAbstractLocalizedAttributesExpander implements ProductAbstractLocal
      */
     protected const DEFAULT_PRODUCT_NAME = '';
 
-    /**
-     * @var \Spryker\Zed\ProductMerchantPortalGui\Dependency\Facade\ProductMerchantPortalGuiToLocaleFacadeInterface
-     */
     protected ProductMerchantPortalGuiToLocaleFacadeInterface $localeFacade;
 
     public function __construct(ProductMerchantPortalGuiToLocaleFacadeInterface $localeFacade)

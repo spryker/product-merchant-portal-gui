@@ -107,9 +107,6 @@ class SingleFieldPriceProductMapperTest extends Unit
 
     /**
      * @param \ArrayObject<int, \Generated\Shared\Transfer\PriceProductTransfer> $mappedPriceProductTransfers
-     * @param \Generated\Shared\Transfer\PriceProductTransfer $priceProductTransfer
-     *
-     * @return void
      */
     protected function assertPriceProductDefaultIdIsNotCopied(
         ArrayObject $mappedPriceProductTransfers,

@@ -68,18 +68,10 @@ class ProductsDashboardCardDataProviderTest extends Unit
      */
     protected const URL_PRODUCTS = '/product-merchant-portal-gui/products';
 
-    /**
-     * @var \SprykerTest\Zed\ProductMerchantPortalGui\ProductMerchantPortalGuiCommunicationTester
-     */
     protected ProductMerchantPortalGuiCommunicationTester $tester;
 
     /**
      * @dataProvider getProductsCardPositiveDataProvider
-     *
-     * @param \Generated\Shared\Transfer\MerchantUserTransfer $merchantUserTransfer
-     * @param \Generated\Shared\Transfer\MerchantProductCountsTransfer $merchantProductCountsTransfer
-     *
-     * @return void
      */
     public function testGetProductsCardReturnsCorrectMerchantDashboardCardTransfer(
         MerchantUserTransfer $merchantUserTransfer,

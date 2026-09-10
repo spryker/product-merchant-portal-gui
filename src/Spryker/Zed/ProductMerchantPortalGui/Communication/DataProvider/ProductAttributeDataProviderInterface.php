@@ -22,17 +22,11 @@ interface ProductAttributeDataProviderInterface
 
     /**
      * @param \ArrayObject<int, \Generated\Shared\Transfer\LocalizedAttributesTransfer> $localizedAttributes
-     * @param int $idLocale
-     *
-     * @return \Generated\Shared\Transfer\LocalizedAttributesTransfer|null
      */
     public function findLocalizedAttribute(ArrayObject $localizedAttributes, int $idLocale): ?LocalizedAttributesTransfer;
 
     /**
      * @param \ArrayObject<int, \Generated\Shared\Transfer\LocalizedAttributesTransfer> $localizedAttributesTransfers
-     * @param string $localeName
-     *
-     * @return \Generated\Shared\Transfer\LocalizedAttributesTransfer|null
      */
     public function findLocalizedAttributeByLocaleName(ArrayObject $localizedAttributesTransfers, string $localeName): ?LocalizedAttributesTransfer;
 }

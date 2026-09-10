@@ -79,11 +79,7 @@ class AddProductConcreteController extends AbstractController
     protected const ID_TABLE_PRODUCT_CONCRETE = 'product-concrete-table';
 
     /**
-     * @param \Symfony\Component\HttpFoundation\Request $request
-     *
      * @throws \Spryker\Zed\ProductMerchantPortalGui\Communication\Exception\MerchantProductNotFoundException
-     *
-     * @return \Symfony\Component\HttpFoundation\JsonResponse
      */
     public function indexAction(Request $request): JsonResponse
     {
@@ -137,8 +133,6 @@ class AddProductConcreteController extends AbstractController
 
     /**
      * @param \Symfony\Component\Form\FormInterface<mixed> $addProductConcreteForm
-     *
-     * @return \Generated\Shared\Transfer\ProductConcreteCollectionTransfer
      */
     protected function getProductConcreteCollection(
         FormInterface $addProductConcreteForm
@@ -160,12 +154,7 @@ class AddProductConcreteController extends AbstractController
 
     /**
      * @param \Symfony\Component\Form\FormInterface<mixed> $addProductConcreteForm
-     * @param \Generated\Shared\Transfer\MerchantProductTransfer $merchantProductTransfer
-     * @param \Generated\Shared\Transfer\ProductConcreteCollectionTransfer $productConcreteCollectionTransfer
-     * @param \Generated\Shared\Transfer\LocaleTransfer $defaultStoreDefaultLocaleTransfer
      * @param array<\Generated\Shared\Transfer\ProductManagementAttributeTransfer> $productManagementAttributeTransfers
-     *
-     * @return \Symfony\Component\HttpFoundation\JsonResponse
      */
     protected function getResponse(
         FormInterface $addProductConcreteForm,
@@ -198,8 +187,6 @@ class AddProductConcreteController extends AbstractController
 
     /**
      * @param \Symfony\Component\Form\FormInterface<mixed> $addProductConcreteForm
-     * @param \Generated\Shared\Transfer\MerchantProductTransfer $merchantProductTransfer
-     * @param \Generated\Shared\Transfer\LocaleTransfer $defaultStoreDefaultLocaleTransfer
      * @param array<\Generated\Shared\Transfer\ProductManagementAttributeTransfer> $productManagementAttributeTransfers
      *
      * @return array<string, mixed>
@@ -250,7 +237,6 @@ class AddProductConcreteController extends AbstractController
 
     /**
      * @param array<string, mixed> $responseData
-     * @param \Generated\Shared\Transfer\ProductConcreteCollectionTransfer $productConcreteCollectionTransfer
      *
      * @return array<string, mixed>
      */

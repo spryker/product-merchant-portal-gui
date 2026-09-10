@@ -23,12 +23,7 @@ class ProductMerchantPortalGuiToTranslatorFacadeBridge implements ProductMerchan
     }
 
     /**
-     * @param string $id
      * @param array<string, string> $parameters
-     * @param string|null $domain
-     * @param string|null $locale
-     *
-     * @return string
      */
     public function trans(string $id, array $parameters = [], ?string $domain = null, ?string $locale = null): string
     {

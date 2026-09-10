@@ -50,9 +50,6 @@ class ProductAbstractFormDataProviderTest extends Unit
      */
     protected const STORE_NAME = 'DE';
 
-    /**
-     * @var \SprykerTest\Zed\ProductMerchantPortalGui\ProductMerchantPortalGuiCommunicationTester
-     */
     protected ProductMerchantPortalGuiCommunicationTester $tester;
 
     public function testGetOptionsShouldReturnRequiredProductAbstractFormOptions(): void

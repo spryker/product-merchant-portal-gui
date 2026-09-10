@@ -19,24 +19,12 @@ class ProductAbstractAttributeUniqueCombinationConstraint extends Constraint
      */
     protected const PARAMETER_ATTRIBUTE = '%attribute%';
 
-    /**
-     * @var string
-     */
     protected string $message = 'The attribute %attribute% already exists. Please define another one';
 
-    /**
-     * @var \Spryker\Zed\ProductMerchantPortalGui\Dependency\Facade\ProductMerchantPortalGuiToProductAttributeFacadeInterface
-     */
     protected ProductMerchantPortalGuiToProductAttributeFacadeInterface $productAttributeFacade;
 
-    /**
-     * @var \Spryker\Zed\ProductMerchantPortalGui\Dependency\Facade\ProductMerchantPortalGuiToProductFacadeInterface
-     */
     protected ProductMerchantPortalGuiToProductFacadeInterface $productFacade;
 
-    /**
-     * @var \Spryker\Zed\ProductMerchantPortalGui\Dependency\Facade\ProductMerchantPortalGuiToTranslatorFacadeInterface
-     */
     protected ProductMerchantPortalGuiToTranslatorFacadeInterface $translatorFacade;
 
     public function __construct(

@@ -16,14 +16,8 @@ use Spryker\Zed\ProductMerchantPortalGui\Dependency\Facade\ProductMerchantPortal
 
 class ProductStockExpander implements ProductStockExpanderInterface
 {
-    /**
-     * @var \Spryker\Zed\ProductMerchantPortalGui\Dependency\Facade\ProductMerchantPortalGuiToMerchantStockFacadeInterface
-     */
     protected ProductMerchantPortalGuiToMerchantStockFacadeInterface $merchantStockFacade;
 
-    /**
-     * @var \Spryker\Zed\ProductMerchantPortalGui\Dependency\Facade\ProductMerchantPortalGuiToMerchantUserFacadeInterface
-     */
     protected ProductMerchantPortalGuiToMerchantUserFacadeInterface $merchantUserFacade;
 
     public function __construct(
@@ -59,8 +53,6 @@ class ProductStockExpander implements ProductStockExpanderInterface
 
     /**
      * @throws \Spryker\Zed\ProductMerchantPortalGui\Communication\Exception\DefaultMerchantStockNotFoundException
-     *
-     * @return \Generated\Shared\Transfer\StockTransfer
      */
     protected function getStock(): StockTransfer
     {

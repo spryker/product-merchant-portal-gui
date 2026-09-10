@@ -30,9 +30,6 @@ abstract class AbstractFieldMapperStrategy implements FieldMapperStrategyInterfa
      */
     protected const PRICE_TYPE_DEFAULT = 'DEFAULT';
 
-    /**
-     * @var \Spryker\Zed\ProductMerchantPortalGui\Dependency\Facade\ProductMerchantPortalGuiToPriceProductFacadeInterface
-     */
     protected ProductMerchantPortalGuiToPriceProductFacadeInterface $priceProductFacade;
 
     public function __construct(ProductMerchantPortalGuiToPriceProductFacadeInterface $priceProductFacade)
@@ -137,8 +134,6 @@ abstract class AbstractFieldMapperStrategy implements FieldMapperStrategyInterfa
 
     /**
      * @param \ArrayObject<int, \Generated\Shared\Transfer\PriceProductTransfer> $priceProductTransfers
-     *
-     * @return \Generated\Shared\Transfer\PriceProductTransfer|null
      */
     protected function findDefaultPriceProduct(ArrayObject $priceProductTransfers): ?PriceProductTransfer
     {

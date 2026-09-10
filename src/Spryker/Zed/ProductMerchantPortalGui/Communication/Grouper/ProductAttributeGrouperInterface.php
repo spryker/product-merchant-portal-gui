@@ -13,7 +13,6 @@ interface ProductAttributeGrouperInterface
 {
     /**
      * @param array<\Generated\Shared\Transfer\ProductManagementAttributeTransfer> $productManagementAttributeTransfers
-     * @param \Generated\Shared\Transfer\LocaleTransfer|null $localeTransfer
      *
      * @return array<string, string>
      */

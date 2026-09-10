@@ -57,9 +57,6 @@ class DeletePriceProductConcreteController extends AbstractDeletePriceProductCon
     }
 
     /**
-     * @param \Symfony\Component\HttpFoundation\Request $request
-     * @param \Generated\Shared\Transfer\ProductConcreteTransfer $productConcreteTransfer
-     *
      * @return array<\Generated\Shared\Transfer\PriceProductTransfer>
      */
     protected function getPriceProductTransfers(

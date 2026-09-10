@@ -85,11 +85,7 @@ class UpdateProductConcreteController extends AbstractUpdateProductController
     protected const DEFAULT_LOCALE = 'Default';
 
     /**
-     * @param \Symfony\Component\HttpFoundation\Request $request
-     *
      * @throws \Spryker\Zed\ProductMerchantPortalGui\Communication\Exception\ProductConcreteNotFoundException
-     *
-     * @return \Symfony\Component\HttpFoundation\JsonResponse
      */
     public function indexAction(Request $request): JsonResponse
     {
@@ -161,8 +157,6 @@ class UpdateProductConcreteController extends AbstractUpdateProductController
      * @param \Symfony\Component\Form\FormInterface<mixed> $productConcreteEditForm
      * @param array<string, array<string, mixed>> $pricesInitialData
      * @param array<string, array<string, mixed>> $attributesInitialData
-     *
-     * @return \Symfony\Component\HttpFoundation\JsonResponse
      */
     protected function handleProductConcreteEditFormSubmission(
         FormInterface $productConcreteEditForm,
@@ -256,13 +250,9 @@ class UpdateProductConcreteController extends AbstractUpdateProductController
 
     /**
      * @param \Symfony\Component\Form\FormInterface<mixed> $productConcreteEditForm
-     * @param \Generated\Shared\Transfer\ProductConcreteTransfer $productConcreteTransfer
-     * @param \Generated\Shared\Transfer\ValidationResponseTransfer $validationResponseTransfer
      * @param array<string, array<string, mixed>> $priceInitialData
      * @param array<string, array<string, mixed>> $attributesInitialData
      * @param array<array<string>> $imageSetsErrors
-     *
-     * @return \Symfony\Component\HttpFoundation\JsonResponse
      */
     protected function getResponse(
         FormInterface $productConcreteEditForm,
@@ -416,10 +406,6 @@ class UpdateProductConcreteController extends AbstractUpdateProductController
 
     /**
      * @param \Symfony\Component\Form\FormInterface<mixed> $productConcreteEditForm
-     * @param \Generated\Shared\Transfer\ProductConcreteTransfer $productConcreteTransfer
-     * @param \Generated\Shared\Transfer\ProductAbstractTransfer|null $productAbstractTransfer
-     *
-     * @return void
      */
     protected function saveProductConcreteData(
         FormInterface $productConcreteEditForm,
@@ -495,8 +481,6 @@ class UpdateProductConcreteController extends AbstractUpdateProductController
     }
 
     /**
-     * @param \Generated\Shared\Transfer\ProductConcreteTransfer $productConcreteTransfer
-     *
      * @return array<string>
      */
     protected function getImageSetTabNames(ProductConcreteTransfer $productConcreteTransfer): array
@@ -529,7 +513,6 @@ class UpdateProductConcreteController extends AbstractUpdateProductController
 
     /**
      * @param \ArrayObject<int, \Generated\Shared\Transfer\ProductImageSetTransfer> $productImageSetTransfers
-     * @param int $idProductConcrete
      *
      * @return \ArrayObject<int, \Generated\Shared\Transfer\ProductImageSetTransfer>
      */

@@ -44,7 +44,6 @@ class ProductAttributeGrouper implements ProductAttributeGrouperInterface
 
     /**
      * @param array<\Generated\Shared\Transfer\ProductManagementAttributeTransfer> $productManagementAttributeTransfers
-     * @param \Generated\Shared\Transfer\LocaleTransfer|null $localeTransfer
      *
      * @return array<string, string>
      */
@@ -154,9 +153,6 @@ class ProductAttributeGrouper implements ProductAttributeGrouperInterface
 
     /**
      * @param array<string, mixed> $initialData
-     * @param string $attributeKey
-     *
-     * @return bool
      */
     protected function isAttributeKeyPresentInInitialData(array $initialData, string $attributeKey): bool
     {

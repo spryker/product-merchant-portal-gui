@@ -13,10 +13,7 @@ interface PriceProductTableRowMatcherInterface
 {
     /**
      * @param array<mixed> $initialDataRow
-     * @param \Generated\Shared\Transfer\PriceProductTransfer $priceProductTransfer
      * @param array<string> $propertyPath
-     *
-     * @return bool
      */
     public function isPriceProductInRow(
         array $initialDataRow,

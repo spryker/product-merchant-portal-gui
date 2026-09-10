@@ -13,15 +13,11 @@ use Generated\Shared\Transfer\PriceProductTableCriteriaTransfer;
 interface PriceProductReaderInterface
 {
     /**
-     * @param \Generated\Shared\Transfer\PriceProductTableCriteriaTransfer $priceProductTableCriteriaTransfer
-     *
      * @return array<\Generated\Shared\Transfer\PriceProductTransfer>
      */
     public function getPriceProducts(PriceProductTableCriteriaTransfer $priceProductTableCriteriaTransfer): array;
 
     /**
-     * @param \Generated\Shared\Transfer\PriceProductCriteriaTransfer $priceProductCriteriaTransfer
-     *
      * @return array<\Generated\Shared\Transfer\PriceProductTransfer>
      */
     public function getPriceProductsWithoutPriceExtraction(PriceProductCriteriaTransfer $priceProductCriteriaTransfer): array;

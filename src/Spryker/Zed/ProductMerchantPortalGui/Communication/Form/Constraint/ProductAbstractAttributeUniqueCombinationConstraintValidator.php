@@ -28,9 +28,6 @@ class ProductAbstractAttributeUniqueCombinationConstraintValidator extends Const
 
     /**
      * @param mixed $value
-     * @param \Symfony\Component\Validator\Constraint $constraint
-     *
-     * @return void
      */
     public function validate($value, Constraint $constraint): void
     {
@@ -43,9 +40,6 @@ class ProductAbstractAttributeUniqueCombinationConstraintValidator extends Const
 
     /**
      * @param array<array<string>> $attributes
-     * @param \Spryker\Zed\ProductMerchantPortalGui\Communication\Form\Constraint\ProductAbstractAttributeUniqueCombinationConstraint $constraint
-     *
-     * @return void
      */
     protected function validateAttributeUniqueCombination(array $attributes, ProductAbstractAttributeUniqueCombinationConstraint $constraint): void
     {

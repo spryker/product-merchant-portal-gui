@@ -86,9 +86,6 @@ class PriceProductConcreteGuiTableConfigurationProvider implements PriceProductC
      */
     protected const ID_ROW_ACTION_URL_DELETE_PRICE = 'delete-price';
 
-    /**
-     * @var \Spryker\Zed\ProductMerchantPortalGui\Communication\GuiTable\ConfigurationProvider\ConfigurationBuilderProvider\PriceProductGuiTableConfigurationBuilderProviderInterface
-     */
     protected PriceProductGuiTableConfigurationBuilderProviderInterface $priceProductGuiTableConfigurationBuilderProvider;
 
     /**
@@ -97,7 +94,6 @@ class PriceProductConcreteGuiTableConfigurationProvider implements PriceProductC
     protected array $priceProductConcreteTableConfigurationExpanderPlugins;
 
     /**
-     * @param \Spryker\Zed\ProductMerchantPortalGui\Communication\GuiTable\ConfigurationProvider\ConfigurationBuilderProvider\PriceProductGuiTableConfigurationBuilderProviderInterface $priceProductGuiTableConfigurationBuilderProvider
      * @param array<int, \Spryker\Zed\ProductMerchantPortalGuiExtension\Dependency\Plugin\PriceProductConcreteTableConfigurationExpanderPluginInterface> $priceProductConcreteTableConfigurationExpanderPlugins
      */
     public function __construct(
@@ -109,10 +105,7 @@ class PriceProductConcreteGuiTableConfigurationProvider implements PriceProductC
     }
 
     /**
-     * @param int $idProductConcrete
      * @param array<string, array<string, mixed>> $initialData
-     *
-     * @return \Generated\Shared\Transfer\GuiTableConfigurationTransfer
      */
     public function getConfiguration(int $idProductConcrete, array $initialData = []): GuiTableConfigurationTransfer
     {

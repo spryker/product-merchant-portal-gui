@@ -20,19 +20,10 @@ use Spryker\Zed\ProductMerchantPortalGui\Dependency\Facade\ProductMerchantPortal
 
 class PriceProductValidationMapper implements PriceProductValidationMapperInterface
 {
-    /**
-     * @var \Spryker\Zed\ProductMerchantPortalGui\Communication\Creator\PriceProductTableColumnCreatorInterface
-     */
     protected PriceProductTableColumnCreatorInterface $priceProductTableColumnCreator;
 
-    /**
-     * @var \Spryker\Zed\ProductMerchantPortalGui\Communication\Matcher\PriceProductTableRowMatcherInterface
-     */
     protected PriceProductTableRowMatcherInterface $priceProductTableRowMatcher;
 
-    /**
-     * @var \Spryker\Zed\ProductMerchantPortalGui\Dependency\Facade\ProductMerchantPortalGuiToTranslatorFacadeInterface
-     */
     protected ProductMerchantPortalGuiToTranslatorFacadeInterface $translatorFacade;
 
     public function __construct(
@@ -46,7 +37,6 @@ class PriceProductValidationMapper implements PriceProductValidationMapperInterf
     }
 
     /**
-     * @param \Generated\Shared\Transfer\ValidationResponseTransfer $validationResponseTransfer
      * @param \ArrayObject<int, \Generated\Shared\Transfer\PriceProductTransfer> $priceProductTransfers
      * @param array<string, mixed> $initialData
      *
@@ -73,7 +63,6 @@ class PriceProductValidationMapper implements PriceProductValidationMapperInterf
     }
 
     /**
-     * @param \Generated\Shared\Transfer\ValidationErrorTransfer $validationErrorTransfer
      * @param \ArrayObject<int, \Generated\Shared\Transfer\PriceProductTransfer> $priceProductTransfers
      * @param array<string, mixed> $initialData
      *
@@ -130,8 +119,6 @@ class PriceProductValidationMapper implements PriceProductValidationMapperInterf
     }
 
     /**
-     * @param string $propertyPath
-     *
      * @return array<string>
      */
     protected function extractPropertyPathValues(string $propertyPath): array
@@ -151,8 +138,6 @@ class PriceProductValidationMapper implements PriceProductValidationMapperInterf
     /**
      * @param \ArrayObject<int, \Generated\Shared\Transfer\PriceProductTransfer> $priceProductTransfers
      * @param array<string> $propertyPath
-     *
-     * @return \Generated\Shared\Transfer\PriceProductTransfer|null
      */
     protected function getPriceProductForError(
         ArrayObject $priceProductTransfers,

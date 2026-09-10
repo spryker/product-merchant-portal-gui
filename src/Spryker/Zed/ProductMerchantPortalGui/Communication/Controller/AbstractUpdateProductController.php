@@ -37,7 +37,6 @@ abstract class AbstractUpdateProductController extends AbstractController
     ];
 
     /**
-     * @param string $tableViewName
      * @param array<string, mixed>|null $requestTableData
      *
      * @return array<string, array<string, mixed>>
@@ -83,7 +82,6 @@ abstract class AbstractUpdateProductController extends AbstractController
 
     /**
      * @param \Symfony\Component\Form\FormInterface<mixed> $form
-     * @param \Generated\Shared\Transfer\ValidationResponseTransfer $validationResponseTransfer
      * @param array<string, mixed> $responseData
      *
      * @return array<string, mixed>

@@ -20,29 +20,14 @@ use Spryker\Zed\ProductMerchantPortalGui\Dependency\Service\ProductMerchantPorta
 
 class PriceProductTableDataMapper implements PriceProductTableDataMapperInterface
 {
-    /**
-     * @var \Spryker\Zed\ProductMerchantPortalGui\Dependency\Facade\ProductMerchantPortalGuiToPriceProductFacadeInterface
-     */
     protected ProductMerchantPortalGuiToPriceProductFacadeInterface $priceProductFacade;
 
-    /**
-     * @var \Spryker\Zed\ProductMerchantPortalGui\Dependency\Facade\ProductMerchantPortalGuiToStoreFacadeInterface
-     */
     protected ProductMerchantPortalGuiToStoreFacadeInterface $storeFacade;
 
-    /**
-     * @var \Spryker\Zed\ProductMerchantPortalGui\Dependency\Service\ProductMerchantPortalGuiToUtilEncodingServiceInterface
-     */
     protected ProductMerchantPortalGuiToUtilEncodingServiceInterface $utilEncodingService;
 
-    /**
-     * @var \Spryker\Zed\ProductMerchantPortalGui\Dependency\Service\ProductMerchantPortalGuiToPriceProductServiceInterface
-     */
     protected ProductMerchantPortalGuiToPriceProductServiceInterface $priceProductService;
 
-    /**
-     * @var \Spryker\Zed\ProductMerchantPortalGui\Communication\Mapper\PriceProductMapperInterface
-     */
     protected PriceProductMapperInterface $priceProductMapper;
 
     public function __construct(
@@ -61,9 +46,6 @@ class PriceProductTableDataMapper implements PriceProductTableDataMapperInterfac
 
     /**
      * @param array<\Generated\Shared\Transfer\PriceProductTransfer> $priceProductTransfers
-     * @param \Generated\Shared\Transfer\PriceProductTableViewCollectionTransfer $priceProductTableViewCollectionTransfer
-     *
-     * @return \Generated\Shared\Transfer\PriceProductTableViewCollectionTransfer
      */
     public function mapPriceProductTransfersToPriceProductTableViewCollectionTransfer(
         array $priceProductTransfers,
@@ -127,7 +109,6 @@ class PriceProductTableDataMapper implements PriceProductTableDataMapperInterfac
     }
 
     /**
-     * @param \Generated\Shared\Transfer\PriceProductTransfer $priceProductTransfer
      * @param array<\Generated\Shared\Transfer\PriceTypeTransfer> $priceTypeTransfers
      *
      * @return array<mixed>
@@ -165,8 +146,6 @@ class PriceProductTableDataMapper implements PriceProductTableDataMapperInterfac
 
     /**
      * @param array<\Generated\Shared\Transfer\PriceProductTableViewTransfer> $priceProductTableViewTransfers
-     *
-     * @return \Generated\Shared\Transfer\PaginationTransfer
      */
     protected function createPaginationTransfer(array $priceProductTableViewTransfers): PaginationTransfer
     {

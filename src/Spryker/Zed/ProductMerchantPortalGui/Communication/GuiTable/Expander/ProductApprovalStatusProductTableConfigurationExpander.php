@@ -41,9 +41,6 @@ class ProductApprovalStatusProductTableConfigurationExpander implements ProductA
      */
     protected const TITLE_COLUMN_APPROVAL_STATUS = 'Approval Status';
 
-    /**
-     * @var \Spryker\Zed\ProductMerchantPortalGui\Dependency\Facade\ProductMerchantPortalGuiToTranslatorFacadeInterface
-     */
     protected ProductMerchantPortalGuiToTranslatorFacadeInterface $translatorFacade;
 
     public function __construct(ProductMerchantPortalGuiToTranslatorFacadeInterface $translatorFacade)

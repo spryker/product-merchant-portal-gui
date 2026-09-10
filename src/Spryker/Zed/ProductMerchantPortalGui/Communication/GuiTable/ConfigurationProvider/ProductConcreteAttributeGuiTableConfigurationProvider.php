@@ -153,19 +153,10 @@ class ProductConcreteAttributeGuiTableConfigurationProvider implements ProductCo
      */
     protected const COLOR_BLUE = 'blue';
 
-    /**
-     * @var \Spryker\Shared\GuiTable\GuiTableFactoryInterface
-     */
     protected GuiTableFactoryInterface $guiTableFactory;
 
-    /**
-     * @var \Spryker\Zed\ProductMerchantPortalGui\Dependency\Facade\ProductMerchantPortalGuiToProductAttributeFacadeInterface
-     */
     protected ProductMerchantPortalGuiToProductAttributeFacadeInterface $productAttributeFacade;
 
-    /**
-     * @var \Spryker\Zed\ProductMerchantPortalGui\Dependency\Facade\ProductMerchantPortalGuiToProductFacadeInterface
-     */
     protected ProductMerchantPortalGuiToProductFacadeInterface $productFacade;
 
     public function __construct(
@@ -179,12 +170,9 @@ class ProductConcreteAttributeGuiTableConfigurationProvider implements ProductCo
     }
 
     /**
-     * @param int $idProductConcrete
      * @param array<string, array<string, mixed>> $attributesInitialData
      *
      * @throws \Spryker\Zed\ProductMerchantPortalGui\Communication\Exception\ProductConcreteNotFoundException
-     *
-     * @return \Generated\Shared\Transfer\GuiTableConfigurationTransfer
      */
     public function getConfiguration(int $idProductConcrete, array $attributesInitialData): GuiTableConfigurationTransfer
     {
@@ -239,10 +227,7 @@ class ProductConcreteAttributeGuiTableConfigurationProvider implements ProductCo
     }
 
     /**
-     * @param \Spryker\Shared\GuiTable\Configuration\Builder\GuiTableConfigurationBuilderInterface $guiTableConfigurationBuilder
      * @param array<string, array<string, mixed>> $attributesInitialData
-     *
-     * @return \Spryker\Shared\GuiTable\Configuration\Builder\GuiTableConfigurationBuilderInterface
      */
     protected function addEditableColumns(
         GuiTableConfigurationBuilderInterface $guiTableConfigurationBuilder,
@@ -313,8 +298,6 @@ class ProductConcreteAttributeGuiTableConfigurationProvider implements ProductCo
     }
 
     /**
-     * @param \Generated\Shared\Transfer\ProductManagementAttributeCollectionTransfer $productManagementAttributeCollectionTransfer
-     *
      * @return array<string, string|null>
      */
     protected function getNonSuperAttributeKeysIndexedByKeys(ProductManagementAttributeCollectionTransfer $productManagementAttributeCollectionTransfer): array

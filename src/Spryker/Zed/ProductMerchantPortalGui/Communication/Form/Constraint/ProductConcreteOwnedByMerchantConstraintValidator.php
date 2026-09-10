@@ -18,11 +18,8 @@ class ProductConcreteOwnedByMerchantConstraintValidator extends AbstractConstrai
      * Checks if concrete product owned by merchant.
      *
      * @param \Generated\Shared\Transfer\ProductConcreteTransfer|mixed $value
-     * @param \Symfony\Component\Validator\Constraint $constraint
      *
      * @throws \Symfony\Component\Validator\Exception\UnexpectedTypeException
-     *
-     * @return void
      */
     public function validate($value, Constraint $constraint): void
     {

@@ -12,9 +12,6 @@ use Spryker\Zed\ProductMerchantPortalGui\Dependency\Service\ProductMerchantPorta
 
 abstract class AbstractPriceProductMergeStrategy implements PriceProductMergeStrategyInterface
 {
-    /**
-     * @var \Spryker\Zed\ProductMerchantPortalGui\Dependency\Service\ProductMerchantPortalGuiToPriceProductServiceInterface
-     */
     protected ProductMerchantPortalGuiToPriceProductServiceInterface $priceProductService;
 
     public function __construct(ProductMerchantPortalGuiToPriceProductServiceInterface $priceProductService)

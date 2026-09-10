@@ -15,9 +15,6 @@ use Spryker\Zed\ProductMerchantPortalGui\Dependency\Service\ProductMerchantPorta
 
 class VolumeQuantityFieldMapperStrategy extends AbstractFieldMapperStrategy
 {
-    /**
-     * @var \Spryker\Zed\ProductMerchantPortalGui\Dependency\Service\ProductMerchantPortalGuiToPriceProductVolumeServiceInterface
-     */
     protected ProductMerchantPortalGuiToPriceProductVolumeServiceInterface $priceProductVolumeService;
 
     public function __construct(
@@ -36,7 +33,6 @@ class VolumeQuantityFieldMapperStrategy extends AbstractFieldMapperStrategy
 
     /**
      * @param array<string, mixed> $data
-     * @param int $volumeQuantity
      * @param \ArrayObject<int, \Generated\Shared\Transfer\PriceProductTransfer> $priceProductTransfers
      *
      * @return \ArrayObject<int, \Generated\Shared\Transfer\PriceProductTransfer>

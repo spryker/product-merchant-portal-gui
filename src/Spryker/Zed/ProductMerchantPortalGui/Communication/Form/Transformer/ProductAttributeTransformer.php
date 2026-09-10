@@ -15,9 +15,6 @@ use Symfony\Component\Form\DataTransformerInterface;
  */
 class ProductAttributeTransformer implements DataTransformerInterface
 {
-    /**
-     * @var \Spryker\Zed\ProductMerchantPortalGui\Dependency\Service\ProductMerchantPortalGuiToUtilEncodingServiceInterface
-     */
     protected ProductMerchantPortalGuiToUtilEncodingServiceInterface $utilEncodingService;
 
     public function __construct(

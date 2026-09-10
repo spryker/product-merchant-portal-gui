@@ -298,7 +298,6 @@ class ProductAttributesController extends AbstractController
 
     /**
      * @param \ArrayObject<int, \Generated\Shared\Transfer\LocalizedAttributesTransfer> $localizedAttributesTransfers
-     * @param string $attributeName
      *
      * @return \ArrayObject<int, \Generated\Shared\Transfer\LocalizedAttributesTransfer>
      */
@@ -333,7 +332,6 @@ class ProductAttributesController extends AbstractController
     /**
      * @param array<string, string> $newAttributes
      * @param array<string, string> $productAttributes
-     * @param string $attributeName
      *
      * @return array<string, string>
      */
@@ -358,7 +356,6 @@ class ProductAttributesController extends AbstractController
     /**
      * @param array<string, string> $newAttributes
      * @param \ArrayObject<int, \Generated\Shared\Transfer\LocalizedAttributesTransfer> $localizedAttributesTransfers
-     * @param string $attributeName
      *
      * @return \ArrayObject<int, \Generated\Shared\Transfer\LocalizedAttributesTransfer>
      */
@@ -387,7 +384,6 @@ class ProductAttributesController extends AbstractController
 
     /**
      * @param array<string, string> $attributes
-     * @param string $attributeName
      * @param list<string>|string|null $attributeValue
      *
      * @return array<mixed>
@@ -404,8 +400,6 @@ class ProductAttributesController extends AbstractController
     }
 
     /**
-     * @param \Generated\Shared\Transfer\ProductManagementAttributeTransfer $productManagementAttribute
-     *
      * @return array<int, array<string, mixed>>
      */
     protected function getOptions(ProductManagementAttributeTransfer $productManagementAttribute): array
@@ -445,8 +439,6 @@ class ProductAttributesController extends AbstractController
     }
 
     /**
-     * @param \Symfony\Component\HttpFoundation\Request $request
-     *
      * @return array<string>
      */
     protected function getAttributes(Request $request): array
@@ -461,9 +453,6 @@ class ProductAttributesController extends AbstractController
     /**
      * @param array<string, string> $attributes
      * @param \ArrayObject<int, \Generated\Shared\Transfer\LocalizedAttributesTransfer> $localizedAttributesTransfers
-     * @param string $attributeName
-     *
-     * @return bool
      */
     protected function isAllAttributesEmpty(array $attributes, ArrayObject $localizedAttributesTransfers, string $attributeName): bool
     {
@@ -476,9 +465,6 @@ class ProductAttributesController extends AbstractController
 
     /**
      * @param \ArrayObject<int, \Generated\Shared\Transfer\LocalizedAttributesTransfer> $localizedAttributesTransfers
-     * @param string $attributeName
-     *
-     * @return bool
      */
     protected function existsNotEmptyLocalizedAttribute(ArrayObject $localizedAttributesTransfers, string $attributeName): bool
     {

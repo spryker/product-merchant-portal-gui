@@ -8,6 +8,8 @@
 namespace Spryker\Zed\ProductMerchantPortalGui\Communication\Form\DataProvider;
 
 use ArrayObject;
+use Generated\Shared\Transfer\LocaleConditionsTransfer;
+use Generated\Shared\Transfer\LocaleCriteriaTransfer;
 use Generated\Shared\Transfer\MerchantProductCriteriaTransfer;
 use Generated\Shared\Transfer\PriceProductCriteriaTransfer;
 use Generated\Shared\Transfer\ProductAbstractTransfer;
@@ -65,34 +67,16 @@ class ProductConcreteEditFormDataProvider implements ProductConcreteEditFormData
      */
     protected const PRODUCT_CONCRETE_EDIT_FORM_FIELD_PRODUCT_CONCRETE = 'productConcrete';
 
-    /**
-     * @var \Spryker\Zed\ProductMerchantPortalGui\Dependency\Facade\ProductMerchantPortalGuiToMerchantUserFacadeInterface
-     */
     protected ProductMerchantPortalGuiToMerchantUserFacadeInterface $merchantUserFacade;
 
-    /**
-     * @var \Spryker\Zed\ProductMerchantPortalGui\Dependency\Facade\ProductMerchantPortalGuiToMerchantProductFacadeInterface
-     */
     protected ProductMerchantPortalGuiToMerchantProductFacadeInterface $merchantProductFacade;
 
-    /**
-     * @var \Spryker\Zed\ProductMerchantPortalGui\Dependency\Facade\ProductMerchantPortalGuiToLocaleFacadeInterface
-     */
     protected ProductMerchantPortalGuiToLocaleFacadeInterface $localeFacade;
 
-    /**
-     * @var \Spryker\Zed\ProductMerchantPortalGui\Dependency\Facade\ProductMerchantPortalGuiToProductFacadeInterface
-     */
     protected ProductMerchantPortalGuiToProductFacadeInterface $productFacade;
 
-    /**
-     * @var \Spryker\Zed\ProductMerchantPortalGui\Communication\DataProvider\ProductAttributeDataProviderInterface
-     */
     protected ProductAttributeDataProviderInterface $productAttributeDataProvider;
 
-    /**
-     * @var \Spryker\Zed\ProductMerchantPortalGui\Communication\Reader\PriceProductReaderInterface
-     */
     protected PriceProductReaderInterface $priceProductReader;
 
     public function __construct(
@@ -112,8 +96,6 @@ class ProductConcreteEditFormDataProvider implements ProductConcreteEditFormData
     }
 
     /**
-     * @param int $idProductConcrete
-     *
      * @return array<string, mixed>
      */
     public function getData(int $idProductConcrete): array
@@ -156,20 +138,53 @@ class ProductConcreteEditFormDataProvider implements ProductConcreteEditFormData
     }
 
     /**
-     * @return array<array<string>>
+     * {@inheritDoc}
      */
     public function getOptions(): array
     {
         return [
-            static::OPTION_SEARCHABILITY_CHOICES => array_flip($this->localeFacade->getAvailableLocales()),
+            static::OPTION_SEARCHABILITY_CHOICES => array_flip($this->getMerchantStoreLocaleNamesIndexedByIdLocale()),
         ];
+    }
+
+    /**
+     * Keyed by idLocale (matching getAvailableLocales() shape), limited to locales of the stores the current merchant is assigned to.
+     *
+     * @return array<int, string>
+     */
+    protected function getMerchantStoreLocaleNamesIndexedByIdLocale(): array
+    {
+        $merchantTransfer = $this->merchantUserFacade->getCurrentMerchantUser()->getMerchant();
+
+        if (!$merchantTransfer || !$merchantTransfer->getStoreRelation()) {
+            return $this->localeFacade->getAvailableLocales();
+        }
+
+        $storeNames = [];
+        foreach ($merchantTransfer->getStoreRelationOrFail()->getStores() as $storeTransfer) {
+            $storeNames[] = $storeTransfer->getNameOrFail();
+        }
+
+        if (!$storeNames) {
+            return [];
+        }
+
+        $localeCriteriaTransfer = (new LocaleCriteriaTransfer())
+            ->setLocaleConditions(
+                (new LocaleConditionsTransfer())->setStoreNames($storeNames),
+            );
+
+        $localeNamesIndexedByIdLocale = [];
+        foreach ($this->localeFacade->getLocaleCollection($localeCriteriaTransfer) as $localeTransfer) {
+            $localeNamesIndexedByIdLocale[$localeTransfer->getIdLocaleOrFail()] = $localeTransfer->getLocaleNameOrFail();
+        }
+
+        return $localeNamesIndexedByIdLocale;
     }
 
     /**
      * @param \ArrayObject<int, \Generated\Shared\Transfer\LocalizedAttributesTransfer> $productConcreteLocalizedAttributesTransfers
      * @param \ArrayObject<int, \Generated\Shared\Transfer\LocalizedAttributesTransfer> $productAbstractLocalizedAttributesTransfers
-     *
-     * @return bool
      */
     protected function hasSameLocalizedAttributeNames(
         ArrayObject $productConcreteLocalizedAttributesTransfers,
@@ -196,8 +211,6 @@ class ProductConcreteEditFormDataProvider implements ProductConcreteEditFormData
     /**
      * @param \ArrayObject<int, \Generated\Shared\Transfer\LocalizedAttributesTransfer> $productConcreteAttributes
      * @param \ArrayObject<int, \Generated\Shared\Transfer\LocalizedAttributesTransfer> $productAbstractAttributes
-     *
-     * @return bool
      */
     protected function hasSameLocalizedDescriptions(ArrayObject $productConcreteAttributes, ArrayObject $productAbstractAttributes): bool
     {
@@ -222,8 +235,6 @@ class ProductConcreteEditFormDataProvider implements ProductConcreteEditFormData
     /**
      * @param \ArrayObject<int, \Generated\Shared\Transfer\ProductImageSetTransfer> $productImageSetTransfers
      * @param \ArrayObject<int, \Generated\Shared\Transfer\ProductImageSetTransfer> $productImageSetTransfersToCompare
-     *
-     * @return bool
      */
     protected function areProductImageSetTransfersEqual(ArrayObject $productImageSetTransfers, ArrayObject $productImageSetTransfersToCompare): bool
     {

@@ -14,9 +14,6 @@ use Spryker\Zed\ProductMerchantPortalGui\Dependency\Service\ProductMerchantPorta
 
 class VolumePriceForNonExistingPriceProductMergeStrategy extends AbstractPriceProductMergeStrategy
 {
-    /**
-     * @var \Spryker\Zed\ProductMerchantPortalGui\Dependency\Service\ProductMerchantPortalGuiToPriceProductVolumeServiceInterface
-     */
     protected ProductMerchantPortalGuiToPriceProductVolumeServiceInterface $priceProductVolumeService;
 
     public function __construct(
@@ -28,10 +25,7 @@ class VolumePriceForNonExistingPriceProductMergeStrategy extends AbstractPricePr
     }
 
     /**
-     * @param \Generated\Shared\Transfer\PriceProductTransfer $newPriceProductTransfer
      * @param \ArrayObject<int, \Generated\Shared\Transfer\PriceProductTransfer> $priceProductTransfers
-     *
-     * @return bool
      */
     public function isApplicable(
         PriceProductTransfer $newPriceProductTransfer,
@@ -47,7 +41,6 @@ class VolumePriceForNonExistingPriceProductMergeStrategy extends AbstractPricePr
     }
 
     /**
-     * @param \Generated\Shared\Transfer\PriceProductTransfer $newPriceProductTransfer
      * @param \ArrayObject<int, \Generated\Shared\Transfer\PriceProductTransfer> $priceProductTransfers
      *
      * @return \ArrayObject<int, \Generated\Shared\Transfer\PriceProductTransfer>
@@ -76,10 +69,7 @@ class VolumePriceForNonExistingPriceProductMergeStrategy extends AbstractPricePr
     }
 
     /**
-     * @param \Generated\Shared\Transfer\PriceProductTransfer $newPriceProductTransfer
      * @param \ArrayObject<int, \Generated\Shared\Transfer\PriceProductTransfer> $priceProductTransfers
-     *
-     * @return bool
      */
     protected function isPriceProductInCollection(
         PriceProductTransfer $newPriceProductTransfer,

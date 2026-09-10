@@ -68,24 +68,12 @@ class PriceProductGuiTableConfigurationBuilderProvider implements PriceProductGu
      */
     protected const TYPE_OPTION_VALUE = 'value';
 
-    /**
-     * @var \Spryker\Shared\GuiTable\GuiTableFactoryInterface
-     */
     protected GuiTableFactoryInterface $guiTableFactory;
 
-    /**
-     * @var \Spryker\Zed\ProductMerchantPortalGui\Dependency\Facade\ProductMerchantPortalGuiToPriceProductFacadeInterface
-     */
     protected ProductMerchantPortalGuiToPriceProductFacadeInterface $priceProductFacade;
 
-    /**
-     * @var \Spryker\Zed\ProductMerchantPortalGui\Communication\GuiTable\ConfigurationProvider\StoreFilterOptionsProviderInterface
-     */
     protected StoreFilterOptionsProviderInterface $storeFilterOptionsProvider;
 
-    /**
-     * @var \Spryker\Zed\ProductMerchantPortalGui\Communication\GuiTable\ConfigurationProvider\CurrencyFilterConfigurationProviderInterface
-     */
     protected CurrencyFilterConfigurationProviderInterface $currencyFilterConfigurationProvider;
 
     public function __construct(

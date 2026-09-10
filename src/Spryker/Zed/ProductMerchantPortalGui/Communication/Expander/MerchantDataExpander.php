@@ -12,9 +12,6 @@ use Spryker\Zed\ProductMerchantPortalGui\Dependency\Facade\ProductMerchantPortal
 
 class MerchantDataExpander implements MerchantDataExpanderInterface
 {
-    /**
-     * @var \Spryker\Zed\ProductMerchantPortalGui\Dependency\Facade\ProductMerchantPortalGuiToMerchantUserFacadeInterface
-     */
     protected ProductMerchantPortalGuiToMerchantUserFacadeInterface $merchantUserFacade;
 
     public function __construct(ProductMerchantPortalGuiToMerchantUserFacadeInterface $merchantUserFacade)

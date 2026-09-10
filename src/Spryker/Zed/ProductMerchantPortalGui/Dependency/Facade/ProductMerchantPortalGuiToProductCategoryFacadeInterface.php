@@ -15,18 +15,12 @@ interface ProductMerchantPortalGuiToProductCategoryFacadeInterface
     public function getCategoryTransferCollectionByIdProductAbstract(int $idProductAbstract, LocaleTransfer $localeTransfer): CategoryCollectionTransfer;
 
     /**
-     * @param int $idCategory
      * @param array<int> $productIdsToAssign
-     *
-     * @return void
      */
     public function createProductCategoryMappings(int $idCategory, array $productIdsToAssign): void;
 
     /**
-     * @param int $idCategory
      * @param array<int> $productIdsToUnAssign
-     *
-     * @return void
      */
     public function removeProductCategoryMappings(int $idCategory, array $productIdsToUnAssign): void;
 }

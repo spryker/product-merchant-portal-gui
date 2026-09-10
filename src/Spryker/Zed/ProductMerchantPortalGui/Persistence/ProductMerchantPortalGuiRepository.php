@@ -128,8 +128,6 @@ class ProductMerchantPortalGuiRepository extends AbstractRepository implements P
      * @module ProductCategory
      * @module Category
      *
-     * @param \Generated\Shared\Transfer\MerchantProductTableCriteriaTransfer $merchantProductTableCriteriaTransfer
-     *
      * @return \Orm\Zed\MerchantProduct\Persistence\SpyMerchantProductAbstractQuery<\Orm\Zed\MerchantProduct\Persistence\SpyMerchantProductAbstract>
      */
     protected function buildProductAbstractTableBaseQuery(
@@ -289,7 +287,6 @@ class ProductMerchantPortalGuiRepository extends AbstractRepository implements P
 
     /**
      * @param \Orm\Zed\MerchantProduct\Persistence\SpyMerchantProductAbstractQuery<\Orm\Zed\MerchantProduct\Persistence\SpyMerchantProductAbstract> $merchantProductAbstractQuery
-     * @param \Generated\Shared\Transfer\MerchantProductTableCriteriaTransfer $merchantProductTableCriteriaTransfer
      *
      * @return \Orm\Zed\MerchantProduct\Persistence\SpyMerchantProductAbstractQuery<\Orm\Zed\MerchantProduct\Persistence\SpyMerchantProductAbstract>
      */
@@ -339,7 +336,6 @@ class ProductMerchantPortalGuiRepository extends AbstractRepository implements P
 
     /**
      * @param \Orm\Zed\MerchantProduct\Persistence\SpyMerchantProductAbstractQuery<\Orm\Zed\MerchantProduct\Persistence\SpyMerchantProductAbstract> $merchantProductAbstractQuery
-     * @param \Generated\Shared\Transfer\MerchantProductTableCriteriaTransfer $merchantProductTableCriteriaTransfer
      *
      * @return \Orm\Zed\MerchantProduct\Persistence\SpyMerchantProductAbstractQuery<\Orm\Zed\MerchantProduct\Persistence\SpyMerchantProductAbstract>
      */
@@ -369,8 +365,6 @@ class ProductMerchantPortalGuiRepository extends AbstractRepository implements P
 
     /**
      * @param \Propel\Runtime\ActiveQuery\ModelCriteria<mixed> $query
-     * @param string $orderColumn
-     * @param string $orderDirection
      *
      * @return \Propel\Runtime\ActiveQuery\ModelCriteria<mixed>
      */
@@ -394,7 +388,6 @@ class ProductMerchantPortalGuiRepository extends AbstractRepository implements P
 
     /**
      * @param \Orm\Zed\MerchantProduct\Persistence\SpyMerchantProductAbstractQuery<\Orm\Zed\MerchantProduct\Persistence\SpyMerchantProductAbstract> $merchantProductAbstractQuery
-     * @param \Generated\Shared\Transfer\MerchantProductTableCriteriaTransfer $merchantProductTableCriteriaTransfer
      *
      * @return \Orm\Zed\MerchantProduct\Persistence\SpyMerchantProductAbstractQuery<\Orm\Zed\MerchantProduct\Persistence\SpyMerchantProductAbstract>
      */
@@ -426,7 +419,6 @@ class ProductMerchantPortalGuiRepository extends AbstractRepository implements P
 
     /**
      * @param \Orm\Zed\MerchantProduct\Persistence\SpyMerchantProductAbstractQuery<\Orm\Zed\MerchantProduct\Persistence\SpyMerchantProductAbstract> $merchantProductAbstractQuery
-     * @param \Generated\Shared\Transfer\MerchantProductTableCriteriaTransfer $merchantProductTableCriteriaTransfer
      *
      * @return \Orm\Zed\MerchantProduct\Persistence\SpyMerchantProductAbstractQuery<\Orm\Zed\MerchantProduct\Persistence\SpyMerchantProductAbstract>
      */
@@ -453,7 +445,6 @@ class ProductMerchantPortalGuiRepository extends AbstractRepository implements P
 
     /**
      * @param \Orm\Zed\MerchantProduct\Persistence\SpyMerchantProductAbstractQuery<\Orm\Zed\MerchantProduct\Persistence\SpyMerchantProductAbstract> $merchantProductAbstractQuery
-     * @param \Generated\Shared\Transfer\MerchantProductTableCriteriaTransfer $merchantProductTableCriteriaTransfer
      *
      * @return \Orm\Zed\MerchantProduct\Persistence\SpyMerchantProductAbstractQuery<\Orm\Zed\MerchantProduct\Persistence\SpyMerchantProductAbstract>
      */
@@ -477,7 +468,6 @@ class ProductMerchantPortalGuiRepository extends AbstractRepository implements P
 
     /**
      * @param \Orm\Zed\MerchantProduct\Persistence\SpyMerchantProductAbstractQuery<\Orm\Zed\MerchantProduct\Persistence\SpyMerchantProductAbstract> $merchantProductAbstractQuery
-     * @param \Generated\Shared\Transfer\MerchantProductTableCriteriaTransfer $merchantProductTableCriteriaTransfer
      *
      * @return \Orm\Zed\MerchantProduct\Persistence\SpyMerchantProductAbstractQuery<\Orm\Zed\MerchantProduct\Persistence\SpyMerchantProductAbstract>
      */
@@ -500,7 +490,6 @@ class ProductMerchantPortalGuiRepository extends AbstractRepository implements P
 
     /**
      * @param \Orm\Zed\MerchantProduct\Persistence\SpyMerchantProductAbstractQuery<\Orm\Zed\MerchantProduct\Persistence\SpyMerchantProductAbstract> $merchantProductAbstractQuery
-     * @param \Generated\Shared\Transfer\MerchantProductTableCriteriaTransfer $merchantProductTableCriteriaTransfer
      *
      * @return \Orm\Zed\MerchantProduct\Persistence\SpyMerchantProductAbstractQuery<\Orm\Zed\MerchantProduct\Persistence\SpyMerchantProductAbstract>
      */
@@ -554,9 +543,6 @@ class ProductMerchantPortalGuiRepository extends AbstractRepository implements P
      * @module ProductImage
      * @module ProductValidity
      * @module MerchantProduct
-     *
-     * @param \Generated\Shared\Transfer\ProductTableCriteriaTransfer $productTableCriteriaTransfer
-     * @param \Generated\Shared\Transfer\LocaleTransfer $localeTransfer
      *
      * @return \Orm\Zed\Product\Persistence\SpyProductQuery<\Orm\Zed\Product\Persistence\SpyProduct>
      */
@@ -617,7 +603,6 @@ class ProductMerchantPortalGuiRepository extends AbstractRepository implements P
 
     /**
      * @param \Orm\Zed\Product\Persistence\SpyProductQuery<\Orm\Zed\Product\Persistence\SpyProduct> $productConcreteQuery
-     * @param \Generated\Shared\Transfer\ProductTableCriteriaTransfer $productTableCriteriaTransfer
      *
      * @return \Orm\Zed\Product\Persistence\SpyProductQuery<\Orm\Zed\Product\Persistence\SpyProduct>
      */
@@ -665,7 +650,6 @@ class ProductMerchantPortalGuiRepository extends AbstractRepository implements P
 
     /**
      * @param \Orm\Zed\Product\Persistence\SpyProductQuery<\Orm\Zed\Product\Persistence\SpyProduct> $productConcreteQuery
-     * @param \Generated\Shared\Transfer\ProductTableCriteriaTransfer $productTableCriteriaTransfer
      *
      * @return \Orm\Zed\Product\Persistence\SpyProductQuery<\Orm\Zed\Product\Persistence\SpyProduct>
      */
@@ -694,7 +678,6 @@ class ProductMerchantPortalGuiRepository extends AbstractRepository implements P
 
     /**
      * @param \Orm\Zed\Product\Persistence\SpyProductQuery<\Orm\Zed\Product\Persistence\SpyProduct> $productConcreteQuery
-     * @param \Generated\Shared\Transfer\ProductTableCriteriaTransfer $productTableCriteriaTransfer
      *
      * @return \Orm\Zed\Product\Persistence\SpyProductQuery<\Orm\Zed\Product\Persistence\SpyProduct>
      */
@@ -710,7 +693,6 @@ class ProductMerchantPortalGuiRepository extends AbstractRepository implements P
 
     /**
      * @param \Orm\Zed\Product\Persistence\SpyProductQuery<\Orm\Zed\Product\Persistence\SpyProduct> $productConcreteQuery
-     * @param \Generated\Shared\Transfer\ProductTableCriteriaTransfer $productTableCriteriaTransfer
      *
      * @return \Orm\Zed\Product\Persistence\SpyProductQuery<\Orm\Zed\Product\Persistence\SpyProduct>
      */
@@ -729,7 +711,6 @@ class ProductMerchantPortalGuiRepository extends AbstractRepository implements P
 
     /**
      * @param \Orm\Zed\Product\Persistence\SpyProductQuery<\Orm\Zed\Product\Persistence\SpyProduct> $productConcreteQuery
-     * @param \Generated\Shared\Transfer\ProductTableCriteriaTransfer $productTableCriteriaTransfer
      *
      * @return \Orm\Zed\Product\Persistence\SpyProductQuery<\Orm\Zed\Product\Persistence\SpyProduct>
      */
@@ -763,10 +744,6 @@ class ProductMerchantPortalGuiRepository extends AbstractRepository implements P
      * @module Product
      * @module ProductValidity
      * @module Stock
-     *
-     * @param \Generated\Shared\Transfer\ProductsDashboardCardCriteriaTransfer $merchantProductDashboardCardCriteriaTransfer
-     *
-     * @return \Generated\Shared\Transfer\MerchantProductCountsTransfer
      */
     public function getProductsDashboardCardCounts(
         ProductsDashboardCardCriteriaTransfer $merchantProductDashboardCardCriteriaTransfer

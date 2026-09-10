@@ -10,8 +10,6 @@ namespace Spryker\Zed\ProductMerchantPortalGui\Communication\Reader;
 interface ApplicableApprovalStatusReaderInterface
 {
     /**
-     * @param string $currentStatus
-     *
      * @return array<string>
      */
     public function getApplicableUpdateApprovalStatuses(string $currentStatus): array;

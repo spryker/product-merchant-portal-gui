@@ -23,8 +23,6 @@ class ProductMerchantPortalGuiToProductApprovalFacadeBridge implements ProductMe
     }
 
     /**
-     * @param string $currentStatus
-     *
      * @return array<string>
      */
     public function getApplicableApprovalStatuses(string $currentStatus): array

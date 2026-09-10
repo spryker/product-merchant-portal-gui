@@ -7,26 +7,23 @@
 
 namespace Spryker\Zed\ProductMerchantPortalGui\Communication\GuiTable\ConfigurationProvider;
 
-use Spryker\Zed\ProductMerchantPortalGui\Dependency\Facade\ProductMerchantPortalGuiToStoreFacadeInterface;
+use Spryker\Zed\ProductMerchantPortalGui\Dependency\Facade\ProductMerchantPortalGuiToMerchantUserFacadeInterface;
 
 class StoreFilterOptionsProvider implements StoreFilterOptionsProviderInterface
 {
-    /**
-     * @var \Spryker\Zed\ProductMerchantPortalGui\Dependency\Facade\ProductMerchantPortalGuiToStoreFacadeInterface
-     */
-    protected ProductMerchantPortalGuiToStoreFacadeInterface $storeFacade;
+    protected ProductMerchantPortalGuiToMerchantUserFacadeInterface $merchantUserFacade;
 
-    public function __construct(ProductMerchantPortalGuiToStoreFacadeInterface $storeFacade)
+    public function __construct(ProductMerchantPortalGuiToMerchantUserFacadeInterface $merchantUserFacade)
     {
-        $this->storeFacade = $storeFacade;
+        $this->merchantUserFacade = $merchantUserFacade;
     }
 
     /**
-     * @return array<int, string>
+     * {@inheritDoc}
      */
     public function getStoreOptions(): array
     {
-        $storeTransfers = $this->storeFacade->getAllStores();
+        $storeTransfers = $this->getCurrentMerchantStores();
 
         $storeOptions = [];
         foreach ($storeTransfers as $storeTransfer) {
@@ -37,5 +34,25 @@ class StoreFilterOptionsProvider implements StoreFilterOptionsProviderInterface
         }
 
         return $storeOptions;
+    }
+
+    /**
+     * Limited to stores the current merchant is assigned to, not all stores in the system.
+     *
+     * @return array<\Generated\Shared\Transfer\StoreTransfer>
+     */
+    protected function getCurrentMerchantStores(): array
+    {
+        $merchantTransfer = $this->merchantUserFacade
+            ->getCurrentMerchantUser()
+            ->getMerchant();
+
+        if (!$merchantTransfer || !$merchantTransfer->getStoreRelation()) {
+            return [];
+        }
+
+        return $merchantTransfer->getStoreRelationOrFail()
+            ->getStores()
+            ->getArrayCopy();
     }
 }

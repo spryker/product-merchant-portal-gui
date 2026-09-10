@@ -13,9 +13,6 @@ interface ProductFormTransferMapperInterface
 {
     /**
      * @param array<mixed> $addProductConcreteFormData
-     * @param \Generated\Shared\Transfer\ProductConcreteCollectionTransfer $productConcreteCollectionTransfer
-     *
-     * @return \Generated\Shared\Transfer\ProductConcreteCollectionTransfer
      */
     public function mapAddProductConcreteFormDataToProductConcreteCollectionTransfer(
         array $addProductConcreteFormData,

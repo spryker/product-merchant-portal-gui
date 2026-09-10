@@ -201,7 +201,6 @@ class ProductMerchantPortalGuiCommunicationFactory extends AbstractCommunication
     }
 
     /**
-     * @param \Generated\Shared\Transfer\ProductAbstractTransfer|null $data
      * @param array<mixed> $options
      *
      * @return \Symfony\Component\Form\FormInterface<mixed>
@@ -328,12 +327,12 @@ class ProductMerchantPortalGuiCommunicationFactory extends AbstractCommunication
 
     public function createStoreFilterOptionsProvider(): StoreFilterOptionsProviderInterface
     {
-        return new StoreFilterOptionsProvider($this->getStoreFacade());
+        return new StoreFilterOptionsProvider($this->getMerchantUserFacade());
     }
 
     public function createCurrencyFilterConfigurationProvider(): CurrencyFilterConfigurationProviderInterface
     {
-        return new CurrencyFilterConfigurationProvider($this->getCurrencyFacade());
+        return new CurrencyFilterConfigurationProvider($this->getCurrencyFacade(), $this->getMerchantUserFacade());
     }
 
     /**
@@ -669,7 +668,6 @@ class ProductMerchantPortalGuiCommunicationFactory extends AbstractCommunication
     }
 
     /**
-     * @param \Generated\Shared\Transfer\ProductConcreteTransfer|null $data
      * @param array<mixed> $options
      *
      * @return \Symfony\Component\Form\FormInterface<mixed>

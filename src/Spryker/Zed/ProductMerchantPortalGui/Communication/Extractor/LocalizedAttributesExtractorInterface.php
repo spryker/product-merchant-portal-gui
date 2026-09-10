@@ -15,9 +15,6 @@ interface LocalizedAttributesExtractorInterface
 {
     /**
      * @param \ArrayObject<int, \Generated\Shared\Transfer\LocalizedAttributesTransfer> $localizedAttributeTransfers
-     * @param \Generated\Shared\Transfer\LocaleTransfer $localeTransfer
-     *
-     * @return \Generated\Shared\Transfer\LocalizedAttributesTransfer|null
      */
     public function extractLocalizedAttributes(
         ArrayObject $localizedAttributeTransfers,
@@ -27,7 +24,6 @@ interface LocalizedAttributesExtractorInterface
     /**
      * @param array<string> $attributes
      * @param \ArrayObject<int, \Generated\Shared\Transfer\LocalizedAttributesTransfer> $localizedAttributeTransfers
-     * @param \Generated\Shared\Transfer\LocaleTransfer $localeTransfer
      *
      * @return array<string>
      */
@@ -40,7 +36,6 @@ interface LocalizedAttributesExtractorInterface
     /**
      * @param array<string> $attributes
      * @param \ArrayObject<int, \Generated\Shared\Transfer\LocalizedAttributesTransfer> $localizedAttributeTransfers
-     * @param \Generated\Shared\Transfer\LocaleTransfer $localeTransfer
      *
      * @return array<string>
      */

@@ -22,14 +22,8 @@ class ProductConcreteLocalizedAttributesExpander implements ProductConcreteLocal
      */
     protected const DEFAULT_PRODUCT_NAME = '';
 
-    /**
-     * @var \Spryker\Zed\ProductMerchantPortalGui\Dependency\Facade\ProductMerchantPortalGuiToLocaleFacadeInterface
-     */
     protected ProductMerchantPortalGuiToLocaleFacadeInterface $localeFacade;
 
-    /**
-     * @var \Spryker\Zed\ProductMerchantPortalGui\Dependency\Facade\ProductMerchantPortalGuiToProductAttributeFacadeInterface
-     */
     protected ProductMerchantPortalGuiToProductAttributeFacadeInterface $productAttributeFacade;
 
     public function __construct(
@@ -95,7 +89,6 @@ class ProductConcreteLocalizedAttributesExpander implements ProductConcreteLocal
     /**
      * @param array<\Generated\Shared\Transfer\ProductManagementAttributeTransfer> $productManagementAttributeTransfers
      * @param array<string> $attributes
-     * @param \Generated\Shared\Transfer\LocaleTransfer $localeTransfer
      *
      * @return array<string>
      */
@@ -128,11 +121,7 @@ class ProductConcreteLocalizedAttributesExpander implements ProductConcreteLocal
     }
 
     /**
-     * @param string $attributeKey
-     * @param string $attributeValue
      * @param array<\Generated\Shared\Transfer\ProductManagementAttributeTransfer> $productManagementAttributeTransfers
-     *
-     * @return \Generated\Shared\Transfer\ProductManagementAttributeValueTransfer|null
      */
     protected function extractProductManagementAttributeValueTransfer(
         string $attributeKey,

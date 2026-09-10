@@ -21,34 +21,16 @@ use Symfony\Component\Form\DataTransformerInterface;
  */
 class PriceProductTransformer implements DataTransformerInterface
 {
-    /**
-     * @var int|null
-     */
     protected ?int $idProductAbstract = null;
 
-    /**
-     * @var int|null
-     */
     protected ?int $idProductConcrete = null;
 
-    /**
-     * @var \Spryker\Zed\ProductMerchantPortalGui\Communication\Reader\PriceProductReaderInterface
-     */
     protected PriceProductReaderInterface $priceProductReader;
 
-    /**
-     * @var \Spryker\Zed\ProductMerchantPortalGui\Communication\Mapper\PriceProductMapperInterface
-     */
     protected PriceProductMapperInterface $priceProductMapper;
 
-    /**
-     * @var \Spryker\Zed\ProductMerchantPortalGui\Communication\Mapper\PriceProductTableDataMapperInterface
-     */
     protected PriceProductTableDataMapperInterface $priceProductTableDataMapper;
 
-    /**
-     * @var \Spryker\Zed\ProductMerchantPortalGui\Dependency\Service\ProductMerchantPortalGuiToUtilEncodingServiceInterface
-     */
     protected ProductMerchantPortalGuiToUtilEncodingServiceInterface $utilEncodingService;
 
     public function __construct(
@@ -64,8 +46,6 @@ class PriceProductTransformer implements DataTransformerInterface
     }
 
     /**
-     * @param int $idProductAbstract
-     *
      * @return $this
      */
     public function setIdProductAbstract(int $idProductAbstract)
@@ -76,8 +56,6 @@ class PriceProductTransformer implements DataTransformerInterface
     }
 
     /**
-     * @param int $idProductConcrete
-     *
      * @return $this
      */
     public function setIdProductConcrete(int $idProductConcrete)
@@ -89,8 +67,6 @@ class PriceProductTransformer implements DataTransformerInterface
 
     /**
      * @param \ArrayObject<int, \Generated\Shared\Transfer\PriceProductTransfer>|mixed $value
-     *
-     * @return string|null
      */
     public function transform($value): ?string
     {

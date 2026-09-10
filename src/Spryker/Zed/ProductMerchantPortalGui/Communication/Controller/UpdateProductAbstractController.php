@@ -57,11 +57,7 @@ class UpdateProductAbstractController extends AbstractUpdateProductController
     protected const ID_TABLE_PRODUCT_CONCRETE = 'product-concrete-table';
 
     /**
-     * @param \Symfony\Component\HttpFoundation\Request $request
-     *
      * @throws \Spryker\Zed\ProductMerchantPortalGui\Communication\Exception\MerchantProductNotFoundException
-     *
-     * @return \Symfony\Component\HttpFoundation\JsonResponse
      */
     public function indexAction(Request $request): JsonResponse
     {
@@ -133,13 +129,9 @@ class UpdateProductAbstractController extends AbstractUpdateProductController
 
     /**
      * @param \Symfony\Component\Form\FormInterface<mixed> $productAbstractForm
-     * @param \Generated\Shared\Transfer\ProductAbstractTransfer $productAbstractTransfer
-     * @param int $idMerchant
      * @param array<string, array<string, mixed>> $priceInitialData
      * @param array<string, array<string, mixed>> $attributesInitialData
      * @param array<int> $initialCategoryIds
-     *
-     * @return \Symfony\Component\HttpFoundation\JsonResponse
      */
     protected function executeProductAbstractFormSubmission(
         FormInterface $productAbstractForm,
@@ -236,10 +228,7 @@ class UpdateProductAbstractController extends AbstractUpdateProductController
     }
 
     /**
-     * @param \Generated\Shared\Transfer\ProductAbstractTransfer $productAbstractTransfer
      * @param array<int> $initialCategoryIds
-     *
-     * @return void
      */
     protected function updateProductCategories(
         ProductAbstractTransfer $productAbstractTransfer,
@@ -266,14 +255,10 @@ class UpdateProductAbstractController extends AbstractUpdateProductController
 
     /**
      * @param \Symfony\Component\Form\FormInterface<mixed> $productAbstractForm
-     * @param \Generated\Shared\Transfer\ProductAbstractTransfer $productAbstractTransfer
-     * @param \Generated\Shared\Transfer\ValidationResponseTransfer $validationResponseTransfer
      * @param array<string, array<string, mixed>> $priceInitialData
      * @param array<string, array<string, mixed>> $attributesInitialData
      * @param array<array<string>> $imageSetsErrors
      * @param array<string, \Generated\Shared\Transfer\ProductManagementAttributeTransfer>|null $productManagementAttributeTransfers
-     *
-     * @return \Symfony\Component\HttpFoundation\JsonResponse
      */
     protected function getResponse(
         FormInterface $productAbstractForm,
@@ -428,8 +413,6 @@ class UpdateProductAbstractController extends AbstractUpdateProductController
     }
 
     /**
-     * @param \Generated\Shared\Transfer\ProductAbstractTransfer $productAbstractTransfer
-     *
      * @return array<string>
      */
     protected function getImageSetTabNames(ProductAbstractTransfer $productAbstractTransfer): array

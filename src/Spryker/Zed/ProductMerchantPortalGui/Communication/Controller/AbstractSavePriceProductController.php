@@ -34,15 +34,12 @@ abstract class AbstractSavePriceProductController extends AbstractController
 
     /**
      * @param \ArrayObject<int, \Generated\Shared\Transfer\PriceProductTransfer> $priceProductTransfers
-     * @param \Symfony\Component\HttpFoundation\Request $request
      *
      * @return \ArrayObject<int, \Generated\Shared\Transfer\PriceProductTransfer>
      */
     abstract protected function expandPriceProductTransfersWithProductId(ArrayObject $priceProductTransfers, Request $request): ArrayObject;
 
     /**
-     * @param \Symfony\Component\HttpFoundation\Request $request
-     *
      * @return array<\Generated\Shared\Transfer\PriceProductTransfer>
      */
     abstract protected function findPriceProductTransfers(Request $request): array;
@@ -50,11 +47,7 @@ abstract class AbstractSavePriceProductController extends AbstractController
     abstract protected function isProductOwnedByCurrentMerchant(Request $request): bool;
 
     /**
-     * @param \Symfony\Component\HttpFoundation\Request $request
-     *
      * @throws \Spryker\Zed\ProductMerchantPortalGui\Communication\Exception\WrongRequestBodyContentException
-     *
-     * @return \Symfony\Component\HttpFoundation\JsonResponse
      */
     public function indexAction(Request $request): JsonResponse
     {

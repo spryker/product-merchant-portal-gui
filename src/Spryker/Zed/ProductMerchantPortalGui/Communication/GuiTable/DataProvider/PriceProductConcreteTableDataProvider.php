@@ -17,9 +17,6 @@ use Spryker\Zed\ProductMerchantPortalGui\Dependency\Facade\ProductMerchantPortal
 
 class PriceProductConcreteTableDataProvider extends AbstractPriceProductTableDataProvider
 {
-    /**
-     * @var int
-     */
     protected int $idProductConcrete;
 
     public function __construct(

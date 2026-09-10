@@ -13,10 +13,7 @@ use Generated\Shared\Transfer\PriceProductTransfer;
 interface PriceProductMergeStrategyInterface
 {
     /**
-     * @param \Generated\Shared\Transfer\PriceProductTransfer $newPriceProductTransfer
      * @param \ArrayObject<int, \Generated\Shared\Transfer\PriceProductTransfer> $priceProductTransfers
-     *
-     * @return bool
      */
     public function isApplicable(
         PriceProductTransfer $newPriceProductTransfer,
@@ -24,7 +21,6 @@ interface PriceProductMergeStrategyInterface
     ): bool;
 
     /**
-     * @param \Generated\Shared\Transfer\PriceProductTransfer $newPriceProductTransfer
      * @param \ArrayObject<int, \Generated\Shared\Transfer\PriceProductTransfer> $priceProductTransfers
      *
      * @return \ArrayObject<int, \Generated\Shared\Transfer\PriceProductTransfer>

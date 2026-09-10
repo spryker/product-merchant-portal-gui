@@ -33,14 +33,8 @@ class ProductAbstractAttributeTableDataProvider extends AbstractGuiTableDataProv
      */
     protected const ATTRIBUTES_DEFAULT_SORT_FIELD = 'attribute_name';
 
-    /**
-     * @var \Spryker\Zed\ProductMerchantPortalGui\Dependency\Facade\ProductMerchantPortalGuiToProductFacadeInterface
-     */
     protected ProductMerchantPortalGuiToProductFacadeInterface $productFacade;
 
-    /**
-     * @var int
-     */
     protected int $idProductAbstract;
 
     public function __construct(ProductMerchantPortalGuiToProductFacadeInterface $productFacade, int $idProductAbstract)
@@ -64,8 +58,6 @@ class ProductAbstractAttributeTableDataProvider extends AbstractGuiTableDataProv
      * @param \Generated\Shared\Transfer\ProductAttributeTableCriteriaTransfer $criteriaTransfer
      *
      * @throws \Spryker\Zed\ProductMerchantPortalGui\Communication\Exception\ProductAbstractNotFoundException
-     *
-     * @return \Generated\Shared\Transfer\GuiTableDataResponseTransfer
      */
     protected function fetchData(AbstractTransfer $criteriaTransfer): GuiTableDataResponseTransfer
     {
@@ -105,7 +97,6 @@ class ProductAbstractAttributeTableDataProvider extends AbstractGuiTableDataProv
     }
 
     /**
-     * @param \Generated\Shared\Transfer\LocalizedAttributesTransfer $localizedAttributesTransfer
      * @param array<array<string>> $data
      *
      * @return array<array<string>>
@@ -129,8 +120,6 @@ class ProductAbstractAttributeTableDataProvider extends AbstractGuiTableDataProv
 
     /**
      * @param array<array<string, mixed>> $attributes
-     * @param string $orderBy
-     * @param string $orderDirection
      *
      * @return array<array<string, mixed>>
      */
@@ -160,8 +149,6 @@ class ProductAbstractAttributeTableDataProvider extends AbstractGuiTableDataProv
 
     /**
      * @param array<string, mixed> $data
-     *
-     * @return \Generated\Shared\Transfer\GuiTableDataResponseTransfer
      */
     protected function getGuiTableDataResponseTransfer(array $data): GuiTableDataResponseTransfer
     {

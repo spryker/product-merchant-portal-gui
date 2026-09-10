@@ -35,29 +35,14 @@ abstract class AbstractPriceProductTableDataProvider extends AbstractGuiTableDat
      */
     protected const INDEX_AMOUNT_TYPE = 2;
 
-    /**
-     * @var \Spryker\Zed\ProductMerchantPortalGui\Communication\Mapper\PriceProductTableDataMapperInterface
-     */
     protected PriceProductTableDataMapperInterface $priceProductTableDataMapper;
 
-    /**
-     * @var \Spryker\Zed\ProductMerchantPortalGui\Communication\GuiTable\Sorter\PriceProductTableViewSorterInterface
-     */
     protected PriceProductTableViewSorterInterface $priceProductTableViewSorter;
 
-    /**
-     * @var \Spryker\Zed\ProductMerchantPortalGui\Communication\Reader\PriceProductReaderInterface
-     */
     protected PriceProductReaderInterface $priceProductReader;
 
-    /**
-     * @var \Spryker\Zed\ProductMerchantPortalGui\Dependency\Facade\ProductMerchantPortalGuiToMerchantUserFacadeInterface
-     */
     protected ProductMerchantPortalGuiToMerchantUserFacadeInterface $merchantUserFacade;
 
-    /**
-     * @var \Spryker\Zed\ProductMerchantPortalGui\Dependency\Facade\ProductMerchantPortalGuiToMoneyFacadeInterface
-     */
     protected ProductMerchantPortalGuiToMoneyFacadeInterface $moneyFacade;
 
     public function __construct(
@@ -82,8 +67,6 @@ abstract class AbstractPriceProductTableDataProvider extends AbstractGuiTableDat
 
     /**
      * @param \Generated\Shared\Transfer\PriceProductTableCriteriaTransfer $criteriaTransfer
-     *
-     * @return \Generated\Shared\Transfer\GuiTableDataResponseTransfer
      */
     protected function fetchData(AbstractTransfer $criteriaTransfer): GuiTableDataResponseTransfer
     {
@@ -190,8 +173,6 @@ abstract class AbstractPriceProductTableDataProvider extends AbstractGuiTableDat
 
     /**
      * @param mixed $value
-     *
-     * @return float|null
      */
     protected function convertIntegerToDecimal($value): ?float
     {

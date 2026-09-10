@@ -53,9 +53,6 @@ class CreateProductUrlGenerator implements CreateProductUrlGeneratorInterface
 
     /**
      * @param array<string, mixed> $formData
-     * @param bool $isSingleConcrete
-     *
-     * @return string
      */
     public function getCreateUrl(array $formData, bool $isSingleConcrete): string
     {

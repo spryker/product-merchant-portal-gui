@@ -13,9 +13,6 @@ use Spryker\Zed\ProductMerchantPortalGui\Dependency\Facade\ProductMerchantPortal
 
 class LocaleDataProvider implements LocaleDataProviderInterface
 {
-    /**
-     * @var \Spryker\Zed\ProductMerchantPortalGui\Dependency\Facade\ProductMerchantPortalGuiToLocaleFacadeInterface
-     */
     protected ProductMerchantPortalGuiToLocaleFacadeInterface $localeFacade;
 
     public function __construct(
@@ -26,8 +23,6 @@ class LocaleDataProvider implements LocaleDataProviderInterface
 
     /**
      * @throws \Spryker\Zed\ProductMerchantPortalGui\Communication\Exception\DefaultStoreDefaultLocaleNotFoundException
-     *
-     * @return \Generated\Shared\Transfer\LocaleTransfer
      */
     public function getDefaultStoreDefaultLocale(): LocaleTransfer
     {

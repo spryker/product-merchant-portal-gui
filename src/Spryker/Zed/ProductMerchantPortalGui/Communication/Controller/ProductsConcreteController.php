@@ -116,11 +116,7 @@ class ProductsConcreteController extends AbstractController
     }
 
     /**
-     * @param \Symfony\Component\HttpFoundation\Request $request
      * @param \Symfony\Component\Form\FormInterface<mixed> $productConcreteBulkForm
-     * @param \Generated\Shared\Transfer\ProductConcreteCollectionTransfer $productConcreteCollectionTransfer
-     *
-     * @return void
      */
     protected function saveConcreteProducts(
         Request $request,

@@ -13,9 +13,6 @@ interface PriceProductTableDataMapperInterface
 {
     /**
      * @param array<\Generated\Shared\Transfer\PriceProductTransfer> $priceProductTransfers
-     * @param \Generated\Shared\Transfer\PriceProductTableViewCollectionTransfer $priceProductTableViewCollectionTransfer
-     *
-     * @return \Generated\Shared\Transfer\PriceProductTableViewCollectionTransfer
      */
     public function mapPriceProductTransfersToPriceProductTableViewCollectionTransfer(
         array $priceProductTransfers,

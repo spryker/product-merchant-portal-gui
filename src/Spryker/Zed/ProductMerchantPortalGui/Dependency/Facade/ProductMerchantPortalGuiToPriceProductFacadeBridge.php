@@ -44,8 +44,6 @@ class ProductMerchantPortalGuiToPriceProductFacadeBridge implements ProductMerch
 
     /**
      * @param \ArrayObject<int, \Generated\Shared\Transfer\PriceProductTransfer> $priceProductTransfers
-     *
-     * @return \Generated\Shared\Transfer\ValidationResponseTransfer
      */
     public function validatePrices(ArrayObject $priceProductTransfers): ValidationResponseTransfer
     {
@@ -53,9 +51,6 @@ class ProductMerchantPortalGuiToPriceProductFacadeBridge implements ProductMerch
     }
 
     /**
-     * @param int $idProductAbstract
-     * @param \Generated\Shared\Transfer\PriceProductCriteriaTransfer|null $priceProductCriteriaTransfer
-     *
      * @return array<\Generated\Shared\Transfer\PriceProductTransfer>
      */
     public function findProductAbstractPricesWithoutPriceExtraction(
@@ -67,10 +62,6 @@ class ProductMerchantPortalGuiToPriceProductFacadeBridge implements ProductMerch
     }
 
     /**
-     * @param int $idProductConcrete
-     * @param int $idProductAbstract
-     * @param \Generated\Shared\Transfer\PriceProductCriteriaTransfer|null $priceProductCriteriaTransfer
-     *
      * @return array<\Generated\Shared\Transfer\PriceProductTransfer>
      */
     public function findProductConcretePricesWithoutPriceExtraction(
@@ -83,9 +74,6 @@ class ProductMerchantPortalGuiToPriceProductFacadeBridge implements ProductMerch
     }
 
     /**
-     * @param int $idProductAbstract
-     * @param \Generated\Shared\Transfer\PriceProductCriteriaTransfer|null $priceProductCriteriaTransfer
-     *
      * @return array<\Generated\Shared\Transfer\PriceProductTransfer>
      */
     public function findProductAbstractPrices(
@@ -97,10 +85,6 @@ class ProductMerchantPortalGuiToPriceProductFacadeBridge implements ProductMerch
     }
 
     /**
-     * @param int $idProductConcrete
-     * @param int $idProductAbstract
-     * @param \Generated\Shared\Transfer\PriceProductCriteriaTransfer|null $priceProductCriteriaTransfer
-     *
      * @return array<\Generated\Shared\Transfer\PriceProductTransfer>
      */
     public function findProductConcretePrices(

@@ -15,8 +15,6 @@ interface ProductAttributeGuiTableConfigurationProviderInterface
     /**
      * @param array<string> $attributes
      * @param \ArrayObject<int|string, \Generated\Shared\Transfer\LocalizedAttributesTransfer> $localizedAttributeTransfers
-     *
-     * @return \Generated\Shared\Transfer\GuiTableConfigurationTransfer
      */
     public function getConfiguration(array $attributes, ArrayObject $localizedAttributeTransfers): GuiTableConfigurationTransfer;
 }

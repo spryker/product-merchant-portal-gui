@@ -18,8 +18,6 @@ class StockTransformer implements DataTransformerInterface
 {
     /**
      * @param \ArrayObject<int, \Generated\Shared\Transfer\StockProductTransfer>|mixed $value
-     *
-     * @return \Generated\Shared\Transfer\StockProductTransfer
      */
     public function transform($value): StockProductTransfer
     {

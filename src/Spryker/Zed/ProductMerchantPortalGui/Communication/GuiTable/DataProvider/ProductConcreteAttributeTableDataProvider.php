@@ -46,24 +46,12 @@ class ProductConcreteAttributeTableDataProvider extends AbstractGuiTableDataProv
      */
     protected const COL_KEY_ID_IS_SUPER = 'is_super';
 
-    /**
-     * @var \Spryker\Zed\ProductMerchantPortalGui\Dependency\Facade\ProductMerchantPortalGuiToProductFacadeInterface
-     */
     protected ProductMerchantPortalGuiToProductFacadeInterface $productFacade;
 
-    /**
-     * @var \Spryker\Zed\ProductMerchantPortalGui\Dependency\Facade\ProductMerchantPortalGuiToLocaleFacadeInterface
-     */
     protected ProductMerchantPortalGuiToLocaleFacadeInterface $localeFacade;
 
-    /**
-     * @var \Spryker\Zed\ProductMerchantPortalGui\Communication\Extractor\LocalizedAttributesExtractorInterface
-     */
     protected LocalizedAttributesExtractorInterface $localizedAttributesExtractor;
 
-    /**
-     * @var int
-     */
     protected int $idProductConcrete;
 
     public function __construct(
@@ -93,8 +81,6 @@ class ProductConcreteAttributeTableDataProvider extends AbstractGuiTableDataProv
      * @param \Generated\Shared\Transfer\ProductAttributeTableCriteriaTransfer $criteriaTransfer
      *
      * @throws \Spryker\Zed\ProductMerchantPortalGui\Communication\Exception\ProductConcreteNotFoundException
-     *
-     * @return \Generated\Shared\Transfer\GuiTableDataResponseTransfer
      */
     protected function fetchData(AbstractTransfer $criteriaTransfer): GuiTableDataResponseTransfer
     {
@@ -138,7 +124,6 @@ class ProductConcreteAttributeTableDataProvider extends AbstractGuiTableDataProv
 
     /**
      * @param array<string, mixed> $attributes
-     * @param string $columnName
      * @param array<array<string>> $data
      *
      * @return array<array<string>>
@@ -162,8 +147,6 @@ class ProductConcreteAttributeTableDataProvider extends AbstractGuiTableDataProv
 
     /**
      * @param array<string, array<string, mixed>> $attributes
-     * @param string $orderBy
-     * @param string $orderDirection
      *
      * @return array<array<string>>
      */
@@ -193,8 +176,6 @@ class ProductConcreteAttributeTableDataProvider extends AbstractGuiTableDataProv
 
     /**
      * @param array<string, mixed> $data
-     *
-     * @return \Generated\Shared\Transfer\GuiTableDataResponseTransfer
      */
     protected function getGuiTableDataResponseTransfer(array $data): GuiTableDataResponseTransfer
     {
@@ -210,8 +191,6 @@ class ProductConcreteAttributeTableDataProvider extends AbstractGuiTableDataProv
     }
 
     /**
-     * @param \Generated\Shared\Transfer\ProductConcreteTransfer $productConcreteTransfer
-     *
      * @return array<string>
      */
     protected function getSuperAttributeNames(ProductConcreteTransfer $productConcreteTransfer): array

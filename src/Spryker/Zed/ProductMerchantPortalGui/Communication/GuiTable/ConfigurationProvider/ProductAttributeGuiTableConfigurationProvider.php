@@ -35,14 +35,8 @@ class ProductAttributeGuiTableConfigurationProvider implements ProductAttributeG
      */
     protected const TITLE_COLUMN_ATTRIBUTE_DEFAULT = 'Default';
 
-    /**
-     * @var \Spryker\Shared\GuiTable\GuiTableFactoryInterface
-     */
     protected GuiTableFactoryInterface $guiTableFactory;
 
-    /**
-     * @var \Spryker\Zed\ProductMerchantPortalGui\Communication\DataProvider\ProductAttributeDataProviderInterface
-     */
     protected ProductAttributeDataProviderInterface $productAttributeDataProvider;
 
     public function __construct(
@@ -56,8 +50,6 @@ class ProductAttributeGuiTableConfigurationProvider implements ProductAttributeG
     /**
      * @param array<string> $attributes
      * @param \ArrayObject<int|string, \Generated\Shared\Transfer\LocalizedAttributesTransfer> $localizedAttributeTransfers
-     *
-     * @return \Generated\Shared\Transfer\GuiTableConfigurationTransfer
      */
     public function getConfiguration(array $attributes, ArrayObject $localizedAttributeTransfers): GuiTableConfigurationTransfer
     {

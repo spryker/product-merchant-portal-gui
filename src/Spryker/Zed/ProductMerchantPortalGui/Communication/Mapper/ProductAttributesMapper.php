@@ -16,9 +16,6 @@ use Symfony\Component\Form\FormErrorIterator;
 
 class ProductAttributesMapper implements ProductAttributesMapperInterface
 {
-    /**
-     * @var \Spryker\Zed\ProductMerchantPortalGui\Communication\DataProvider\ProductAttributeDataProviderInterface
-     */
     protected ProductAttributeDataProviderInterface $productAttributeDataProvider;
 
     public function __construct(

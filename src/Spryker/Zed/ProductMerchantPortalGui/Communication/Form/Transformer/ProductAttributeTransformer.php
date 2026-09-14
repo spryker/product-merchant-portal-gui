@@ -28,7 +28,7 @@ class ProductAttributeTransformer implements DataTransformerInterface
      *
      * @return null
      */
-    public function transform($value)
+    public function transform($value): mixed
     {
         return null;
     }

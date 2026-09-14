@@ -28,14 +28,11 @@ use Symfony\Component\Validator\Test\ConstraintValidatorTestCase;
  * @group Constraint
  * @group ProductAbstractAttributeUniqueCombinationConstraintValidatorTest
  * Add your own group annotations below this line
+ *
+ * @extends \Symfony\Component\Validator\Test\ConstraintValidatorTestCase<\Spryker\Zed\ProductMerchantPortalGui\Communication\Form\Constraint\ProductAbstractAttributeUniqueCombinationConstraintValidator>
  */
 class ProductAbstractAttributeUniqueCombinationConstraintValidatorTest extends ConstraintValidatorTestCase
 {
-    /**
-     * @var \Spryker\Zed\ProductMerchantPortalGui\Communication\Form\Constraint\ProductAbstractAttributeUniqueCombinationConstraintValidator
-     */
-    protected $validator;
-
     /**
      * @var \Spryker\Zed\ProductAttribute\Business\ProductAttributeFacade
      */

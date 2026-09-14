@@ -59,10 +59,7 @@ class ProductAbstractAttributeUniqueCombinationConstraint extends Constraint
         return $this->translatorFacade->trans($this->message, $parameters);
     }
 
-    /**
-     * @return array<string>|string
-     */
-    public function getTargets()
+    public function getTargets(): string
     {
         return static::CLASS_CONSTRAINT;
     }

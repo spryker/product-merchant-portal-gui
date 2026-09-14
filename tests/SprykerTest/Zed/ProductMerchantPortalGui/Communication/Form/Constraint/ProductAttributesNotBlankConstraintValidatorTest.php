@@ -27,14 +27,11 @@ use Symfony\Component\Validator\Test\ConstraintValidatorTestCase;
  * @group Constraint
  * @group ProductAttributesNotBlankConstraintValidatorTest
  * Add your own group annotations below this line
+ *
+ * @extends \Symfony\Component\Validator\Test\ConstraintValidatorTestCase<\Spryker\Zed\ProductMerchantPortalGui\Communication\Form\Constraint\ProductAttributesNotBlankConstraintValidator>
  */
 class ProductAttributesNotBlankConstraintValidatorTest extends ConstraintValidatorTestCase
 {
-    /**
-     * @var \Spryker\Zed\ProductMerchantPortalGui\Communication\Form\Constraint\ProductAttributesNotBlankConstraintValidator
-     */
-    protected $validator;
-
     /**
      * @var \PHPUnit\Framework\MockObject\MockObject|\Spryker\Zed\ProductMerchantPortalGui\Dependency\Facade\ProductMerchantPortalGuiToProductAttributeFacadeBridge
      */

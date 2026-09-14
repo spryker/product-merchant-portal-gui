@@ -19,7 +19,7 @@ class EmptyStringTransformer implements DataTransformerInterface
      *
      * @return mixed
      */
-    public function transform($value)
+    public function transform($value): mixed
     {
         if ($value === null) {
             return '';
@@ -33,7 +33,7 @@ class EmptyStringTransformer implements DataTransformerInterface
      *
      * @return mixed
      */
-    public function reverseTransform($value)
+    public function reverseTransform($value): mixed
     {
         return $value;
     }

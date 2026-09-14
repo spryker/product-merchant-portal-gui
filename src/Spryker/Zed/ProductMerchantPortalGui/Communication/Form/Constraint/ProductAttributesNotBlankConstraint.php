@@ -44,10 +44,7 @@ class ProductAttributesNotBlankConstraint extends Constraint
         return $this->message;
     }
 
-    /**
-     * @return array<string>|string
-     */
-    public function getTargets()
+    public function getTargets(): string
     {
         return static::CLASS_CONSTRAINT;
     }

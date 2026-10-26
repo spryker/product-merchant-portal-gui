@@ -257,6 +257,7 @@
 
     <transfer name="StoreWithCurrency">
         <property name="currencies" type="Currency[]" singular="currency"/>
+        <property name="store" type="Store"/>
     </transfer>
 
     <transfer name="Currency">
@@ -497,9 +498,11 @@
     </transfer>
 
     <transfer name="LocaleConditions">
+        <property name="storeNames" type="string[]" singular="storeName"/>
     </transfer>
 
     <transfer name="LocaleCriteria">
+        <property name="localeConditions" type="LocaleConditions"/>
     </transfer>
 
 </transfers>

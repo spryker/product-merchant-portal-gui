@@ -10,11 +10,13 @@ namespace SprykerTest\Zed\ProductMerchantPortalGui;
 use Codeception\Actor;
 use Codeception\Stub;
 use Generated\Shared\DataBuilder\CurrencyBuilder;
+use Generated\Shared\DataBuilder\MerchantUserBuilder;
 use Generated\Shared\DataBuilder\MoneyValueBuilder;
 use Generated\Shared\DataBuilder\PriceProductBuilder;
 use Generated\Shared\DataBuilder\PriceProductDimensionBuilder;
 use Generated\Shared\DataBuilder\PriceTypeBuilder;
 use Generated\Shared\Transfer\CurrencyTransfer;
+use Generated\Shared\Transfer\MerchantTransfer;
 use Generated\Shared\Transfer\MerchantUserTransfer;
 use Generated\Shared\Transfer\MoneyValueTransfer;
 use Generated\Shared\Transfer\PriceProductCriteriaTransfer;
@@ -23,6 +25,8 @@ use Generated\Shared\Transfer\PriceProductTransfer;
 use Generated\Shared\Transfer\PriceTypeTransfer;
 use Generated\Shared\Transfer\ProductAbstractTransfer;
 use PHPUnit\Framework\MockObject\Rule\InvokedCount;
+use Spryker\Shared\GuiTable\Http\GuiTableDataRequestExecutorInterface;
+use Spryker\Zed\GuiTable\Communication\GuiTableCommunicationFactory;
 use Spryker\Zed\ProductMerchantPortalGui\Communication\Form\DataProvider\ProductConcreteEditFormDataProvider;
 use Spryker\Zed\ProductMerchantPortalGui\Communication\Form\DataProvider\ProductConcreteEditFormDataProviderInterface;
 use Spryker\Zed\ProductMerchantPortalGui\Communication\Mapper\Merger\PriceProductMerger;
@@ -48,6 +52,7 @@ use Spryker\Zed\ProductMerchantPortalGui\Dependency\Service\ProductMerchantPorta
 use Spryker\Zed\ProductMerchantPortalGui\Dependency\Service\ProductMerchantPortalGuiToUtilEncodingServiceInterface;
 use Spryker\Zed\ProductMerchantPortalGui\ProductMerchantPortalGuiDependencyProvider;
 use Spryker\Zed\ProductMerchantPortalGuiExtension\Dependency\Plugin\PriceProductMapperPluginInterface;
+use Symfony\Component\HttpFoundation\Response;
 
 /**
  * Inherited Methods
@@ -110,6 +115,8 @@ class ProductMerchantPortalGuiCommunicationTester extends Actor
      * @var string
      */
     protected const CURRENCY_CODE_EUR = 'EUR';
+
+    protected const int FAKE_MERCHANT_ID = -1;
 
     /**
      * @param array<\Spryker\Zed\ProductMerchantPortalGuiExtension\Dependency\Plugin\PriceProductMapperPluginInterface> $priceProductMapperPlugins
@@ -254,6 +261,41 @@ class ProductMerchantPortalGuiCommunicationTester extends Actor
         return Stub::make(
             ProductMerchantPortalGuiToProductFacadeBridge::class,
             $mockedMethods,
+        );
+    }
+
+    public function setCurrentMerchantProductOwnership(bool $isProductOwnedByMerchant): void
+    {
+        $merchantUserTransfer = (new MerchantUserBuilder())
+            ->withMerchant([MerchantTransfer::ID_MERCHANT => static::FAKE_MERCHANT_ID])
+            ->build();
+
+        $this->setDependency(
+            ProductMerchantPortalGuiDependencyProvider::FACADE_MERCHANT_USER,
+            $this->createMerchantUserFacadeMock([
+                'getCurrentMerchantUser' => $merchantUserTransfer,
+            ]),
+        );
+        $this->setDependency(
+            ProductMerchantPortalGuiDependencyProvider::FACADE_MERCHANT_PRODUCT,
+            $this->createMerchantProductFacadeMock([
+                'isProductAbstractOwnedByMerchant' => $isProductOwnedByMerchant,
+                'isProductConcreteOwnedByMerchant' => $isProductOwnedByMerchant,
+            ]),
+        );
+    }
+
+    public function setGuiTableHttpDataRequestExecutorResponse(Response $response): void
+    {
+        $this->setDependency(
+            ProductMerchantPortalGuiDependencyProvider::SERVICE_GUI_TABLE_HTTP_DATA_REQUEST_EXECUTOR,
+            Stub::makeEmpty(GuiTableDataRequestExecutorInterface::class, [
+                'execute' => $response,
+            ]),
+        );
+        $this->setDependency(
+            ProductMerchantPortalGuiDependencyProvider::SERVICE_GUI_TABLE_FACTORY,
+            (new GuiTableCommunicationFactory())->createGuiTableFactory(),
         );
     }
 

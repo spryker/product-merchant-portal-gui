@@ -394,9 +394,27 @@ class UpdateProductAbstractController extends AbstractUpdateProductController
         return $imageSetMetaData;
     }
 
+    /**
+     * @throws \Spryker\Zed\ProductMerchantPortalGui\Communication\Exception\MerchantProductNotFoundException
+     */
     public function tableDataAction(Request $request): Response
     {
         $idProductAbstract = $this->castId($request->get(PriceProductTableViewTransfer::ID_PRODUCT_ABSTRACT));
+        $merchantTransfer = $this->getFactory()
+            ->getMerchantUserFacade()
+            ->getCurrentMerchantUser()
+            ->getMerchantOrFail();
+
+        $isProductAbstractOwnedByMerchant = $this->getFactory()
+            ->getMerchantProductFacade()
+            ->isProductAbstractOwnedByMerchant(
+                (new ProductAbstractTransfer())->setIdProductAbstract($idProductAbstract),
+                $merchantTransfer,
+            );
+
+        if (!$isProductAbstractOwnedByMerchant) {
+            throw new MerchantProductNotFoundException($merchantTransfer->getIdMerchantOrFail(), $idProductAbstract);
+        }
 
         return $this->getFactory()
             ->getGuiTableHttpDataRequestExecutor()

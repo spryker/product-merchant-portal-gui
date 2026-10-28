@@ -137,9 +137,27 @@ class UpdateProductConcreteController extends AbstractUpdateProductController
         );
     }
 
+    /**
+     * @throws \Spryker\Zed\ProductMerchantPortalGui\Communication\Exception\ProductConcreteNotFoundException
+     */
     public function priceTableDataAction(Request $request): Response
     {
         $idProductConcrete = $this->castId($request->get(PriceProductTableViewTransfer::ID_PRODUCT_CONCRETE));
+        $merchantTransfer = $this->getFactory()
+            ->getMerchantUserFacade()
+            ->getCurrentMerchantUser()
+            ->getMerchantOrFail();
+
+        $isProductConcreteOwnedByMerchant = $this->getFactory()
+            ->getMerchantProductFacade()
+            ->isProductConcreteOwnedByMerchant(
+                (new ProductConcreteTransfer())->setIdProductConcrete($idProductConcrete),
+                $merchantTransfer,
+            );
+
+        if (!$isProductConcreteOwnedByMerchant) {
+            throw new ProductConcreteNotFoundException($idProductConcrete);
+        }
 
         return $this->getFactory()
             ->getGuiTableHttpDataRequestExecutor()

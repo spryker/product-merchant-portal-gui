@@ -7,6 +7,7 @@
 
 namespace Spryker\Zed\ProductMerchantPortalGui\Communication\Controller;
 
+use Generated\Shared\Transfer\ProductAbstractTransfer;
 use Spryker\Zed\Kernel\Communication\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -51,9 +52,7 @@ class ProductAbstractApprovalController extends AbstractController
         $idProductAbstract = $this->castId($request->get(static::PARAM_ID_PRODUCT_ABSTRACT));
         $approvalStatus = $request->get(static::PARAM_APPROVAL_STATUS);
 
-        $productAbstractTransfer = $this->getFactory()
-            ->getProductFacade()
-            ->findProductAbstractById($idProductAbstract);
+        $productAbstractTransfer = $this->findMerchantProductAbstract($idProductAbstract);
 
         if (!$productAbstractTransfer) {
             $this->addErrorMessage('Abstract product was not found.');
@@ -62,8 +61,8 @@ class ProductAbstractApprovalController extends AbstractController
         }
 
         $applicableApprovalStatuses = $this->getFactory()
-            ->getProductApprovalFacade()
-            ->getApplicableApprovalStatuses($productAbstractTransfer->getApprovalStatus() ?: static::STATUS_DRAFT);
+            ->createApplicableApprovalStatusReader()
+            ->getApplicableUpdateApprovalStatuses($productAbstractTransfer->getApprovalStatus() ?: static::STATUS_DRAFT);
 
         if (!in_array($approvalStatus, $applicableApprovalStatuses, true)) {
             $this->addErrorMessage(static::MESSAGE_PRODUCT_ABSTRACT_APPROVAL_STATUS_WAS_NOT_UPDATED);
@@ -86,5 +85,28 @@ class ProductAbstractApprovalController extends AbstractController
         $this->addSuccessMessage('The approval status was updated.');
 
         return $this->redirectResponse(static::URL_PRODUCTS);
+    }
+
+    protected function findMerchantProductAbstract(int $idProductAbstract): ?ProductAbstractTransfer
+    {
+        $merchantTransfer = $this->getFactory()
+            ->getMerchantUserFacade()
+            ->getCurrentMerchantUser()
+            ->getMerchantOrFail();
+
+        $isProductAbstractOwnedByMerchant = $this->getFactory()
+            ->getMerchantProductFacade()
+            ->isProductAbstractOwnedByMerchant(
+                (new ProductAbstractTransfer())->setIdProductAbstract($idProductAbstract),
+                $merchantTransfer,
+            );
+
+        if (!$isProductAbstractOwnedByMerchant) {
+            return null;
+        }
+
+        return $this->getFactory()
+            ->getProductFacade()
+            ->findProductAbstractById($idProductAbstract);
     }
 }

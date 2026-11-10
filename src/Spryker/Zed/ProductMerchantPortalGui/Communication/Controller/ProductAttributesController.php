@@ -9,6 +9,7 @@ namespace Spryker\Zed\ProductMerchantPortalGui\Communication\Controller;
 
 use ArrayObject;
 use Generated\Shared\Transfer\ProductAbstractTransfer;
+use Generated\Shared\Transfer\ProductConcreteTransfer;
 use Generated\Shared\Transfer\ProductManagementAttributeTransfer;
 use Spryker\Shared\GuiTable\Configuration\Builder\GuiTableConfigurationBuilderInterface;
 use Spryker\Zed\Kernel\Communication\Controller\AbstractController;
@@ -154,16 +155,10 @@ class ProductAttributesController extends AbstractController
             return $this->createErrorJsonResponse(static::ERROR_MESSAGE_EMPTY_ATTRIBUTE_NAME);
         }
 
-        $idProductConcrete = $this->castId(
-            $request->get(static::PARAM_ID_PRODUCT_CONCRETE),
-        );
-
-        $productConcreteTransfer = $this->getFactory()
-            ->getProductFacade()
-            ->findProductConcreteById($idProductConcrete);
+        $productConcreteTransfer = $this->findMerchantProductConcrete($request);
 
         if (!$productConcreteTransfer) {
-            return $this->createErrorJsonResponse(static::ERROR_MESSAGE_ABSTRACT_PRODUCT_CANNOT_BE_FOUND);
+            return $this->createErrorJsonResponse(static::ERROR_MESSAGE_CONCRETE_PRODUCT_CANNOT_BE_FOUND);
         }
 
         $attributes = $this->getAttributes($request);
@@ -214,13 +209,7 @@ class ProductAttributesController extends AbstractController
             return $this->createErrorJsonResponse(static::ERROR_MESSAGE_EMPTY_ATTRIBUTE_NAME);
         }
 
-        $idProductConcrete = $this->castId(
-            $request->get(static::PARAM_ID_PRODUCT_CONCRETE),
-        );
-
-        $productConcreteTransfer = $this->getFactory()
-            ->getProductFacade()
-            ->findProductConcreteById($idProductConcrete);
+        $productConcreteTransfer = $this->findMerchantProductConcrete($request);
 
         if (!$productConcreteTransfer) {
             return $this->createErrorJsonResponse(static::ERROR_MESSAGE_CONCRETE_PRODUCT_CANNOT_BE_FOUND);
@@ -272,13 +261,7 @@ class ProductAttributesController extends AbstractController
 
     public function concreteTableDataAction(Request $request): Response
     {
-        $idProductConcrete = $this->castId(
-            $request->get(static::PARAM_ID_PRODUCT_CONCRETE),
-        );
-
-        $productConcreteTransfer = $this->getFactory()
-            ->getProductFacade()
-            ->findProductConcreteById($idProductConcrete);
+        $productConcreteTransfer = $this->findMerchantProductConcrete($request);
 
         if (!$productConcreteTransfer) {
             return $this->createErrorJsonResponse(static::ERROR_MESSAGE_CONCRETE_PRODUCT_CANNOT_BE_FOUND);
@@ -327,6 +310,30 @@ class ProductAttributesController extends AbstractController
             ->findMerchantProduct($idProductAbstract, $idMerchant);
 
         return $merchantProductTransfer ? $merchantProductTransfer->getProductAbstract() : null;
+    }
+
+    protected function findMerchantProductConcrete(Request $request): ?ProductConcreteTransfer
+    {
+        $idProductConcrete = $this->castId($request->get(static::PARAM_ID_PRODUCT_CONCRETE));
+        $merchantTransfer = $this->getFactory()
+            ->getMerchantUserFacade()
+            ->getCurrentMerchantUser()
+            ->getMerchantOrFail();
+
+        $isProductConcreteOwnedByMerchant = $this->getFactory()
+            ->getMerchantProductFacade()
+            ->isProductConcreteOwnedByMerchant(
+                (new ProductConcreteTransfer())->setIdProductConcrete($idProductConcrete),
+                $merchantTransfer,
+            );
+
+        if (!$isProductConcreteOwnedByMerchant) {
+            return null;
+        }
+
+        return $this->getFactory()
+            ->getProductFacade()
+            ->findProductConcreteById($idProductConcrete);
     }
 
     /**

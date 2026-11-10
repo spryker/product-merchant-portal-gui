@@ -26,6 +26,7 @@ use Generated\Shared\Transfer\PriceTypeTransfer;
 use Generated\Shared\Transfer\ProductAbstractTransfer;
 use PHPUnit\Framework\MockObject\Rule\InvokedCount;
 use Spryker\Shared\GuiTable\Http\GuiTableDataRequestExecutorInterface;
+use Spryker\Shared\ZedUi\ZedUiFactory;
 use Spryker\Zed\GuiTable\Communication\GuiTableCommunicationFactory;
 use Spryker\Zed\ProductMerchantPortalGui\Communication\Form\DataProvider\ProductConcreteEditFormDataProvider;
 use Spryker\Zed\ProductMerchantPortalGui\Communication\Form\DataProvider\ProductConcreteEditFormDataProviderInterface;
@@ -297,6 +298,16 @@ class ProductMerchantPortalGuiCommunicationTester extends Actor
             ProductMerchantPortalGuiDependencyProvider::SERVICE_GUI_TABLE_FACTORY,
             (new GuiTableCommunicationFactory())->createGuiTableFactory(),
         );
+    }
+
+    public function setZedUiFactory(): void
+    {
+        $this->setDependency(ProductMerchantPortalGuiDependencyProvider::SERVICE_ZED_UI_FACTORY, new ZedUiFactory());
+    }
+
+    public function setProductFacade(ProductMerchantPortalGuiToProductFacadeInterface $productFacade): void
+    {
+        $this->setDependency(ProductMerchantPortalGuiDependencyProvider::FACADE_PRODUCT, $productFacade);
     }
 
     public function createProductMerchantPortalGuiCommunicationFactoryMock(): ProductMerchantPortalGuiCommunicationFactory

@@ -99,7 +99,7 @@ class ProductImageSetsEventSubscriber implements EventSubscriberInterface
         $newImageSets = [];
 
         foreach ($imageSetsFront as $imageSets) {
-            [$idLocale, $localeName, $imageSets] = $this->parseFrontendImageSetsData($imageSets);
+            [$idLocale, , $imageSets] = $this->parseFrontendImageSetsData($imageSets);
 
             foreach ($imageSets as $imageSet) {
                 if (isset($imageSet[static::FIELD_ID_PRODUCT_IMAGE_SET])) {
@@ -127,7 +127,7 @@ class ProductImageSetsEventSubscriber implements EventSubscriberInterface
         $oldImageSets = [];
 
         foreach ($imageSetsFront as $imageSets) {
-            [$idLocale, $localeName, $imageSets] = $this->parseFrontendImageSetsData($imageSets);
+            [$idLocale, , $imageSets] = $this->parseFrontendImageSetsData($imageSets);
 
             foreach ($imageSets as $imageSet) {
                 if (!isset($imageSet[static::FIELD_ID_PRODUCT_IMAGE_SET])) {
